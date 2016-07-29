@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="AddonsComponent.plugin.warning">Wtyczka wyszukująca działa tylko pod Mozilla FireFox oraz MSIE 7.0.</entry>
+<entry key="AddonsComponent.Statistics">Statystyki</entry>
+<entry key="AddonsComponent.nav.PlannedPublications">Plany wprowadzania publikacji</entry>
+<entry key="AddonsComponent.Directory">Pełny katalog publikacji</entry>
+<entry key="AddonsComponent.Title">Dodatki</entry>
+<entry key="AddonsComponent.OAIHosts">Repozytoria cyfrowe</entry>
+<entry key="AddonsComponent.OAI">Identify</entry>
+<entry key="AddonsComponent.AddFirefoxPlugin">Wtyczka umożliwiająca wyszukiwanie</entry>
+<entry key="AddonsComponent.Library">Biblioteka</entry>
+<entry key="AddonsComponent.Helpers">Ułatwienia</entry>
+<entry key="AddonsComponent.Votes.Ranking">Najlepiej oceniane publikacje</entry>
+</properties>

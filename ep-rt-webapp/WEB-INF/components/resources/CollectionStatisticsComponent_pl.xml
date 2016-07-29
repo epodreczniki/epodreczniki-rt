@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="CollectionStatisticsComponent.EditionStatDescription">W nawiasach kwadratowych przy tytule publikacji podano liczbę wyświetleń danej publikacji.</entry>
+<entry key="CollectionStatisticsComponent.Intro">Poniżej znajdują się statystyki biblioteki cyfrowej. Statystyki te zbierane są od dnia</entry>
+<entry key="CollectionStatisticsComponent.Display">Wyświetl</entry>
+<entry key="CollectionStatisticsComponent.Choose">Wybierz</entry>
+<entry key="CollectionStatisticsComponent.Title">Najczęściej czytane publikacje : ${collection.Label}</entry>
+<entry key="CollectionStatisticsComponent.Description">Objaśnienia</entry>
+<entry key="CollectionStatisticsComponent.all">wszystkie z</entry>
+<entry key="CollectionStatisticsComponent.publications">najczęściej czytanych publikacji.</entry>
+<entry key="CollectionStatisticsComponent.DisplayPrompt">Wyświetl</entry>
+<entry key="CollectionStatisticsComponent.NoResult">Brak wyników do wyświetlenia</entry>
+</properties>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="ShortStatsComponent.Title">Statystyki</entry>
+<entry key="ShortStatsComponent.TotalNoOfUsersLong">Łączna liczba czytelników od dnia</entry>
+<entry key="ShortStatsComponent.PublicationCount">Liczba publikacji</entry>
+<entry key="ShortStatsComponent.NoOfUsersLong">Obecnie czytających</entry>
+<entry key="ShortStatsComponent.View.rank">Najczęściej przeglądane</entry>
+<entry key="ShortStatsComponent.Votes.rank">Najlepiej oceniane</entry>
+<entry key="ShortStatsComponent.attributes">Więcej statystyk...</entry>
+</properties>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="OAIPMHLinkComponent.OAI">Interfejs OAI-PMH</entry>
+<entry key="OAIPMHLinkComponent.showOAI">Wyświetl przy pomocy OAI-PMH</entry>
+<entry key="OAIPMHLinkComponent.Title">OAI</entry>
+<entry key="OAIPMHLinkComponent.FBC.Search">Federacja Bibliotek Cyfrowych - Przeszukaj polskie biblioteki cyfrowe!</entry>
+<entry key="OAIPMHLinkComponent.FBC">Federacja Bibliotek Cyfrowych</entry>
+</properties>

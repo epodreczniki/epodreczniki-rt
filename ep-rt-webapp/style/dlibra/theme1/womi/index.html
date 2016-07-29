@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>Przykładowy moduł</title>
+    
+    <base id="module-base-url"
+        href=""
+        data-base=""
+        data-dependencies-url="/deps.json"
+        data-ajax-url=""
+        data-module-id="m290">
+    
+    <link rel="stylesheet" href="style1.css" type="text/css" />
+    
+    <script>
+        epGlobal = {};
+    </script>
+    
+</head>
+<body>
+<!--[if lte IE 9]><div class="fatal-alert"> Używasz starej wersji przeglądarki Internet Explorer. Aby móc korzystać z tej strony, musisz ją <a href="http://microsoft.com/ie">uaktualnić do nowszej wersji</a> lub zainstalować oprogramowanie alternatywne, np. przeglądarkę <a href="http://google.com/chrome">Chrome</a> lub <a href="http://firefox.com">Firefox</a>.
+</div>
+<![endif]-->
+<noscript>
+    <div class="fatal-alert"> Twoja przeglądarka ma wyłączoną obsługę skryptów JavaScript. Włącz obsługę skryptów, aby móc korzystać z tej strony.
+    </div>
+</noscript>
+    <div class="topbar">
+        <div class="topbar-inner">
+            <ul class="breadcrumbs">
+                <li class="home"><a href="#"><i class="icon-home"></i></a></li>
+            </ul><!-- end .breadcrumbs -->
+            <ul class="topbar-tools">
+                <div class="search-area">
+                    <input id="search-input" type="text" placeholder="Szukaj" name="q" class="input">
+                </div>
+                <li>
+                    <button class="settings-button"><i class="icon-cog"></i></button>
+                </li>
+                <li>
+                    <button class="search-button"><i class="icon-search"></i></button>
+                </li>
+            </ul><!-- end .topbar-tools -->
+        </div><!-- end .topbar-inner -->
+    </div><!-- end .topbar -->
+    
+    <div class="grid">
+        <button class="toggle-sidebar toggle-sidebar-button"><i class="icon-angle-left"></i></button>
+        <div class="col-sidebar">
+            <div class="scrollable-area">
+                <div class="book-index-content">
+                    <div class="modules-list accordion">
+                        <ul id="index-menu" class="nav nav-list accordion-body collapse-x in-x">
+                            <li>
+                                <a class="module-a"
+                                   href="#" 
+                                   data-ajax-url="#" 
+                                   data-dependencies-url="/deps.json" 
+                                   data-module-id="m290">Przykładowy moduł
+                                </a>
+                            </li>
+                    </div>
+                </div>
+            </div><!-- end .scrollable-area -->   
+        </div><!-- end .book-index -->
+
+        <div class="col-main">
+                <div class="reader-content">
+                    <div id="loading-indicator"></div>
+                    <div id="module-content">
+                        <div><h2 class="section-header">Przykladowa treść, podmieniać zawartość elementu<br> <strong>&lt;div id="module-content"&gt;</strong></h2>
+                        
+                        <div class="womi-container">
+                            <div class="classic">
+                                <div class="interactive-object-container" data-alt="tekst alternatywny" data-width="90%">
+                                    <div class="resource-included-interactive-object" data-object-engine="geogebra">
+                                        <article class="geogebraweb"
+                                                 data-param-width="680" data-param-height="484"
+                                                 data-param-showResetIcon="true"
+                                                 data-param-useBrowserForJS="true"
+                                                 data-param-ggbbase64="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">
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p><strong>Równanie kierunkowe: kierunek, punkt </strong></p>
+                        
+                        <p>Równanie kierunkowe prostej o zadanym współczynniku kierunkowym
+                            <inlineequation>
+                                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                                    <mi mathvariant="italic">m</mi>
+                                </math>
+                            </inlineequation>
+                            przechodzącej przez punkt o współrzędnych
+                            <inlineequation>
+                                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                                    <mo>(</mo>
+                                    <msub>
+                                        <mrow>
+                                            <mi mathvariant="italic">x</mi>
+                                        </mrow>
+                                        <mrow>
+                                            <mn>0</mn>
+                                        </mrow>
+                                    </msub>
+                                    <mo>,</mo>
+                                    <msub>
+                                        <mrow>
+                                            <mi mathvariant="italic">y</mi>
+                                        </mrow>
+                                        <mrow>
+                                            <mn>0</mn>
+                                        </mrow>
+                                    </msub>
+                                    <mo>)</mo>
+                                </math>
+                            </inlineequation>
+                            ma postać:
+                        </p>
+                        <p class="rule">
+                            <inlineequation>
+                                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                                    <mi mathvariant="italic">y</mi>
+                                    <mo>-</mo>
+                                    <msub>
+                                        <mrow>
+                                            <mi mathvariant="italic">y</mi>
+                                        </mrow>
+                                        <mrow>
+                                            <mn>0</mn>
+                                        </mrow>
+                                    </msub>
+                                    <mo>=</mo>
+                                    <mi mathvariant="italic">m</mi>
+                                    <mo>(</mo>
+                                    <mi mathvariant="italic">x</mi>
+                                    <mo>-</mo>
+                                    <msub>
+                                        <mrow>
+                                            <mi mathvariant="italic">x</mi>
+                                        </mrow>
+                                        <mrow>
+                                            <mn>0</mn>
+                                        </mrow>
+                                    </msub>
+                                    <mo>)</mo>
+                                </math>
+                            </inlineequation>
+                        </p>
+                        <p><strong>Równanie kierunkowe: dwa punkty</strong></p>
+                        
+                        <p>Równanie kierunkowe prostej przechodzącej przez dwa dane punkty
+                            <inlineequation>
+                                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                                    <mi mathvariant="italic">A</mi>
+                                    <mo>=</mo>
+                                    <mfenced separators="|">
+                                        <mrow>
+                                            <msub>
+                                                <mrow>
+                                                    <mi mathvariant="italic">x</mi>
+                                                </mrow>
+                                                <mrow>
+                                                    <mi mathvariant="italic">a</mi>
+                                                </mrow>
+                                            </msub>
+                                            <mo>,</mo>
+                                            <msub>
+                                                <mrow>
+                                                    <mi mathvariant="italic">y</mi>
+                                                </mrow>
+                                                <mrow>
+                                                    <mi mathvariant="italic">a</mi>
+                                                </mrow>
+                                            </msub>
+                                        </mrow>
+                                    </mfenced>
+                                </math>
+                            </inlineequation>
+                            oraz
+                            <inlineequation>
+                                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                                    <mi mathvariant="italic">B</mi>
+                                    <mo>=</mo>
+                                    <mo>(</mo>
+                                    <msub>
+                                        <mrow>
+                                            <mi mathvariant="italic">x</mi>
+                                        </mrow>
+                                        <mrow>
+                                            <mi mathvariant="italic">b</mi>
+                                        </mrow>
+                                    </msub>
+                                    <mo>,</mo>
+                                    <msub>
+                                        <mrow>
+                                            <mi mathvariant="italic">y</mi>
+                                        </mrow>
+                                        <mrow>
+                                            <mi mathvariant="italic">b</mi>
+                                        </mrow>
+                                    </msub>
+                                    <mo>)</mo>
+                                </math>
+                            </inlineequation>
+                            ma postać:
+                        </p>
+                        <p class="rule">
+                            <inlineequation>
+                                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                                    <mi mathvariant="italic">y</mi>
+                                    <mo>-</mo>
+                                    <msub>
+                                        <mrow>
+                                            <mi mathvariant="italic">y</mi>
+                                        </mrow>
+                                        <mrow>
+                                            <mi mathvariant="italic">a</mi>
+                                        </mrow>
+                                    </msub>
+                                    <mo>=</mo>
+                                    <mfrac>
+                                        <mrow>
+                                            <msub>
+                                                <mrow>
+                                                    <mi mathvariant="italic">y</mi>
+                                                </mrow>
+                                                <mrow>
+                                                    <mi mathvariant="italic">b</mi>
+                                                </mrow>
+                                            </msub>
+                                            <mo>-</mo>
+                                            <msub>
+                                                <mrow>
+                                                    <mi mathvariant="italic">y</mi>
+                                                </mrow>
+                                                <mrow>
+                                                    <mi mathvariant="italic">a</mi>
+                                                </mrow>
+                                            </msub>
+                                        </mrow>
+                                        <mrow>
+                                            <msub>
+                                                <mrow>
+                                                    <mi mathvariant="italic">x</mi>
+                                                </mrow>
+                                                <mrow>
+                                                    <mi mathvariant="italic">b</mi>
+                                                </mrow>
+                                            </msub>
+                                            <mo>-</mo>
+                                            <msub>
+                                                <mrow>
+                                                    <mi mathvariant="italic">x</mi>
+                                                </mrow>
+                                                <mrow>
+                                                    <mi mathvariant="italic">a</mi>
+                                                </mrow>
+                                            </msub>
+                                        </mrow>
+                                    </mfrac>
+                                    <mo>⋅</mo>
+                                    <mo>(</mo>
+                                    <mi mathvariant="italic">x</mi>
+                                    <mo>-</mo>
+                                    <msub>
+                                        <mrow>
+                                            <mi mathvariant="italic">x</mi>
+                                        </mrow>
+                                        <mrow>
+                                            <mi mathvariant="italic">a</mi>
+                                        </mrow>
+                                    </msub>
+                                    <mo>)</mo>
+                                </math>
+                            </inlineequation>
+                        </p>
+                        </div>
+                    </div>
+                    <!-- end #module-content -->
+                </div>
+                <!-- end .reader-content -->
+            </div>
+            <!-- end .col-main -->
+        </div><!-- end .grid -->
+
+
+        <div class="bottombar">
+            <div class="bottombar-inner">
+                <button class="nav-button" id="toggle-index"><i class="icon-list"></i></button><button class="nav-button prev-btn"><i class="icon-caret-left"></i></button><button class="nav-button next-btn"><i class="icon-caret-right"></i></button><!-- end #toggle-index -->            
+            </div><!-- end .bottombar-inner -->
+        </div><!-- end .bottombar -->
+        
+        <div class="permanent-navigation"><button class="nav-button toggle-sidebar"><i class="icon-list"></i></button><button class="nav-button prev-btn"><i class="icon-caret-left"></i></button><button class="nav-button next-btn"><i class="icon-caret-right"></i></button>
+        </div>
+    
+<script type="text/javascript" src="script1.js"></script>
+<script type="text/javascript" src="script2.js"></script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+</body>
+</html>

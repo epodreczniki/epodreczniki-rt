@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="SendInfoComponent.Title"><![CDATA[ #if($userLoggedIn) Powiadom znajomego #end ]]></entry>
+<entry key="SendInfoComponent.Title.Popup">Wyślij e-mail do znajomego</entry>
+<entry key="SendInfoComponent.Show.Form">Pokaż formularz</entry>
+<entry key="SendInfoComponent.Email">e-mail</entry>
+<entry key="SendInfoComponent.Message">wiadomość</entry>
+<entry key="SendInfoComponent.Message.Content">To naprawdę interesująca publikacja:</entry>
+<entry key="SendInfoComponent.Submit">Zatwierdź</entry>
+<entry key="SendInfoComponent.WrongEmail">Nie poprawny adres e-mail</entry>
+<entry key="SendInfoComponent.ToLongMessage">Wiadomość jest za długa</entry>
+<entry key="SendInfoComponent.EmptyMessage">Wiadomość nie może być pusta</entry>
+<entry key="SendInfoComponent.Expl">Maksymalna długość wiadomości to 240 znaków.</entry>
+<entry key="SendInfoComponent.Success">E-mail został wysłany.</entry>
+<entry key="SendInfoComponent.Error">Wiadomość nie została wysłana, spróbuje później.</entry>
+<entry key="SendInfoComponent.EncloseDesc">Załącz opis publikacji</entry>
+</properties>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="AddressComponent.Title">O stronie...</entry>
+<entry key="AddressComponent.dlibra.text">
+Ten serwis działa dzięki oprogramowaniu </entry>
+<entry key="AddressComponent.Institution2.link">http://institution2.org</entry>
+<entry key="AddressComponent.Institution2">Instytucja 2</entry>
+<entry key="AddressComponent.Institution.text"> Serwis tworzony przez </entry>
+<entry key="AddressComponent.More.link"> więcej...</entry>
+<entry key="AddressComponent.Institution1.link">http://institution1.org</entry>
+<entry key="AddressComponent.Institution1">Instytucja 1</entry>
+<entry key="AddressComponent.Soft">dLibra</entry>
+</properties>

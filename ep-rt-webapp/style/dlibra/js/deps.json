@@ -1,0 +1,1 @@
+[{"name": "mathjax", "after_load_call": "MathJax.Hub.Queue([\"Typeset\",MathJax.Hub]);", "url_template": "//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML", "ignore_in_dependencies": false, "class_name": "", "internal": true}]

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="PubMetaLangChooserComponent.Submit">Zmień</entry>
+<entry key="PubMetaLangChooserComponent.NothingToChoose">Dostępny tylko</entry>
+<entry key="PubMetaLangChooserComponent.Title">Języki opisu</entry>
+</properties>

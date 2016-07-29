@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="AdminIntroductionComponent.RunJnlp">Uruchom Aplikację Redaktora/Admnistratora</entry>
+<entry key="AdminIntroductionComponent.PleaseWait">To może chwilę potrwać...</entry>
+<entry key="AdminIntroductionComponent.Introduction">Witamy w panelu administracyjnym stron WWW systemu. Panel ten ma na celu ułatwienie zarządzania Aplikacją Czytelnika biblioteki cyfrowej.</entry>
+<entry key="AdminIntroductionComponent.Title">Wprowadzenie</entry>
+<entry key="AdminIntroductionComponent.ActionSucces">Akcja zakończona powodzeniem</entry>
+<entry key="AdminIntroductionComponent.Jnlp">Uaktualnienie Aplikacji Redaktora/Admnistratora</entry>
+<entry key="AdminIntroductionComponent.ActionFails">Akcja nie została zakończona</entry>
+<entry key="AdminIntroductionComponent.Actions">Akcje administracyjne</entry>
+<entry key="AdminIntroductionComponent.EmailChange">Zmień adres email na który wysyłane są biuletyny</entry>
+<entry key="AdminIntroductionComponent.RemoveSubs">Wyłącz subskrybcje </entry>
+<entry key="AdminIntroductionComponent.Subscribtions">Subskrybcje</entry>
+<entry key="AdminIntroductionComponent.EditorsAppActions">Aplikacja Redaktora/Admnistratora</entry>
+</properties>

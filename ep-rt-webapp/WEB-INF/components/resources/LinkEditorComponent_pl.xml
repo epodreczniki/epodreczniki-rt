@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="LinkEditorComponent.NoLinkText">Musisz podać tekst odnośnika</entry>
+<entry key="LinkEditorComponent.components.info">Znacznik $homeURL w adresie odsyłacza oznacza bazowy URL aplikacji czytelnika, na przykład</entry>
+<entry key="LinkEditorComponent.components.link-text">treść odnośnika</entry>
+<entry key="LinkEditorComponent.NoPosition">Pozycja musi być liczbą</entry>
+<entry key="LinkEditorComponent.NoUrl">Musisz podać adres na który wskazuje odnośnik</entry>
+<entry key="LinkEditorComponent.components.language">język</entry>
+<entry key="LinkEditorComponent.Title">Edycja odnośnika</entry>
+<entry key="LinkEditorComponent.components.position">pozycja</entry>
+<entry key="LinkEditorComponent.enter">wprowadź</entry>
+<entry key="LinkEditorComponent.components.url">url</entry>
+<entry key="LinkEditorComponent.components.help-item-warning">UWAGA: To jest odnośnik do strony pomocy. Tutaj możesz zmienić tylko pozycję tego odnośnika i jego nazwę.</entry>
+<entry key="LinkEditorComponent.cancel">anuluj</entry>
+</properties>

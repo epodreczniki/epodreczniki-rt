@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="KeywordIndexComponent.Prompt">Wybierz pozycje z listy</entry>
+<entry key="KeywordIndexComponent.Title">Indeks</entry>
+<entry key="KeywordIndexComponent.NoKeywordsAtAll">Brak słów kluczowych w tej kategorii.</entry>
+<entry key="KeywordIndexComponent.NoKeywordsForLetter">Brak słów kluczowych na tę literę alfabetu. Spróbuj wybrać inna z liter.</entry>
+<entry key="KeywordIndexComponent.back-to-query">powrót do zapytania</entry>
+</properties>

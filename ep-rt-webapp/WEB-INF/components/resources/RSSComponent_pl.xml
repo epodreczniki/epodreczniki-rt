@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="RSSComponent.RSS.Latest">25 ostatnich publikacji</entry>
+<entry key="RSSComponent.RSS.Planned">Plany wprowadzania publikacji</entry>
+<entry key="RSSComponent.Title">Kanały RSS</entry>
+<entry key="RSSComponent.RSS.News">Wiadomości</entry>
+<entry key="RSSComponent.RSS.Info">Co to jest kanał RSS?</entry>
+</properties>

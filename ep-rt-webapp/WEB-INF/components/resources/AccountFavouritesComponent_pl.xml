@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="AccountFavouritesComponent.Title">Ulubione publikacje</entry>
+<entry key="AccountFavouritesComponent.NoFavourites">Twoja lista ulubionych jest pusta</entry>
+<entry key="AccountFavouritesComponent.NoTags">Brak tagów</entry>
+<entry key="AccountFavouritesComponent.ShowAll">Pokaż wszystkie</entry>
+<entry key="AccountFavouritesComponent.ExportFaves">Wyeksportuj listę publikacji</entry>
+<entry key="AccountFavouritesComponent.RemoveFromFaves">Usuń z ulubionych</entry>
+<entry key="AccountFavouritesComponent.AddToFaves">Dodaj do ulubionych</entry>
+</properties>

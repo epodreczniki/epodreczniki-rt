@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="UserAccountAdminComponent.Title">Zarządzanie subskrybcjami</entry>
+<entry key="UserAccountAdminComponent.submit">zatwierdź</entry>
+<entry key="UserAccountAdminComponent.list.of.emails">Adresy email</entry>
+<entry key="UserAccountAdminComponent.expl">W poniższym polu tekstowym należy umieścić listę adresów email (oddzielonych przecinkami) dla 
+których subskrybcje mają zostać wyłączone. Wyłączone zostaną zarówno subskrybcje na biuletyn codzienny 
+jak i tygodniowe.</entry>
+<entry key="UserAccountAdminComponent.numberOfRemoved">usuniętych subskrybcji</entry>
+<entry key="UserAccountAdminComponent.numberOfRemote">liczba zdalnych profili</entry>
+<entry key="UserAccountAdminComponent.confirm">Czy jesteś pewien, że chcesz usunąć subskrybcje dla tych użytkowników?</entry>
+<entry key="UserAccountAdminComponent.result">Wyniki działania</entry>
+<entry key="UserAccountAdminComponent.show-advanced">Pokaż ustawienia zaawansowane</entry>
+<entry key="UserEmailsAdminComponent.origin">Identyfikator biblioteki z której pochodzą użytkownicy</entry>
+</properties> 

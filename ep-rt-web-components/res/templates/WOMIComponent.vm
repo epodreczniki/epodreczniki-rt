@@ -1,0 +1,246 @@
+#if($editionId)
+
+#if($pageId == "womi-selection")
+
+#if($womiType.toString() == "MOVIE" || $womiType.toString() == "SOUND")
+  #if(!${avInfo})
+	<div id="addErrorComponent">
+		<img src="/repo/style/dlibra/theme1/404.png" style="float:right;" />
+		<h1 style="line-height:150%">${res.getProperty('WOMIComponent.unavailable.header')}</h1> 
+		<p>${res.getProperty('WOMIComponent.unavailable.message')}</p>
+	</div>
+  #else
+	<h1 id="womic-title">${res.getProperty('WOMIComponent.AVPreview')}</h1>
+   #if($womiType.toString() == "MOVIE")
+    <link href="http://av.epo.pl/epodreczniki/js/skin/ep.default/jplayer.ep.default.css" rel="stylesheet" type="text/css" />
+    #set( $playerMethod = "createSingleVideoPlayer" )
+    #set( $urlsMethod = "getVideoProfilesAsUrls" )
+   #else
+    <link href="http://av.epo.pl/epodreczniki/js/skin/pink.flag/jplayer.pink.flag.css" rel="stylesheet" type="text/css" />
+    #set( $playerMethod = "createAudioPlayer" )
+    #set( $urlsMethod = "getAudioProfilesAsUrls" )
+   #end
+    <script type="text/javascript" src="http://av.epo.pl/epodreczniki/js/jquery.min.js"></script>
+    <script type="text/javascript" src="http://av.epo.pl/epodreczniki/js/player.min.js"></script>
+    <script type="text/javascript">
+
+        function getURLParameter(name) {
+            return decodeURI(
+                    (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search) || ['', ''])[1]
+                );
+        }
+        
+
+        function OnChange(object) {
+            var url = $(object).val();
+            if (url != "auto") {
+                    player.playUrl(url);                
+                } else {
+                    player = $playerMethod('#jp_container_1', id);
+                }            
+        }
+
+        $(document).ready(function () {
+            id = getURLParameter("id") || 'star_trek4';
+            var settings = { generatehtml: true, autoplay: false#if($aspectRatio), aspectRatio: ${aspectRatio}#end };
+            player = $playerMethod('#jp_container_1', id, settings);
+            $(document).on("newMetadata", function (data) {
+                var urls = $urlsMethod(id);
+                var combo = $('#urls');
+                combo.empty();
+                combo.append($('<option>',
+                    {
+                        value: "auto"
+                    }).text("auto"));
+                for (var i = 0; i < urls.length; i++) {
+                    combo.append($('<option>',
+                        {
+                            value: urls[i].value
+                        }).text(urls[i].key));
+                }
+
+            });            
+        });
+    </script>
+
+    <div id="controls" style="width:100;margin-left:auto;margin-right:auto">
+        <select id="urls" onchange="OnChange(this);"></select>
+    </div>
+    <br />
+    <div id="jp_container_1" style="width:1024;margin-left:auto;margin-right:auto">
+    </div>
+    <br />
+  #end
+#end
+#if($womiType.toString() == "ICON")
+<h1 id="womic-title">${res.getProperty('WOMIComponent.ImagePreview')}</h1>
+	
+	<div id="womic-container">
+	
+		<div id="womi-classic">
+			<a href="${homepageUrl}/womi/${editionId}/icon/classic" class="res-menu" id="womi-classic-res" style="display: block">
+			${res.getProperty("WOMIComponent.Content.Classic")}</a>
+		</div>
+
+		<div id="womi-epub">
+			<a href="${homepageUrl}/womi/${editionId}/icon/ebook" class="res-menu" id="womi-classic-res" style="display: block">
+			${res.getProperty("WOMIComponent.Content.Ebook")}</a>
+		</div>
+	
+	</div>
+#else
+	<h1 id="womic-title">${res.getProperty('WOMIComponent.ImagePreview')}</h1>
+	
+	<div id="womic-container">
+	
+		<div id="womi-classic">
+			<div class="res-menu" id="womi-classic-res">
+				<div class="tooltipMenuItem" id="mobile_res">
+					${res.getProperty("WOMI.Resolutions.classic")}
+                	<ul>
+                	#foreach($resolution in [120,480,980,1440,1920])
+                		<li><a href="${homepageUrl}/womi/${editionId}/image/classic?res=$resolution">$resolution</a>
+                		#if($is3D)
+                			<a href="${homepageUrl}/womi/${editionId}/image/classic?res=$resolution&3D"><img title="3D" src="${homepageUrl}/style/dlibra/${styleVariant}/3d.png"/></a>
+                		#end
+                		</li>
+                	#end
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div id="womi-mobile">
+			<div class="res-menu" id="womi-mobile-res">
+				<div class="tooltipMenuItem" id="mobile_res">
+					${res.getProperty("WOMI.Resolutions.mobile")}
+                	<ul>
+                	#foreach($resolution in [120,480,980,1440,1920])
+                		<li><a href="${homepageUrl}/womi/${editionId}/image/mobile?res=$resolution">$resolution</a>
+                		#if($is3D)
+                			<a href="${homepageUrl}/womi/${editionId}/image/mobile?res=$resolution&3D"><img title="3D" src="${homepageUrl}/style/dlibra/${styleVariant}/3d.png"/></a>
+                		#end
+                		</li>
+                	#end
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div id="womi-pdf">
+			<div class="res-menu" id="womi-pdf-res">
+				<div class="tooltipMenuItem" id="mobile_res">
+					${res.getProperty("WOMI.Resolutions.pdf")}
+                	<ul>
+                 		<li><a href="${homepageUrl}/womi/${editionId}/image/pdf?res=1440">1440</a>
+                 		#if($is3D)
+                			<a href="${homepageUrl}/womi/${editionId}/image/pdf?res=1440&3D"><img title="3D" src="${homepageUrl}/style/dlibra/${styleVariant}/3d.png"/></a>
+                		#end
+                		</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div id="womi-epub">
+			<div class="res-menu" id="womi-epub-res">
+				<div class="tooltipMenuItem" id="mobile_res">
+					${res.getProperty("WOMI.Resolutions.ebook")}
+                	<ul>
+        				<li><a href="${homepageUrl}/womi/${editionId}/image/ebook?res=800">800</a>
+        				#if($is3D)
+							<a href="${homepageUrl}/womi/${editionId}/image/ebook?res=800&3D"><img title="3D" src="${homepageUrl}/style/dlibra/${styleVariant}/3d.png"/></a>
+						#end
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+	
+	<script type="text/javascript">
+		
+		var WOMIComponent = {
+			
+			classicUrl: "${homepageUrl}/womi/${editionId}/image/classic",
+			
+			pdfUrl: "${homepageUrl}/womi/${editionId}/image/pdf",
+			
+			mobileUrl: "${homepageUrl}/womi/${editionId}/image/mobile",
+			
+			epubUrl: "${homepageUrl}/womi/${editionId}/image/ebook",
+			
+			init: function(){
+        		$("#womi-pdf").bind("mouseover",function(){
+        			$("#womi-pdf-res").show();
+        		});
+        		
+        		$("#womi-pdf").bind("mouseout",function(){
+        			$("#womi-pdf-res").hide();
+        		});
+        		
+        		$("#womi-classic").bind("mouseover",function(){
+        			$("#womi-classic-res").show();
+        		});
+        		
+        		$("#womi-classic").bind("mouseout",function(){
+        			$("#womi-classic-res").hide();
+        		});
+        		
+        		$("#womi-mobile").bind("mouseover",function(){
+        			$("#womi-mobile-res").show();
+        		});
+        		
+        		$("#womi-mobile").bind("mouseout",function(){
+        			$("#womi-mobile-res").hide();
+        		});
+        		
+        		$("#womi-epub").bind("mouseover",function(){
+        			$("#womi-epub-res").show();
+        		});
+        		
+        		$("#womi-epub").bind("mouseout",function(){
+        			$("#womi-epub-res").hide();
+        		});
+				
+				// click
+				var that = this;
+				$("#womi-epub-res").bind("click",function(){
+        			window.location.href = that.epubUrl;
+        		});
+				
+				$("#womi-pdf-res").bind("click",function(){
+        			window.location.href = that.pdfUrl;
+        		});
+				
+				$("#womi-mobile-res").bind("click",function(){
+        			window.location.href = that.mobileUrl;
+        		});
+				
+				$("#womi-classic-res").bind("click",function(){
+        			window.location.href = that.classicUrl;
+        		});
+			}
+			
+		}.init();
+	
+	</script>
+#end
+
+#else
+## hidden version of component
+<script type="text/javascript">
+	$().ready(function(){
+		var womiUrl = "${homepageUrl}${mainServletName}/womi-selection?id=${editionId}";
+		$("#ContentTriggerWithImage").attr("href", womiUrl);
+		$("#contentTriggerIcon").attr("href",womiUrl);
+		$("#contentTriggerText").attr("href",womiUrl);
+		if(typeof EditionMetaMenuComponent != 'undefined'){
+			EditionMetaMenuComponent.contentUrl = womiUrl;
+		}
+	});
+</script>
+#end
+
+#end

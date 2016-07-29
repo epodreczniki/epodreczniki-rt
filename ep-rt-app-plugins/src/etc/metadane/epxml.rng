@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+
+	<!-- e-textbook-module definition -->
+	<include href="epxml-metadata.rng"/>
+
+	<include href="cnxml-0.7/cnxml.rng">
+		<!-- redefinition of the exercise element -->
+		<!-- * extending it by a new optional element "parameters" -->
+		<define name="section" ns="http://cnx.rice.edu/cnxml">
+			<element name="section">
+				<optional>
+					<ref name="ep-section-parameters"/>
+				</optional>
+				<ref name="section-content"/>
+			</element>
+		</define>
+
+		<!-- redefinition of the exercise element -->
+		<!-- * extending it by a new element "effect-of-education" -->
+		<!-- * allowing the usage of the element "title" with QML -->
+		<!-- * allowing muliple occurences of "commentary" -->
+		<!-- * extending it by a new element "alternatives" -->
+		<define name="exercise" ns="http://cnx.rice.edu/cnxml">
+			<element name="exercise">
+				<optional>
+					<ref name="effect-of-education" ns="http://epodreczniki.pl/"/>
+				</optional>
+				<ref name="common-attributes"/>
+				<ref name="id-attribute"/>
+				<ref name="print-placement-attribute"/>
+				<ref name="type-attribute"/>
+				<optional>
+					<ref name="title"/>
+				</optional>
+				<choice>
+					<group>
+						<optional>
+							<ref name="label"/>
+						</optional>
+						<ref name="problem"/>
+						<zeroOrMore>
+							<ref name="solution"/>
+						</zeroOrMore>
+						<zeroOrMore>
+							<ref name="commentary"/>
+						</zeroOrMore>
+					</group>
+					<group>
+						<ref name="exercise-content-extras"/>
+					</group>
+					<ref name="ep-alternatives"/>
+				</choice>
+			</element>
+		</define>
+
+		<define name="block-quote" ns="http://cnx.rice.edu/cnxml">
+			<element name="quote">
+				<ref name="display-block-default-attribute"/>
+				<ref name="common-attributes"/>
+				<ref name="id-attribute"/>
+				<ref name="type-attribute"/>
+				<ref name="linking-attributes"/>
+<!--				<ref name="ep-start-numbering"/> -->
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<optional>
+					<ref name="ep-author"/>
+				</optional>
+				<optional>
+					<ref name="ep-comment"/>
+				</optional>
+				<ref name="div-content"/>
+			</element>
+		</define>
+
+		<define name="inline-quote" ns="http://cnx.rice.edu/cnxml">
+			<element name="quote">
+				<ref name="display-inline-attribute"/>
+				<ref name="linking-attributes"/>
+				<ref name="type-attribute"/>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<optional>
+					<ref name="ep-author"/>
+				</optional>
+				<ref name="inline-content"/>
+			</element>
+		</define>
+	</include>
+
+	<!-- redefinition of the mdml-metadata-content element -->
+	<!-- extending it by a new element "module-metadata" -->
+	<define name="mdml-metadata-content" combine="interleave">
+		<interleave>
+			<ref name="module-metadata" ns="http://epodreczniki.pl/"/>
+		</interleave>
+	</define>
+
+	<!-- redefinition of the para-content-class element -->
+	<!-- extending it by new allowed inline elements -->
+	<define name="para-content-class" combine="choice">
+		<choice>
+			<ref name="womi-reference" ns="http://epodreczniki.pl/"/>
+			<ref name="ep-glossary-reference" ns="http://epodreczniki.pl/"/>
+			<ref name="ep-biography-reference" ns="http://epodreczniki.pl/"/>
+			<ref name="ep-event-reference" ns="http://epodreczniki.pl/"/>
+			<ref name="ep-tooltip-reference" ns="http://epodreczniki.pl/"/>
+			<ref name="ep-writing" ns="http://epodreczniki.pl/"/>
+			<ref name="ep-person" ns="http://epodreczniki.pl/"/>
+			<ref name="ep-bibliography-reference" ns="http://epodreczniki.pl/"/>
+		</choice>
+	</define>
+
+	<!-- redefinition of the basic-blocks-class element -->
+	<!-- extending it by new allowed block elements -->
+	<define name="basic-blocks-class" combine="choice">
+		<choice>
+			<ref name="ep-lead" ns="http://epodreczniki.pl/"/>
+			<ref name="ep-intro" ns="http://epodreczniki.pl/"/>
+			<ref name="ep-revisal" ns="http://epodreczniki.pl/"/>
+			<ref name="ep-effect" ns="http://epodreczniki.pl/"/>
+			<ref name="ep-prerequisite" ns="http://epodreczniki.pl/"/>
+			<ref name="ep-summary" ns="http://epodreczniki.pl/"/>
+			<ref name="ep-glossary" ns="http://epodreczniki.pl/"/>
+			<ref name="ep-gallery" ns="http://epodreczniki.pl/"/>
+			<ref name="ep-tooltip" ns="http://epodreczniki.pl/"/>
+			<ref name="ep-experiment" ns="http://epodreczniki.pl/"/>
+			<ref name="ep-observation" ns="http://epodreczniki.pl/"/>
+			<ref name="ep-event" ns="http://epodreczniki.pl/"/>
+			<ref name="ep-biography" ns="http://epodreczniki.pl/"/>
+			<ref name="ep-literary-description" ns="http://epodreczniki.pl/"/>
+			<ref name="ep-literary-summary" ns="http://epodreczniki.pl/"/>
+			<ref name="ep-procedure-instructions" ns="http://epodreczniki.pl/"/>
+		</choice>
+	</define>
+
+</grammar>

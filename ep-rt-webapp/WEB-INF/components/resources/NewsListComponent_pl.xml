@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="NewsListComponent.Add">Dodaj nową wiadomość</entry>
+<entry key="NewsListComponent.Title">Lista wiadomości</entry>
+<entry key="NewsListComponent.delete">usuń</entry>
+<entry key="NewsListComponent.edit">edytuj</entry>
+<entry key="NewsListComponent.news-list.langs">Wyświetl wiadomości napisane w języku:</entry>
+<entry key="NewsListComponent.no.news.in.lang">Brak wiadomości w wybranym języku</entry>
+</properties>

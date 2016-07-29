@@ -1,0 +1,71 @@
+<h1>Witamy na stronie Repozytorium Treści projektu e-podręczniki</h1>
+<br><br>
+<h2>Zapraszamy na <a href="http://epo.pl">epo.pl</a>, gdzie można zobaczyć opublikowane e-podręczniki.</h2>
+
+<p>Repozytorium Treści e-podręczniki zawiera materiały w wersji roboczej, dlatego możliwość wyszukiwania i przeglądania zasobów
+przez publicznie dostępny serwis www została wyłączona. Autorzy e-podręczników mogą wyszukiwać materiały przy pomocy Aplikacji Redaktora, dodatku MS Word oraz edytora treści online (CMS).</p>
+
+<h3>Aplikacja Redaktora</h3>
+<p>W Aplikacji Redaktora wyszukiwanie dostępne jest po wybraniu menu <i>Edycja -> Znajdź...</i> lub wciśnięciu <i>Ctrl+F</i>.</p>
+<img src="/repo/img/ar.png"></img>
+
+<h3>Edytor treści online</h3>
+<p>Edytor treści online dostępny jest pod adresem <a href="http://www.epo.pl/edit" target="_blank">http://www.epo.pl/edit</a>.
+Edytor jest kompatybilny z większością nowoczesnych przeglądarek WWW, niemniej jednak osiągnięcie najlepszych efektów możliwe jest podczas wykorzystania przeglądarki <a href="https://www.mozilla.org/en-US/firefox/new/">FireFox</a>.
+</p>
+<img src="/repo/img/editor.png"></img>
+
+<p>Poniżej znajduje się kilka interaktywnych samouczków pod wspólnym tytułem <em>Edytor treści online - czyli instrukcja, jak krok po kroku modyfikować istniejące treści w prostu sposób</em>. Powstały one w celu ułatwienia Państwu wdrożenia się w proces edycyjny e-podręczników w środowisku CMS.<br>
+Przyjęto założenie, że użytkownik przystępujący do nauki edycji treści e-podręczników w środowisku CMS jest już zaznajomiony z udostępnionym wcześniej systemem edycji opartym o dodatek MS Word(sekcja poponiżej) oraz nie są mu obce zagadnienia z zakresu konstrukcji e-podręczników.<br>
+W każdy z samouczków zostało przedstawione inne zagadnienie związane z wytwarzaniem treści. Materiały zostały udostępnione w dwóch wersjach: w wersji przeglądarkowej oraz jako plik wykonywalny exe (do pobrania i uruchomienia pod systemem Windows).</p>
+
+<h4>Samouczek 1: Układ edytora <small>[wersje: <a target="_blank" href="/repo/samouczki/cz1_uklad_edytora.htm">WWW</a>, <a target="_blank" href="/repo/samouczki/cz1_uklad_edytora.exe">exe</a>]</small></h4>
+<p>Początek samouczka zawiera krótkie omówieniem rozmieszczenia poszczególnych elementów edytora treści na ekranie wraz z informacjami na temat podstawowej funkcjonalności. <br>
+W dalszej części skupiamy się na zagadnieniach związanych z hierarchią edytowanego dokumentu oraz wyjaśnieniu zależności pomiędzy kontekstem edycji, a oferowaną funkcjonalnością.</p>
+
+<h4>Samouczek 2: Edycja treści <small>[wersje: <a target="_blank" href="/repo/samouczki/cz2_edycja_tresci.htm">WWW</a>, <a target="_blank" href="/samouczki/cz2_edycja_tresci.exe">exe</a>]</small></h4>
+<p>W samouczku omówiono edycję przykładowego modułu treści. Początek został poświęcony metadanym modułu, włączywszy w to edycję autorów, słów kluczowych, czy też wiązanie treści z podstawą programową. W dalszej części omówione zostały zagadnienia związane z sekcjami m.in. operacje na tytułach i zawartości, zarządzanie układem kolumnowym, czy też definiowanie paginacji modułu.<br>
+W kolejnych krokach zaprezentowano pracę z prostymi elementami typu emfaza, lista czy też tablica, aby przejść do bardziej skomplikowanych zagadnień związanych m.in. z WOMI, biogramami oraz edytorem wyrażeń matematycznych.<br>
+Ostatnia część samouczka poświęcona została podglądowi przeredagowanego modułu na platformie.</p>
+
+<h4>Samouczek 3: Recenzja treści <small>[wersje: <a target="_blank" href="/repo/samouczki/cz3_recenzje.htm">WWW</a>, <a target="_blank" href="/repo/samouczki/cz3_recenzje.exe">exe</a>]</small></h4>
+<p>Ostatni z serii samouczek poświęcony jest recenzji treści zawartej w modułach. Samouczek prezentuje pracę z systemem z perspektywy autorów oraz recenzentów. Przeplatające się nawzajem fragmenty przedstawiają  interakcję między użytkownikami wcielającymi się we wspomniane role.<br>
+Recenzent dowie się w jaki sposób zgłaszać błędy oraz jak śledzić, zatwierdzać i odrzucać poprawki autorów. Z kolei patrząc z perspektywy autora zobaczymy m.in. jak poprawić treść, zgłosić poprawkę do zatwierdzenia, czy też poprosić recenzenta o doprecyzowanie zgłoszenia błędu. Fragment samouczka traktująca na temat trybu "raportu recenzji" przyda się wszystkim użytkownikom niezależnie od roli w której występują w CMS.</p>
+
+<h3>Dodatek MS Word</h3>
+<p>Dodatek MS Word dostępny jest <a href="TUTAJ_WSTAW_ADRES_DO_INSTALATORA_DODATKU_MS_WORD">tutaj</a>.
+Wymagany jest Microsoft Office 2010 lub 2013 oraz <a href="http://www.microsoft.com/pl-pl/download/details.aspx?id=30653">Microsoft .NET Framework 4.5</a>.
+</p>
+
+<p>Poniżej znajduje się kilka interaktywnych samouczków. Powstały one w celu ułatwienia Państwu wdrożenia się w proces edycyjny e-podręczników bazujący na oprogramowaniu MS Word połączonym z dodatkiem.<br>
+W każdy z samouczków zostało przedstawione inne zagadnienie związane z wytwarzaniem treści. Materiały zostały udostępnione w dwóch wersjach: w wersji przeglądarkowej oraz jako plik wykonywalny exe (do pobrania i uruchomienia pod systemem Windows).</p>
+
+<h4>Samouczek 1: Instalacja wtyczki MS Word <small>[wersje: <a target="_blank" href="/repo/samouczki/s1_instalacja_plugin.htm">WWW</a>, <a target="_blank" href="/repo/samouczki/s1_instalacja_plugin.exe">exe</a>]</small></h4>
+<p>W pierwszej części samouczka została przedstawiona instrukcja instalacji dodatku do programu MS Word. Dodatek ten zawiera szereg narzędzi ułatwiających tworzenie e-podręcznika. 
+Druga część samouczka została poświęcona prezentacji wszystkich opcji dostępnych w dodatku.</p>
+
+<h4>Samouczek 2: Tworzenie modułu e-Podręcznika <small>[wersje: <a target="_blank" href="/repo/samouczki/s2_tworzenie_modulu.htm">WWW</a>, <a target="_blank" href="/repo/samouczki/s2_tworzenie_modulu.exe">exe</a>]</small></h4>
+<p>W kolejnej prezentacji przedstawiono w jaki sposób stworzyć przykładowy moduł e-podręcznika. Do pustego dokumentu MS Word zostały dodane wszystkie wymagane elementy modułu wraz z przykładową treścią.
+Następnie zostały zaprezentowane kroki, które trzeba podjąć, aby przeprowadzić konwersję powstałego dokumentu oraz umieścić jej wynik w Repozytorium Treści. 
+Ostatnia część samouczka poświęcona jest podglądowi powstałego modułu na platformie.</p>
+
+<h4>Samouczek 3: Tworzenie struktury e-podręcznika <small>[wersje: <a target="_blank" href="/repo/samouczki/s3_tworzenie_struktury_epodrecznika.htm">WWW</a>, <a target="_blank" href="/repo/samouczki/s3_tworzenie_struktury_epodrecznika.exe">exe</a>]</small></h4>
+<p>W trzecim samouczku przedstawiono zasady tworzenia poprawnej struktury katalogowej e-podręcznika. Samouczek przeprowadza autora przez wszystkie etapy edycyjne począwszy od stworzenia struktury katalogowej, poprzez konwersję, umieszczenie e-podręcznika w Repozytorium Treści, skończywszy na podglądzie powstałego e-podręcznika na platformie.</p>
+
+<h4>Samouczek 4: Wykorzystanie stylów znakowych i blokowych, przykład użycia WOMI <small>[wersje: <a target="_blank" href="/repo/samouczki/s4_wykorzystanie_stylow_znak_blok_womi.htm">WWW</a>, <a target="_blank" href="/repo/samouczki/s4_wykorzystanie_stylow_znak_blok_womi.exe">exe</a>]</small></h4>
+<p>W czwartym samouczku przedstawiono sposób wykorzystania dedykowanych stylów MS Word w trakcie tworzenia modułu e-podręcznika. W prezentacji zastosowano style znakowe, blokowe proste i złożone oraz ich połączenie.
+	Dodatkowo pokazano sposób wstawienia referencji WOMI do treści modułu, w tym również do treści oznaczonej stylem blokowym. Podobnie jak w przypadku poprzednich samouczków przedstawiono pełen proces edycyjny od pliku MS Word, aż po podgląd na platformie.
+	Dzięki specjalnym oznaczeniom w prezentacji, autor może zaobserwować, jaki wynik zostanie osiągnięty w formacie emisyjnym poprzez zastosowanie poszczególnych narzędzi.
+</p>
+
+<h4>Samouczek 6: Tworzenie zadań z losowaniem odpowiedzi (odpowiednik WOMI silnikowych ZJ-1, ZW-1, ZW-2) <small>[wersje: <a target="_blank" href="/repo/samouczki/s6_zadania_z_losowaniem_odpowiedzi.htm">WWW</a>, <a target="_blank" href="/repo/samouczki/s6_zadania_z_losowaniem_odpowiedzi.exe">exe</a>]</small></h4>
+<p>W ostatnim samouczku zostało zaprezentowane narzędzie &quot;Zadanie z losowaniem odpowiedzi&quot;. Podczas demonstracji przedstawiono przykład zadania jedno- i wielokrotnego wyboru oraz wielokrotnego wyboru (prawda, fałsz). 
+	Dodatkowo, w ostatnim zaprezentowanym zadaniu jednokrotnego wyboru, objaśniono sposób wykorzystania WOMI wewnątrz polecenia. Druga część samouczka prezentuje rezultaty omawianego procesu edycyjnego.
+</p>
+
+<h4>Wybrane możliwości dodatku MS Word</h4>
+<p>Poniższa ilustracja przedstawia interfejs wyszukiwarki WOMI oraz wyniki wyszukiwania:</p>
+<img src="/repo/img/msword.png"></img>
+<p>Dodatek MS Word udostępnia też łącze do podglądu e-podręcznika, który został przed chwilą zaimportowany
+(łącze zaznaczone na zielono na ilustracji poniżej) oraz do e-podręczników zaimportowanych w przeszłości (zakładka historia).</p>
+<img src="/repo/img/msword2.png"></img>

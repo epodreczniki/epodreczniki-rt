@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="EditionMetadataComponent.Title">Opis modułu informacyjnego</entry>
+<entry key="EditionMetadataComponent.ShowContent.Msg">Pokaż treść!</entry>
+<entry key="publication.WasDeleted">Ta publikacja została usunięta dnia</entry>
+<entry key="publication.DeletedBecauseOf">Powód usunięcia</entry>
+<entry key="publication.OpeningDefault">Trwa otwieranie jedynego wydania publikacji...</entry>
+</properties>

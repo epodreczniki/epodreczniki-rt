@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="stat.table.publications">publikacje</entry>
+<entry key="stat.table.day">dzień</entry>
+<entry key="stat.table.months">Miesiąc</entry>
+<entry key="stat.table.years">Rok</entry>
+<entry key="stat.format.show">Pokaż statystyki jako</entry>
+<entry key="stat.csv">plik csv</entry>
+<entry key="stat.table">tabele HTML</entry>
+<entry key="main.meta.clasification">publiczna, twórca, książka, źródło,edukacja, nauka, projekt, szkoła, nauczanie</entry>
+<entry key="nav.HOMEPAGE">STRONA GŁÓWNA</entry>
+<entry key="nav.loading">ładowanie...</entry>
+<entry key="nav.loginin">zaloguj</entry>
+<entry key="nav.or">lub</entry>
+<entry key="nav.signup">zarejestruj się</entry>
+<entry key="nav.saccount">Konto</entry>
+<entry key="nav.slogout">Wyloguj się</entry>
+<entry key="nav.CONTACT">KONTAKT</entry>
+<entry key="admin.doctypes">typy publikacji</entry>
+<entry key="admin.help">strony pomocy</entry>
+<entry key="admin.logout">wyloguj</entry>
+<entry key="admin.charts">wykresy</entry>
+<entry key="admin.start">start</entry>
+<entry key="admin.agents-stats">przeglądarki</entry>
+<entry key="admin.admin">Start</entry>
+<entry key="admin.useraccounts">subskrybcje</entry>
+<entry key="nav.COLLECTIONS">PROJEKTY E-PODRĘCZNIKÓW</entry>
+<entry key="admin.components">informacje - zawartość</entry>
+<entry key="nav.NEWACCOUNT">NOWE KONTO</entry>
+<entry key="main.Directory">Pełny katalog publikacji</entry>
+<entry key="base.Homepage">Strona główna</entry>
+<entry key="main.RSS.Planned">Plany wprowadzania publikacji</entry>
+<entry key="admin.subtitle">Zarządzanie Aplikacją Czytelnika</entry>
+<entry key="main.RSS.News">Wiadomości</entry>
+<entry key="main.meta.description">dLibra umożliwia dostęp przez Internet do zasobów edukacyjnych, dziedzictwa kulturowego, regionaliów i muzykaliów</entry>
+<entry key="admin.news">wiadomości</entry>
+<entry key="nav.noOfUSERS">obecnie czytających</entry>
+<entry key="nav.ACCOUNT">KONTO</entry>
+<entry key="main.meta.keywords">e-podręczniki, epub, nauka, edukacja, szkoła, nauczanie, podręcznik, podręczniki, repozytorium, treść, ćwiczenia, szkoły, książka, książki, test, testy</entry>
+<entry key="main.meta.generator">E-Podręczniki repozytorium treści - serwis poświęcony gromadzeniu danych podręczników w wersji elektronicznej.</entry>
+<entry key="nav.LOGOUT">WYLOGUJ</entry>
+<entry key="admin.errors">błędy</entry>
+<entry key="admin.nav">Nawigacja</entry>
+<entry key="admin.reports">raporty</entry>
+<entry key="admin.admin-reports">Raporty</entry>
+<entry key="admin.title">dLibra - Panel administracyjny</entry>
+<entry key="nav.LOGIN">LOGOWANIE</entry>
+<entry key="admin.engine-stats">mechanizm www</entry>
+<entry key="main.RSS.Latest">25 ostatnich publikacji</entry>
+<entry key="admin.admin-news-list">Lista wiadomości</entry>
+<entry key="admin.admin-help-list">Lista stron pomocy</entry>
+<entry key="admin.admin-doctype-list">Lista typów plików</entry>
+<entry key="admin.admin-error-list">Komunikaty o błędach</entry>
+<entry key="admin.admin-link-list">Zawartość okna "Informacje"</entry>
+<entry key="admin.admin-engine-stats">Mechanizm WWW</entry>
+<entry key="admin.admin-agents-stats">Statystyki przeglądarek</entry>
+<entry key="admin.admin-link-edit">Edycja linka</entry>
+<entry key="admin.admin-error-edit">Edycja komunikatu o błędzie</entry>
+<entry key="admin.admin-help-edit">Edycja stron pomocy</entry>
+<entry key="admin.admin-doctype-edit">Edycja typu pliku</entry>
+<entry key="admin.admin-news-edit">Edycja wiadomości</entry>
+<entry key="admin.admin-useraccounts">Subskrybcje</entry>
+<entry key="admin.admin-upload">Upload</entry>
+<entry key="admin.admin-bulletin-remove">Wyłączanie subskrybcji</entry>
+<entry key="admin.admin-email-change">Zmiana adresu email</entry>
+<entry key="layout.popup.title">Tytuł</entry>
+<entry key="base.noJavaScriptWarning"><![CDATA[<p style="font-weight:bold">Brak obsługi JavaScript!<p> By w pełni korzystać z możliwości biblioteki cyfrowej, upewnij się czy twoja przeglądarka
+ma włączoną obsługę <b><i>JavaScript.</i></b>]]></entry>
+<entry key="content.noJavaScriptWarning"><![CDATA[<p style="font-weight:bold">Brak obsługi JavaScript!<p> Wyłączone wsparcie dla <b><i>JavaScript</i></b> może spowodować nieprawidłowe wyświetlanie
+treści niektórych publikacji. Upewnij się czy w twojej przeglądarce można włączyć obsługę <b><i>JavaScript</i></b>.]]></entry>
+<entry key="content.noJS.linkToContent">Kliknij tutaj,</entry>
+<entry key="content.noJS.linkToContentCDN">aby mimo to przeglądać publikację.</entry>
+<entry key="help">Pomoc</entry>
+</properties>

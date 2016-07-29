@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="UserMessagesComponent.Title">Wiadomości</entry>
+<entry key="UserMessagesComponent.Sender">Nadawca</entry>
+<entry key="UserMessagesComponent.Subject">Temat</entry>
+<entry key="UserMessagesComponent.Text">Treść</entry>
+<entry key="UserMessagesComponent.Date">Data</entry>
+<entry key="UserMessagesComponent.Type">Typ</entry>
+<entry key="UserMessagesComponent.NoResult">Brak wiadomości</entry>
+<entry key="UserMessagesComponent.AboutEdition">Dotyczy publikacji</entry>
+<entry key="UserMessagesComponent.EditEdition">Edycja publikacji</entry>
+<entry key="UserMessagesComponent.ShowEdition">Szczegóły publikacji</entry>
+<entry key="UserMessagesComponent.Answer">Odpowiedz nadawcy</entry>
+</properties>

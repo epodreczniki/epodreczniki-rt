@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+
+	<!-- e-textbook definition -->
+	<include href="epcollxml-metadata.rng"/>
+
+	<include href="cnxml-0.7/collxml.rng">
+		<!-- restrictions on the "mdml:education-level" element -->
+		<define name="mdml-education-level">
+			<element name="education-level" ns="http://cnx.rice.edu/mdml">
+				<choice>
+					<!-- Early School -->
+					<value>I</value>
+					<!-- Primary School -->
+					<value>II</value>
+					<!-- Junior High School -->
+					<value>III</value>
+					<!-- High School -->
+					<value>IV</value>
+				</choice>
+			</element>
+		</define>
+
+		<!-- restrictions on the "mdml:subject" element -->
+		<define name="mdml-subject">
+			<element name="subject" ns="http://cnx.rice.edu/mdml">
+				<ref name="mdml-common-attributes"/>
+				<ref name="mdml-source-attribute"/>
+				<ref name="mdml-key-attribute"/>
+				<choice>
+					<value>bezpieczenstwo</value>
+					<value>biologia</value>
+					<value>chemia</value>
+					<value>fizyka</value>
+					<value>geografia</value>
+					<value>historia</value>
+					<value>informatyka</value>
+					<value>matematyka</value>
+					<value>polski</value>
+					<value>przyroda</value>
+					<value>spoleczenstwo</value>
+					<value>wczesnoszkolna</value>
+					<value>inny</value>
+				</choice>
+			</element>
+		</define>
+
+		<define name="col-subcollection">
+			<element name="subcollection" ns="http://cnx.rice.edu/collxml">
+				<ref name="col-common-attributes"/>
+				<interleave>
+					<ref name="mdml-title"/>
+					<optional>
+						<ref name="mdml-short-title"/>
+					</optional>
+					<optional>
+						<ref name="mdml-subtitle"/>
+					</optional>
+					<optional>
+						<ref name="col-parameters-uses"/>
+					</optional>
+					<optional>
+						<ref name="col-featured-links"/>
+					</optional>
+					<ref name="ep-view-attributes"/>
+					<ref name="col-content"/>
+				</interleave>
+			</element>
+		</define>
+	</include>
+
+	<!-- redefinition of the mdml-metadata-content element -->
+	<!-- extending it by a new element "textbook-metadata" -->
+  <define name="mdml-metadata-content" combine="interleave">
+    <interleave>
+			<ref name="textbook-metadata" ns="http://epodreczniki.pl/"/>
+			<ref name="root-id" ns="http://epodreczniki.pl/"/>
+    </interleave>
+  </define>
+
+</grammar>

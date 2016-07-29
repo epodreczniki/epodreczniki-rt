@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+		ns="http://epodreczniki.pl/"
+		datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+
+	<define name="metadata-version">
+		<attribute name="version" ns="http://epodreczniki.pl/">
+			<value>1.5</value>
+		</attribute>
+	</define>
+
+	<define name="status-and-recipient">
+		<optional>
+			<ref name="status"/>
+		</optional>
+		<optional>
+			<ref name="recipient"/>
+		</optional>
+	</define>
+
+	<define name="status">
+		<attribute name="content-status" ns="http://epodreczniki.pl/">
+			<choice>
+				<!-- canon - content that needs to be included -->
+				<value>canon</value>
+				<!-- supplemental content mainly for recipients with disabilities -->
+				<value>supplemental</value>
+				<!-- expanding content - optional and covering more than canon -->
+				<value>expanding</value>
+			</choice>
+		</attribute>
+	</define>
+
+	<define name="recipient">
+		<attribute name="recipient" ns="http://epodreczniki.pl/">
+			<choice>
+				<!-- oridinary content -->
+				<value>student</value>
+				<!-- teacher-oriented content -->
+				<value>teacher</value>
+			</choice>
+		</attribute>
+	</define>
+
+	<define name="womi-reference">
+		<element name="reference">
+			<ref name="ep-id"/>
+			<ref name="ep-instance-id"/>
+			<interleave>
+				<ref name="womi-width"/>
+				<ref name="womi-type"/>
+				<ref name="womi-embedded"/>
+				<ref name="womi-context"/>
+				<ref name="womi-reading-room"/>
+				<ref name="womi-hide-caption"/>
+			</interleave>
+			<optional>
+				<ref name="ep-related"/>
+			</optional>
+			<zeroOrMore>
+				<ref name="ep-content"/>
+			</zeroOrMore>
+		</element>
+	</define>
+
+	<define name="ep-id">
+		<attribute name="id" ns="http://epodreczniki.pl/"/>
+	</define>
+
+	<define name="ep-instance-id">
+		<attribute name="instance-id" ns="http://epodreczniki.pl/"/>
+	</define>
+
+	<define name="ep-related">
+		<element name="related">
+			<ref name="womi-reference"/>
+		</element>
+	</define>
+
+	<define name="womi-width">
+		<optional>
+			<element name="width">
+				<data type="integer">
+					<param name="minInclusive">0</param>
+					<param name="maxInclusive">100</param>
+				</data>
+			</element>
+		</optional>
+	</define>
+
+	<define name="womi-type">
+		<optional>
+			<element name="type">
+				<choice>
+					<value>voiceover</value>
+				</choice>
+			</element>
+		</optional>
+	</define>
+
+	<define name="womi-context">
+		<optional>
+			<element name="context">
+				<data type="boolean"/>
+			</element>
+		</optional>
+	</define>
+
+	<define name="womi-reading-room">
+		<optional>
+			<element name="reading-room">
+				<data type="boolean"/>
+			</element>
+		</optional>
+	</define>
+
+	<define name="womi-embedded">
+		<optional>
+			<element name="embedded">
+				<data type="boolean"/>
+			</element>
+		</optional>
+	</define>
+
+	<define name="womi-hide-caption">
+		<optional>
+			<element name="hide-caption">
+				<choice>
+					<value>none</value>
+					<value>all</value>
+					<value>title</value>
+					<!-- synonym for "all" -->
+					<value>true</value>
+					<!-- synonym for "none" -->
+					<value>false</value>
+				</choice>
+			</element>
+		</optional>
+	</define>
+
+	<define name="ep-type">
+		<attribute name="type" ns="http://epodreczniki.pl/"/>
+	</define>
+
+	<define name="ep-content">
+		<element name="content">
+			<ref name="ep-id"/>
+			<ref name="ep-format"/>
+			<oneOrMore>
+				<ref name="div-content-class" ns="http://cnx.rice.edu/cnxml"/>
+			</oneOrMore>
+		</element>
+	</define>
+
+	<define name="ep-format">
+		<optional>
+			<attribute name="format" ns="http://epodreczniki.pl/">
+				<choice>
+					<value>classic</value>
+					<value>mobile</value>
+					<value>static</value>
+					<value>static-mono</value>
+				</choice>
+			</attribute>
+		</optional>
+	</define>
+
+</grammar>

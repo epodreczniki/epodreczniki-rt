@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project>
+	<extend>../project.xml</extend>
+
+	<artifactId>ep-rt-app-extension-mf-xml</artifactId>
+	<name>dLibra Application XML Metadata Finder Plugin</name>
+	<shortDescription>Rozszerzenie, które wczytuje
+		metadane obiektów z
+		plików XML.
+	</shortDescription>
+
+	<dependencies>
+		<dependency>
+			<artifactId>dlibra-app-extension-mf-xml</artifactId>
+			<groupId>${dlibra.groupId}</groupId>
+			<version>${dlibra.version}</version>
+			<url>http://dlibra.psnc.pl/</url>
+		</dependency>
+		<dependency>
+			<groupId>javax.xml</groupId>
+			<artifactId>jsr173</artifactId>
+			<version>1.0</version>
+			<url>http://jcp.org/en/jsr/detail?id=173</url>
+			<properties>
+				<comment>License: JSR API</comment>
+			</properties>
+		</dependency>
+		<dependency>
+			<groupId>saxon</groupId>
+			<artifactId>saxon</artifactId>
+			<version>8.8</version>
+			<url>http://saxon.sourceforge.net/</url>
+			<properties>
+				<comment>License: MPL 1.0</comment>
+			</properties>
+		</dependency>
+		<dependency>
+			<groupId>saxon-dom</groupId>
+			<artifactId>saxon-dom</artifactId>
+			<version>8.8</version>
+			<url>http://saxon.sourceforge.net/</url>
+			<properties>
+				<comment>License: MPL 1.0</comment>
+			</properties>
+		</dependency>
+		<dependency>
+			<groupId>saxon-xqj</groupId>
+			<artifactId>saxon-xqj</artifactId>
+			<version>8.8</version>
+			<url>http://saxon.sourceforge.net/</url>
+			<properties>
+				<comment>License: MPL 1.0</comment>
+			</properties>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>${basedir}/src/etc</directory>
+				<includes>
+					<include>**/*</include>
+				</includes>
+			</resource>
+		</resources>
+	</build>
+</project>

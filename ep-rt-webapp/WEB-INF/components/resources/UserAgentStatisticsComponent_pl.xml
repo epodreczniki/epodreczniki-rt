@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="UserAgentStatisticsComponent.agents-stats.AgentName">Nazwa klienta</entry>
+<entry key="UserAgentStatisticsComponent.agents-stats.NoOfVisits"># sesji</entry>
+<entry key="UserAgentStatisticsComponent.agents-stats.StartDate">Statystyki są zbierane od</entry>
+<entry key="UserAgentStatisticsComponent.Title">Statystyki przeglądarek</entry>
+</properties>

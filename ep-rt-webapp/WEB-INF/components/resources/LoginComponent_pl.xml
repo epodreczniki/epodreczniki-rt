@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="LoginComponent.LogIn">Zaloguj się</entry>
+<entry key="LoginComponent.Cancel">anuluj</entry>
+<entry key="LoginComponent.SecuredPublication">Publikacja zabezpieczona</entry>
+<entry key="LoginComponent.IntroUser">Ta publikacja jest niedostępna dla tego konta. Jeśli posiadasz bardziej uprzywilejowane konto,
+spróbuj skorzystać z niego lub skontaktuj się w sprawie dostępu z instytucją tworzącą tą bibliotekę cyfrową.</entry>
+<entry key="LoginComponent.PermRequest.Desc"><![CDATA[Ta publikacja jest niedostępna dla tego konta. Jeśli posiadasz bardziej uprzywilejowane konto,
+spróbuj skorzystać z niego. <b>Możesz też przesłać prośbę o dostęp do publikacji z aktualnego konta.</b> Wpisz w poniższym polu powód i kliknij "Wyślij".]]></entry>
+<entry key="LoginComponent.PermRequest.AskForAccess">Poproś o dostęp</entry>
+<entry key="LoginComponent.PermRequest.Reason">Podaj powód</entry>
+<entry key="LoginComponent.PermRequest.DoNotShow">Nie pokazuj więcej tego okna</entry>
+<entry key="LoginComponent.PermRequest.Send">Wyślij</entry>
+<entry key="LoginComponent.PermRequest.Cancel">Anuluj</entry>
+<entry key="LoginComponent.LostPassword">Przejdź tutaj</entry>
+<entry key="LoginComponent.LostPasswordExpl">, jeśli nie pamiętasz loginu lub hasła</entry>
+<entry key="LoginComponent.ReasonWrong">Niestety podany login lub hasło są nieprawidłowe.</entry>
+<entry key="LoginComponent.AlreadyLoggedIn">Jesteś już zalogowany. Jeśli nie zostałeś automatycznie przekierowany kliknij</entry>
+<entry key="LoginComponent.Here">tutaj</entry>
+<entry key="LoginComponent.NewAccount">Załóż nowe konto</entry>
+<entry key="LoginComponent.IntroPublic">Obecnie nie jesteś zalogowany. Jeśli widzisz stronę logowania, bo chciałeś przeczytać treść publikacji, oznacza to, że użytkownicy publiczni nie mają wystarczających uprawnień dostępu do tej publikacji. Możesz spróbować się zalogować na odpowiednio uprzywilejowane konto lub spróbować przeczytać treść publikacji później. Jeżeli uważasz, że powinieneś mieć dostęp do tej publikacji już teraz, skontaktuj się z instytucją, która umieściła publikację lub z nami.</entry>
+<entry key="LoginComponent.CASLogIn">Użyj systemu pojedynczego logowania</entry>
+<entry key="LoginComponent.User">Użytkownik</entry>
+<entry key="LoginComponent.RememberMe">zapamiętaj mnie</entry>
+<entry key="LoginComponent.Help">pomoc</entry>
+<entry key="LoginComponent.Password">Hasło</entry>
+<entry key="LoginComponent.Title"></entry>
+<entry key="LoginComponent.Header">Logowanie</entry>
+<entry key="LoginComponent.HeaderFromContent">Zaloguj się, aby przeglądać treść publikacji</entry>
+<entry key="LoginComponent.RegisterExpl">lub jeśli nie posiadasz jeszcze konta:</entry>
+<entry key="LoginComponent.Others">Inne:</entry>
+<entry key="LoginComponent.MainPage">strona główna</entry>
+<entry key="LoginComponent.NoJSWarning"><![CDATA[Brak wsparcia dla <b>JavaScript</b> uniemożliwił przekierowanie na odpowiednią stronę.]]></entry>
+<entry key="LoginComponent.NoJSWarning.ClickHere">Kliknij tutaj, aby kontynować</entry>
+</properties>

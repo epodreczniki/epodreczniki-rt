@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="ErrorListComponent.Title">Lista komunikatów o błędach</entry>
+<entry key="ErrorListComponent.Add">Dodaj nowy komunikat</entry>
+<entry key="ErrorListComponent.edit">edytuj</entry>
+<entry key="ErrorListComponent.delete">usuń</entry>
+</properties>

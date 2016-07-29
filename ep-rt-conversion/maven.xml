@@ -1,0 +1,10 @@
+<project xmlns:maven="jelly:maven" xmlns:j="jelly:core"
+	xmlns:util="jelly:util" xmlns:x="jelly:xml" xmlns:ant="jelly:ant"
+	xmlns:velocity="jelly:velocity" xmlns:doc="doc" xmlns:artifact="artifact">
+
+	<goal name="install" prereqs="jar:install,plugin:build">
+		<copy file="${maven.build.dir}/${maven.final.name}.zip"
+			tofile="${maven.repo.local}/${pom.groupId}/extensions/${maven.final.name}.zip" />
+	</goal>
+
+</project>

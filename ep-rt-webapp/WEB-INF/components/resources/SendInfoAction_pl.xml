@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="SendInfoAction.email.body"><![CDATA[ 
+<p>
+${message}
+</p>
+<p>
+Polecam: <a href="${link}">${elementTitle}</a>
+</p>
+#if($encloseDesc)
+	<p>
+		#renderDescFromRoot()
+	</p>
+#end
+<p>
+${user} (${userEmail}) 
+</p>
+<p>
+  Ta wiadomość została wysłana ze strony : ${res.getProperty("base.library.full")}. 
+</p>
+]]></entry>
+<entry key="SendInfoAction.email.subject">Ciekawa publikacja w bibliotece cyfrowej</entry>
+<entry key="SendBugReportAction.email.body"><![CDATA[ 
+<p>
+  Ta wiadomość została wysłane ze strony : ${res.getProperty("base.library.full")}. 
+</p>
+<p>
+${message}
+</p>
+<p>
+Dotyczy publikacji: <a href="${link}">${elementTitle}</a>
+</p>
+<p>
+${user} (${userEmail}) 
+</p>
+]]></entry>
+<entry key="SendBugReportAction.email.subject">Zgłoszenie o błędzie w publikacji</entry>
+</properties>

@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<quartz xmlns="http://www.opensymphony.com/quartz/JobSchedulingData"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.opensymphony.com/quartz/JobSchedulingData
+  http://www.opensymphony.com/quartz/xml/job_scheduling_data_1_5.xsd"
+	version="1.5">
+	<!-- See http://www.opensymphony.com/quartz/wikidocs/Configuration.html 
+		for details. -->
+	<job>
+		<!-- removes textbooks which have Temporary attribute set to true and are older than 24 hours..  -->
+		<job-detail>
+			<name>RemoveTemporaryTextbooksJob</name>
+			<group>ep</group>
+			<job-class>
+				pl.psnc.ep.rt.server.RemoveTemporaryTextbooksJob
+			</job-class>
+			<job-data-map allows-transient-data="true">
+				<entry>
+					<!-- How old (in hours) textbooks can be removed -->
+					<key>lifeTime</key>
+					<value>24</value>
+				</entry>
+			</job-data-map>
+		</job-detail>
+		<trigger>
+			<cron>
+				<name>RemoveTemporaryTextbooksTrigger</name>
+				<group>ep</group>
+				<job-name>RemoveTemporaryTextbooksJob</job-name>
+				<job-group>ep</job-group>
+				<cron-expression>0 0 1 ? * *</cron-expression>
+			</cron>
+		</trigger>
+	</job>
+</quartz>

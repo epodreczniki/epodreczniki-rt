@@ -1,0 +1,788 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+		ns="http://epodreczniki.pl/"
+		datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+
+	<include href="ep-common.rng"/>
+
+	<define name="module-metadata">
+		<element name="e-textbook-module">
+			<ref name="metadata-version"/>
+			<ref name="status-and-recipient"/>
+			<interleave>
+				<ref name="ep-presentation"/>
+				<optional>
+					<ref name="womi-reference"/>
+				</optional>
+				<optional>
+					<ref name="ep-date"/>
+				</optional>
+			</interleave>
+			<ref name="list-of-core-curriculum-references"/>
+		</element>
+	</define>
+
+	<define name="ep-presentation">
+		<optional>
+			<element name="presentation">
+				<interleave>
+					<ref name="ep-presentation-type"/>
+					<ref name="ep-template"/>
+					<ref name="ep-width"/>
+					<ref name="ep-height"/>
+					<ref name="ep-fixed-tile-layout"/>
+				</interleave>
+			</element>
+		</optional>
+	</define>
+
+	<define name="ep-template">
+		<element name="template">
+			<text/>
+		</element>
+	</define>
+
+	<define name="ep-presentation-type">
+		<optional>
+			<element name="type">
+				<text/>
+			</element>
+		</optional>
+	</define>
+
+	<define name="ep-fixed-tile-layout">
+		<optional>
+			<element name="fixed-tile-layout">
+				<data type="boolean"/>
+			</element>
+		</optional>
+	</define>
+
+	<define name="list-of-core-curriculum-references">
+		<element name="core-curriculum-entries">
+			<oneOrMore>
+				<ref name="core-curriculum-reference"/>
+			</oneOrMore>
+		</element>
+	</define>
+
+	<define name="core-curriculum-reference">
+		<element name="core-curriculum-entry">
+			<interleave>
+				<ref name="mdml-education-level" ns="http://cnx.rice.edu/mdml"/>
+				<ref name="core-curriculum-keyword"/>
+				<ref name="core-curriculum-code"/>
+				<ref name="core-curriculum-subject"/>
+			</interleave>
+		</element>
+	</define>
+
+	<define name="core-curriculum-subject">
+		<element name="core-curriculum-subject">
+			<text/>
+		</element>
+	</define>
+
+	<define name="core-curriculum-code">
+		<element name="core-curriculum-code">
+			<text/>
+		</element>
+	</define>
+
+	<define name="core-curriculum-keyword">
+		<element name="core-curriculum-keyword">
+			<ref name="div-content-class" ns="http://cnx.rice.edu/cnxml"/>
+		</element>
+	</define>
+
+	<define name="ep-alternatives">
+		<optional>
+			<element name="alternatives">
+				<oneOrMore>
+					<ref name="ep-alternative"/>
+				</oneOrMore>
+			</element>
+		</optional>
+	</define>
+
+	<define name="ep-alternative">
+		<element name="alternative">
+			<ref name="ep-id"/>
+			<ref name="ep-formats"/>
+			<optional>
+				<ref name="womi-reference"/>
+			</optional>
+			<choice>
+				<group>
+					<optional>
+						<ref name="label"/>
+					</optional>
+					<optional>
+						<ref name="title"/>
+					</optional>
+					<ref name="problem"/>
+					<zeroOrMore>
+						<ref name="solution"/>
+					</zeroOrMore>
+					<zeroOrMore>
+						<ref name="commentary"/>
+					</zeroOrMore>
+				</group>
+				<group>
+					<optional>
+						<ref name="title"/>
+					</optional>
+					<ref name="exercise-content-extras"/>
+				</group>
+			</choice>
+		</element>
+	</define>
+
+	<define name="ep-formats">
+		<element name="formats">
+			<oneOrMore>
+				<element name="format">
+					<text/>
+				</element>
+			</oneOrMore>
+		</element>
+	</define>
+
+	<define name="effect-of-education">
+		<element name="effect-of-education">
+<!--
+			<optional>
+				<attribute name="style-postfix" ns="http://epodreczniki.pl/"/>
+			</optional>
+			<optional>
+				<attribute name="disable-style-postfix" ns="http://epodreczniki.pl/">
+					<data type="boolean"/>
+				</attribute>
+			</optional>
+-->
+			<text/>
+		</element>
+	</define>
+
+	<define name="ep-section-parameters">
+		<element name="parameters">
+			<interleave>
+				<ref name="ep-role"/>
+				<ref name="ep-tile"/>
+			</interleave>
+			<choice>
+				<group>
+					<ref name="ep-left"/>
+					<ref name="ep-top"/>
+					<ref name="ep-width"/>
+					<ref name="ep-height"/>
+				</group>
+				<ref name="ep-columns"/>
+				<ref name="ep-width"/>
+			</choice>
+		</element>
+	</define>
+
+	<define name="ep-role">
+		<optional>
+			<element name="role">
+				<text/>
+			</element>
+		</optional>
+	</define>
+
+	<define name="ep-tile">
+		<optional>
+			<element name="tile">
+				<text/>
+			</element>
+		</optional>
+	</define>
+
+	<define name="ep-left">
+		<optional>
+			<element name="left">
+				<data type="integer"/>
+			</element>
+		</optional>
+	</define>
+
+	<define name="ep-top">
+		<optional>
+			<element name="top">
+				<data type="integer"/>
+			</element>
+		</optional>
+	</define>
+
+	<define name="ep-columns">
+		<optional>
+			<element name="columns">
+				<data type="integer"/>
+			</element>
+		</optional>
+	</define>
+
+	<define name="ep-width">
+		<optional>
+			<element name="width">
+				<data type="integer"/>
+			</element>
+		</optional>
+	</define>
+
+	<define name="ep-height">
+		<optional>
+			<element name="height">
+				<data type="integer"/>
+			</element>
+		</optional>
+	</define>
+
+	<define name="element-category">
+		<optional>
+			<attribute name="category" ns="http://epodreczniki.pl/">
+				<text/>
+			</attribute>
+		</optional>
+	</define>
+
+	<define name="ep-author">
+		<element name="author">
+			<text/>
+		</element>
+	</define>
+
+	<define name="readability">
+		<optional>
+			<attribute name="readability" ns="http://epodreczniki.pl/">
+				<choice>
+					<value>easy</value>
+					<value>medium</value>
+					<value>hard</value>
+				</choice>
+			</attribute>
+		</optional>
+	</define>
+
+	<define name="presentation">
+		<optional>
+			<attribute name="presentation" ns="http://epodreczniki.pl/">
+				<choice>
+					<value>standard</value>
+					<value>fold</value>
+				</choice>
+			</attribute>
+		</optional>
+	</define>
+
+	<define name="ep-start-numbering">
+		<optional>
+			<attribute name="start-numbering" ns="http://epodreczniki.pl/"/>
+		</optional>
+	</define>
+
+	<define name="ep-comment">
+		<element name="comment">
+			<oneOrMore>
+				<ref name="div-content-class" ns="http://cnx.rice.edu/cnxml"/>
+			</oneOrMore>
+		</element>
+	</define>
+
+	<define name="ep-person">
+		<element name="person">
+			<ref name="ep-canonical"/>
+			<text/>
+		</element>
+	</define>
+
+	<define name="ep-gallery">
+		<element name="gallery">
+			<ref name="ep-id"/>
+			<optional>
+				<ref name="ep-type"/>
+			</optional>
+			<ref name="ep-start-on"/>
+			<ref name="ep-thumbnails"/>
+			<ref name="ep-titles"/>
+			<ref name="viewport-width"/>
+			<ref name="viewport-height"/>
+			<ref name="title" ns="http://cnx.rice.edu/cnxml"/>
+			<zeroOrMore>
+				<ref name="ep-content"/>
+			</zeroOrMore>
+			<oneOrMore>
+				<ref name="womi-reference"/>
+			</oneOrMore>
+		</element>
+	</define>
+
+	<define name="ep-thumbnails">
+		<optional>
+			<attribute name="thumbnails" ns="http://epodreczniki.pl/">
+				<choice>
+					<value>all</value>
+					<value>hide</value>
+					<value>hide-normal</value>
+					<value>hide-fullscreen</value>
+				</choice>
+			</attribute>
+		</optional>
+	</define>
+
+	<define name="ep-titles">
+		<optional>
+			<attribute name="titles" ns="http://epodreczniki.pl/">
+				<choice>
+					<value>all</value>
+					<value>hide</value>
+					<value>hide-normal</value>
+					<value>hide-fullscreen</value>
+				</choice>
+			</attribute>
+		</optional>
+	</define>
+
+	<define name="ep-start-on">
+		<optional>
+			<attribute name="start-on" ns="http://epodreczniki.pl/">
+				<data type="integer"/>
+			</attribute>
+		</optional>
+	</define>
+
+	<define name="viewport-width">
+		<optional>
+			<attribute name="view-width" ns="http://epodreczniki.pl/">
+				<data type="integer"/>
+			</attribute>
+		</optional>
+	</define>
+
+	<define name="viewport-height">
+		<optional>
+			<attribute name="view-height" ns="http://epodreczniki.pl/">
+				<data type="integer"/>
+			</attribute>
+		</optional>
+	</define>
+
+	<define name="ep-glossary">
+		<element name="glossary">
+			<oneOrMore>
+				<ref name="glossary-entry"/>
+			</oneOrMore>
+		</element>
+	</define>
+
+	<define name="ep-glossary-reference">
+		<element name="glossary-reference">
+			<ref name="ep-id"/>
+			<text/>
+		</element>
+	</define>
+
+	<define name="glossary-entry">
+		<element name="entry">
+			<ref name="ep-id"/>
+			<ref name="ep-name"/>
+			<ref name="ep-content"/>
+		</element>
+	</define>
+
+	<define name="ep-location">
+		<element name="location">
+			<text/>
+		</element>
+	</define>
+
+	<define name="ep-date">
+		<element name="date">
+			<optional>
+				<ref name="ep-type"/>
+			</optional>
+			<ref name="ep-key"/>
+			<element name="date-start">
+				<ref name="ep-timestamp"/>
+			</element>
+			<optional>
+				<element name="date-end">
+					<ref name="ep-timestamp"/>
+				</element>
+			</optional>
+		</element>
+	</define>
+
+	<define name="ep-timestamp">
+		<choice>
+			<group>
+				<element name="year">
+					<text/>
+				</element>
+				<optional>
+					<element name="month">
+						<text/>
+					</element>
+					<element name="day">
+						<text/>
+					</element>
+				</optional>
+			</group>
+		</choice>
+	</define>
+
+	<define name="ep-biography">
+		<element name="biography">
+			<ref name="ep-id"/>
+			<interleave>
+				<ref name="ep-name"/>
+				<optional>
+					<ref name="ep-birth"/>
+				</optional>
+				<optional>
+					<ref name="ep-death"/>
+				</optional>
+				<optional>
+					<ref name="womi-reference"/>
+				</optional>
+				<optional>
+					<ref name="ep-gallery"/>
+				</optional>
+				<ref name="ep-content"/>
+			</interleave>
+		</element>
+	</define>
+
+	<define name="ep-key">
+		<optional>
+			<element name="key">
+				<text/>
+			</element>
+		</optional>
+	</define>
+
+	<define name="ep-biography-reference">
+		<element name="biography-reference">
+			<ref name="ep-id"/>
+			<text/>
+		</element>
+	</define>
+
+	<define name="ep-event">
+		<element name="event">
+			<ref name="ep-id"/>
+			<interleave>
+				<ref name="ep-name"/>
+				<element name="event-start">
+					<interleave>
+						<optional>
+							<ref name="ep-location"/>
+						</optional>
+						<optional>
+							<ref name="ep-date"/>
+						</optional>
+					</interleave>
+				</element>
+				<element name="event-end">
+					<interleave>
+						<optional>
+							<ref name="ep-location"/>
+						</optional>
+						<optional>
+							<ref name="ep-date"/>
+						</optional>
+					</interleave>
+				</element>
+				<optional>
+					<ref name="womi-reference"/>
+				</optional>
+				<optional>
+					<ref name="ep-gallery"/>
+				</optional>
+				<ref name="ep-content"/>
+			</interleave>
+		</element>
+	</define>
+
+	<define name="ep-birth">
+		<element name="birth">
+			<interleave>
+				<optional>
+					<ref name="ep-location"/>
+				</optional>
+				<optional>
+					<ref name="ep-date"/>
+				</optional>
+			</interleave>
+		</element>
+	</define>
+
+	<define name="ep-death">
+		<element name="death">
+			<interleave>
+				<optional>
+					<ref name="ep-location"/>
+				</optional>
+				<optional>
+					<ref name="ep-date"/>
+				</optional>
+			</interleave>
+		</element>
+	</define>
+
+	<define name="ep-event-reference">
+		<element name="event-reference">
+			<ref name="ep-id"/>
+			<text/>
+		</element>
+	</define>
+
+	<define name="ep-tooltip">
+		<element name="tooltip">
+			<ref name="ep-id"/>
+			<optional>
+				<ref name="ep-type"/>
+			</optional>
+			<ref name="title" ns="http://cnx.rice.edu/cnxml"/>
+			<ref name="ep-content"/>
+		</element>
+	</define>
+
+	<define name="ep-tooltip-reference">
+		<element name="tooltip-reference">
+			<ref name="ep-id"/>
+		</element>
+	</define>
+
+	<define name="ep-name">
+		<element name="name">
+			<text/>
+		</element>
+	</define>
+
+	<define name="ep-lead">
+		<element name="lead">
+			<ref name="ep-id"/>
+			<oneOrMore>
+				<ref name="div-content-class" ns="http://cnx.rice.edu/cnxml"/>
+			</oneOrMore>
+		</element>
+	</define>
+
+	<define name="ep-intro">
+		<element name="intro">
+			<ref name="ep-id"/>
+			<oneOrMore>
+				<ref name="div-content-class" ns="http://cnx.rice.edu/cnxml"/>
+			</oneOrMore>
+		</element>
+	</define>
+
+	<define name="ep-revisal">
+		<element name="revisal">
+			<ref name="ep-id"/>
+			<oneOrMore>
+				<ref name="div-content-class" ns="http://cnx.rice.edu/cnxml"/>
+			</oneOrMore>
+		</element>
+	</define>
+
+	<define name="ep-effect">
+		<element name="effect">
+			<ref name="ep-id"/>
+			<oneOrMore>
+				<ref name="div-content-class" ns="http://cnx.rice.edu/cnxml"/>
+			</oneOrMore>
+		</element>
+	</define>
+
+	<define name="ep-prerequisite">
+		<element name="prerequisite">
+			<ref name="ep-id"/>
+			<oneOrMore>
+				<ref name="div-content-class" ns="http://cnx.rice.edu/cnxml"/>
+			</oneOrMore>
+		</element>
+	</define>
+
+	<define name="ep-summary">
+		<element name="summary">
+			<ref name="ep-id"/>
+			<oneOrMore>
+				<ref name="div-content-class" ns="http://cnx.rice.edu/cnxml"/>
+			</oneOrMore>
+		</element>
+	</define>
+
+	<define name="ep-bibliography-reference">
+		<element name="bibliography-reference">
+			<ref name="ep-id"/>
+		</element>
+	</define>
+
+	<define name="ep-writing">
+		<element name="writing">
+			<ref name="ep-canonical"/>
+			<text/>
+		</element>
+	</define>
+
+	<define name="ep-canonical">
+		<element name="canonical">
+			<text/>
+		</element>
+	</define>
+
+	<define name="ep-experiment">
+		<element name="experiment">
+			<ref name="ep-id"/>
+			<ref name="ep-supervised"/>
+			<ref name="ep-context-dependent"/>
+			<ref name="title" ns="http://cnx.rice.edu/cnxml"/>
+			<choice>
+				<group>
+					<ref name="ep-problem"/>
+					<ref name="ep-hypothesis"/>
+				</group>
+				<group>
+					<ref name="ep-objective"/>
+				</group>
+			</choice>
+			<interleave>
+				<ref name="ep-instruments"/>
+				<ref name="ep-instructions"/>
+				<ref name="ep-conclusions"/>
+			</interleave>
+		</element>
+	</define>
+
+	<define name="ep-observation">
+		<element name="observation">
+			<ref name="ep-id"/>
+			<ref name="ep-supervised"/>
+			<ref name="ep-context-dependent"/>
+			<ref name="title" ns="http://cnx.rice.edu/cnxml"/>
+			<interleave>
+				<ref name="ep-objective"/>
+				<ref name="ep-instruments"/>
+				<ref name="ep-instructions"/>
+				<ref name="ep-conclusions"/>
+			</interleave>
+		</element>
+	</define>
+
+	<define name="ep-supervised">
+		<optional>
+			<attribute name="supervised" ns="http://epodreczniki.pl/">
+				<data type="boolean"/>
+			</attribute>
+		</optional>
+	</define>
+
+	<define name="ep-context-dependent">
+		<optional>
+			<attribute name="context-dependent" ns="http://epodreczniki.pl/">
+				<data type="boolean"/>
+			</attribute>
+		</optional>
+	</define>
+
+	<define name="ep-problem">
+		<element name="problem">
+			<ref name="ep-id"/>
+			<oneOrMore>
+				<ref name="div-content-class" ns="http://cnx.rice.edu/cnxml"/>
+			</oneOrMore>
+		</element>
+	</define>
+
+	<define name="ep-hypothesis">
+		<element name="hypothesis">
+			<ref name="ep-id"/>
+			<oneOrMore>
+				<ref name="div-content-class" ns="http://cnx.rice.edu/cnxml"/>
+			</oneOrMore>
+		</element>
+	</define>
+
+	<define name="ep-objective">
+		<element name="objective">
+			<ref name="ep-id"/>
+			<oneOrMore>
+				<ref name="div-content-class" ns="http://cnx.rice.edu/cnxml"/>
+			</oneOrMore>
+		</element>
+	</define>
+
+	<define name="ep-instruments">
+		<element name="instruments">
+			<ref name="ep-id"/>
+			<oneOrMore>
+				<ref name="div-content-class" ns="http://cnx.rice.edu/cnxml"/>
+			</oneOrMore>
+		</element>
+	</define>
+
+	<define name="ep-instructions">
+		<element name="instructions">
+			<ref name="ep-id"/>
+			<oneOrMore>
+				<ref name="div-content-class" ns="http://cnx.rice.edu/cnxml"/>
+			</oneOrMore>
+		</element>
+	</define>
+
+	<define name="ep-conclusions">
+		<element name="conclusions">
+			<ref name="ep-id"/>
+			<oneOrMore>
+				<ref name="div-content-class" ns="http://cnx.rice.edu/cnxml"/>
+			</oneOrMore>
+		</element>
+	</define>
+
+	<define name="ep-literary-description">
+		<element name="literary-work-description">
+			<ref name="ep-id"/>
+			<oneOrMore>
+				<ref name="div-content-class" ns="http://cnx.rice.edu/cnxml"/>
+			</oneOrMore>
+		</element>
+	</define>
+
+	<define name="ep-literary-summary">
+		<element name="literary-work-summary">
+			<ref name="ep-id"/>
+			<oneOrMore>
+				<ref name="div-content-class" ns="http://cnx.rice.edu/cnxml"/>
+			</oneOrMore>
+		</element>
+	</define>
+
+	<define name="ep-interactivity">
+		<optional>
+			<attribute name="interactivity" ns="http://epodreczniki.pl/"/>
+		</optional>
+	</define>
+
+	<define name="ep-procedure-instructions">
+		<element name="procedure-instructions">
+			<ref name="ep-id"/>
+			<ref name="title" ns="http://cnx.rice.edu/cnxml"/>
+			<oneOrMore>
+				<ref name="ep-step"/>
+			</oneOrMore>
+		</element>
+	</define>
+
+	<define name="ep-step">
+		<element name="step">
+			<ref name="ep-id"/>
+			<oneOrMore>
+				<ref name="div-content-class" ns="http://cnx.rice.edu/cnxml"/>
+			</oneOrMore>
+		</element>
+	</define>
+
+</grammar>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="CollectionsPubsComponent.Title">Lista publikacji : ${collection.Label}</entry>
+<entry key="CollectionsPubsComponent.NoEditionsAtAll">Brak publikacji w tej kolekcji.</entry>
+<entry key="CollectionsPubsComponent.Prompt">Wybierz interesującą Cię publikację</entry>
+<entry key="CollectionsPubsComponent.nav.splitter.Previous">Poprzednie</entry>
+<entry key="CollectionsPubsComponent.NoEditionsForLetter">Brak publikacji, których tytuł zaczyna się na tę literę alfabetu. Spróbuj wybrać inną z liter.</entry>
+<entry key="CollectionsPubsComponent.nav.splitter.Next">Następne</entry>
+</properties>

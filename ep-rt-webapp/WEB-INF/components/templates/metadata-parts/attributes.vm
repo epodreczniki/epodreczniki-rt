@@ -1,0 +1,100 @@
+<div id="tree" class="tree">
+#if ($showContentMessage && !$deletedPublication && "$!{isEditionDeleted}" != "true")
+	#if(${edition.ElementHasImage}) 
+		<div class="ElementMetadataImage">
+	#else	
+		<div class="ElementMetadataImageDefault edition">
+	#end	
+		<script type="text/javascript"><!--
+			$().ready(function() {
+			   var title = $("#elementTitle").text();
+			   var cookieSettings = {cookiePrefix:'${cookiePrefix}',dLTitle:title};
+			   $("#ContentTriggerWithImage").dL_contentModal(cookieSettings);
+			});
+		--></script>	
+  	   #if("$!{edition.externalId}" != "")
+	   <a href="${homepageUrl}${mainServletName}/content-selection?id=${edition.Id}" title="${showContentMessage}" id="ContentTriggerWithImage" class="contentTrigger">
+	   #else
+	   <a href="${homepageUrl}$!{content_url}" title="${showContentMessage}" id="ContentTriggerWithImage" class="contentTrigger">
+	   #end
+  	   	 #if(${edition.ElementHasImage})
+			  <img src="${homepageUrl}/image/edition/${edition.Id}" alt="${showContentMessage}" class="ElementMetadataComponentMiniature" />
+		 #end
+		 <span style="color:#bb6125">${showContentMessage}</span>
+		</a> 
+		#if ( $hasComment ) 
+			<span id="commentLink"> <a href="javascript:showComment()" > ${res.getProperty("PublicationMetadataComponent.Show.Comment")} </a>  </span> 
+		#end
+	</div>
+#elseif ($deletedPublication || "$!{isEditionDeleted}" == "true")
+		<div class="EditionMetadataComponent_DeletedInfo">
+			  <span> ${res.getProperty("PublicationMetadataComponent.Deleted")} </span>
+		</div>
+#elseif (${displayStructureLink})
+  <script type="text/javascript"><!--
+    function showPubStructure()
+    {
+    	document.getElementById("Attributes").style.display = 'none'
+    	document.getElementById("Structure").style.display = 'block';
+    	document.getElementById("Infos").style.display = 'none';
+	}
+	
+	$().ready(function(){
+		var title = $("#elementTitle").text();
+		var cookieSettings = {cookiePrefix:'${cookiePrefix}',dLTitle:title};
+		$("#EPContentTrigger").dL_contentModal(cookieSettings);
+	});
+  // --></script>  
+    
+	#if(${publication.ElementHasImage})
+		<div class="ElementMetadataImage">
+    #else
+		<div class="ElementMetadataImageDefault structure">
+	#end		
+  	   <a href="${homepageUrl}${mainServletName}/ep-content-selection?id=${publication.Id}" id="EPContentTrigger" title="${res.getProperty("ModuleContent.ShowEPContent")}">
+		  #if(${publication.ElementHasImage})
+			  <img src="${homepageUrl}/image/publication/${publication.Id}" alt=" " class="ElementMetadataComponentMiniature" />
+		  #end
+			<span style="color:#bb6125">
+				${res.getProperty("ModuleContent.ShowEPContent")}
+			</span>
+		</a> 
+	</div>
+#elseif ( ${state} == "8" )
+	<div class="EditionMetadataComponent_PlannedInfo">
+	  <span> ${res.getProperty("PublicationMetadataComponent.Planned")} </span>
+	</div>
+#end
+
+	
+	#if(${attributes.size()}==0)
+		 <span color="red">
+			${res.getProperty("element_metadata.noAttributes")}
+		 </span>
+	#else	 
+		 ## uses $attributes
+		 #renderFromRoot(  )
+	#end
+    
+</div>
+
+#attributeSearchForm()
+
+#if($exlibrisName)
+	<div class="exlibrisContainer">
+		<a href="${exlibrisLink}" target="_blank">
+			<img class="oldExlibrisImage" src="${homepageUrl}/exlibris/${exlibrisName}" alt="Exlibris" />
+		</a>
+	</div>
+#elseif($exlibrises)
+	 <div class="exlibrisContainer">
+	 #foreach($exlibris in $exlibrises)
+	  <a href="${exlibris.getLink()}" target="_blank">
+	   <img class="exlibrisImage" src="${homepageUrl}/exlibris/${exlibris.getImage()}" alt="Exlibris" />
+	  </a>
+	 #end
+	 </div>
+#end
+
+##do not remove this - firefox bug
+&nbsp;

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="AdminUploadComponent.Title">Upload</entry>
+<entry key="AdminUploadComponent.upload.text">Importuj plik XML</entry>
+<entry key="AdminUploadComponent.upload.overwrite">zastąp istniejące strony nowymi</entry>
+<entry key="AdminUploadComponent.upload.submit">zatwierdź</entry>
+</properties>

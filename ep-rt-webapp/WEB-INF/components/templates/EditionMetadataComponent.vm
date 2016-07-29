@@ -1,0 +1,53 @@
+<h1 style="text-align: center; color: #9B0400">Podgląd wersji roboczej</h1>
+
+<h2 id="elementTitle" class="emc_elementTitle">${elementTitle}</h2>
+
+<script type="text/javascript"><!-- 
+## see dlibra.js
+$().ready(splitLongSentences);
+		## In order to give recipient software applications an indication of the XHTML profile that was used to encode the DCMI metadata
+		$("head").attr('profile','http://dublincore.org/documents/2008/08/04/dc-html/');
+//--></script>
+#if ( $tab == 1 ) 
+	 #set ( $showAttributes = "block" )
+#else
+  #set ( $showAttributes = "none" )
+#end
+
+#if ( $tab == 2 )
+	 #set ( $showInfos = "block" )
+#else
+	 #set ( $showInfos = "none" )
+#end
+	 
+#if ($tab == 3 )
+	 #set ( $showStructure = "block" )
+#else
+	 #set ( $showStructure = "none" )
+#end
+
+#set( $showContentMessage = ${res.getProperty("EditionMetadataComponent.ShowContent.Msg")} )
+<div id="Attributes" style="display:${showAttributes};height:100%;"> 
+	#parse("metadata-parts/attributes.vm")
+</div>
+
+
+ #if(!$deletedPublication)
+	<div id="Infos" style="display:${showInfos}">
+		#parse("metadata-parts/infos.vm")
+	</div>
+	<div id="Structure" style="display:${showStructure}">
+		#parse("metadata-parts/struct.vm")
+	</div>
+ #else 
+	<div class="deletedPublication">
+     	<dl>
+    		<dt>${res.getProperty('publication.WasDeleted')}:</dt>
+    		   <dd>	${publication.DeleteDate}   </dd>
+    		<dt>${res.getProperty('publication.DeletedBecauseOf')}:</dt>
+    		   <dd>	${escapeUtil.escapeHtml("$!{publication.DeleteReason}")} </dd>
+    	</dl>
+	</div>	
+ #end
+	
+ 

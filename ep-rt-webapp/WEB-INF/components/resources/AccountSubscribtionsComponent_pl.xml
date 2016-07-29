@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="AccountSubscribtionsComponent.Title">Subskrypcje</entry>
+<entry key="AccountSubscribtionsComponent.Remote.Subscribtions">Subskrypcje w innych bibliotekach</entry>
+<entry key="AccountSubscribtionsComponent.Subscribtions.WeeklyNewPublications.Description">Cotygodniowe podsumowanie zawierające odnośniki do nowych publikacji w bibliotece cyfrowej.</entry>
+<entry key="AccountSubscribtionsComponent.dailyNewPublicationsEmailSubscribed">Nowe publikacje (codziennie)</entry>
+<entry key="AccountSubscribtionsComponent.Subscribtions.DailyNewPublications.Description">Codzienne podsumowanie zawierające odnośniki do nowych publikacji w bibliotece cyfrowej.</entry>
+<entry key="AccountSubscribtionsComponent.weeklyNewPublicationsEmailSubscribed">Nowe publikacje (co tydzień)</entry>
+<entry key="AccountSubscribtionsComponent.Subscribtions.Off">nie subskrybowane</entry>
+<entry key="AccountSubscribtionsComponent.Subscribtions">Subskrypcje</entry>
+<entry key="AccountSubscribtionsComponent.Subscribtions.On">subskrybowane</entry>
+<entry key="AccountSubscribtionsComponent.SwitchSubsrciptionError">Błąd podczas zmiany subskrypcji.</entry>
+<entry key="AccountSubscribtionsComponent.Subscribtions.expired">subskrybowane</entry>
+<entry key="AccountSubscribtionsComponent.EmailIsNotDefined">W Twoim profilu brakuje informacji o adresie email na który mają być wysyłane subskrypcje</entry>
+</properties>

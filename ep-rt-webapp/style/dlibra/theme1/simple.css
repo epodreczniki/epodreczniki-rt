@@ -1,0 +1,490 @@
+/* 
+   this css is based on:
+	   project: internet services template
+	   author: luka cvrk (www.solucija.com) */
+
+   
+/* default styles
+   -------------- */
+   
+body { 
+	padding: 0; 
+	margin: 0; 
+	font: 0.7em Tahoma, sans-serif; 
+	line-height: 1.5em;
+	background: #d5e2e4 url(back.gif) repeat-x; 
+	color: #000; 
+}
+
+a {	color: #E0691A;	background: inherit;}
+a:hover { color: #6C757A; background: inherit; }
+
+h1 { font: normal 2.1em Arial, Sans-Serif; letter-spacing: -1px; padding: 7px 0 0 8px; margin: 0; }
+.dark  { color: #737373; background: inherit; font-weight: bold; }
+h1 a, h2 a { text-decoration: none; }
+h1 a:hover, h2 a:hover { color: #FF6600; background: inherit; }
+h2 { margin: 0; padding: 0; font: bold 1.7em Arial, Sans-Serif; letter-spacing: -1px; }
+h2 { font-size: 1.5em; margin-bottom: 5px; color: #000; background: inherit; }
+
+p {	margin: 0 0 5px 0; }
+
+ul { margin: 0; padding : 0; list-style : none; }
+
+form { 	margin: 0; }
+
+input.search { 
+	width: 292px; 
+	border: 0;
+	background: #FFF url(input.gif) no-repeat;
+	padding: 4px; 
+	color: #E0691A;
+	font-weight: bold;
+	margin-bottom: 2px;
+}
+
+input.submit {
+	background: #E0691A url(submit.gif) no-repeat;
+	border: 0;
+	padding: 4px 0;
+	width: 65px;
+	margin: 0 15px 1px 0;
+	color: #FFF;
+	font: bold 1em Arial, Sans-Serif;
+	margin-bottom: 2px;
+}
+ 
+input.login { 
+	width: 150px;
+	border: none; 
+	
+	padding: 4px; 
+}
+
+/* layout
+   ------ */
+
+.content { 
+	margin: 0 auto;
+	width: 780px;
+	padding: 10px; 
+	background: #fff url(bottomback.gif) bottom repeat-x;
+}
+
+.header { 
+	height: 55px;
+	background: #eee;
+	color: #808080;
+	margin: 3px 0;
+	padding: 10px 0 0 0;
+	border-bottom: 1px solid #ccc;
+}
+
+.top_info {
+	float: right;
+	width: 200px;
+	padding: 5px 0 4px 0;
+	border-bottom: 1px solid #eee;
+	background: #eee; 
+	color: #808080;
+}
+
+
+	.top_info_right {
+		float: right;
+		width: 100%;
+		text-align:right;
+		padding: 0 0 0 35px;
+		border-left: 1px solid #eee;
+	}
+	.logo h1 {
+	   font-weight: 800;
+	   margin-top: 4px;
+	}
+	
+	.logo img {
+	  float: left;
+	  margin-left: 20px;
+	  margin-right: 10px;
+	  margin-top: -4px;
+	}
+
+.browse_category  {
+	font-size: 0.9em;
+	width: 190px;
+	color: #FFF;
+	background: inherit;
+}
+
+.bar { 
+	clear: both;
+	font-size: 1.1em;
+	height: 30px; 
+	color: #FFF;
+	margin: 0 0 0 0px; 
+	background: #FF9148;
+}
+
+	.bar li { 
+		margin: 0; 
+		padding: 7px 12px 5px 12px;
+		color: #FFEADC;
+		background: #FF9148;
+		float: left; 
+	}
+	
+	.bar li.active { 
+		background: #E0691A url(bar.gif) no-repeat center top; 
+		color: #fff;
+		font-weight: bold; 
+		padding: 7px 10px 6px 10px;
+	}
+	
+	.bar li a { 
+		font-weight: bold;
+		color: #FFF; 
+		background: inherit;
+		text-decoration: none;
+	} 
+	
+	.bar li a:hover { 
+		color: #E0691A; 
+		background: inherit;
+	} 
+
+.search_field { 
+	color: #404040;
+    width: 100%;
+	clear: both;
+	font-weight: bold;
+	padding-top: 4px;
+	padding-bottom: 10px;
+	margin: 0px;
+}
+
+.grey {
+	color: #808080;
+	background: inherit;
+	font-weight: normal;
+}
+
+.search_form { 
+}
+
+.subheader {
+	margin: 0px 0 10px 0;
+	border-bottom: 1px solid #eee;
+	padding: 5px 0 5px 0;
+	background: #A4A4A4;
+	color: #fff;
+}
+
+/* left side
+   --------- */
+
+.left {
+	float: left;
+	width: 78%;
+	margin: 0px 0px 10px 0px;
+}
+
+.left_splitted h3, .left h3, .search_field h3 {
+	clear: both;
+	background: #A9C0CE url(corner.gif) no-repeat top right;
+	color: #FFF;
+	padding: 7px 0 7px 5px;
+	font: bold 1em Tahoma, Arial, Sans-Serif;
+	margin: 0 2px 6px 0;
+}
+.left_side_addon {
+		float: left;
+		width: 180px;
+		padding: 0 0 0 10px;
+		margin: 10px 0;
+}
+
+.left_full {
+	clear: both;
+}
+		
+.left_side_addon a, .right_side_addon a { color: #414141; background: #FFF; }
+		
+.right_side_addon {
+		float: right;
+		width: 220px;
+		background: #FFF url(dotted.gif) repeat-y;
+		color: #414141;
+		padding: 0 0 0 40px;
+		margin: 10px 0;
+}
+		
+.left_box { margin: 1px 0 10px 4px; color: #000; background: #FFF; padding: 3px 0;}
+	
+/*
+  left splitted 
+*/	
+.left_splitted {
+	float: left;
+	width: 49%;
+	margin-left: 4px;
+}
+
+.left_splitted_box { float:left;  margin: 1px 0 10px 0; color: #000; background: #FFF; padding: 3px 0;}
+	
+.left_splitted h3 {
+	clear: both;
+	background: #A9C0CE url(corner.gif) no-repeat top right;
+	color: #FFF;
+	padding: 7px 0 7px 5px;
+	font: bold 1em Tahoma, Arial, Sans-Serif;
+	margin: 0 0 0 0;
+}
+	
+		
+/* right side
+   ---------- */
+		
+.right {
+	float: right;
+	width: 20.6%;
+	margin: 0 0 10px 0;
+}
+
+.right h3 {
+	background: #6C757A  url(corner.gif) no-repeat top right;;
+	color: #FFF;
+	padding: 7px 0 7px 5px;
+	font: bold 1em Tahoma, Arial, Sans-Serif;
+	margin: 0 0 3px 0;
+}
+
+	.right_articles {
+		background: #f5f5f5;
+		color: #414141;
+		padding: 8px;	
+		margin: 0 0 3px 0;
+	}
+	
+.image {
+	float: left;
+	margin: 0 9px 3px 0;
+}
+img {
+	border:none;
+}
+
+/* footer
+   ------ */
+
+.footer { 
+	clear: both;
+	text-align: center;
+	padding: 10px 0 10px 0;
+	margin: 0;
+	border-top: 1px solid #ccc;
+	line-height: 1.8em;
+
+}
+
+.footer a { color: #808080;  }
+
+ul.collectionBox ul { 
+   margin-left:6px; }
+.comp_body {
+  margin:1em;
+}
+.comp_simple { 
+  margin:1em;
+}
+
+.more  a {
+
+  text-decoration: none;
+  
+}
+
+ul.pointed li:before {
+
+  content: "\00BB \0020";
+  
+}
+
+fieldset {
+  border:none;
+}
+
+.InformationBoxComponent_ul {
+  margin: 0px;
+  list-style-type:none;
+}
+
+.LanguagesComponent_ul { margin:0; list-style:none; padding: 0; }
+.LanguagesComponent_ul li { float:right; color: #FFF; margin:0; padding:0 4px 0 4px; }
+
+.SimpleSearchComponentQuery {
+  margin: 4px auto;
+}
+
+.SimpleSearchComponentQueryInput{
+  width: 250px;
+}
+
+.SimpleSearchComponent {
+  margin:10px auto;
+  text-align:center;
+}
+
+
+.SimpleSearchComponent  .menuBar {
+  text-align: center;
+}
+
+div.menuBar a.menuButton {
+   text-decoration: underline;
+}
+
+.menuItem{
+  text-align:left;
+  text-decoration: none;
+}
+
+.SimpleSearchComponentWarning {
+	font-weight: 100;
+}
+
+
+div.title {
+  margin-left:1em;
+  margin-top:1em;
+}
+
+.more {
+  margin-left:4px;
+}
+
+.latest_form{
+  margin-top: 3em;
+  margin-left: 15%;
+  
+}
+
+.LatestEditionsComponent_rss_query_form span {
+   margin-left: 2em;
+}
+
+.rssBox {
+   text-align: right;
+   margin:0px;
+}
+
+.AdvancedSearchComponent {
+  width:90%;
+  margin: 10px auto;
+}
+.AdvancedSearchComponent .latest {
+   margin: 4px auto;
+}
+
+.AdvancedSearchComponent div {
+  margin: 10px auto;
+  width: 100%;
+}
+
+.AdvancedSearchComponent label {
+  display: inline;
+  float: none;
+}
+
+.PublicationMetadataComponent_pubtype {
+  width: 10em;
+  float: right;
+  margin-top: -31px;
+  color: #ff8000
+}
+
+.MetadataMenuComponent_deleted{
+	color: red;
+}
+
+.SearchResultDescription {
+  margin: 0px;
+  padding: 0px;
+}
+.SimpleSearchComponentLink{
+  margin-left: 2em;
+  font-weight: 100;
+}
+.SimpleSearchComponentLink a{
+  display: inline;
+}
+
+.SearchResult {
+  width: 100%;
+  border: 1px solid #efefef; 
+  margin-bottom: 2px;
+}
+.SearchResult div {
+  margin-left: 4px;
+}
+
+.OAIPMHLinkComponent {
+  text-align: center;
+}
+
+.CollectionsPubsComponentList .SearchResult  {
+   padding-bottom:1ex;
+   background-color:  #fff;
+   border:none;
+}
+
+.wildcard {
+  color: #ff8000;
+}
+
+.AdvancedSearchComponent_input
+{
+   width: 250px;
+}
+
+.appform label{
+  display: block;
+  width: 100px;
+}
+.EditionMetadataComponentContent{
+	float:right;
+	margin-right:4px;
+}
+
+.EditionMetadataComponentContent span {
+  font-weight:800;
+  text-decoration:none;
+  text-align: center;
+}
+.empty_space {
+  width: 38px;
+}
+
+#struct a {
+  color: #ff8000;
+}
+ 
+#struct ul ul {
+  margin-left: 2em;
+}
+
+ 
+.RSSComponent {
+  list-style-type:none;
+  margin:0px
+}
+
+#login_div {
+ position:absolute;
+ width:500px;
+ height:150px;
+ background:white;
+ top:300px;
+ display: none;
+ border-style:solid;
+ border-width:2px;
+ z-index: 9999;
+}

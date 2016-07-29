@@ -1,0 +1,25 @@
+#if("${servletName}" == "epServlet" || "${servletName}" == "efServlet")
+<div id="addErrorComponent">
+	<img src="${homepageUrl}/style/dlibra/${styleVariant}/404.png" style="float:right;" />
+	<h1 style="line-height:150%">${res.getProperty("ErrorComponent.NoContent")}</h1> 
+	#if($servletName == "efServlet")
+	<p>${res.getProperty("ErrorComponent.NoContent.Ef.Expl")}</p>
+	#else
+	<p>${res.getProperty("ErrorComponent.NoContent.Ep.Expl")}</p>
+	#end
+</div>
+#else
+<div id="errorComoponent"> 
+    <img id="errorComponentIcon" src="${homepageUrl}/style/common/img/icons/warning_big.png"/>
+	<h2>${res.getProperty("ErrorComponent.DivTitle")}</h2>
+	<script type="text/javascript"><!--
+    	if (window != top) top.location.href = location.href;
+    // --></script>
+    <p>
+        ${res.getProperty("ErrorComponent.Description")}:
+    </p>
+    <p>
+    	$!{errorMessage.Info}
+    </p>
+</div>
+#end

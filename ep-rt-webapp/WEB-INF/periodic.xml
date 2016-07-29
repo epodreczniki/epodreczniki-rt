@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<periodic-tasks>
+	<!--periodic-task logicClass="pl.psnc.dlibra.web.comp.periodic.JCRBackupTask" executeOnStart="no">
+		<expression>0 0 23 * * ?</expression>
+		<properties>
+			<property>
+				<name>jcr.backup.dir</name>
+				<value>/home/dlibra/e-podreczniki/webapp-work/jcr-backup/</value>
+				<description>Path to JCR backup destination directory. Path should end with '/'.</description>
+			</property>
+			<property>
+				<name>copies.amount</name>
+				<value>4</value>
+				<description>Specifies how many different copies of backup can be stored at once</description>
+			</property>
+		</properties>
+		<description>Task is responsible for backup of JCR stored data</description>
+	</periodic-task-->
+	<periodic-task logicClass="pl.psnc.dlibra.web.comp.periodic.ExhibitedCollectionsRefreshTask" executeOnStart="no">
+		<expression>0 0 23 * * ?</expression>
+		<description>Task is refreshing exhibited collections cache</description>
+	</periodic-task>
+	<!-- Publication upload mechanism tasks -->
+	
+	<periodic-task logicClass="pl.psnc.dlibra.web.comp.periodic.PublicationUploadCleanupTask" executeOnStart="no">
+		<expression>0 0 23 * * ?</expression>
+		<description>Task is cleaning temporary folders of publication upload.</description>
+	</periodic-task>
+	
+	<periodic-task logicClass="pl.psnc.dlibra.web.comp.periodic.RefreshControlledAttributesTask" executeOnStart="yes">
+		<expression>3600000</expression>
+		<description>Refreshing list of controlled attributes used in publication upload form.</description>
+	</periodic-task>
+	
+	<periodic-task logicClass="pl.psnc.dlibra.web.comp.periodic.RSSGenerationTask" 
+	  executeOnStart="yes">
+		<properties>
+			<property>
+				<name>feeds</name>
+				<!--<value>latest:pl.psnc.dlibra.web.comp.rss.sources.LatestEditionsRSSSource,planned:pl.psnc.dlibra.web.comp.rss.sources.PlannedPublicationsRSSSource,news:pl.psnc.dlibra.web.comp.rss.sources.NewsRSSSource</value>-->
+				<value></value>
+				<description>List of feeds that should be generated. Value of
+					this property should be formatted in the following way:
+				[feed_id]:[feed class].</description>
+			</property>
+		</properties>
+		<expression>3600000</expression>
+		<description>Generates RSS feeds into static files.</description>
+	</periodic-task>
+	<periodic-task logicClass="pl.psnc.dlibra.web.comp.periodic.StatsDataGenerationTask"	
+	  executeOnStart="no">
+		<properties>
+			<property>
+				<name>attributeIds</name>
+				<value></value>
+				<description>Comma separated list of attribute identifiers. The
+					identifiers can be found in administrators application in
+					attributes management section.</description>
+			</property>
+		</properties>
+		<expression>0 0 3 * * ?</expression>	
+		<description>Pregenerates data for attribute statisitcs.</description>
+	</periodic-task>
+	<periodic-task logicClass="pl.psnc.dlibra.web.comp.periodic.StatsSavingTask" 
+	  executeOnExit="yes">
+		<description>Saves stats to database that are gathered in RAM for
+			better performance.</description>
+		<expression>1800000</expression>	
+	</periodic-task>
+	<periodic-task
+		logicClass="pl.psnc.dlibra.web.comp.periodic.StatPresentationGenerationTask"
+		 executeOnStart="no">
+		<description>Generates statistics charts.</description>
+		<expression>0 0 0 * * ?</expression>	
+	</periodic-task>
+	<!-- Long term cache is initialized during start in special thread. There
+	     is no need to initialize it here on startup again! -->
+	<periodic-task
+		logicClass="pl.psnc.dlibra.web.comp.periodic.LongTermCacheRefreshingTask"
+		executeOnStart="no">
+		<description>Refreshes long term data gathered in webapp cache.</description>
+		<expression>0 0 1 * * ?</expression>	
+	</periodic-task>
+	<periodic-task
+		logicClass="pl.psnc.dlibra.web.comp.periodic.ShortTermCacheRefreshingTask"
+		 executeOnStart="yes">
+		<description>Refreshes short term data gathered in webapp cache.</description>
+		<expression>21600000</expression>	
+	</periodic-task>
+	<periodic-task
+		logicClass="pl.psnc.dlibra.web.comp.periodic.AccountCleanupTask"
+		  executeOnStart="no">
+		<description>Removes not activated user accounts.</description>
+		<expression>0 0 0 * * ?</expression>	
+	</periodic-task>
+	<periodic-task logicClass="pl.psnc.dlibra.web.comp.periodic.BulletinsSendingTask"
+		 executeOnStart="no">
+		<properties>
+			<property>
+				<name>NoOfEmailsInBCC</name>
+				<value>50</value>
+				<description>Number of email recipients that sholud be included
+					in single bulletin e-mail in BCC field. </description>
+			</property>
+		</properties>
+		<description>Sends news bulletins.</description>
+		<expression>0 0 4 * * ?</expression>	
+	</periodic-task>	
+	<periodic-task logicClass="pl.psnc.dlibra.web.comp.periodic.SearchPluginGenerationTask"
+		 executeOnStart="yes">
+		<properties>
+			<property>
+				<name>SearchPluginTemplatePath</name>
+				<value>commons/search.xml.vm</value>
+				<description>Path to a template for search plugin content.</description>
+			</property>
+			<property>
+				<name>FFSearchPluginIconPath</name>
+				<value>/style/dlibra/search_plugin.jpg</value>
+				<description>Path to an icon for FF search plugin.</description>
+			</property>
+		</properties>		
+		<description>Generates firefox and ie search plugins</description>
+		<expression>0 0 5 * * ?</expression>	
+	</periodic-task>
+<!--
+	<periodic-task logicClass="pl.psnc.dlibra.web.comp.periodic.NewsImportTask"
+		 executeOnStart="yes">
+		<description>Checks feed url given in configuration, and imports news from that feed.</description>
+		<properties>
+			<property>
+				<name>feed.url</name>
+				<value>http://dlibra.psnc.pl/index.php?option=com_rss&amp;feed=RSS2.0&amp;no_html=1</value>
+				<description></description>
+			</property>
+			<property>
+				<name>add.post.link.to.blog</name>
+				<value>true</value>
+				<description></description>
+			</property>
+			<property>
+				<name>full</name>
+				<value>feed_description</value>
+				<description></description>
+			</property>
+			<property>
+				<name>short</name>
+				<value>feed_description</value>
+				<description></description>
+			</property>
+			<property>
+				<name>publish.in.all.languages</name>
+				<value>false</value>
+				<description></description>
+			</property>
+			<property>
+				<name>blog.language</name>
+				<value>pl</value>
+				<description></description>
+			</property>
+			<property>
+				<name>start.date</name>
+				<value>17.07.2007</value>
+				<description></description>
+			</property>
+		</properties>
+		<expression>3600000</expression>
+	</periodic-task>	-->
+  <periodic-task  logicClass="pl.psnc.dlibra.web.comp.gossip.GossipIndexRefreshingTask" executeOnStart="no">
+    <description>Refreshes gossip index.</description>
+    <expression>0 0 22 ? * SUN</expression>
+  </periodic-task>	
+	<periodic-task logicClass="pl.psnc.dlibra.web.comp.periodic.SecurableMimetypesRefreshTask"
+		 executeOnStart="no">
+		<description>Check whether securable mimetypes are set for this instance of 
+					 service ps, if not this task correct this.</description>
+		<expression>0 30 * * * ?</expression>	
+	</periodic-task>	
+	<periodic-task logicClass="pl.psnc.dlibra.web.comp.periodic.UserProfilesSavingTask"
+		 executeOnExit="yes" >
+		<description>Saves changes in user profiles and discards inactive user's session.</description>
+		<expression>0 0/1 * * * ?</expression>	
+	</periodic-task>	
+        <periodic-task logicClass="pl.psnc.dlibra.web.comp.periodic.UserPreferencesConsistencyCheckTask"
+		 executeOnStart="no" >
+		<description>Checks consistency of local user information.</description>
+		<expression>0 30 5 * * ?</expression>	
+	</periodic-task>	
+	<periodic-task logicClass="pl.psnc.dlibra.web.comp.periodic.IgnoredAgentsUpdatingTask"
+		 executeOnStart="yes" >
+		<description>Updates list of ignored agents.</description>
+			<properties>
+			<property>
+				<name>list.url</name>
+				<value>http://dlibra.psnc.pl/ignored_agents.txt</value>
+				<description>Url to file with list of ignored agents.</description>
+			</property>
+			</properties>
+		<expression>0 0 0 1/10 * ?</expression>
+	</periodic-task>
+	<periodic-task logicClass="pl.psnc.dlibra.web.comp.periodic.SitemapGeneratingTask"
+		 executeOnStart="yes" >
+		<description>Generates sitemap.</description>
+		<expression>0 0 0 1/10 * ?</expression>
+	</periodic-task>
+	<!--   
+	<periodic-task logicClass="pl.psnc.dlibra.web.guanxi.engine.periodic.IdpMetadataDownloaderTask"
+       executeOnStart="no">
+		<description></description>
+		<expression>0 1 0 * * ?</expression>
+	</periodic-task>
+	<periodic-task logicClass="pl.psnc.dlibra.web.guanxi.idp.periodic.SPListDownloadingTask"
+       executeOnStart="no">
+		<description></description>
+		<expression>0 2 0 * * ?</expression>
+	</periodic-task>
+	<periodic-task logicClass="pl.psnc.dlibra.web.guanxi.idp.periodic.IdPConfigurationReloadingTask"
+       executeOnStart="no">
+		<description></description>
+		<expression>0 3 0 * * ?</expression>
+	</periodic-task>
+	<periodic-task logicClass="pl.psnc.dlibra.web.guanxi.engine.periodic.MetadataLoaderTask"
+       executeOnStart="no">
+		<description></description>
+		<expression>0 4 0 * * ?</expression>
+	</periodic-task>
+	<periodic-task logicClass="pl.psnc.dlibra.web.guanxi.sec.TruststoreDownloadingTask"
+       executeOnStart="no">
+		<description></description>
+		<expression>0 5 0 * * ?</expression>
+	</periodic-task>
+	<periodic-task logicClass="pl.psnc.dlibra.web.guanxi.idp.register.IdentityConfigurator"
+       executeOnStart="no">
+		<description></description>
+		<expression>0 0 0 29 2 ?</expression>   
+	</periodic-task>
+	-->
+</periodic-tasks>

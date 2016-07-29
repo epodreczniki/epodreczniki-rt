@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp href="..${servletName}/rt-app#if(!$homepageUrl.startsWith("https"))-insecure#end.jnlp" spec="1.0+" 
+	codebase="${homepageUrl}/jnlp">
+	<information>
+		<title>E-podręczniki: Aplikacja Redaktora</title>
+		<vendor>Poznańskie Centrum Supekomputerowo Sieciowe</vendor>
+		<homepage href="http://epo.pl"/>
+		<icon href="${homepageUrl}/jnlp-config/softIcon.gif"/>
+		<icon kind="splash" href="${homepageUrl}/jnlp-config/softLogo.gif"/>
+		<description>Aplikacja dla Autorów i Redaktorów E-podręczników, służąca do wprowadzania danych do Repozytorium Treści.</description>
+		<shortcut online="true">
+			<desktop/>
+			<menu submenu="E-Podręczniki AR"/>
+		</shortcut>
+	</information>
+	<security>
+		<all-permissions/>
+	</security>
+	<resources>
+		<j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se" max-heap-size="1024m" initial-heap-size="64m" java-vm-args="-Djava.net.preferIPv4Stack=true"/>
+		<jar main="true" href="${jnlpCpMainEntry}"/>
+	#foreach($jnlpCpEntry in $jnlpCpEntries)
+		<jar href="${jnlpCpEntry.getName()}"/>
+    #end
+	</resources>
+	<application-desc main-class="pl.psnc.dlibra.app.Bootstrap">
+		<argument>-h${jnlpServer}</argument>
+		<argument>-p${jnlpPort}</argument>		
+		<argument>-w${serviceId}</argument>
+		<argument>-c${contentPort}</argument>
+		<argument>-e${helpEmail}</argument>
+		<argument>-r${homepageUrl}${mainServletName}</argument>
+#if(${jnlpUser} != "public")
+		<argument>-u${jnlpUser}</argument>
+#end
+#if(${jnlpConfigURL})
+		<argument>-d${jnlpConfigURL}</argument>
+#end
+	</application-desc>
+</jnlp>

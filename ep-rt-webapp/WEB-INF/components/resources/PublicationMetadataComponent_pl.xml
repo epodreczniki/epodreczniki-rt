@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="PublicationMetadataComponent.PermanentlyDeleted">Obiekt usunięty</entry>
+<entry key="PublicationMetadataComponent.Deleted">Treść obiektu została usunięta</entry>
+<entry key="PublicationMetadataComponent.Planned">Publikacja planowana</entry>
+<entry key="PublicationMetadataComponent.Title">Opis podręcznika</entry>
+<entry key="PublicationMetadataComponent.OpeningDefault">Trwa otwieranie jedynego wydania publikacji...</entry>
+<entry key="PublicationMetadataComponent.AvailableEditions">Lista wydań publikacji</entry>
+<entry key="PublicationMetadataComponent.Show.Structure">Pokaż strukturę podręcznika!</entry>
+<entry key="PublicationMetadataComponent.Show.Comment">Pokaż komentarz</entry>
+<entry key="PublicationMetadataComponent.NoEditions">Brak edycji</entry>
+</properties>

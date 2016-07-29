@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="AddPublicTagComponent.Title"><![CDATA[#if ( !${isEditionDeleted} )
+         Otaguj 
+         #if ( $userLoggedIn && !$isRestrictedUser)
+          <a id="mainVisibilityChanger" href="javascript:changeMainDivVisibility()">
+            (pokaż formularz)
+          </a>
+         #end 
+     #end]]></entry>
+<entry key="AddPublicTagComponent.expl">Kolejne tagi rozdziel przecinkami.</entry>
+<entry key="AddPublicTagComponent.form.submit">Zatwierdź</entry>
+<entry key="AddPublicTagComponent.form.input.expl">Twoje propozycje:</entry>
+<entry key="AddPublicTagComponent.form.show">pokaż formularz</entry>
+<entry key="AddPublicTagComponent.form.hide">ukryj formularz</entry>
+<entry key="AddPublicTagComponent.user.suggestions">Twoje słowa kluczowe dla tego wydania:</entry>
+<entry key="AddPublicTagComponent.removing.success">Słowo kluczowe zostało usunięte.</entry>
+<entry key="AddPublicTagComponent.removing.error">Słowo kluczowe nie zostało usunięte.</entry>
+<entry key="AddPublicTagComponent.adding.not.all.added">Niektóre propozycje nie mogły zostać dodane.</entry>
+<entry key="AddPublicTagComponent.adding.success">Twoje propozycje zostaną uwzględnione.</entry>
+<entry key="AddPublicTagComponent.adding.error">Nie udało się dodać propozycji słowa kluczowego.</entry>
+<entry key="AddPublicTagComponent.adding.duplicate">Zaproponowałeś już to słowo dla tego wydania.</entry>
+<entry key="AddPublicTagComponent.login.expl">Po zalogowaniu będziesz mógł zaproponować nowe słowa kluczowe dla tego wydania.</entry>
+<entry key="AddPublicTagComponent.login.link">Zaloguj się!</entry>
+<entry key="AddPublicTagComponent.refresh.error">Błąd podczas odświeżania listy!</entry>
+</properties>

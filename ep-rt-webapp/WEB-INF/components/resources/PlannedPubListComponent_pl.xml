@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="PlannedPubListComponent.Introduction">Poniżej znajduje się lista publikacji, które planujemy wkrótce udostępnić czytelnikom.</entry>
+<entry key="PlannedPubListComponent.No-at-all">Brak planowanych publikacji...</entry>
+<entry key="PlannedPubListComponent.Prompt">Wybierz interesującą Cię publikację</entry>
+<entry key="PlannedPubListComponent.No-for-letter">Brak planowanych publikacji zaczynających sie na wybraną literę.</entry>
+<entry key="PlannedPubListComponent.Title">Plany wprowadzania publikacji : ${collection.Label}</entry>
+</properties>

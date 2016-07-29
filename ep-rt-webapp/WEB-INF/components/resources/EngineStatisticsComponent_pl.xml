@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="EngineStatisticsComponent.engine-stats.NoOfPagesDisplayed">Liczba wygenerowanych stron WWW</entry>
+<entry key="EngineStatisticsComponent.engine-stats.StartDate">Statystyki zbierane sa od czasu ostatniego restartu serwera WWW</entry>
+<entry key="EngineStatisticsComponent.Title">Statystyki mechanizmu WWW</entry>
+<entry key="EngineStatisticsComponent.engine-stats.AvgPageGenerationTime">Średni czas generowania strony</entry>
+</properties>

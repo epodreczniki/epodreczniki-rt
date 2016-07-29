@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project>
+	<extend>../project.xml</extend>
+
+	<artifactId>ep-rt-tools</artifactId>
+	<name>E-podręczniki: narzędzia lnii komend</name>
+	<description>Zestaw narzędzi do interakcji z Repozytorium Treści przez
+		pozostałe systemy.</description>
+
+	<dependencies>
+		<dependency>
+			<artifactId>dlibra-common-base</artifactId>
+			<groupId>${dlibra.groupId}</groupId>
+			<version>${dlibra.version}</version>
+			<url>http://dlibra.psnc.pl/</url>
+			<properties>
+				<eclipse.dependency>true</eclipse.dependency>
+			</properties>
+		</dependency>
+		<dependency>
+			<artifactId>dlibra-app-base</artifactId>
+			<groupId>${dlibra.groupId}</groupId>
+			<version>${dlibra.version}</version>
+			<url>http://dlibra.psnc.pl/</url>
+			<properties>
+				<eclipse.dependency>true</eclipse.dependency>
+			</properties>
+		</dependency>
+		<dependency>
+			<artifactId>dlibra-app-util</artifactId>
+			<groupId>${dlibra.groupId}</groupId>
+			<version>${dlibra.version}</version>
+			<url>http://dlibra.psnc.pl/</url>
+			<properties>
+				<eclipse.dependency>true</eclipse.dependency>
+			</properties>
+		</dependency>
+		<dependency>
+			<artifactId>dlibra-app-extension-api</artifactId>
+			<groupId>${dlibra.groupId}</groupId>
+			<version>${dlibra.version}</version>
+			<url>http://dlibra.psnc.pl/</url>
+			<properties>
+				<eclipse.dependency>true</eclipse.dependency>
+			</properties>
+		</dependency>
+		<dependency>
+			<artifactId>ep-rt-app-extension-mf-xml</artifactId>
+			<groupId>epodreczniki-rt</groupId>
+			<version>${pom.currentVersion}</version>
+			<type>extension</type>
+			<jar>ep-rt-app-extension-mf-xml-${pom.currentVersion}.jar</jar>
+		</dependency>
+		<dependency>
+			<artifactId>ep-rt-common</artifactId>
+			<groupId>epodreczniki-rt</groupId>
+			<version>${pom.currentVersion}</version>
+			<properties>
+				<eclipse.dependency>true</eclipse.dependency>
+			</properties>
+		</dependency>
+		<dependency>
+			<artifactId>dlibra-common-services</artifactId>
+			<groupId>${dlibra.groupId}</groupId>
+			<version>${dlibra.version}</version>
+			<url>http://dlibra.psnc.pl/</url>
+			<properties>
+				<eclipse.dependency>true</eclipse.dependency>
+			</properties>
+		</dependency>
+		<dependency>
+			<artifactId>dlibra-common-utils</artifactId>
+			<groupId>${dlibra.groupId}</groupId>
+			<version>${dlibra.version}</version>
+			<url>http://dlibra.psnc.pl/</url>
+			<properties>
+				<eclipse.dependency>true</eclipse.dependency>
+			</properties>
+		</dependency>
+		<!-- Other jars -->
+		<dependency>
+			<id>log4j</id>
+			<version>1.2.17</version>
+			<url>http://logging.apache.org/log4j/</url>
+			<properties>
+				<comment>License: Apache License, Version 2.0</comment>
+			</properties>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.jpf</groupId>
+			<artifactId>jpf</artifactId>
+			<version>1.5</version>
+			<url>http://jpf.sourceforce.net</url>
+			<properties>
+				<comment>License: LGPL</comment>
+			</properties>
+		</dependency>
+		<dependency>
+			<groupId>com.martiansoftware</groupId>
+			<artifactId>jsap</artifactId>
+			<version>2.1</version>
+			<url>http://sourceforge.net/projects/jsap</url>
+			<properties>
+				<jnlp.jar>true</jnlp.jar>
+				<comment>License: LGPL</comment>
+			</properties>
+		</dependency>
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.2.1</version>
+			<url>http://jakarta.apache.org/commons/collections/</url>
+			<properties>
+				<comment>License: Apache License, Version 2.0</comment>
+			</properties>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+			<url>http://jakarta.apache.org/commons/lang/</url>
+			<properties>
+				<comment>License: Apache License, Version 2.0</comment>
+			</properties>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.2</version>
+			<url>http://jakarta.apache.org/commons/logging/</url>
+			<properties>
+				<comment>License: Apache License, Version 2.0</comment>
+			</properties>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.1.3</version>
+			<properties>
+				<comment>License: Apache License, Version 2.0</comment>
+			</properties>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+			<version>4.1.3</version>
+			<properties>
+				<comment>License: Apache License, Version 2.0</comment>
+			</properties>
+		</dependency>
+	<dependency>
+		<groupId>velocity</groupId>
+		<artifactId>velocity</artifactId>
+		<version>1.4</version>
+		<url>http://jakarta.apache.org/velocity/
+		</url>
+		<properties>
+			<comment>License: Apache License, Version 2.0</comment>
+		</properties>
+	</dependency>
+	</dependencies>
+	<build>
+		<sourceDirectory>${basedir}/src/java</sourceDirectory>
+	</build>
+</project>

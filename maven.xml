@@ -1,0 +1,46 @@
+<project xmlns:maven="jelly:maven" xmlns:j="jelly:core"
+	xmlns:util="jelly:util" xmlns:x="jelly:xml" xmlns:ant="jelly:ant"
+	xmlns:velocity="jelly:velocity" xmlns:doc="doc" xmlns:artifact="artifact">
+
+	<goal name="cleanall">
+		<maven:reactor basedir="${basedir}" banner="Cleaning: "
+			includes="*/project.xml" postProcessing="true" ignoreFailures="false"
+			goals="clean" />
+	</goal>
+
+	<goal name="installall">
+		<maven:reactor basedir="${basedir}" banner="Building: "
+			includes="*/project.xml" postProcessing="true" ignoreFailures="false"
+			goals="install" />
+	</goal>
+
+	<goal name="eclipseall">
+		<maven:reactor basedir="${basedir}" banner="Building: "
+			includes="*/project.xml" postProcessing="true" ignoreFailures="false"
+			goals="eclipse" />
+	</goal>
+
+	<!-- Plugin building -->
+	<goal name="plugin:build">
+		<mkdir dir="${maven.build.dir}/${maven.final.name}" />
+		<j:forEach var="dep" items="${pom.dependencies}">
+			<j:if test="${dep.type.equals('jar') &amp;&amp; ! dep.getProperty('dist.skip').equals('true')}">
+				<copy file="${maven.repo.local}/${dep.artifactDirectory}/${dep.type}s/${dep.artifact}" tofile="${maven.build.dir}/${maven.final.name}/lib/${dep.artifact}" overwrite="true" />
+			</j:if>
+		</j:forEach>
+		<j:if test="${skipPluginJar != 'true'}">
+			<j:set var="jarName" value="${maven.jar.final.name}" />
+			<copy file="${maven.build.dir}/${maven.jar.final.name}" tofile="${maven.build.dir}/${maven.final.name}/${maven.jar.final.name}" overwrite="true" />
+		</j:if>
+		<util:file var="outFile" name="${maven.build.dir}/${maven.final.name}/plugin.xml" />
+		<velocity:merge basedir="${maven.src.dir}" inputEncoding="UTF-8" name="${outFile}" outputEncoding="UTF-8" readOnly="true" template="etc/plugin.xml" />
+		<delete file="${maven.build.dir}/${maven.final.name}.${pluginExtension}"/>
+		<zip destfile="${maven.build.dir}/${maven.final.name}.${pluginExtension}" basedir="${maven.build.dir}/${maven.final.name}" comment="${pom.shortDescription}" overwrite="true" />
+	
+	<j:useBean
+			var="typeHandler" mavenArtifactExtension="${pluginExtension}"
+			class="pl.psnc.dlibra.maven.artifact.deployer.AnyNameArtifactTypeHandler" />
+		<artifact:install artifact="${maven.build.dir}/${maven.final.name}.${pluginExtension}"
+			type="extension" project="${pom}" typeHandler="${typeHandler}" />
+	</goal>
+</project>

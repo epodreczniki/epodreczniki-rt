@@ -1,0 +1,38 @@
+<table border="1" cellspacing="0" cellpadding="5" summary="WOMI_REFERENCE_$!{womiType}_${OAI-ID}">
+
+<tr>
+	<td colspan="2">
+		<small><font style="color:green">${res.getProperty("AttrTable.Info1")}</font></small>
+	</td>
+</tr>
+
+<tr>
+	<td><small><b>${res.getProperty("AttrTable.maxWidth")}</b></small></td>
+	<td><small><font style="color:green">100</font></small></td>
+</tr>
+
+<tr>
+	#if($isEdition)
+		#set($imageUrl = "${homepageUrl}/image/edition/${ElementId}")
+	#else
+		#set($imageUrl = "${homepageUrl}/image/publication/${ElementId}")
+	#end
+	<td rowspan="$imageRowSpan"><img src="${imageUrl}" width="150" alt="${OAI-ID}"/></td>
+	<td><small><b>${res.getProperty("AttrTable.ID")}:</b> ${OAI-ID}</small></td>
+</tr>
+
+#foreach ($attr in $attributeValues.entrySet())
+	<tr><td><small><b>${attr.key}:</b>
+	#if($attr.value.size() == 1)
+		$attr.value.get(0)
+	#else
+		<ul>
+		#foreach ($val in $attr.value)
+			<li>$val</li>
+		#end
+		</ul>
+	#end
+	</small></td></tr>
+#end
+
+</table>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="VotesRankingComponent.Title">Oceny użytkowników</entry>
+<entry key="VotesRankingComponent.ranking.empty.editions">Lista ocenionych wydań jest pusta</entry>
+<entry key="VotesRankingComponent.ranking.empty.group">Lista ocenionych publikacji grupowych jest pusta</entry>
+<entry key="VotesRankingComponent.ranking.editions">Wydania</entry>
+<entry key="VotesRankingComponent.ranking.group">Publikacje grupowe</entry>
+<entry key="VotesRankingComponent.refresh.error">Wystąpił nieoczekiwany błąd</entry>
+<entry key="VotesRankingComponent.votesFor">ocen pozytywnych</entry>
+</properties>
+

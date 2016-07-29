@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="MyPublicationsComponent.Title">Twoje publikacje</entry>
+<entry key="MyPublicationsComponent.Status">Stan</entry>
+<entry key="MyPublicationsComponent.Status.1">Usunięta treść</entry>
+<entry key="MyPublicationsComponent.Status.2">Usunięta</entry>
+<entry key="MyPublicationsComponent.Status.8">Opublikowana</entry>
+<entry key="MyPublicationsComponent.Status.16">Korekta</entry>
+<entry key="MyPublicationsComponent.Status.4">Nieopublikowana (do zatwierdzenia)</entry>
+<entry key="MyPublicationsComponent.NoCollection">Niewidoczna (nieprzypisana do kolekcji)</entry>
+<entry key="MyPublicationsComponent.Name">Nazwa publikacji</entry>
+<entry key="MyPublicationsComponent.Comment">Komentarz administratora</entry>
+<entry key="MyPublicationsComponent.Messages">Wiadomości</entry>
+<entry key="MyPublicationsComponent.NoResult">Brak publikacji</entry>
+</properties>

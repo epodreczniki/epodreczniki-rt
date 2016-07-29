@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<values xmlns:ep="http://epodreczniki.pl/">
+	<option>
+		<key>Przyroda (Szkoła podstawowa)</key>
+		<value>
+			<!--Wygenerowano 2014-11-20T15:47:57.884+01:00-->
+			<ep:learning-objectives>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E2">Etap 2</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="PODST">Szkoła podstawowa, kl.4-6</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="PRZYR">Przyroda</ep:learning-objective-subject>
+					<ep:learning-objective-name ep:key="CEL-E2-PODST-PRZYR-1.0-I">Zaciekawienie światem przyrody.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń stawia pytania dotyczące zjawisk zachodzących w przyrodzie, prezentuje postawę badawczą w poznawaniu prawidłowości świata przyrody przez poszukiwanie odpowiedzi na pytania: "dlaczego?", "jak jest?", "co się stanie, gdy?".</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E2">Etap 2</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="PODST">Szkoła podstawowa, kl.4-6</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="PRZYR">Przyroda</ep:learning-objective-subject>
+					<ep:learning-objective-name ep:key="CEL-E2-PODST-PRZYR-1.0-II">Stawianie hipotez na temat zjawisk i procesów zachodzących w przyrodzie i ich weryfikacja.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń przewiduje przebieg niektórych zjawisk i procesów przyrodniczych, wyjaśnia proste zależności między zjawiskami; przeprowadza obserwacje i doświadczenia według instrukcji, rejestruje ich wyniki w różnej formie oraz je objaśnia, używając prawidłowej terminologii.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E2">Etap 2</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="PODST">Szkoła podstawowa, kl.4-6</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="PRZYR">Przyroda</ep:learning-objective-subject>
+					<ep:learning-objective-name ep:key="CEL-E2-PODST-PRZYR-1.0-III">Praktyczne wykorzystanie wiedzy przyrodniczej.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń orientuje się w otaczającej go przestrzeni przyrodniczej i kulturowej; rozpoznaje sytuacje zagrażające zdrowiu i życiu oraz podejmuje działania zwiększające bezpieczeństwo własne i innych, świadomie działa na rzecz ochrony własnego zdrowia.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E2">Etap 2</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="PODST">Szkoła podstawowa, kl.4-6</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="PRZYR">Przyroda</ep:learning-objective-subject>
+					<ep:learning-objective-name ep:key="CEL-E2-PODST-PRZYR-1.0-IV">Poszanowanie przyrody.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń zachowuje się w środowisku zgodnie z obowiązującymi zasadami; działa na rzecz ochrony przyrody i dorobku kulturowego społeczności.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E2">Etap 2</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="PODST">Szkoła podstawowa, kl.4-6</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="PRZYR">Przyroda</ep:learning-objective-subject>
+					<ep:learning-objective-name ep:key="CEL-E2-PODST-PRZYR-1.0-V">Obserwacje, pomiary i doświadczenia.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń korzysta z różnych źródeł informacji (własnych obserwacji, badań, doświadczeń, tekstów, map, tabel, fotografii, filmów), wykonuje pomiary i korzysta z instrukcji (słownej, tekstowej i graficznej); dokumentuje i prezentuje wyniki obserwacji i doświadczeń; stosuje technologie informacyjno-komunikacyjne.</ep:learning-objective-text>
+				</ep:learning-objective>
+			</ep:learning-objectives>
+		</value>
+	</option>
+	<option>
+		<key>Biologia (Gimnazjum)</key>
+		<value>
+			<!--Wygenerowano 2014-11-20T15:47:57.884+01:00-->
+			<ep:learning-objectives>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E3">Etap 3</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="GIM">Gimnazjum</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="BIOL">Biologia</ep:learning-objective-subject>
+					<ep:learning-objective-name ep:key="CEL-E3-GIM-BIOL-1.0-I">Znajomość różnorodności biologicznej i podstawowych procesów biologicznych.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń opisuje, porządkuje i rozpoznaje organizmy, wyjaśnia zjawiska i procesy biologiczne zachodzące w wybranych organizmach i w środowisku, przedstawia i wyjaśnia zależności między organizmem a środowiskiem, wskazuje ewolucyjne źródła różnorodności biologicznej.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E3">Etap 3</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="GIM">Gimnazjum</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="BIOL">Biologia</ep:learning-objective-subject>
+					<ep:learning-objective-name ep:key="CEL-E3-GIM-BIOL-1.0-II">Znajomość metodyki badań biologicznych.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń planuje, przeprowadza i dokumentuje obserwacje i proste doświadczenia biologiczne; określa warunki doświadczenia, rozróżnia próbę kontrolną i badawczą, formułuje wnioski; przeprowadza obserwacje mikroskopowe preparatów świeżych i trwałych.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E3">Etap 3</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="GIM">Gimnazjum</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="BIOL">Biologia</ep:learning-objective-subject>
+					<ep:learning-objective-name ep:key="CEL-E3-GIM-BIOL-1.0-III">Poszukiwanie, wykorzystanie i tworzenie informacji.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń wykorzystuje różnorodne źródła i metody pozyskiwania informacji, w tym technologię informacyjno-komunikacyjną, odczytuje, analizuje, interpretuje i przetwarza informacje tekstowe, graficzne, liczbowe, rozumie i interpretuje pojęcia biologiczne, zna podstawową terminologię biologiczną.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E3">Etap 3</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="GIM">Gimnazjum</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="BIOL">Biologia</ep:learning-objective-subject>
+					<ep:learning-objective-name ep:key="CEL-E3-GIM-BIOL-1.0-IV">Rozumowanie i argumentacja.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń interpretuje informacje i wyjaśnia zależności przyczynowo-skutkowe między faktami, formułuje wnioski, formułuje i przedstawia opinie związane z omawianymi zagadnieniami biologicznymi.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E3">Etap 3</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="GIM">Gimnazjum</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="BIOL">Biologia</ep:learning-objective-subject>
+					<ep:learning-objective-name ep:key="CEL-E3-GIM-BIOL-1.0-V">Znajomość uwarunkowań zdrowia człowieka.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń analizuje związek pomiędzy własnym postępowaniem a zachowaniem zdrowia (prawidłowa dieta, aktywność ruchowa, badania profilaktyczne) oraz rozpoznaje sytuacje wymagające konsultacji lekarskiej; rozumie znaczenie krwiodawstwa i transplantacji narządów.</ep:learning-objective-text>
+				</ep:learning-objective>
+			</ep:learning-objectives>
+		</value>
+	</option>
+	<option>
+		<key>Chemia (Gimnazjum)</key>
+		<value>
+			<!--Wygenerowano 2014-11-20T15:47:57.884+01:00-->
+			<ep:learning-objectives>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E3">Etap 3</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="GIM">Gimnazjum</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="CHEM">Chemia</ep:learning-objective-subject>
+					<ep:learning-objective-name ep:key="CEL-E3-GIM-CHEM-1.0-I">Pozyskiwanie, przetwarzanie i tworzenie informacji.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń pozyskuje i przetwarza informacje z różnorodnych źródeł z wykorzystaniem technologii informacyjno-komunikacyjnych.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E3">Etap 3</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="GIM">Gimnazjum</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="CHEM">Chemia</ep:learning-objective-subject>
+					<ep:learning-objective-name ep:key="CEL-E3-GIM-CHEM-1.0-II">Rozumowanie i zastosowanie nabytej wiedzy do rozwiązywania problemów.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń opisuje właściwości substancji i wyjaśnia przebieg prostych procesów chemicznych; zna związek właściwości różnorodnych substancji z ich zastosowaniami i ich wpływ na środowisko naturalne; wykonuje proste obliczenia dotyczące praw chemicznych.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E3">Etap 3</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="GIM">Gimnazjum</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="CHEM">Chemia</ep:learning-objective-subject>
+					<ep:learning-objective-name ep:key="CEL-E3-GIM-CHEM-1.0-III">Opanowanie czynności praktycznych.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń bezpiecznie posługuje się prostym sprzętem laboratoryjnym i podstawowymi odczynnikami chemicznymi; projektuje i przeprowadza proste doświadczenia chemiczne.</ep:learning-objective-text>
+				</ep:learning-objective>
+			</ep:learning-objectives>
+		</value>
+	</option>
+	<option>
+		<key>Edukacja dla bezpieczeństwa (Gimnazjum)</key>
+		<value>
+			<!--Wygenerowano 2014-11-20T15:47:57.884+01:00-->
+			<ep:learning-objectives>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E3">Etap 3</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="GIM">Gimnazjum</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="EBEZP">Edukacja dla bezpieczeństwa</ep:learning-objective-subject>
+					<ep:learning-objective-name ep:key="CEL-E3-GIM-EBEZP-1.0-I">Znajomość powszechnej samoobrony i ochrony cywilnej.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń rozumie znaczenie powszechnej samoobrony i ochrony cywilnej.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E3">Etap 3</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="GIM">Gimnazjum</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="EBEZP">Edukacja dla bezpieczeństwa</ep:learning-objective-subject>
+					<ep:learning-objective-name ep:key="CEL-E3-GIM-EBEZP-1.0-II">Przygotowanie do działania ratowniczego.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń zna zasady prawidłowego działania w przypadku wystąpienia zagrożenia życia i zdrowia.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E3">Etap 3</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="GIM">Gimnazjum</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="EBEZP">Edukacja dla bezpieczeństwa</ep:learning-objective-subject>
+					<ep:learning-objective-name ep:key="CEL-E3-GIM-EBEZP-1.0-III">Nabycie umiejętności udzielania pierwszej pomocy.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń umie udzielać pierwszej pomocy w nagłych wypadkach.</ep:learning-objective-text>
+				</ep:learning-objective>
+			</ep:learning-objectives>
+		</value>
+	</option>
+	<option>
+		<key>Fizyka (Gimnazjum)</key>
+		<value>
+			<!--Wygenerowano 2014-11-20T15:47:57.884+01:00-->
+			<ep:learning-objectives>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E3">Etap 3</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="GIM">Gimnazjum</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="FIZ">Fizyka</ep:learning-objective-subject>
+					<ep:learning-objective-name ep:key="CEL-E3-GIM-FIZ-1.0-I">Wykorzystanie wielkości fizycznych do opisu poznanych zjawisk lub rozwiązania prostych zadań obliczeniowych.</ep:learning-objective-name>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E3">Etap 3</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="GIM">Gimnazjum</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="FIZ">Fizyka</ep:learning-objective-subject>
+					<ep:learning-objective-name ep:key="CEL-E3-GIM-FIZ-1.0-II">Przeprowadzanie doświadczeń i wyciąganie wniosków z otrzymanych wyników.</ep:learning-objective-name>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E3">Etap 3</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="GIM">Gimnazjum</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="FIZ">Fizyka</ep:learning-objective-subject>
+					<ep:learning-objective-name ep:key="CEL-E3-GIM-FIZ-1.0-III">Wskazywanie w otaczającej rzeczywistości przykładów zjawisk opisywanych za pomocą poznanych praw i zależności fizycznych.</ep:learning-objective-name>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E3">Etap 3</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="GIM">Gimnazjum</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="FIZ">Fizyka</ep:learning-objective-subject>
+					<ep:learning-objective-name ep:key="CEL-E3-GIM-FIZ-1.0-IV">Posługiwanie się informacjami pochodzącymi z analizy przeczytanych tekstów (w tym popularno-naukowych).</ep:learning-objective-name>
+				</ep:learning-objective>
+			</ep:learning-objectives>
+		</value>
+	</option>
+	<option>
+		<key>Geografia (Gimnazjum)</key>
+		<value>
+			<!--Wygenerowano 2014-11-20T15:47:57.884+01:00-->
+			<ep:learning-objectives>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E3">Etap 3</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="GIM">Gimnazjum</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="GEO">Geografia</ep:learning-objective-subject>
+					<ep:learning-objective-name ep:key="CEL-E3-GIM-GEO-1.0-I">Korzystanie z różnych źródeł informacji geograficznej.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń dokonuje obserwacji i pomiarów w terenie; potrafi korzystać z planów, map, fotografii, rysunków, wykresów, danych statystycznych, tekstów źródłowych oraz technologii informacyjno-komunikacyjnych w celu gromadzenia, przetwarzania i prezentowania informacji geograficznych.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E3">Etap 3</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="GIM">Gimnazjum</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="GEO">Geografia</ep:learning-objective-subject>
+					<ep:learning-objective-name ep:key="CEL-E3-GIM-GEO-1.0-II">Identyfikowanie związków i zależności oraz wyjaśnianie zjawisk i procesów.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń posługuje się podstawowym słownictwem geograficznym w toku opisywania oraz wyjaśniania zjawisk i procesów zachodzących w środowisku geograficznym; identyfikuje związki i zależności w środowisku przyrodniczym, gospodarce i życiu społecznym w różnych skalach przestrzennych (lokalnej, regionalnej, krajowej, globalnej); rozumie wzajemne relacje przyroda-człowiek; wyjaśnia zróżnicowanie przestrzenne warunków środowiska przyrodniczego oraz działalności człowieka na Ziemi.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E3">Etap 3</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="GIM">Gimnazjum</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="GEO">Geografia</ep:learning-objective-subject>
+					<ep:learning-objective-name ep:key="CEL-E3-GIM-GEO-1.0-III">Stosowanie wiedzy i umiejętności geograficznych w praktyce.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń wykorzystuje wiedzę i umiejętności geograficzne w celu lepszego rozumienia współczesnego świata i swojego w nim miejsca; stosuje wiadomości i umiejętności geograficzne w życiu codziennym, m.in. w racjonalnym wykorzystaniu zasobów środowiska.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E3">Etap 3</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="GIM">Gimnazjum</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="GEO">Geografia</ep:learning-objective-subject>
+					<ep:learning-objective-name ep:key="CEL-E3-GIM-GEO-1.0-IV">Kształtowanie postaw.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń rozwija w sobie: ciekawość świata poprzez zainteresowanie własnym regionem, Polską, Europą i światem; świadomość wartości i poczucie odpowiedzialności za środowisko przyrodnicze i kulturowe własnego regionu i Polski; patriotyzm i poczucie tożsamości (lokalnej, regionalnej, narodowej) przy jednoczesnym poszanowaniu innych narodów i społeczności - ich systemów wartości i sposobów życia.</ep:learning-objective-text>
+				</ep:learning-objective>
+			</ep:learning-objectives>
+		</value>
+	</option>
+	<option>
+		<key>Biologia (Liceum)</key>
+		<value>
+			<!--Wygenerowano 2014-11-20T15:47:57.884+01:00-->
+			<ep:learning-objectives>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="SRE">Szkoły ponadgimnazjalne, których ukończenie umożliwia uzyskanie świadectwa dojrzałości po zdaniu egzaminu maturalnego</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="BIOL">Biologia</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="I">Zakres podstawowy</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-BIOL-1.0-I-I">Poszukiwanie, wykorzystanie i tworzenie informacji.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń odbiera, analizuje i ocenia informacje pochodzące z różnych źródeł, ze szczególnym uwzględnieniem prasy, mediów i Internetu.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="ZAW">Zasadnicze szkoły zawodowe</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="BIOL">Biologia</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="I">Zakres podstawowy</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-BIOL-1.0-I-I">Poszukiwanie, wykorzystanie i tworzenie informacji.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń odbiera, analizuje i ocenia informacje pochodzące z różnych źródeł, ze szczególnym uwzględnieniem prasy, mediów i Internetu.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="ZAW">Zasadnicze szkoły zawodowe</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="BIOL">Biologia</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="I">Zakres podstawowy</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-BIOL-1.0-I-II">Rozumowanie i argumentacja.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń interpretuje informacje i wyjaśnia zależności przyczynowo-skutkowe między faktami, formułuje wnioski, ocenia i wyraża opinie na temat omawianych zagadnień współczesnej biologii, zagadnień ekologicznych i środowiskowych.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="SRE">Szkoły ponadgimnazjalne, których ukończenie umożliwia uzyskanie świadectwa dojrzałości po zdaniu egzaminu maturalnego</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="BIOL">Biologia</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="I">Zakres podstawowy</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-BIOL-1.0-I-II">Rozumowanie i argumentacja.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń interpretuje informacje i wyjaśnia zależności przyczynowo-skutkowe między faktami, formułuje wnioski, ocenia i wyraża opinie na temat omawianych zagadnień współczesnej biologii, zagadnień ekologicznych i środowiskowych.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="ZAW">Zasadnicze szkoły zawodowe</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="BIOL">Biologia</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="I">Zakres podstawowy</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-BIOL-1.0-I-III">Postawa wobec przyrody i środowiska.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń rozumie znaczenie i konieczność ochrony przyrody; prezentuje postawę szacunku wobec siebie i wszystkich istot żywych; opisuje postawę i zachowanie człowieka odpowiedzialnie korzystającego z dóbr przyrody.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="SRE">Szkoły ponadgimnazjalne, których ukończenie umożliwia uzyskanie świadectwa dojrzałości po zdaniu egzaminu maturalnego</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="BIOL">Biologia</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="I">Zakres podstawowy</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-BIOL-1.0-I-III">Postawa wobec przyrody i środowiska.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń rozumie znaczenie i konieczność ochrony przyrody; prezentuje postawę szacunku wobec siebie i wszystkich istot żywych; opisuje postawę i zachowanie człowieka odpowiedzialnie korzystającego z dóbr przyrody.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="SRE">Szkoły ponadgimnazjalne, których ukończenie umożliwia uzyskanie świadectwa dojrzałości po zdaniu egzaminu maturalnego</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="BIOL">Biologia</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="II">Zakres rozszerzony</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-BIOL-1.0-II-I">Poznanie świata organizmów na różnych poziomach organizacji życia.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń opisuje, porządkuje i rozpoznaje organizmy, przedstawia i wyjaśnia procesy i zjawiska biologiczne; przedstawia związki między strukturą a funkcją na różnych poziomach organizacji życia, przedstawia i wyjaśnia zależności między organizmem a środowiskiem, wskazuje źródła różnorodności biologicznej i jej reprezentację na poziomie genetycznym, gatunkowym i ekosystemów; interpretuje różnorodność organizmów na Ziemi jako efekt ewolucji biologicznej.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="SRE">Szkoły ponadgimnazjalne, których ukończenie umożliwia uzyskanie świadectwa dojrzałości po zdaniu egzaminu maturalnego</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="BIOL">Biologia</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="II">Zakres rozszerzony</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-BIOL-1.0-II-II">Pogłębienie wiadomości dotyczących budowy i funkcjonowania organizmu ludzkiego.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń objaśnia funkcjonowanie organizmu ludzkiego na różnych poziomach złożoności; dostrzega związki między strukturą a funkcją na każdym z tych poziomów.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="SRE">Szkoły ponadgimnazjalne, których ukończenie umożliwia uzyskanie świadectwa dojrzałości po zdaniu egzaminu maturalnego</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="BIOL">Biologia</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="II">Zakres rozszerzony</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-BIOL-1.0-II-III">Pogłębienie znajomości metodyki badań biologicznych.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń rozumie i stosuje terminologię biologiczną; planuje, przeprowadza i dokumentuje obserwacje i doświadczenia biologiczne; formułuje problemy badawcze, stawia hipotezy i weryfikuje je na drodze obserwacji i doświadczeń; określa warunki doświadczenia, rozróżnia próbę kontrolną i badawczą, formułuje wnioski z przeprowadzonych obserwacji i doświadczeń.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="SRE">Szkoły ponadgimnazjalne, których ukończenie umożliwia uzyskanie świadectwa dojrzałości po zdaniu egzaminu maturalnego</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="BIOL">Biologia</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="II">Zakres rozszerzony</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-BIOL-1.0-II-IV">Poszukiwanie, wykorzystanie i tworzenie informacji.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń odczytuje, selekcjonuje, porównuje i przetwarza informacje pozyskane z różnorodnych źródeł, w tym za pomocą technologii informacyjno-komunikacyjnych.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="SRE">Szkoły ponadgimnazjalne, których ukończenie umożliwia uzyskanie świadectwa dojrzałości po zdaniu egzaminu maturalnego</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="BIOL">Biologia</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="II">Zakres rozszerzony</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-BIOL-1.0-II-V">Rozumowanie i argumentacja.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń objaśnia i komentuje informacje, odnosi się krytycznie do przedstawionych informacji, oddziela fakty od opinii, wyjaśnia zależności przyczynowo-skutkowe, formułuje wnioski, formułuje i przedstawia opinie związane z omawianymi zagadnieniami biologicznymi, dobierając racjonalne argumenty. Dostrzega związki między biologią a innymi dziedzinami nauk przyrodniczych i społecznych. Rozumie znaczenie współczesnej biologii w życiu człowieka.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="SRE">Szkoły ponadgimnazjalne, których ukończenie umożliwia uzyskanie świadectwa dojrzałości po zdaniu egzaminu maturalnego</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="BIOL">Biologia</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="II">Zakres rozszerzony</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-BIOL-1.0-II-VI">Postawa wobec przyrody i środowiska.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń rozumie znaczenie ochrony przyrody i środowiska oraz zna i rozumie zasady zrównoważonego rozwoju; prezentuje postawę szacunku wobec siebie i wszystkich istot żywych, środowiska; opisuje postawę i zachowanie człowieka odpowiedzialnie korzystającego z dóbr przyrody i środowiska, zna prawa zwierząt oraz analizuje swój stosunek do organizmów żywych i środowiska.</ep:learning-objective-text>
+				</ep:learning-objective>
+			</ep:learning-objectives>
+		</value>
+	</option>
+	<option>
+		<key>Chemia (Liceum)</key>
+		<value>
+			<!--Wygenerowano 2014-11-20T15:47:57.884+01:00-->
+			<ep:learning-objectives>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="ZAW">Zasadnicze szkoły zawodowe</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="CHEM">Chemia</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="I">Zakres podstawowy</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-CHEM-1.0-I-I">Wykorzystanie, przetwarzanie i tworzenie informacji.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń korzysta z chemicznych tekstów źródłowych, pozyskuje, analizuje, ocenia i przetwarza informacje pochodzące z różnych źródeł, ze szczególnym uwzględnieniem mediów i Internetu.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="SRE">Szkoły ponadgimnazjalne, których ukończenie umożliwia uzyskanie świadectwa dojrzałości po zdaniu egzaminu maturalnego</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="CHEM">Chemia</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="I">Zakres podstawowy</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-CHEM-1.0-I-I">Wykorzystanie, przetwarzanie i tworzenie informacji.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń korzysta z chemicznych tekstów źródłowych, pozyskuje, analizuje, ocenia i przetwarza informacje pochodzące z różnych źródeł, ze szczególnym uwzględnieniem mediów i Internetu.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="ZAW">Zasadnicze szkoły zawodowe</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="CHEM">Chemia</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="I">Zakres podstawowy</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-CHEM-1.0-I-II">Rozumowanie i zastosowanie nabytej wiedzy do rozwiązywania problemów.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń zdobywa wiedzę chemiczną w sposób badawczy - obserwuje, sprawdza, weryfikuje, wnioskuje i uogólnia; wykazuje związek składu chemicznego, budowy i właściwości substancji z ich zastosowaniami; posługuje się zdobytą wiedzą chemiczną w życiu codziennym w kontekście dbałości o własne zdrowie i ochrony środowiska naturalnego.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="SRE">Szkoły ponadgimnazjalne, których ukończenie umożliwia uzyskanie świadectwa dojrzałości po zdaniu egzaminu maturalnego</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="CHEM">Chemia</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="I">Zakres podstawowy</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-CHEM-1.0-I-II">Rozumowanie i zastosowanie nabytej wiedzy do rozwiązywania problemów.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń zdobywa wiedzę chemiczną w sposób badawczy - obserwuje, sprawdza, weryfikuje, wnioskuje i uogólnia; wykazuje związek składu chemicznego, budowy i właściwości substancji z ich zastosowaniami; posługuje się zdobytą wiedzą chemiczną w życiu codziennym w kontekście dbałości o własne zdrowie i ochrony środowiska naturalnego.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="SRE">Szkoły ponadgimnazjalne, których ukończenie umożliwia uzyskanie świadectwa dojrzałości po zdaniu egzaminu maturalnego</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="CHEM">Chemia</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="I">Zakres podstawowy</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-CHEM-1.0-I-III">Opanowanie czynności praktycznych.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń bezpiecznie posługuje się sprzętem laboratoryjnym i odczynnikami chemicznymi; projektuje i przeprowadza doświadczenia chemiczne.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="ZAW">Zasadnicze szkoły zawodowe</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="CHEM">Chemia</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="I">Zakres podstawowy</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-CHEM-1.0-I-III">Opanowanie czynności praktycznych.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń bezpiecznie posługuje się sprzętem laboratoryjnym i odczynnikami chemicznymi; projektuje i przeprowadza doświadczenia chemiczne.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="SRE">Szkoły ponadgimnazjalne, których ukończenie umożliwia uzyskanie świadectwa dojrzałości po zdaniu egzaminu maturalnego</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="CHEM">Chemia</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="II">Zakres rozszerzony</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-CHEM-1.0-II-I">Wykorzystanie i tworzenie informacji.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń korzysta z chemicznych tekstów źródłowych, biegle wykorzystuje nowoczesne technologie informatyczne do pozyskiwania, przetwarzania, tworzenia i prezentowania informacji. Krytycznie odnosi się do pozyskiwanych informacji.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="SRE">Szkoły ponadgimnazjalne, których ukończenie umożliwia uzyskanie świadectwa dojrzałości po zdaniu egzaminu maturalnego</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="CHEM">Chemia</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="II">Zakres rozszerzony</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-CHEM-1.0-II-II">Rozumowanie i zastosowanie nabytej wiedzy do rozwiązywania problemów.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń rozumie podstawowe pojęcia, prawa i zjawiska chemiczne; opisuje właściwości najważniejszych pierwiastków i ich związków chemicznych; dostrzega zależność pomiędzy budową substancji a jej właściwościami fizycznymi i chemicznymi; stawia hipotezy dotyczące wyjaśniania problemów chemicznych i planuje eksperymenty dla ich weryfikacji; na ich podstawie samodzielnie formułuje i uzasadnia opinie i sądy.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="SRE">Szkoły ponadgimnazjalne, których ukończenie umożliwia uzyskanie świadectwa dojrzałości po zdaniu egzaminu maturalnego</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="CHEM">Chemia</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="II">Zakres rozszerzony</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-CHEM-1.0-II-III">Opanowanie czynności praktycznych.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń bezpiecznie posługuje się sprzętem laboratoryjnym i odczynnikami chemicznymi; projektuje i przeprowadza doświadczenia chemiczne.</ep:learning-objective-text>
+				</ep:learning-objective>
+			</ep:learning-objectives>
+		</value>
+	</option>
+	<option>
+		<key>Edukacja dla bezpieczeństwa (Liceum)</key>
+		<value>
+			<!--Wygenerowano 2014-11-20T15:47:57.884+01:00-->
+			<ep:learning-objectives>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="SRE">Szkoły ponadgimnazjalne, których ukończenie umożliwia uzyskanie świadectwa dojrzałości po zdaniu egzaminu maturalnego</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="EBEZP">Edukacja dla bezpieczeństwa</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="I">Zakres podstawowy</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-EBEZP-1.0-I-I">Znajomość struktury obronności państwa.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń rozróżnia struktury obronności państwa, rozumie ich rolę oraz zna formy spełniania powinności obronnych przez organy administracji i obywateli.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="ZAW">Zasadnicze szkoły zawodowe</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="EBEZP">Edukacja dla bezpieczeństwa</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="I">Zakres podstawowy</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-EBEZP-1.0-I-I">Znajomość struktury obronności państwa.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń rozróżnia struktury obronności państwa, rozumie ich rolę oraz zna formy spełniania powinności obronnych przez organy administracji i obywateli.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="ZAW">Zasadnicze szkoły zawodowe</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="EBEZP">Edukacja dla bezpieczeństwa</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="I">Zakres podstawowy</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-EBEZP-1.0-I-II">Przygotowanie do sytuacji zagrożeń.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń zna zasady postępowania w przypadku wystąpienia zagrożenia życia, zdrowia lub mienia; zna zasady planowania i organizowania działań.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="SRE">Szkoły ponadgimnazjalne, których ukończenie umożliwia uzyskanie świadectwa dojrzałości po zdaniu egzaminu maturalnego</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="EBEZP">Edukacja dla bezpieczeństwa</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="I">Zakres podstawowy</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-EBEZP-1.0-I-II">Przygotowanie do sytuacji zagrożeń.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń zna zasady postępowania w przypadku wystąpienia zagrożenia życia, zdrowia lub mienia; zna zasady planowania i organizowania działań.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="SRE">Szkoły ponadgimnazjalne, których ukończenie umożliwia uzyskanie świadectwa dojrzałości po zdaniu egzaminu maturalnego</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="EBEZP">Edukacja dla bezpieczeństwa</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="I">Zakres podstawowy</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-EBEZP-1.0-I-III">Opanowanie zasad pierwszej pomocy.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń umie udzielać pierwszej pomocy poszkodowanym w różnych stanach zagrażających życiu i zdrowiu.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="ZAW">Zasadnicze szkoły zawodowe</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="EBEZP">Edukacja dla bezpieczeństwa</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="I">Zakres podstawowy</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-EBEZP-1.0-I-III">Opanowanie zasad pierwszej pomocy.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń umie udzielać pierwszej pomocy poszkodowanym w różnych stanach zagrażających życiu i zdrowiu.</ep:learning-objective-text>
+				</ep:learning-objective>
+			</ep:learning-objectives>
+		</value>
+	</option>
+	<option>
+		<key>Fizyka (Liceum)</key>
+		<value>
+			<!--Wygenerowano 2014-11-20T15:47:57.884+01:00-->
+			<ep:learning-objectives>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="ZAW">Zasadnicze szkoły zawodowe</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="FIZ">Fizyka</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="I">Zakres podstawowy</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-FIZ-1.0-I-I">Wykorzystanie wielkości fizycznych do opisu poznanych zjawisk lub rozwiązania prostych zadań obliczeniowych.</ep:learning-objective-name>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="SRE">Szkoły ponadgimnazjalne, których ukończenie umożliwia uzyskanie świadectwa dojrzałości po zdaniu egzaminu maturalnego</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="FIZ">Fizyka</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="I">Zakres podstawowy</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-FIZ-1.0-I-I">Wykorzystanie wielkości fizycznych do opisu poznanych zjawisk lub rozwiązania prostych zadań obliczeniowych.</ep:learning-objective-name>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="ZAW">Zasadnicze szkoły zawodowe</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="FIZ">Fizyka</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="I">Zakres podstawowy</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-FIZ-1.0-I-II">Przeprowadzanie doświadczeń i wyciąganie wniosków z otrzymanych wyników.</ep:learning-objective-name>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="SRE">Szkoły ponadgimnazjalne, których ukończenie umożliwia uzyskanie świadectwa dojrzałości po zdaniu egzaminu maturalnego</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="FIZ">Fizyka</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="I">Zakres podstawowy</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-FIZ-1.0-I-II">Przeprowadzanie doświadczeń i wyciąganie wniosków z otrzymanych wyników.</ep:learning-objective-name>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="ZAW">Zasadnicze szkoły zawodowe</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="FIZ">Fizyka</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="I">Zakres podstawowy</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-FIZ-1.0-I-III">Wskazywanie w otaczającej rzeczywistości przykładów zjawisk opisywanych za pomocą poznanych praw i zależności fizycznych.</ep:learning-objective-name>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="SRE">Szkoły ponadgimnazjalne, których ukończenie umożliwia uzyskanie świadectwa dojrzałości po zdaniu egzaminu maturalnego</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="FIZ">Fizyka</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="I">Zakres podstawowy</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-FIZ-1.0-I-III">Wskazywanie w otaczającej rzeczywistości przykładów zjawisk opisywanych za pomocą poznanych praw i zależności fizycznych.</ep:learning-objective-name>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="ZAW">Zasadnicze szkoły zawodowe</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="FIZ">Fizyka</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="I">Zakres podstawowy</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-FIZ-1.0-I-IV">Posługiwanie się informacjami pochodzącymi z analizy przeczytanych tekstów (w tym popularno-naukowych).</ep:learning-objective-name>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="SRE">Szkoły ponadgimnazjalne, których ukończenie umożliwia uzyskanie świadectwa dojrzałości po zdaniu egzaminu maturalnego</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="FIZ">Fizyka</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="I">Zakres podstawowy</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-FIZ-1.0-I-IV">Posługiwanie się informacjami pochodzącymi z analizy przeczytanych tekstów (w tym popularno-naukowych).</ep:learning-objective-name>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="SRE">Szkoły ponadgimnazjalne, których ukończenie umożliwia uzyskanie świadectwa dojrzałości po zdaniu egzaminu maturalnego</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="FIZ">Fizyka</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="II">Zakres rozszerzony</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-FIZ-1.0-II-I">Znajomość i umiejętność wykorzystania pojęć i praw fizyki do wyjaśniania procesów i zjawisk w przyrodzie.</ep:learning-objective-name>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="SRE">Szkoły ponadgimnazjalne, których ukończenie umożliwia uzyskanie świadectwa dojrzałości po zdaniu egzaminu maturalnego</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="FIZ">Fizyka</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="II">Zakres rozszerzony</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-FIZ-1.0-II-II">Analiza tekstów popularnonaukowych i ocena ich treści.</ep:learning-objective-name>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="SRE">Szkoły ponadgimnazjalne, których ukończenie umożliwia uzyskanie świadectwa dojrzałości po zdaniu egzaminu maturalnego</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="FIZ">Fizyka</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="II">Zakres rozszerzony</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-FIZ-1.0-II-III">Wykorzystanie i przetwarzanie informacji zapisanych w postaci tekstu, tabel, wykresów, schematów i rysunków.</ep:learning-objective-name>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="SRE">Szkoły ponadgimnazjalne, których ukończenie umożliwia uzyskanie świadectwa dojrzałości po zdaniu egzaminu maturalnego</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="FIZ">Fizyka</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="II">Zakres rozszerzony</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-FIZ-1.0-II-IV">Budowa prostych modeli fizycznych i matematycznych do opisu zjawisk.</ep:learning-objective-name>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="SRE">Szkoły ponadgimnazjalne, których ukończenie umożliwia uzyskanie świadectwa dojrzałości po zdaniu egzaminu maturalnego</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="FIZ">Fizyka</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="II">Zakres rozszerzony</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-FIZ-1.0-II-V">Planowanie i wykonywanie prostych doświadczeń i analiza ich wyników.</ep:learning-objective-name>
+				</ep:learning-objective>
+			</ep:learning-objectives>
+		</value>
+	</option>
+	<option>
+		<key>Geografia (Liceum)</key>
+		<value>
+			<!--Wygenerowano 2014-11-20T15:47:57.884+01:00-->
+			<ep:learning-objectives>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="SRE">Szkoły ponadgimnazjalne, których ukończenie umożliwia uzyskanie świadectwa dojrzałości po zdaniu egzaminu maturalnego</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="GEO">Geografia</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="I">Zakres podstawowy</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-GEO-1.0-I-I">Wykorzystanie różnych źródeł informacji do analizy i prezentowania współczesnych problemów przyrodniczych, gospodarczych, społecznych, kulturowych i politycznych.</ep:learning-objective-name>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="ZAW">Zasadnicze szkoły zawodowe</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="GEO">Geografia</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="I">Zakres podstawowy</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-GEO-1.0-I-I">Wykorzystanie różnych źródeł informacji do analizy i prezentowania współczesnych problemów przyrodniczych, gospodarczych, społecznych, kulturowych i politycznych.</ep:learning-objective-name>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="SRE">Szkoły ponadgimnazjalne, których ukończenie umożliwia uzyskanie świadectwa dojrzałości po zdaniu egzaminu maturalnego</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="GEO">Geografia</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="I">Zakres podstawowy</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-GEO-1.0-I-II">Formułowanie i weryfikowanie hipotez dotyczących problemów współczesnego świata.</ep:learning-objective-name>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="ZAW">Zasadnicze szkoły zawodowe</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="GEO">Geografia</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="I">Zakres podstawowy</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-GEO-1.0-I-II">Formułowanie i weryfikowanie hipotez dotyczących problemów współczesnego świata.</ep:learning-objective-name>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="ZAW">Zasadnicze szkoły zawodowe</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="GEO">Geografia</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="I">Zakres podstawowy</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-GEO-1.0-I-III">Rozumienie relacji człowiek-przyroda-społeczeństwo w skali globalnej i regionalnej.</ep:learning-objective-name>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="SRE">Szkoły ponadgimnazjalne, których ukończenie umożliwia uzyskanie świadectwa dojrzałości po zdaniu egzaminu maturalnego</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="GEO">Geografia</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="I">Zakres podstawowy</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-GEO-1.0-I-III">Rozumienie relacji człowiek-przyroda-społeczeństwo w skali globalnej i regionalnej.</ep:learning-objective-name>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="SRE">Szkoły ponadgimnazjalne, których ukończenie umożliwia uzyskanie świadectwa dojrzałości po zdaniu egzaminu maturalnego</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="GEO">Geografia</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="II">Zakres rozszerzony</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-GEO-1.0-II-I">Dostrzeganie prawidłowości dotyczących środowiska przyrodniczego, życia i gospodarki człowieka oraz wzajemnych powiązań i zależności w systemie człowiek-przyroda-gospodarka.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń wskazuje i analizuje prawidłowości i zależności wynikające z funkcjonowania sfer ziemskich oraz działalności człowieka w różnorodnych warunkach środowiska, wskazując znaczenie rosnącej roli człowieka i jego działań w środowisku geograficznym w różnych skalach (lokalnej, regionalnej i globalnej).</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="SRE">Szkoły ponadgimnazjalne, których ukończenie umożliwia uzyskanie świadectwa dojrzałości po zdaniu egzaminu maturalnego</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="GEO">Geografia</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="II">Zakres rozszerzony</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-GEO-1.0-II-II">Analiza i wyjaśnianie problemów demograficznych społeczeństw.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń analizuje etapy i cechy rozwoju demograficznego ludności na świecie, charakteryzuje dynamikę i zróżnicowanie procesów ludnościowych, wiążąc zagadnienia demograficzne z czynnikami przyrodniczymi i rozwojem cywilizacyjnym; wykorzystuje do analiz informacje o aktualnych wydarzeniach na świecie.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="SRE">Szkoły ponadgimnazjalne, których ukończenie umożliwia uzyskanie świadectwa dojrzałości po zdaniu egzaminu maturalnego</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="GEO">Geografia</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="II">Zakres rozszerzony</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-GEO-1.0-II-III">Proponowanie rozwiązań problemów występujących w środowisku geograficznym, zgodnie z koncepcją zrównoważonego rozwoju i zasadami współpracy, w tym międzynarodowej.</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń wskazuje propozycje rozwiązań lokalnych, regionalnych i globalnych problemów środowiskowych, demograficznych i gospodarczych zgodnych z koncepcją zrównoważonego rozwoju oraz opartych na równoprawnych zasadach współpracy między regionami i państwami.</ep:learning-objective-text>
+				</ep:learning-objective>
+				<ep:learning-objective>
+					<ep:learning-objective-stage ep:key="E4">Etap 4</ep:learning-objective-stage>
+					<ep:learning-objective-school ep:key="SRE">Szkoły ponadgimnazjalne, których ukończenie umożliwia uzyskanie świadectwa dojrzałości po zdaniu egzaminu maturalnego</ep:learning-objective-school>
+					<ep:learning-objective-version ep:key="1.1">Dz.U. 30.05.2014, poz. 803</ep:learning-objective-version>
+					<ep:learning-objective-subject ep:key="GEO">Geografia</ep:learning-objective-subject>
+					<ep:learning-objective-scope ep:key="II">Zakres rozszerzony</ep:learning-objective-scope>
+					<ep:learning-objective-name ep:key="CEL-E4-SRE-GEO-1.0-II-IV">Pozyskiwanie, przetwarzanie oraz prezentowanie informacji na podstawie różnych źródeł informacji geograficznej, w tym również technologii informacyjno-komunikacyjnych oraz Geograficznych Systemów Informacyjnych (GIS).</ep:learning-objective-name>
+					<ep:learning-objective-text>Uczeń zdobywa informacje oraz rozwija i doskonali umiejętności geograficzne, wykorzystując wszystkie dostępne (w tym najnowsze) źródła informacji, pomiary i obserwacje bezpośrednie; potrafi selekcjonować i przetwarzać informacje do prezentacji wybranych zagadnień.</ep:learning-objective-text>
+				</ep:learning-objective>
+			</ep:learning-objectives>
+		</value>
+	</option>
+</values>

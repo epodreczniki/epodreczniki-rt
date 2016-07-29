@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components [
+<!ELEMENT component (properties?)>
+<!ATTLIST component name ID #REQUIRED>
+<!ATTLIST component instanceId CDATA #IMPLIED>
+<!ELEMENT components (component+)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT properties (property+)>
+<!ELEMENT property (description?,name,value)>
+<!ELEMENT value (#PCDATA)>
+<!ENTITY exhibitionId "2">
+<!ENTITY recommendedId "3">
+<!ENTITY exhibitionSortOrder "date">
+<!ENTITY sortTokens "&quot;|(|[...]|[|the |the">
+<!ENTITY displayOAIIdentifier "true" >
+<!ENTITY maxEditionsSize "4000" >
+<!ENTITY exlibrisConf SYSTEM "exlibris.xml">
+<!ENTITY tooltipConf SYSTEM "tooltip.xml" >
+<!ENTITY printAttParents "false" >
+]>
+<components>
+	<component name="pl.psnc.ep.rt.web.components.HtmlAttributesTableComponent">
+		<properties>
+			<property>
+				<name>attributes</name>
+				<value>Tytul,OpisZasobu,TypZasobu</value>
+			</property>
+		</properties>
+	</component>
+	<component name="pl.psnc.ep.rt.web.components.EmissionFormatContentSelectionComponent">
+		<properties>
+			<property>
+				<name>previewBaseUrl</name>
+				<value>http://www.epo.pl/preview/reader</value>
+			</property>
+		</properties>
+	</component>
+	<component name="pl.psnc.ep.rt.web.components.EPContentSelectionComponent">
+		<properties>
+			<property>
+				<name>previewBaseUrl</name>
+				<value>http://www.epo.pl/preview/reader</value>
+			</property>
+		</properties>
+	</component>
+
+	<component name="pl.psnc.dlibra.web.comp.pages.components.LoginComponent">
+		<properties>
+			<property>
+				<name>withPermissionRequestForm</name>
+				<value>true</value>
+			</property>
+		</properties>
+	</component>
+	<component name="pl.psnc.dlibra.web.comp.pages.components.RecommendedComponent">
+		<properties>
+			<property>
+				<name>RecommendedId</name>
+				<value>&recommendedId;</value>
+			</property>
+			<property>
+				<name>RecommendedCount</name>
+				<value>4</value>
+			</property>
+		</properties>
+	</component>
+	<component name="pl.psnc.dlibra.web.comp.pages.components.CollectionDescriptionComponent">
+		<properties>
+			<property>
+				<name>withMiniatures</name>
+				<value>true</value>
+			</property>
+		</properties>
+	</component>
+	<component name="pl.psnc.dlibra.web.comp.pages.components.BasicLatestEditionsComponent">
+		<properties>
+			&tooltipConf;
+		</properties>
+	</component>
+	<component name="pl.psnc.dlibra.web.comp.pages.components.ExtendEditionInfoComponent">
+		<properties>
+			&tooltipConf;
+		</properties>
+	</component>
+	<component name="pl.psnc.dlibra.web.comp.pages.components.UserMessagesComponent">
+		<properties>
+			<property>
+				<name>elementsPerPage</name>
+				<value>10</value>
+			</property>
+		</properties>
+	</component>
+	<component name="pl.psnc.dlibra.web.comp.pages.components.MyPublicationsComponent">
+		<properties>
+			<property>
+				<name>elementsPerPage</name>
+				<value>10</value>
+			</property>
+		</properties>
+	</component>
+	<component name="pl.psnc.dlibra.web.comp.pages.components.AccountFavouritesComponent">
+		<properties>
+			<property>
+				<name>elementsPerPage</name>
+				<value>10</value>
+			</property>
+		</properties>
+	</component>
+	<component name="pl.psnc.dlibra.web.comp.pages.components.FavesExportComponent">
+		<properties>
+			<property>
+				<name>isPagingAvailable</name>
+				<value>false</value>
+			</property>
+		</properties>
+	</component>
+	<component name="pl.psnc.dlibra.web.comp.pages.components.TagCloudComponent">
+		<properties>
+			<property>
+				<name>maxTags</name>
+				<value>10</value>
+			</property>
+			<property>
+				<name>withDescription</name>
+				<value>false</value>
+			</property>
+		</properties>
+	</component>
+	<component name="pl.psnc.dlibra.web.comp.pages.components.TagCloudComponent" instanceId="unlimited">
+		<properties>
+			<property>
+				<name>maxTags</name>
+				<value>-1</value>
+			</property>
+			<property>
+				<name>withDescription</name>
+				<value>true</value>
+			</property>
+		</properties>
+	</component>
+	<component name="pl.psnc.dlibra.web.comp.pages.components.CollectionStatisticsComponent">
+		<properties>
+			<property>
+				<name>list.length</name>
+				<value>10</value>
+			</property>
+			<property>
+				<name>elementsPerPage</name>
+				<value>25</value>
+			</property>
+			<!-- 
+				 component uses cached data to generate lists of publications. In case when publication
+			 	 is unpublished or deleted application will normally wait for periodic task to refresh cache.
+			 	 Turning this option to 'true' will always check if publications are published. This can
+			 	 however result in lower performance. 
+			 -->
+			<property>
+				<name>force.publication.refresh</name>
+				<value>false</value>
+			</property>
+		</properties>
+	</component>
+	<component name="pl.psnc.dlibra.web.comp.pages.components.BasicCollectionStatsComponent">
+		<properties>
+			<property>
+				<name>list.length</name>
+				<value>10</value>
+			</property>
+			<!-- 
+				 component uses cached data to generate lists of publications. In case when publication
+			 	 is unpublished or deleted application will normally wait for periodic task to refresh cache.
+			 	 Turning this option to 'true' will always check if publications are published. This can
+			 	 however result in lower performance. 
+			 -->
+			<property>
+				<name>force.publication.refresh</name>
+				<value>false</value>
+			</property>
+		</properties>
+	</component>
+	<component name="pl.psnc.dlibra.web.comp.pages.components.AsyncComponentWrapper" instanceId="latest">
+		<properties>
+			<property>
+				<name>wrapped.component</name>
+				<value>pl.psnc.dlibra.web.comp.pages.components.BasicLatestEditionsComponent</value>
+			</property>
+			<property>
+				<name>refresh.rate</name>
+				<value>1800000</value>
+			</property>
+			<!-- when not defined, default instance is used.
+			    <property> 	
+					<name>wrapped.component.instanceId</name>		
+					<value>component_id</value>
+				</property>
+			-->	
+		</properties>
+	</component>
+	<component name="pl.psnc.dlibra.web.comp.pages.components.AddressComponent">
+		<properties>
+			<property>
+				<name>displayed.page.name</name>
+				<value>address</value>
+			</property>
+		</properties>
+	</component>
+	<component
+		name="pl.psnc.dlibra.web.comp.pages.components.AddToComponent">
+		<properties>
+			<property>
+				<name>delicious</name>
+				<value>
+					<![CDATA[http://del.icio.us/post/add?url]]>
+				</value>
+			</property>
+			<property>
+				<name>digg</name>
+				<value>
+					<![CDATA[http://digg.com/submit?phase=2&url]]>
+				</value>
+			</property>
+		</properties>
+	</component>
+	<component
+		name="pl.psnc.dlibra.web.comp.pages.components.HeaderTagsInjector">
+		<properties>
+			<property>
+				<name>content-top</name>
+				<value>
+					<![CDATA[ 
+<style>
+   .content { 	margin: 0 auto; width: 98%; padding: 10px; 	height: 100px; }
+   .footer  { 	display:none; }
+   .right   {   display:none; }
+   .left    {   display:none; }
+</style>
+            ]]>
+				</value>
+			</property>
+		</properties>
+	</component>
+	<component
+		name="pl.psnc.dlibra.web.comp.pages.components.JnlpComponent">
+		<properties>
+			<property>
+				<name>main.app.jar.name</name>
+				<value>dlibra-app-base-[0-9]\.[0-9]\.[0-9]+([0-9a-zA-Z\\-]+)?.jar</value>
+			</property>
+			<property>
+				<name>server.address</name>
+				<value>rt.epo.pl</value>
+			</property>
+			<!-- Uncomment to define URL of a configuration file that should be
+			loaded as default configuration by editor/administrator application. -->
+			<property>
+				<name>app.config.default.url</name>
+				<value>https://rt.epo.pl/repo/jnlp-config/generalConfig.properties</value>
+			</property>
+			
+		</properties>
+	</component>
+	<component
+		name="pl.psnc.dlibra.web.comp.pages.components.InformationBoxComponent">
+		<properties>
+			<property>
+				<name>repo-path</name>
+				<value>/resources/components-elements</value>
+			</property>
+		</properties>
+	</component>
+	<component
+		name="pl.psnc.dlibra.web.comp.pages.components.EditionMetadataComponent">
+		<properties>
+		  <property>
+			<name>displayOAIIdentifier</name>
+			<value>&displayOAIIdentifier;</value>
+		  </property>
+		   <property>
+			<name>printAttParents</name>
+			<value>&printAttParents;</value>
+		  </property>
+		</properties>
+	</component>
+	<component
+		name="pl.psnc.dlibra.web.comp.pages.components.PublicationMetadataComponent">
+		<properties>
+		  <property>
+			<name>displayOAIIdentifier</name>
+			<value>&displayOAIIdentifier;</value>
+		  </property>
+		     <property>
+			<name>printAttParents</name>
+			<value>&printAttParents;</value>
+		  </property>
+		</properties>
+	</component>
+	<component
+		name="pl.psnc.dlibra.web.comp.pages.components.CollectionsStructureComponent">
+		<properties>
+			<property>
+				<name>HiddenCollectionsIds</name>
+				<value>&exhibitionId;,&recommendedId;</value>
+			</property>
+		</properties>
+	</component>
+	<component
+		name="pl.psnc.dlibra.web.comp.pages.components.NarrowCollectionsComponent">
+		<properties>
+			<property>
+				<name>HiddenCollectionsIds</name>
+				<value>&exhibitionId;,&recommendedId;</value>
+			</property>
+		</properties>
+	</component>
+	<component
+		name="pl.psnc.dlibra.web.comp.pages.components.OAIPMHResponseComponent">
+		<properties>
+			<property>
+				<description>
+					Comma separated list of friendly OAI-PMH
+					repositories.
+				</description>
+				<name>friends</name>
+				<value>
+					http://dlibra.psnc.pl/biblioteka/dlibra/oai-pmh-repository.xml
+				</value>
+			</property>
+			<property>
+				<description>
+					Email of the OAI-PMH repository administrator.
+				</description>
+				<name>adminEmail</name>
+				<value>dlibra-techhelp@man.poznan.pl</value>
+			</property>
+		</properties>
+	</component>
+	<component
+		name="pl.psnc.dlibra.web.comp.pages.components.CollectionsPubsComponent">
+		<properties>
+			<property>
+				<name>sortTokens</name>
+				<value>&sortTokens;</value>
+			</property>
+		</properties>
+	</component>
+	<component
+		name="pl.psnc.dlibra.web.comp.pages.components.PlannedPubListComponent">
+		<properties>
+			<property>
+				<name>sortTokens</name>
+				<value>&sortTokens;</value>
+			</property>
+		</properties>
+	</component>	
+	<component
+		name="pl.psnc.dlibra.web.comp.pages.components.KeywordIndexComponent">
+		<properties>
+			<property>
+				<name>sortTokens</name>
+				<value>&sortTokens;</value>
+			</property>
+		</properties>
+	</component>
+	<component
+		name="pl.psnc.dlibra.web.comp.pages.components.IndexComponent">
+		<properties>
+			<property>
+				<name>sortTokens</name>
+				<value>&sortTokens;</value>
+			</property>
+		</properties>
+	</component>	
+	<component
+		name="pl.psnc.dlibra.web.comp.pages.components.AJAXResponseComponent">
+		<properties>
+			<property>
+				<name>GetAttributeValues</name>
+				<value>
+					<![CDATA[
+NUMBER_OF_SUGGESTIONS=5
+STOP_WORDS=a i o ale \u017Ce ein eine der die das
+]]>
+				</value>
+			</property>
+		</properties>
+	</component>
+	<component
+		name="pl.psnc.dlibra.web.comp.pages.components.NewsComponent">
+		<properties>
+			<property>
+				<name>MainPageMaxNewsCount</name>
+				<value>2</value>
+			</property>
+		</properties>
+	</component>
+	<component
+		name="pl.psnc.dlibra.web.comp.pages.components.ExhibitionsComponent">
+		<properties>
+			<property>
+				<name>ExhibitionId</name>
+				<value>&exhibitionId;</value>
+			</property>
+			<property>
+				<name>MainPageMaxExhibitionsCount</name>
+				<value>3</value>
+			</property>
+			<property>
+				<name>ExhibitionSortOrder</name>
+				<value>&exhibitionSortOrder;</value>
+			</property>
+                        <property>
+				<name>sort.order</name>
+				<value>-1</value>
+			</property>
+			<property>
+				<name>sort.by</name>
+				<value>date</value>
+			</property>
+		</properties>
+	</component>
+	<component
+		name="pl.psnc.dlibra.web.comp.pages.components.AllExhibitionsComponent">
+		<properties>
+			<property>
+				<name>ExhibitionId</name>
+				<value>&exhibitionId;</value>
+			</property>
+			<property>
+				<name>ExhibitionSortOrder</name>
+				<value>&exhibitionSortOrder;</value>
+			</property>
+		</properties>
+	</component>
+	<component
+		name="pl.psnc.dlibra.web.comp.pages.components.LatestEditionsComponent">
+		<properties>
+			<property>
+			    <!-- Default number of latest editions displayed at main site -->
+				<name>DefaultLatestEditionsCount</name>
+				<value>10</value>
+			</property>
+		</properties>
+	</component>
+	<component
+		name="pl.psnc.dlibra.web.comp.pages.components.SendInfoComponent" instanceId="edition.mode">
+		<properties>
+			<property>
+				<name>edition.mode</name>
+				<value>true</value>
+			</property>
+		</properties>
+	</component>
+	<component
+		name="pl.psnc.dlibra.web.comp.pages.components.SendInfoComponent" instanceId="page.mode">
+		<properties>
+			<property>
+				<name>edition.mode</name>
+				<value>true</value>
+			</property>
+			<property>
+				<name>show.form</name>
+				<value>true</value>
+			</property>
+		</properties>
+	</component>
+	<component
+		name="pl.psnc.dlibra.web.comp.pages.components.SendInfoComponent">
+		<properties>
+			<property>
+				<name>edition.mode</name>
+				<value>false</value>
+			</property>
+		</properties>
+	</component>
+	<component name="pl.psnc.dlibra.web.comp.pages.components.SendBugReportComponent" instanceId="page.mode">
+		<properties>
+			<property>
+				<name>edition.mode</name>
+				<value>true</value>
+			</property>
+			<property>
+				<name>show.form</name>
+				<value>true</value>
+			</property>
+		</properties>
+	</component>
+	<component name="pl.psnc.dlibra.web.comp.pages.components.SendBugReportComponent">
+		<properties>
+			<property>
+				<name>edition.mode</name>
+				<value>true</value>
+			</property>
+		</properties>
+	</component>
+	<component
+		name="pl.psnc.dlibra.web.comp.pages.components.VotesRankingComponent">
+		<properties>
+			<property>
+				<!--
+				 When true best scored publication ranking would be
+				 displayed. 
+				-->			 
+				<name>votes.for</name>
+				<value>true</value>
+			</property>
+		</properties>
+	</component>	
+	<component name="pl.psnc.dlibra.web.comp.pages.components.EditionMetaMenuComponent">
+		<properties>
+			<property>
+			    <!-- 
+			      If true link to plain content would be visible only for user agents
+			      recognized as robots.
+			    -->  
+				<name>only.for.robots</name>
+				<value>true</value>
+			</property>
+			<property>
+			    <!-- 
+			      Only publications with files of given mimetypes would have
+			      link to plain content. If parameter is empty plain content link 
+			      would be visible for all mime types.
+			    -->  
+				<name>mimetypes.list</name>
+				<value>image/x.djvu</value>
+			</property>			
+			<property>
+				<!-- 
+					 Max size of editions files in kilobytes, 
+					 above this limit plain content won't be server to users.				
+				 -->
+				<name>max.editions.size</name>
+				<value>&maxEditionsSize;</value>
+			</property>
+		</properties>
+	</component>	
+	<component name="pl.psnc.dlibra.web.comp.pages.components.HelpComponent">
+		<properties>
+			<property>
+			    <!--
+			      When there is no helppage in user's language default 
+			      language would be used. 
+			    -->
+				<name>default.helpitems.lang</name>
+				<value>en</value>
+			</property>
+		</properties>
+	</component>	
+	<component name="pl.psnc.dlibra.web.comp.pages.components.PlainContentComponent">
+		<properties>
+			<property>
+				<!-- 
+					 Max size of editions files in kilobytes, 
+					 above this limit plain content won't be server to users.				
+				 -->
+				<name>max.editions.size</name>
+				<value>&maxEditionsSize;</value>
+			</property>
+		</properties>
+	</component>	
+	<component name="pl.psnc.dlibra.web.comp.pages.components.LikeBoxComponent">
+		<properties>
+			<property>
+				<name>facebookPageUrl</name>
+				<value>YOUR_PAGE_URL</value>
+			</property>
+		</properties>
+	</component>
+	<component name="pl.psnc.dlibra.web.comp.pages.components.LikeButtonComponent">
+		<properties>
+			<property>
+				<name>url</name>
+				<value>URL_TO_LIKE</value>
+			</property>
+		</properties>
+	</component>
+	<component name="pl.psnc.dlibra.web.comp.pages.components.PublicationUploadComponent">
+		<properties>
+			<property>
+				<name>regulationsAcceptRequired</name>
+				<value>false</value>
+			</property>
+		</properties>
+	</component>
+</components>

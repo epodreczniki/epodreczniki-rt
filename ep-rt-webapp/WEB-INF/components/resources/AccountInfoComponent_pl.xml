@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="AccountInfoComponent.Email.Change">Zmień adres email na który będą wysyłane biuletyny</entry>
+<entry key="AccountInfoComponent.Language">Preferowany język</entry>
+<entry key="AccountInfoComponent.Language.Change">Zmień używany język</entry>
+<entry key="AccountInfoComponent.CreationTryLater">Ze względu na problemy techniczne, prosimy o aktywowanie konta w późniejszym terminie.</entry>
+<entry key="AccountInfoComponent.Options">Opcje</entry>
+<entry key="AccountInfoComponent.Title">Konto użytkownika</entry>
+<entry key="AccountInfoComponent.DeletionError">Błąd podczas usuwania konta użytkownika.</entry>
+<entry key="AccountInfoComponent.DeletionOk">Konto usunięte.</entry>
+<entry key="AccountInfoComponent.JNLP">Uruchom Aplikację Redaktora i Administratora</entry>
+<entry key="AccountInfoComponent.AdminPanel">Panel administracyjny</entry>
+<entry key="AccountInfoComponent.ChangePassword">Zmień hasło</entry>
+<entry key="AccountInfoComponent.ReallyRemoveAccount">Czy rzeczywiście chcesz usunąć swoje konto użytkownika?</entry>
+<entry key="AccountInfoComponent.Login">Nazwa użytkownika</entry>
+<entry key="AccountInfoComponent.RemoveAccount">Usuń konto</entry>
+<entry key="AccountInfoComponent.Email">Adres e-mail</entry>
+<entry key="AccountInfoComponent.Email.Empty">E-mail nie może być pusty.</entry>
+<entry key="AccountInfoComponent.Email.Invalid">Wprowadzono niepoprawny adres E-mail.</entry>
+<entry key="AccountInfoComponent.DeletionNoUser">Brak konta użytkownika, które miało być usunięte.</entry>
+<entry key="AccountInfoComponent.EmailIsNotDefined">Brakuje informacji o adresie e-mail w Twoim profilu.</entry>
+<entry key="AccountInfoComponent.CreationLoginDuplicated">Użytkownik o wybranej przez Ciebie nazwie już istnieje w systemie. Spróbuj stworzyć konto ponownie z inną nazwą użytkownika.</entry>
+</properties>

@@ -1,0 +1,123 @@
+#set ( $popupExtension = 'target="_top"' )
+#set ( $noFollowPopup = 'target="_top" rel="nofollow"' )
+
+#if ( ${deleted} )		
+  <span class="MetadataMenuComponent_error">	
+	  ${res.getProperty("EditionMetaMenuComponent.EditionDeleted")}
+  </span>	
+#else
+	
+<script type="text/javascript"><!--
+	#getEditionMenuScripts()
+	$().ready(function() {
+	   var cookieSettings = {cookiePrefix:'${cookiePrefix}'};
+	   $(".contentTriggerMenu").dL_contentModal(cookieSettings);
+	   $(".showContentHandlersList").dL_contentModal(cookieSettings);
+	   #if ( ${showContent} ) 
+	   	$("#contentTriggerText").click();
+	   #end
+ 	});
+--></script>	
+
+
+<ul class="MetadataMenuComponent">
+	 <li>
+	   	 #metadataMenuLink( "img/icons/desc.gif" "javascript:showDescription()" $!{res.getProperty("EditionMetaMenuComponent.Attributes")} $!{res.getProperty("EditionMetaMenuComponent.Attributes")} "")
+	 </li>
+
+	 <li>
+	   	 #metadataMenuLink( "img/icons/info.gif" "javascript:showInformation()" $!{res.getProperty("EditionMetaMenuComponent.Information")} $!{res.getProperty("EditionMetaMenuComponent.Information")} "")
+	 </li>
+	   
+	 #if ( $structure )
+	   <li>
+	   	 #metadataMenuLink( "img/icons/struct.gif" "javascript:showStructure()" $!{res.getProperty("EditionMetaMenuComponent.Structure")} $!{res.getProperty("EditionMetaMenuComponent.Structure")} "")
+	   </li>
+	 #end
+	 
+	 #if ($contentAvailable)
+		#if ($isExternal)
+			<li id="emmc-contentLinkItem">
+				#set( $link = "${homepageUrl}${simpleContentUrl}" )
+				<a href="$link" target="_blank">
+					<img src="${homepageUrl}/style/common/img/popicon.gif" alt="&gt;" class="bottom_icon"/>
+				</a>
+				<a href="$link" target="_blank">
+					$!{res.getProperty("EditionMetaMenuComponent.Content.NW")}
+				</a>
+			</li>
+		#else
+			<li id="emmc-contentLinkItem">
+				#if("${edition.getExternalId()}" != "")
+					#set( $link = "${homepageUrl}${mainServletName}/content-selection?id=${edition.Id}")
+				#else
+					#set( $link = "${homepageUrl}$!{content_url}" )
+				#end
+				<a href="$link" title="$!{res.getProperty("EditionMetaMenuComponent.Content")}" class="contentTriggerMenu" id="contentTriggerIcon">
+					<img src="${homepageUrl}/style/common/img/icons/showcontent.gif" alt="&gt;" class="bottom_icon"/>
+				</a>
+				<a href="$link" title="$!{res.getProperty("EditionMetaMenuComponent.Content")}" class="contentTriggerMenu" id="contentTriggerText">
+					$!{res.getProperty("EditionMetaMenuComponent.Content")}
+				</a>
+			</li>
+			<li id="emmc-contentLinkWindowItem">
+				#metadataMenuLink( "img/popicon.gif" "javascript:openInNewWindow()" $!{res.getProperty("EditionMetaMenuComponent.Content.NW")} $!{res.getProperty("EditionMetaMenuComponent.Content.NW")} "")
+			</li>
+		#end
+	 #end
+	 
+
+     #if($allowDownload && $contentAvailable && !$isExternal)
+    	   <li>
+    		 #metadataMenuLink( "img/icons/download.gif" "javascript:getZip()" $!{res.getProperty("EditionMetaMenuComponent.Zip")} $!{res.getProperty("EditionMetaMenuComponent.Zip")} "")
+    	   </li>
+     #end
+ 
+     #if( $elementHasComment )
+    		<li>
+    		 <script type="text/javascript">
+    			function showComment() {
+    			    commentWindow = window.open("${homepageUrl}${servletName}/doccomment?isEdi=true&id=" + ${edition.getId()},"commentWindow",'scrollbars=yes,toolbar=no,location=no,directories=no,status=no,menubar=no,resizable=yes,height=500,width=400');
+    				commentWindow.focus();
+    			}
+    		 </script>
+    		 #metadataMenuLink( "img/icons/comment.gif" "javascript:showComment()" ${res.getProperty("EditionMetaMenuComponent.Document-comment")} ${res.getProperty("EditionMetaMenuComponent.Document-comment")} "")
+    		</li>
+	 #end
+ 
+     #if($isQuery)
+    		<li>
+    		 #set( $link = "javascript:openLink('${homepageUrl}${servletName}/results')" )
+    		 #metadataMenuLink( "img/icons/search-results.gif" ${link} ${res.getProperty("EditionMetaMenuComponent.Search-results")} ${res.getProperty("EditionMetaMenuComponent.Search-results")} ${popupExtension})
+    	    </li>
+	 #end
+	 
+    <li>
+		 #set( $link = "javascript:openLink('${homepageUrl}${servletName}/sresults?action=SearchSimilarAction&eid=${edition.getId()}')" )
+		 #metadataMenuLink( "img/icons/search-similar.gif" ${link} ${res.getProperty("EditionMetaMenuComponent.Search.similar")} ${res.getProperty("EditionMetaMenuComponent.Search.similar")} ${noFollowPopup})
+    </li>
+
+
+ 	 #if ( $hasPlainContent )
+	   <li> 	
+    		 #set( $link = "javascript:openLink('${homepageUrl}${servletName}/plain-content?id=${edition.Id}')" )
+    		 #metadataMenuLink( "img/icons/plain-content.gif" ${link} ${res.getProperty("EditionMetaMenuComponent.plain-content")} ${res.getProperty("EditionMetaMenuComponent.plain-content")} ${popupExtension})
+	   </li>	
+	 #end
+	 
+	#if ( $contentAvailable && $multiContentHandlers == true)
+		#set( $link = "${homepageUrl}$!{list_content_url}" )
+		<li id="defaultsLink">  
+		<a href="${link}" title="${res.getProperty("EditionMetaMenuComponent.RestoreDefaultPresentation.desc")}" class="showContentHandlersList"> 
+			 <img src="${homepageUrl}/style/common/img/icons/content-settings.gif" alt="&#187;" style="vertical-align:middle"/>
+		</a>	
+		<a href="${link}" title="${res.getProperty("EditionMetaMenuComponent.RestoreDefaultPresentation.desc")}" class="showContentHandlersList"> 
+			${res.getProperty("EditionMetaMenuComponent.RestoreDefaultPresentation.link")} 
+		</a>
+ 	 </li>	 
+	#end 
+	
+</ul>
+
+<div id="menuStatus"></div>
+#end

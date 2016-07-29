@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="CollectionDescriptionComponent.NoPublications">Brak publikacji w kolekcji i w jej podkolekcjach</entry>
+<entry key="CollectionDescriptionComponent.Title">Opis kolekcji: ${collection.Label}</entry>
+<entry key="CollectionDescriptionComponent.PublicationCountRecursive">Liczba publikacji we wszystkich podkolekcjach</entry>
+<entry key="CollectionDescriptionComponent.PublicationCountThis">Liczba publikacji w kolekcji</entry>
+<entry key="CollectionDescriptionComponent.PublicationCountThisAndRecursive">Liczba publikacji w kolekcji i we wszystkich podkolekcjach</entry>
+</properties>

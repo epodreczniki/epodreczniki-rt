@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="NewAccountComponent.LoginUsed">Nazwa użytkownika lub adres e-mail są już zarejestrowane. Prosimy wybrać inną nazwę lub adres.</entry>
+<entry key="NewAccountComponent.AccountBenefits">Konto użytkownika daje dostęp do dodatkowej funkcjonalności naszej biblioteki cyfrowej, takiej jak np. biuletyn e-mail z listą nowo dodanych publikacji. W celu założenia konta prosimy wypełnić poniższy formularz.</entry>
+<entry key="NewAccountComponent.Success">Konto zarejestrowane pomyślnie. Na podany adres e-mail przesłano wiadomość z informacją na temat aktywacji konta.</entry>
+<entry key="NewAccountComponent.Email">Adres e-mail</entry>
+<entry key="NewAccountComponent.Login">Nazwa użytkownika</entry>
+<entry key="NewAccountComponent.UnknownError">Wystąpił nieznany błąd. Prosimy spróbować ponownie.</entry>
+<entry key="NewAccountComponent.Title">Nowe konto użytkownika</entry>
+<entry key="NewAccountComponent.button.Clear">Wyczyść</entry>
+<entry key="NewAccountComponent.button.Send">Wyślij</entry>
+<entry key="NewAccountComponent.Password">Hasło</entry>
+<entry key="NewAccountComponent.EmptyPassword">Puste pole "hasło" jest niedozwolone.</entry>
+<entry key="NewAccountComponent.WrongEmail">Podany adres e-mail jest nieprawidłowy.</entry>
+<entry key="NewAccountComponent.loginFormedBadly"><![CDATA[Login zawiera co najmniej 1 z niedozwolonych znaków: >, < i &!]]></entry>
+	<entry key="NewAccountComponent.wrongConfirmationPass">
+		Hasło oraz potwierdzenie hasła nie zgadzają się!
+	</entry>
+<entry key="NewAccountComponent.confPassword">Potwierdzenie hasła</entry>
+<entry key="NewAccountComponent.mandatoryField">Pole jest obowiązkowe</entry>
+<entry key="NewAccountComponent.Captcha">Wpisz tekst z obrazka</entry>
+<entry key="NewAccountComponent.IncorrectCaptcha">Musisz wpisać poprawny tekst z obrazka.</entry>
+</properties>

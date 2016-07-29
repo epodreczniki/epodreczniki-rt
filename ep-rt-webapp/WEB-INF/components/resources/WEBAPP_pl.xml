@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="main.meta.description">repozytorium umożliwia dostęp przez Internet do zasobów edukacyjnych w formie podręczników elektronicznych.</entry>
+<entry key="main.meta.keywords">e-podręczniki, epub, nauka, edukacja, szkoła, nauczanie, podręcznik, podręczniki, repozytorium, treść, ćwiczenia, szkoły, książka, książki, test, testy</entry>
+<entry key="main.meta.clasification">publiczna, twórca, książka, źródło,edukacja, nauka, projekt, szkoła, nauczanie</entry>
+<entry key="main.meta.generator">E-Podręczniki repozytorium treści - serwis poświęcony gromadzeniu danych podręczników w wersji elektronicznej.</entry>
+
+<entry key="base.library.acronym">EP</entry>
+<entry key="base.library.full">E-podręczniki - repozytorium</entry>
+
+<entry key="ContactComponent.Name">Poznańskie Centrum Superkomputerowo-Sieciowe</entry>
+<entry key="ContactComponent.Address">ul. Noskowskiego 12/14, 61-704 Poznań, POLSKA</entry>
+<entry key="ContactComponent.URL">http://www.man.poznan.pl/</entry>
+<entry key="ContactComponent.Mail">office@man.poznan.pl</entry>
+<entry key="ContactComponent.Phone">telefon: (+48) 61-858-20-00</entry>
+<entry key="EditionMetadataComponent.Title">Opis modułu informacyjnego</entry>
+<entry key="EditionMetaMenuComponent.Title">Moduł informacyjny</entry>
+<entry key="EditionMetaMenuComponent.Information">Informacje systemowe</entry>
+<entry key="EditionMetaMenuComponent.Search.similar">Podobne moduły inf.</entry>
+<entry key="CollectionsStructureComponent.Title">Projekty e-podręczników</entry>
+<entry key="directory.legend.Collection">Projekt</entry>
+<entry key="element_metadata.PubCollections">Projekty, do których przypisany jest moduł informacyjny</entry>
+
+<entry key="IndexSearchComponent.CreatorsIndex">Etapy edukacyjne</entry>
+<entry key="IndexSearchComponent.KeywordIndex">Przedmioty nauczania</entry>
+<entry key="IndexSearchComponent.TitleIndex">Tytuły</entry>
+
+<entry key="SimpleSearchComponent.searchInCollection">Wyszukiwanie w</entry>
+<entry key="SearchResultsComponent.fulltext.Title">Wyszukiwanie w</entry>
+<entry key="SearchResultsComponent.metadata.Title">Wyniki zaawansowanego wyszukiwania w</entry>
+
+<entry key="NarrowCollectionsComponent.Title">Zawęź wg projektu</entry>
+
+<entry key="CollectionsPubsComponent.Title">Lista modułów informacyjnych : ${collection.Label}</entry>
+<entry key="CollectionsPubsComponent.NoEditionsAtAll">Brak modułów w tym projekcie.</entry>
+<entry key="CollectionsPubsComponent.Prompt">Wybierz interesujący Cię moduł informacyjny</entry>
+<entry key="CollectionsPubsComponent.NoEditionsForLetter">Brak modułów, których tytuł zaczyna się na tę literę alfabetu. Spróbuj wybrać inną z liter.</entry>
+
+<entry key="CollectionDescriptionComponent.NoPublications">Brak modułów w projekcie i w jej podprojektach</entry>
+<entry key="CollectionDescriptionComponent.Title">Opis projektu: ${collection.Label}</entry>
+<entry key="CollectionDescriptionComponent.PublicationCountRecursive">Liczba modułów we wszystkich podprojektach</entry>
+<entry key="CollectionDescriptionComponent.PublicationCountThis">Liczba modułów w projekcie</entry>
+<entry key="CollectionDescriptionComponent.PublicationCountThisAndRecursive">Liczba modułów w projekcie i we wszystkich podprojektach</entry>
+
+<entry key="CollectionBoxComponent.Title">Projekt</entry>
+<entry key="CollectionBoxComponent.nav.PlannedPublications">Lista planowanych modułów</entry>
+<entry key="CollectionBoxComponent.nav.Collection-description">Opis projektu</entry>
+<entry key="CollectionBoxComponent.nav.Edition-index">Lista dostępnych modułów</entry>
+
+<entry key="AdvancedSearchComponent.Title">Zaawansowane wyszukiwanie w </entry>
+
+<entry key="AdvancedSearchComponent.Content">Tekst modułu</entry>
+<entry key="AdvancedSearchComponent.allAttributes">Opis modułu</entry>
+<entry key="AdvancedSearchComponent.DisplayDay">Wyświetl moduły dodane w ciągu</entry>
+<entry key="AdvancedSearchComponent.DisplayDate">Wyświetl moduły dodane od dnia</entry>
+<entry key="AdvancedSearchComponent.DisplayAll">Wyświetl wszystkie moduły</entry>
+
+<entry key="publication.OpeningDefault">Trwa otwieranie modułu informacyjnego...</entry>
+
+<entry key="PlannedPubListComponent.Introduction">Poniżej znajduje się lista modułów, które wkrótce będą udostępnione.</entry>
+<entry key="PlannedPubListComponent.No-at-all">Brak planowanych modułów...</entry>
+<entry key="PlannedPubListComponent.Prompt">Wybierz interesujący Cię moduł</entry>
+<entry key="PlannedPubListComponent.No-for-letter">Brak planowanych modułów zaczynających sie na wybraną literę.</entry>
+<entry key="PlannedPubListComponent.Title">Plany wprowadzania modułów : ${collection.Label}</entry>
+<entry key="SearchResultsComponent.RISMetadata"></entry>
+
+<entry key="element_metadata.NoOfHits">Liczba wyświetleń treści modułu</entry>
+<entry key="element_metadata.All-editions">Wszystkie dostępne wersje tego modułu</entry>
+
+<entry key="SearchResultsComponent.Publisher">Wydawca</entry>
+<entry key="SearchResultsComponent.Keywords">Etap edukacyjny</entry>
+
+<entry key="ModuleContent.SampleModule">Przykładowy moduł</entry>
+<entry key="ModuleContent.ShowEPContent">Wyświetl treść podręcznika</entry>
+
+</properties>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="UserEmailsAdminComponent.Title">Zmiana adresu email</entry>
+<entry key="UserEmailsAdminComponent.expl">Poniższy formularz pozwala na zmianę adresu email użytkownika który utworzył konto w tej bibliotece cyfrowej.
+Jeżeli użytkownik zarejestrował się w innej bibliotece, ale posiada subskrybcje w tej (wykorzystanie profilu sieciowego) poniższy formularz nie zadziała.</entry>
+<entry key="UserEmailsAdminComponent.oldemail">email</entry>
+<entry key="UserEmailsAdminComponent.newemail">nowy email</entry>
+<entry key="UserEmailsAdminComponent.submit">zatwierdź</entry>
+<entry key="UserEmailsAdminComponent.cancel">anuluj</entry>
+<entry key="UserEmailsAdminComponent.confirm">Czy jesteś pewien?</entry>
+<entry key="UserEmailsAdminComponent.wrongemail">Email jest niepoprawny</entry>
+<entry key="UserEmailsAdminComponent.newEmail.already.used">Nowy email jest już przez kogoś używany</entry>
+<entry key="UserEmailsAdminComponent.newEmail.is.invalid">Nowy email jest niepoprawny</entry>
+<entry key="newEmail.parameter.is.missing">Nie podano nowego adresu email</entry>
+<entry key="oldEmail.parameter.is.missing">Nie podano starego adresu email</entry>
+<entry key="UserEmailsAdminComponent.equal.emails">Tu nie ma nic do roboty.</entry>
+<entry key="UserEmailsAdminComponent.success">Operacja zakończona powodzeniem</entry>
+<entry key="UserEmailsAdminComponent.email.not.defined">Podany adres email nie figuruje w bazie danych</entry>
+</properties>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="ExhibitionsComponent.NoExhibitions">Brak wystaw - wróć później...</entry>
+<entry key="ExhibitionsComponent.More">Więcej...</entry>
+<entry key="ExhibitionsComponent.Comment">Komentarz</entry>
+<entry key="ExhibitionsComponent.Title">Wystawy</entry>
+</properties>

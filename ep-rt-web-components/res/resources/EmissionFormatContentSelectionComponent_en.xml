@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="EmissionFormat.Choose">Select content format</entry>
+<entry key="EmissionFormat.ForStudents">For students</entry>
+<entry key="EmissionFormat.ForTeachers">For teachers</entry>
+<entry key="EmissionFormat.ContentCanon">Content - canon</entry>
+<entry key="EmissionFormat.ContentExpanding">Content - expanding</entry>
+<entry key="EmissionFormat.ContentSupplemental">Content - supplemental</entry>
+</properties>

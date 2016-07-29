@@ -1,0 +1,126 @@
+<?xml version="1.0"  encoding="utf-8"?>
+<!DOCTYPE plugin PUBLIC "-//JPF//Java Plug-in Manifest 0.7" "http://jpf.sourceforge.net/plugin_0_7.dtd">
+<plugin id="pl.psnc.ep.rt.womi" version="${pom.currentVersion}">
+<requires>
+	<import plugin-id="pl.psnc.dlibra.app.extension"/>
+</requires>
+	<runtime>
+#foreach($dep in ${pom.dependencies})
+#if(${dep.type} == "jar" && !${dep.getProperty('dist.skip').equals("true")})
+		<library id="${dep.artifact}" path="lib/${dep.artifact}" type="code" />
+#end
+#end
+		<library id="pluginCode" path="${jarName}" type="code" />
+	</runtime>
+<extension plugin-id="pl.psnc.dlibra.app.extension"
+	point-id="dataSource" id="ep-rt-ds-womi-graphics">
+	<doc>
+		<doc-text>Rozszerzenie dla Repozytorium Treści, które pozwala wprowadzać WOMI typu ilustracja.</doc-text>
+	</doc>
+	<parameter id="class" value="pl.psnc.ep.rt.ds.GraphicsDataSource"/>
+	<parameter id="order" value="2"/>
+</extension>
+<extension plugin-id="pl.psnc.dlibra.app.extension"
+	point-id="dataSource" id="ep-rt-ds-womi-movie">
+	<doc>
+		<doc-text>Rozszerzenie dla Repozytorium Treści, które pozwala wprowadzać WOMI typu film.</doc-text>
+	</doc>
+	<parameter id="class" value="pl.psnc.ep.rt.ds.MovieDataSource"/>
+	<parameter id="order" value="3"/>
+</extension>
+<extension plugin-id="pl.psnc.dlibra.app.extension"
+	point-id="dataSource" id="ep-rt-ds-womi-sound">
+	<doc>
+		<doc-text>Rozszerzenie dla Repozytorium Treści, które pozwala wprowadzać WOMI typu klip dźwiękowy.</doc-text>
+	</doc>
+	<parameter id="class" value="pl.psnc.ep.rt.ds.SoundDataSource"/>
+	<parameter id="order" value="4"/>
+</extension>
+<extension plugin-id="pl.psnc.dlibra.app.extension"
+	point-id="dataSource" id="ep-rt-ds-womi-interactive">
+	<doc>
+		<doc-text>Rozszerzenie dla Repozytorium Treści, które pozwala wprowadzać WOMI typu interaktywnego.</doc-text>
+	</doc>
+	<parameter id="class" value="pl.psnc.ep.rt.ds.InteractiveDataSource"/>
+	<parameter id="order" value="5"/>
+</extension>
+<extension plugin-id="pl.psnc.dlibra.app.extension"
+	point-id="dataSource" id="ep-rt-ds-womi-icon">
+	<doc>
+		<doc-text>Rozszerzenie dla Repozytorium Treści, które pozwala wprowadzać WOMI typu ikona.</doc-text>
+	</doc>
+	<parameter id="class" value="pl.psnc.ep.rt.ds.IconDataSource"/>
+	<parameter id="order" value="6"/>
+</extension>
+<extension plugin-id="pl.psnc.dlibra.app.extension"
+	point-id="objectPanel" id="ep-rt-op-womi">
+	<doc>
+		<doc-text>Rozszerzenie dla Repozytorium Treści, które pozwala edytować WOMI.</doc-text>
+	</doc>
+	<parameter id="class" value="pl.psnc.ep.rt.ds.WOMIObjectPanel"/>
+</extension>
+<extension plugin-id="pl.psnc.dlibra.app.extension"
+	point-id="validator" id="ep-rt-val">
+	<doc>
+		<doc-text>Rozszerzenie dla Repozytorium Treści, które przeprowadza walidację dodawanych materiałów.</doc-text>
+	</doc>
+	<parameter id="class"
+		value="pl.psnc.ep.rt.validation.MainValidator"/>
+</extension>
+<extension plugin-id="pl.psnc.dlibra.app.extension"
+	point-id="eventListener" id="ep-rt-cover">
+	<doc>
+		<doc-text>Rozszerzenie dla Repozytorium Treści, które kontroluje przypisywanie okładek do podręczników.</doc-text>
+	</doc>
+	<parameter id="class"
+		value="pl.psnc.ep.rt.listeners.CoverEventListener"/>
+</extension>
+<extension plugin-id="pl.psnc.dlibra.app.extension"
+	point-id="eventListener" id="ep-rt-panorama">
+	<doc>
+		<doc-text>Rozszerzenie dla Repozytorium Treści, które kontroluje przypisywanie panoramy do rozdziałów.</doc-text>
+	</doc>
+	<parameter id="class"
+		value="pl.psnc.ep.rt.listeners.PanoramaEventListener"/>
+</extension>
+<extension plugin-id="pl.psnc.dlibra.app.extension"
+	point-id="eventListener" id="ep-rt-publication-date">
+	<doc>
+		<doc-text>Rozszerzenie dla Repozytorium Treści, które kontroluje przypisywanie daty publikacji do podręczników.</doc-text>
+	</doc>
+	<parameter id="class"
+		value="pl.psnc.ep.rt.listeners.PublicationDateEventListener"/>
+</extension>
+<extension plugin-id="pl.psnc.dlibra.app.extension"
+	point-id="eventListener" id="ep-rt-authors">
+	<doc>
+		<doc-text>Rozszerzenie dla Repozytorium Treści, które kontroluje przypisywanie ręcznej listy autorów do podręczników.</doc-text>
+	</doc>
+	<parameter id="class"
+		value="pl.psnc.ep.rt.listeners.AuthorsEventListener"/>
+</extension>
+<extension plugin-id="pl.psnc.dlibra.app.extension"
+	point-id="interfaceLanguage" id="polishLanguage-epodreczniki">
+	<doc>
+		<doc-text>Dostosowanie aplikacji na potrzeby projektu Epodręczniki.</doc-text>
+	</doc>
+	<parameter id="class"
+		value="pl.psnc.ep.rt.customize.PolishLanguage"/>
+</extension>
+<extension plugin-id="pl.psnc.dlibra.app.extension"
+	point-id="graphicProvider" id="libraryGraphics-epodreczniki">
+	<doc>
+		<doc-text>Dostosowanie szaty graficznej aplikacji na potrzeby projektu dLibra.</doc-text>
+	</doc>
+	<parameter id="class"
+		value="pl.psnc.ep.rt.gp.LibraryGraphicProvider"/>
+</extension>
+<extension plugin-id="pl.psnc.dlibra.app.extension"
+	point-id="miniatureProvider" id="svg-miniature-provider">
+	<doc>
+		<doc-text>Automatyczne generowanie miniatur dla obrazów w formacie SVG.</doc-text>
+	</doc>
+	<parameter id="class"
+		value="pl.psnc.ep.rt.gp.SVGMiniatureProvider"/>
+</extension>
+</plugin>

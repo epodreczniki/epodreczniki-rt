@@ -1,0 +1,1608 @@
+#**
+File with macros used by standard components' templates.
+@version $Id: component_library.vm,v 1.36 2009-06-30 10:18:14 mariuszs Exp $
+*#
+
+#macro (componentLoginForm)
+	<div id="loginReminder">
+		${res.getProperty("webtoolbar.LoginInfo")}
+	 </div>
+#end
+
+#**
+	Default macro for viewing message of format handler
+**#
+#macro (formatHandlerMessage)
+<script type="text/javascript">
+	
+	ContentHandling.testResults["${warn_handler_id}"] = {
+	
+		onSuccess: function(message){
+			$("#testMessageBodySuccess${warn_handler_id}")
+			.addClass('testSuccessMessage')
+			.append(message)
+			.show();
+		},
+		
+		onFailure: function(message){
+			$("#testMessageBodyFailure${warn_handler_id}")
+			.addClass('testFailureMessage')
+			.append(message)
+			.show();
+		}
+		
+	};
+
+</script>
+<h4>
+	${message.getProperty("message.title")}
+</h4>
+<div>
+	<p id="testMessageBodySuccess${warn_handler_id}" style="display:none;">
+		<img src="${homepageUrl}/style/common/img/icons/fine_sm.png" class="errorIcon"/>
+	</p>
+	<p id="testMessageBodyFailure${warn_handler_id}" style="display:none;">
+		<img src="${homepageUrl}/style/common/img/icons/warning_sm.png" class="errorIcon" />
+	</p>
+	${message.getProperty("message.body")}
+</div>		
+#end
+
+#**
+	Macro is responsible for rendering message and test for flash player based
+	format handlers.
+*#
+#macro(testFlashBasedHandler $redirectAfterTest $successRedirect $failureRedirect)
+<script src="${homePageUrl}/style/common/js/detection/AC_OETags.js" language="javascript"></script>
+<script language="JavaScript" type="text/javascript">
+<!--
+
+ContentHandling.tests["${warn_handler_id}"] = function(){
+
+	var redirectAfterTest = '$redirectAfterTest';
+	var successRedirect = '${successRedirect}';
+	var failureRedirect = '${failureRedirect}';
+
+	#set($successMessage = "${message.getProperty('test.success.title')}")
+	#set($failureMessage = "${message.getProperty('test.error.title')}")
+	#set($failureVersionMessage = "${message.getProperty('test.error.version.title')}")
+		
+	var successMessage = '${escapeUtil.escapeForPlainJS($successMessage)}';
+	var failureMessage = '${escapeUtil.escapeForPlainJS($failureMessage)}';
+	var failureVersionMessage = '${escapeUtil.escapeForPlainJS($failureVersionMessage)}';
+
+	// -----------------------------------------------------------------------------
+	// Globals
+	// Major version of Flash required
+	var requiredMajorVersion = 8;
+	// Minor version of Flash required
+	var requiredMinorVersion = 0;
+	// Minor version of Flash required
+	var requiredRevision = 0;
+	// -----------------------------------------------------------------------------
+
+    // Version check for the Flash Player that has the ability to start Player Product Install (6.0r65)
+    var hasProductInstall = DetectFlashVer(6, 0, 65);
+    
+    // Version check based upon the values defined in globals
+    var hasReqestedVersion = DetectFlashVer(requiredMajorVersion, requiredMinorVersion, requiredRevision);
+    
+    // Check to see if a player with Flash Product Install is available and the version does not meet the requirements for playback
+    if ( hasProductInstall && !hasReqestedVersion ) {
+    	testResultAction(failureRedirect,failureVersionMessage,true);
+    } else if (hasReqestedVersion) {
+    	testResultAction(successRedirect,successMessage,false);
+    } else {  
+		// flash is too old or we can't detect the plugin
+    	testResultAction(failureRedirect,failureMessage,true);		
+    }
+    
+    function testResultAction(redirectURL,message,failure)
+    {
+    	if(redirectAfterTest == 'true'){
+    		window.location.href = '${homepageUrl}' + redirectURL;
+    	}
+    	else{
+    		if(typeof ContentHandling.testResults["${warn_handler_id}"] != 'undefined'){
+    			if(failure){
+					ContentHandling.testResults["${warn_handler_id}"].onFailure(message);
+				}else{
+					ContentHandling.testResults["${warn_handler_id}"].onSuccess(message);
+				}
+    		}
+    	}
+    }
+
+};
+
+$(function(){
+	## execute testing
+	ContentHandling.tests["${warn_handler_id}"]();
+});
+
+// -->
+</script>
+#end
+
+#**
+	Macro is responsible for generating testing code for Acrobat Reader based
+	content handler and for viewing appropriate message.
+*#
+#macro(testAcrobatReaderBasedHandler $redirectAfterTest $successRedirect $failureRedirect)
+<script type="text/javascript" src="${homepageUrl}/style/common/js/detection/pluginDetector.js">
+</script>
+<script type="text/javascript">
+
+ContentHandling.tests["${warn_handler_id}"] = function(){
+
+	var redirectAfterTest = '${redirectAfterTest}';
+	var successRedirect = '${successRedirect}';
+	var failureRedirect = '$!{failureRedirect}';
+	
+	#set($successMessage = "${message.getProperty('test.success.title')}")
+	#set($failureMessage = "${message.getProperty('test.error.title')}")
+		
+	var successMessage = '${escapeUtil.escapeForPlainJS($successMessage)}';
+	var failureMessage = '${escapeUtil.escapeForPlainJS($failureMessage)}';
+
+	var wmpInstalled = installedPlugins['pdf'];
+	var handlerId = "${warn_handler_id}";
+	
+	if(wmpInstalled){
+		if(redirectAfterTest == "true"){
+			window.location.href = '${homepageUrl}' + successRedirect;
+		}else{
+			if(typeof ContentHandling.testResults["${warn_handler_id}"] != 'undefined'){
+				ContentHandling.testResults["${warn_handler_id}"].onSuccess(successMessage);
+			}
+		}
+	}else{
+		if(redirectAfterTest == "true" && failureRedirect != ''){
+			window.location.href = '${homepageUrl}' + failureRedirect;	
+		}else{
+			if(typeof ContentHandling.testResults["${warn_handler_id}"] != 'undefined'){
+				ContentHandling.testResults["${warn_handler_id}"].onFailure(failureMessage);
+			}
+		}
+	}
+};
+
+$(function(){
+	## execute testing
+	ContentHandling.tests["${warn_handler_id}"]();
+});
+</script>
+#if("$!{failureRedirect}" == "" && ${pageId} != "list")
+	#formatHandlerMessage()
+#end
+#end
+
+#**
+	Macro generates test for Java based content handlers.
+	@param $javaFx - if specified additional 
+*#
+#macro (testJavaBasedHandler $javaFX $redirectAfterTest $successRedirect $failureRedirect)
+<script type="text/javascript">
+
+ContentHandling.tests["${warn_handler_id}"] = function(){
+
+	var isJavaFX = '${javaFX}';
+	var redirectAfterTest = '${redirectAfterTest}';
+	var successRedirect = '${successRedirect}';
+	var failureRedirect = '$!{failureRedirect}';
+	
+	var contentUrl = '${contentUrl}';
+  	var listOfHandlersUrl = '${listOfHandlersUrl}';
+	
+	## No support for JavaFX plugins in Opera
+  	#if($javaFX)
+  	if(navigator.javaEnabled() == true && jQuery.browser.opera != true){
+  	#else
+  	if(navigator.javaEnabled() == true){
+  	#end
+ 		if(redirectAfterTest == 'true'){
+	  		window.location.href = '${homepageUrl}' + successRedirect;  
+		} else {
+	  		var message = '${message.getProperty("test.success.title")}';
+	  		if(typeof ContentHandling.testResults["${warn_handler_id}"] != 'undefined'){
+	  			ContentHandling.testResults["${warn_handler_id}"].onSuccess(message);
+	  		}
+		}
+  	}else{
+ 	 	if(redirectAfterTest == 'true' && failureRedirect != ''){
+	 		window.location.href = '${homepageUrl}' + failureRedirect;
+	 	}else{
+	 		if(isJavaFX && jQuery.browser.opera){
+				var message = '${message.getProperty("test.error.opera.title")}';
+			}else{
+				var message = '${message.getProperty("test.error.title")}';
+			}
+			if(typeof ContentHandling.testResults["${warn_handler_id}"] != 'undefined'){
+				ContentHandling.testResults["${warn_handler_id}"].onFailure(message);
+			}
+	 	}
+  	}
+
+};
+
+$(function(){
+	## execute testing
+	ContentHandling.tests["${warn_handler_id}"]();
+});
+
+</script>
+#if("$!{failureRedirect}" == "" && ${pageId} != "list")
+	#formatHandlerMessage()
+#end
+#end
+
+#**
+	Displays web 2.0 tools with content iframe.
+	Toolbar itself is created with nyromodal - dlibra-nyromodal-xx.js
+*#
+#macro(webTools)
+	<script type="text/javascript">
+		
+		var WebTools = {
+			
+			initWebTools : function(){
+				var body = parent.document.getElementsByTagName("body")[0];
+				var oldIframe = parent.document.getElementById("webToolsIframe");
+				var newSrc = '${homepageUrl}${servletName}/webtools?id=${editionId}';
+				## do not perform reload if webtools are already set
+				if(typeof oldIframe != 'undefined' && oldIframe != null){ 
+					if(oldIframe.src == newSrc){
+						return;
+					}
+				}
+				var toolsIframe = "<iframe id='webToolsIframe' style='width:100%;position:relative;top:0;left:0;border:0px;' src='"+newSrc+"'></iframe>";
+				$(body).children("#web2Tools").css({'display':''}).append(toolsIframe);
+			}
+		
+		};
+		
+		WebTools.initWebTools();
+		
+	</script>
+#end
+
+#**
+  This should be used to display list item bullet.
+*#
+#macro(point)
+	<span class="bullet">&#187;</span>
+#end
+
+#macro(reversedpoint)
+	<span class="bullet">&#171;</span>
+#end
+
+#**
+  Use this action to trigger vote for/against publication/edition.
+  @used by: PublicationMetaMenuComponent, EditionMetaMenuComponent
+  @param elementId - id of edition/publication
+  @param requestParamName - eid for edition and pid for publication
+  @param aboveDomId (optional: use "") -  id of dom element which will be hidden after receving response
+  @param domStatus (optional: use "") - id of dom element where status will be displayed
+*#
+#macro( voteSection $elementId $requestParamName $aboveDomId $domStatus)
+ <script type="text/javascript"><!--
+   $("document").ready(function() {
+     $("#voteForPublicationImg").click(function(){
+		doVoteAction(true);
+	 });
+     $("#voteAgainstPublicationImg").click(function(){
+		doVoteAction(false);
+	 });
+   });
+   function getVotingParams(vote) { return "${requestParamName}=${elementId}&vote="+vote; }
+   function showVotingResults(status, message, vote)
+   {
+     #if( ${aboveDomId} != "" )  $("#${aboveDomId}").hide(); #end
+
+	 #if( $domStatus != "") statusMessage('${res.getProperty("PublicationMetaMenuComponent.Thankyou")}', true, 'ThankYou', '${domStatus}', '$homepageUrl'); #end
+	 if ( status == 'true')
+	   setCookie('${requestParamName}_${elementId}','true',604800000,"/",null);
+   }
+   #simpleActionTemplate( "VoteAction" "doVoteAction" "vote" "showVotingResults" "getVotingParams" )
+ //--></script>
+ <a id="voteForPublicationImg" href="${homepageUrl}${servletName}/$pageId?action=VoteAction&amp;vote=true&amp;${requestParamName}=${elementId}" title="${res.getProperty("PublicationMetaMenuComponent.VoteForPub")}">
+	<img src="${homepageUrl}/style/common/img/icons/thumbup2.gif" alt="" style="vertical-align: bottom;" />
+ </a>
+ <a id="voteAgainstPublicationImg" href="${homepageUrl}${servletName}/$pageId?action=VoteAction&amp;vote=false&amp;${requestParamName}=${elementId}" title="${res.getProperty("PublicationMetaMenuComponent.VoteAgainstPub")}">
+	<img src="${homepageUrl}/style/common/img/icons/thumbdown2.gif" alt="" style="vertical-align: bottom;" />
+ </a>
+#end
+
+#**
+  Use this macro to execute actions with ajax (see DLI-1497 for desc).
+  @used by: AdminIntroductionComponent, NewPasswordComponent, AccountInfoComponent
+	        ResetPasswordComponent
+  @param actionId - id of action to execute
+  @param requestParams - javascript function which returns querystring with arguments
+  @param trigger - dom element id which triggers the action
+  @param callback - javascript function invoked when response is ready
+  @param validate - javascript function invoked before subtmiting action
+*#
+#macro( actionWithValidation $actionId $requestParams $trigger $callback $validate)
+	$(document).ready(function() {
+		#if ( $isSecure ) #set ( $prefix = "sec-" ) #end
+	    var warning =  getAjaxWarning('${res.getProperty("ajax.pleaseWait")}', '$homepageUrl');
+		$("#${trigger}").click(function(){
+			#if($validate!="")
+				if ( !$validate() ) return false;
+			#end
+				var querystring = 'wid=Actions&pageId=${pageId}&actionId=$!{actionId}';
+			#if ( ${requestParams}!="" )
+    			var params = ${requestParams}();
+    			if ( !isEmpty(params) ) querystring =  querystring + "&" + params;
+			#end
+			jQuery.ajax({
+				   type: "POST",
+				   url : "${homepageUrl}${servletName}/$!{prefix}ajax.xml",
+		   		   dataType : "xml",
+				   data: querystring,
+				   success : function(data){
+					jQuery.unblockUI();
+					var status  =  data.getElementsByTagName("Actions")[0].getAttribute("status");
+					var message =  data.getElementsByTagName("Actions")[0].getAttribute("message");
+				    ${callback}(status, message);
+				   }
+				});
+		   #if($pageId == "webtools")
+		    jQuery.blockUI.defaults.pageMessage = warning;
+			jQuery.blockUI.defaults.pageMessageCSS.top = '35%';
+			jQuery.blockUI();
+		   #else
+		    jQuery.blockUI(warning);
+		   #end
+		   
+   		if( $("a[id=${trigger}").size() > 0 )
+		{
+			$("a[id=${trigger}")[0].href="#";
+		}
+  	  });
+	})
+#end
+
+#**
+  Use this macro to generate function to refresh content of given component,
+  you can refresh  whole component or only its datapart (if defined).
+  @used by: AccountTagsComponent, AddPublicTagComponent
+  @param functionName - name of function to generate
+  @param functionParams - list of function's params eg. 'id, name, value'
+  @param callbackName - name of the callback executed when async request is fulfilled
+  @param requestParamsFunction - function which prepares querystring with async
+	     request params eg. 'id='+id
+*#
+#macro (refreshTemplate $functionName $functionParams $callbackName $requestParamsFunction)
+
+   function ${functionName}(${functionParams}) {
+	    var warning =  getAjaxWarning('${res.getProperty("ajax.pleaseWait")}', '$homepageUrl');
+		#if ( $isSecure ) #set ( $prefix = "sec-" ) #end
+        #if  ( $requestParamsFunction!="" && ${functionParams}!="" )
+			var querystring = 'wid=ComponentRenderer&onlydata=true&name=${componentName}&pageId=${pageId}&'+${requestParamsFunction}($functionParams);
+		#else
+			var querystring = 'wid=ComponentRenderer&onlydata=true&name=${componentName}&pageId=${pageId}';
+		#end
+		jQuery.ajax({
+		   type: "POST",
+		   url : "${homepageUrl}${servletName}/$!{prefix}ajax.xml",
+   		   dataType : "xml",
+		   data: querystring,
+		   success : function(data){
+				jQuery.unblockUI();
+				var body = data.getElementsByTagName("ComponentRenderer")[0].childNodes[0].nodeValue;
+				#if ( ${functionParams} != "" )
+					${callbackName}(body, ${functionParams});
+				#else
+					${callbackName}(body);
+				#end
+			  }
+		   });
+		   jQuery.blockUI(warning);
+   }
+#end
+
+#**
+  Use this macro to generate function launching given action in async way.
+  @used by: AccountTagsComponent, AddPublicTagComponent
+  @param actionName - name of action to execute
+  @param functionName - name of function to generate
+  @param functionParams - list of function's params eg. 'id, name, value'
+  @param callbackName - name of the callback executed when async request is fulfilled
+  @param requestParamsFunction - function which prepares querystring with async
+	     request params eg. 'id='+id
+*#
+#macro ( simpleActionTemplate $actionName $functionName $functionParams $callbackName $requestParamsFunction)
+
+   function ${functionName}(${functionParams}) {
+        var warning =  getAjaxWarning('${res.getProperty("ajax.pleaseWait")}', '$homepageUrl');
+		#if ( $isSecure ) #set ( $prefix = "sec-" ) #end
+        #if  ( $requestParamsFunction!="" && ${functionParams}!="" )
+			var querystring = 'wid=Actions&pageId=${pageId}&actionId=${actionName}&'+${requestParamsFunction}(${functionParams});
+		#else
+			var querystring = 'wid=Actions&pageId=${pageId}&actionId=${actionName}';
+		#end
+		jQuery.ajax({
+		   type: "POST",
+		   url : "${homepageUrl}${servletName}/$!{prefix}ajax.xml",
+   		   dataType : "xml",
+		   data: querystring,
+		   success : function(data){
+				jQuery.unblockUI();
+				var status  =  data.getElementsByTagName("Actions")[0].getAttribute("status");
+				var message =  data.getElementsByTagName("Actions")[0].getAttribute("message");
+				#if ( ${functionParams} != "" )
+					${callbackName}(status, message, ${functionParams});
+				#else
+					${callbackName}(status, message);
+				#end
+			  }
+		   });
+		   jQuery.blockUI(warning);
+   }
+
+#end
+
+#**
+  Use this macro to generate function launching action and refreshing given component.
+  The action name is javascript variable.
+  @used by: AccountTagsComponent, AddPublicTagComponent
+  @param functionName - name of function to generate
+  @param functionParams - list of function's params eg. 'id, name, value'
+  @param callbackName - name of the callback executed when async request is fulfilled
+  @param requestParamsFunction - function which prepares querystring with async
+	     request params eg. 'id='+id
+*#
+#macro (refreshComponentWithAction $functionName $functionParams $callbackName $requestParamsFunction)
+
+   function ${functionName}(actionId,${functionParams}) {
+       var warning =  getAjaxWarning('${res.getProperty("ajax.pleaseWait")}', '$homepageUrl');
+		#if ( $isSecure ) #set ( $prefix = "sec-" ) #end
+        #if  ( $requestParamsFunction!="" && ${functionParams}!="" )
+			var querystring = 'wid=ComponentRenderer&onlydata=true&name=${componentName}&pageId=${pageId}&action=' + actionId + '&'+${requestParamsFunction}($functionParams);
+		#else
+			var querystring = 'wid=ComponentRenderer&onlydata=true&name=${componentName}&pageId=${pageId}&action=' + actionId;
+		#end
+		jQuery.ajax({
+		   type: "POST",
+		   url : "${homepageUrl}${servletName}/$!{prefix}ajax.xml",
+   		   dataType : "xml",
+		   data: querystring,
+		   success : function(data){
+				jQuery.unblockUI();
+				var body = data.getElementsByTagName("ComponentRenderer")[0].childNodes[0].nodeValue;
+				#if ( ${functionParams} != "" )
+					${callbackName}(body, ${functionParams});
+				#else
+					${callbackName}(body);
+				#end
+			  }
+		   });
+		   jQuery.blockUI(warning);
+   }
+
+#end
+
+#**
+  Use this macro to create list of tags with links allowing for deletion
+  and some other stuff.
+  @used by: AccountTagsComponent
+  @param tagsMap - map : editionId -> list<Tag>
+  @param areGrouped - true if tags are grouped by edition, false otherwise
+  @param domPrefix - dom prefix of this list eg. 'n'
+  @param editionTitles - map editionId->String with its title
+  @param allowForDeletion - if true tagRemover element would be displayed.
+*#
+#macro( listTags $tagsMap $areGrouped $domPrefix $editionTitles $allowForDeletion)
+
+#foreach( $tagKey in ${tagsMap.keySet()} )
+	 #if ( $areGrouped ) <div id="g_${domPrefix}_${tagKey}" class="tagList" > #tagEditionInfo( $tagKey "$domPrefix" "" ${editionTitles}) #end
+       #foreach( $tag in ${tagsMap.get(${tagKey})} )
+		#if ( !$areGrouped ) <div id="g_${tagKey}_${tag.Id}" class="tagElem" > #tagEditionInfo( $tagKey "$domPrefix" "${tag.Id}" ${editionTitles}) #end
+    	<span id="tag${tag.Id}" class="tag">
+			#if (  ${tag.State} == ${tag_state_del_rejected} || ${tag.State} == ${tag_state_rejected} )
+				#set ( $cssClass = "tagStateRejected" )
+			#else
+				#set ( $cssClass = "tagStateAccepted" )
+			#end
+			<span class="${cssClass}">${escapeUtil.escapeHtml("${tag.Value}")}</span>
+			#if ( ${allowForDeletion} == true )
+    			<a href="${homepageUrl}${servletName}/$pageId?action=RemoveTagAction&amp;id=${tag.Id}" title="${res.getProperty("AccountTagsComponent.tag.remove")}" class="tagRemover" id="tagRemover_${tag.Id}_${tagKey}_${domPrefix}">
+        			<img src="${homepageUrl}/style/common/img/icons/user-trash.png" alt="${res.getProperty("AccountTagsComponent.tag.remove")}" class="taglistIcon"/>
+    			</a>
+			#end
+    			#if ( ${tag.Comment} )
+					<a href="javascript:showComment(${tag.Id})" title="${res.getProperty("AccountTagsComponent.link.comment")}" >
+						<img src="${homepageUrl}/style/common/img/icons/comment.gif" alt="${res.getProperty("AccountTagsComponent.link.comment")}" class="taglistIcon"/>
+					</a>
+    				<span id="tag${tag.Id}comment" class="tagComment">
+    					${escapeUtil.escapeHtml("${tag.Comment}")}
+    				</span>
+   			   #end
+    	</span>
+ 	     #if ( !$areGrouped )  </div> #end
+	   #end
+	   #if ( $areGrouped ) </div> #end
+#end
+
+#end
+
+#**
+  Generates edition info for given tag
+  @used by: AccountTagsComponent
+  @param ediId - editionId
+  @param domPrefix - dom prefix of this list eg. 'n'
+  @param tagId - id of given tag
+  @param editionTitles - map editionId->String with its title
+*#
+#macro ( tagEditionInfo $ediId $domPrefix $tagId $editionTitles)
+	#if ( $tagId != "")
+		#set ( $tagkey = $tagId )
+	#else
+		#set ( $tagkey = $ediId )
+	#end
+   <a href="javascript:editionLinks('${domPrefix}_${tagkey}')" title="${res.getProperty("AccountTagsComponent.link.editionInfo")}" class="tagEditionsDetails" id="${domPrefix}_editionLinksMin${tagkey}" style="display:none">
+	#point()
+   </a>
+   <span id="${domPrefix}_editionLinksMax${tagkey}" class="tagEditionLinks">
+	    <a href="javascript:editionLinks('${domPrefix}_${tagkey}')" class="tagEditionsDetails"> #reversedpoint() </a>
+		<a href="${homepageUrl}${servletName}/docmetadata?id=$ediId" title="${res.getProperty("AccountTagsComponent.link.description")}" >
+   			<img src="${homepageUrl}/style/common/img/icons/desc.gif" alt="${res.getProperty("AccountTagsComponent.link.description")}" class="taglistIcon" />
+   		</a>
+   		<a href="${homepageUrl}${servletName}/docmetadata?id=${ediId}&amp;showContent=true" title="${res.getProperty("AccountTagsComponent.link.content")}" >
+   			<img src="${homepageUrl}/style/common/img/icons/content.gif" alt="${res.getProperty("AccountTagsComponent.link.content")}" class="taglistIcon" />
+   		</a>
+		<a href="${homepageUrl}${servletName}/docmetadata?id=$ediId">${editionTitles.get($ediId)}</a> :
+   </span>
+#end
+#**
+  Renders javascript functions for metadata menu components
+  @used by: PublicationMetaMenuComponent
+*#
+#macro( getPublicationMenuScripts )
+
+	function checkAndSet(elem, value)
+	{
+	  var element = document.getElementById(elem);
+	  if ( element != null ) element.style.display=value;
+	}
+
+    function showDescription()
+    {
+        #if (  $edition  )  showMetadata(1); #end
+        checkAndSet('Attributes', 'block');
+        checkAndSet('Structure', 'none');
+        checkAndSet('Infos', 'none');
+    }
+
+    function showInformation()
+    {
+        #if (  $edition  )  showMetadata(2); #end
+        checkAndSet('Attributes', 'none');
+        checkAndSet('Structure', 'none');
+        checkAndSet('Infos', 'block');
+    }
+
+    function showStructure()
+    {
+        #if (  $edition  )  showMetadata(3); #end
+        checkAndSet('Attributes', 'none');
+        checkAndSet('Structure', 'block');
+        checkAndSet('Infos', 'none');
+    }
+
+   #if ( $showOnlyEditionsList )
+
+    function showEditionsList()
+    {
+	    checkAndSet('EditionsList', 'block');
+    }
+
+   #end
+
+   function openLink(link){
+		top.location=link;
+   }
+
+#end
+
+#**
+ Renders javascript function for edition metadata menu
+ @used by: EditionMetaMenuComponent
+*#
+#macro ( getEditionMenuScripts )
+
+    function openInNewWindow() {
+     #if( ${infoUrl} && (${infoUrl.length()} > 0) )
+     	publicationWindow = window.open("${homepageUrl}${infoUrl}mimetype=${mimetype}&sec=${isSecured}&content_url=$!{content_url}",'pubWindow','scrollbars=yes,toolbar=no,location=no,directories=no,status=no,menubar=no,resizable=yes,channelmode');
+	 #else
+      	publicationWindow = window.open("${homepageUrl}$!{content_url}",'pubWindow','scrollbars=yes,toolbar=no,location=no,directories=no,status=no,menubar=no,resizable=yes,channelmode');
+	 #end
+      	publicationWindow.focus();
+    }
+
+    function getZip() {
+		zipWindow = window.open("${homepageUrl}${servletName}/doczip?id=${edition.getId()}",'zipWindow','scrollbars=yes,toolbar=no,location=no,directories=no,status=no,menubar=no,resizable=yes,height=350,width=470');
+		zipWindow.focus();
+	}
+
+	function showMetadata(tabNumber){
+      if ( (top.location+'').indexOf('doccontent') != -1)
+      {
+         top.location='${homepageUrl}${servletName}/docmetadata?id=${edition.getId()}&dirds=${colId}&tab='+tabNumber;
+      }
+	}
+
+	#getPublicationMenuScripts()
+
+#end
+
+#**
+Macro used to create fast attribute search form.
+ used by: PublicationStatistcComponent.vm, attributes.vm
+*#
+#macro( attributeSearchForm )
+<div id="attributeSearchForm" >
+  <form action="${homepageUrl}${servletName}/aresults?action=SearchAction&amp;QI=$!{requestId}" method="post" name="collections">
+	<fieldset>
+       	<input name="queryType" type="hidden" value="-4"/>
+       	<input name="search_attid1" type="hidden"/>
+       	<input name="search_value1" type="hidden"/>
+		<input name="skipSearch" type="hidden" value="false" />
+       	<script type="text/javascript">
+       		function submitQuery(id, value)
+       		{
+       			document.collections['search_attid1'].value = id;
+       			document.collections['search_value1'].value = value;
+       			document.collections.submit();
+       		}
+       	</script>
+	</fieldset>
+ </form>
+</div>
+#end
+
+#**
+  used by: PublicationMetaMenuComponent, EditionMetaMenuComponent
+*#
+#macro( metadataMenuLink $image $url $text $linktitle $popup)
+
+ <a href="$url" #if($linktitle)title="$linktitle"#end $!{popup}>
+	<img src="${homepageUrl}/style/common/${image}" alt="&gt;" class="bottom_icon"/>
+ </a>
+ <a href="$url" #if($linktitle)title="$linktitle"#end $!{popup}>
+  	 ${text}
+ </a>
+
+#end
+
+#macro ( displayNodeList $nodes $metadata $level )
+	 #foreach( $attributeNode in $nodes )
+		#displayNode($attributeNode $documentMetadata $velocityCount $level)
+	 #end
+#end
+
+#macro ( printParentsLabels $node $count) 
+ #set($i = ${count.intValue()})
+ #if($node.getParent())
+  #set($count = $count + 1)
+  #printParentsLabels($node.getParent() $count)
+ #end
+ #if($node.getParent() && $i > 0) 
+  #if(${node.getParent().getParent()}) - #end
+  ${node.Info.Label}
+ #elseif(!$node.getParent() && !$node.Info.getRDFName().equalsIgnoreCase("DC"))
+  ${node.Info.Label}
+ #end
+ 	
+#end
+
+#macro ( dispNode $node $info)
+    <span class="attributeJustify">
+    	 #if($documentMetadata.getAttributeValues($info.Id, $metadataLanguage, $valueLangType).size() > 0)
+    	 <a href="${homepageUrl}${servletName}/indexsearch?attId=${info.id}" class="attributeInfo"> 
+    	 #set($t = "#printParentsLabels($node 0)")
+    	 #if($printAttParents)
+			${t.trim()}:
+		 #else
+    	 	${node.Info.Label}:
+    	 #end
+    	 </a>
+     <ul>
+     <li class="attributeValuesListElement">
+     <span class="attribute" style="margin:0;">
+			#foreach($value in $documentMetadata.getAttributeValues($info.Id, $metadataLanguage, $valueLangType))
+       #if($velocityCount > 1); #end
+		#if($value.toString().startsWith('http://'))
+ #set($urlName = ${res.getProperty("element_metadata.link")})
+		   #set($urlValue = $value)
+		   #if($value.toString().indexOf(" ") > 0)
+			#set($urlValue = $value.toString().substring(0,$value.toString().indexOf(" ")))
+			#set($urlName = $value.toString().substring($value.toString().indexOf(" "), $value.toString().length()))
+		   #end
+		   <a href="${urlValue}" target="_blank">$urlName</a>
+		   <a href="${urlValue}" target="_blank">
+		   	 <img alt=" " src="${homepageUrl}/style/common/img/popicon.gif"/></a>
+		#elseif($value.toString().startsWith('oai:'))
+		   #if(${conf.get("use.fbc")})
+		   <a href="${conf.get("fbc.url")}/id/${value}">${value}</a>
+		   #else
+		   <a href="${homepageUrl}${servletName}/docmetadata?id=${value}">${value}</a>
+		   #end
+		#elseif(!$info.getRoleId().toString().equals("description"))
+		 #set ( $strValue = $value.toString() )
+		 <script type="text/javascript"><!--
+		      function submit${info.Id}_${velocityCount}() {
+			    	    submitQuery(${info.Id},'\'${escapeUtil.escapeForJS($strValue)}\'');
+			    	  }
+		   //--> </script>
+		 <a href="javascript:submit${info.Id}_${velocityCount}()">${escapeUtil.escapeHtml("${value}")}</a>
+		## perform slice of long data but considering only "description" attributes
+		#else
+	       #set ( $strValue = $value.toString() )
+		   <script type="text/javascript"><!--
+		      function submit${info.Id}_${velocityCount}() {
+			    	    return '\'${escapeUtil.escapeForJS($strValue)}\'';
+			      }
+		   //--> </script> 
+		   <a href="javascript:submit${info.Id}_${velocityCount}()" id="attr_anch_${info.Id}_${velocityCount}">${escapeUtil.escapeHtml("${value}")}</a>
+    	#end
+	  #end
+	  </span>
+	  </li>
+	  </ul>
+	  #end
+	  </span>
+	#end
+
+#**
+ attributes trees macros
+*#
+#macro ( renderTreeView $node $idx)
+
+	#if($node)
+		#dispNode( $node ${node.Info})
+
+		#if ( ${node.hasChildren()} )
+			#foreach ( $subnode in $node.getChildren() )
+				#set ( $count = $velocityCount - 1 )
+				#renderTreeView( $subnode $count)
+			#end
+		#end
+
+	#end
+#end
+
+#**
+ attributes trees macros
+*#
+#macro ( renderFromRoot )
+
+	#foreach( $node in ${attributes} )
+		<ul id="childNodesContainer" class="attrtree">
+			#renderTreeView( ${node} 0 )
+		</ul>
+	#end
+
+#end
+
+#macro ( displayNode $node $metadata $pos $level)
+		  #set($info = ${node.Info})
+##    		#if(${node.hasChildren()} || $documentMetadata.getAttributeValues($info.Id, "pl").size() > 0)
+          <tr>
+            <td style="vertical-align:top; font-weight:bold; text-align:left; padding-right:10px; width: 12em; padding-left:${level}0px;">
+				#foreach($i in [0..$level])-#end&nbsp;
+    		    <span #if(${info.Description.length()} > 0)style="cursor:help;" onmouseover="stm(['${info.Label}','${info.Description}'],Style)" onmouseout="htm()"#end>${info.Label}</span>:
+            </td>
+            <td style="text-align:left;">
+              #foreach($value in $documentMetadata.getAttributeValues($info.Id, "pl"))
+              #if($velocityCount > 1); #end
+              <a href="javascript:submitQuery('$info.Id', '&quot;${value}&quot;')">${value}</a>
+    		  #end
+    		  &nbsp;
+            </td>
+          </tr>
+		  #set($level = $level + 1)
+		  #displayNodeList(${node.Children} $metadata $level)
+  		  #set($level = $level - 1)
+##		  #end
+#end
+
+#**
+ Renders link to help page dispayed in popup.
+*#
+#macro( helpLink $id $title )
+  <a href="javascript:showHelp('${id}', '$homepageUrl')" style="cursor:help;">
+    #if($title != "")
+      $title
+    #else
+      ${res.getProperty("nav.HELP")}
+	#end
+  </a>
+#end
+
+#macro ( gfxHelpLink $id $title)
+	  <a href="javascript:showHelp('${id}', '$homepageUrl')" style="cursor:help;">
+    #if($title != "")
+      <img id="gfxHelp" src="${homepageUrl}/style/common/img/icons/help_m.png" title="$title" />
+    #else
+      <img id="gfxHelp" src="${homepageUrl}/style/common/img/icons/help_m.png" title="${res.getProperty("nav.HELP")}" />
+	#end
+  </a>
+#end
+
+#**
+  Prepares results of local search.
+*#
+#macro( searchResultDLibraLocal $currIndex $result )
+    #set($id = ${result.getEdition().getId()})
+    #set($type = "")
+	#setTitleLink($result $language $titleId $creatorId ${result.getEdition().getName()})
+    #set($resourceLabel = $titleLink)
+    #set($resourceContentUrl = "${homepageUrl}${editionContentUrls.get(${result.getEdition().getId()})}")
+    #set($resourceLabelUrl = "${homepageUrl}${servletName}/docmetadata?id=${id}&amp;from=$!{from}&amp;dirids=${collection.Id}&amp;ver_id=$!{result.VersionId}")
+	#set($risUrl="${homepageUrl}${servletName}/dlibra.ris?type=e&amp;id=${id}")
+	#if(${result.getEdition().getDescription()})
+		#set($description = ${result.getEdition().getDescription()})
+	#end
+	#if(${result.getAttributeValues($publisherId, $language)})
+		 #set($publishers = ${result.getAttributeValues($publisherId, $language)})
+		 #if($publishers.size() > 0)
+		  #set($pubResult = "")
+		  #set($counter = 0)
+		  #foreach($publisher in $publishers)
+		   #if($counter > 0)
+		  	 	 #set($pubResult = "${pubResult},$publisher")
+		  	 	#else
+		  	 	 #set($pubResult = "$publisher")
+		  	 	#end
+		  	 	#set($counter = $counter + 1)
+		  #end
+		 #end
+	#else
+		 #set($pubResult = "")
+	#end
+	#if(${result.getAttributeValues($dateId, $language)})
+	 #set($publicationDate = ${result.getAttributeValues($dateId, $language)})
+	#else
+	 #set($publicationDate = "")
+	#end
+	#if(${result.getAttributeValues($descriptionId, $language)})
+		#set($keywords = ${result.getAttributeValues($descriptionId, $language)})
+	#else
+		#set($keywords = "")
+	#end
+
+    #set($resourceScore = ${result.ScaledScore})
+    #set($resourceHostName = "")
+    #set($resourceHostUrl ="")
+    #set($doctypeIcon = "publication.gif" )
+    
+
+	#set ($aggregationCount = 0) 
+#set($thumbUrl = "")
+	#if(${result.getEdition().getElementHasImage()})
+	 #set ( $thumbUrl = "${homepageUrl}/image/edition/${id}" )
+	#end
+
+	#set( $similarSearchUrl = "eid=${id}" )
+	#set($editionId = "${id}")
+#set($title = ${res.getProperty("search.viewPublication")})
+   #displayElementListItem($currIndex $resourceLabel $resourceLabelUrl $resourceContentUrl $description $keywords $resourceScore $resourceHostName $thumbUrl $resourceHostUrl $doctypeName $doctypeIcon $similarSearchUrl $editionId $aggregationCount $title $risUrl $authorLabel)
+    #set($doctypeInfoRL = false)
+#end
+
+#**
+  Prepares results of publication search.
+*#
+#macro( searchResultDLibraPublication $currIndex $result )
+	#set($id = ${result.getPublication().getId()})
+	#setTitleLink(${result} $language $titleId $creatorId ${result.getPublication().getName()})
+	#set($resourceLabel = $titleLink)
+	#set($resourceLabelUrl = "${homepageUrl}${servletName}/publication?id=${id}&amp;from=$!{from}&amp;dirids=${collection.Id}&amp;tab=1")
+    #set($resourceContentUrl = $resourceLabelUrl)
+	#set($resourceScore = ${result.ScaledScore})
+    #set($resourceHostName = "")
+    #set($resourceHostUrl ="")
+    #set($risUrl="${homepageUrl}${servletName}/dlibra.ris?type=p&amp;id=${id}")
+	#set($pinfo = ${result.getPublication().getInfo()})
+	#set($type = ${pinfo.Class.Name.substring(${pinfo.Class.Name.lastIndexOf(".")})})
+	 #if($type == ".GroupPublicationInfo" )
+		  #set($doctypeIcon = "multipublication.gif")
+		  #set($doctypeName = ${res.getProperty("multipublication")})  
+	 #elseif($type == ".PlannedPublicationInfo")
+	  #set($doctypeIcon = "planned_publication.gif")
+	  #set($doctypeName = ${res.getProperty("planned-publication")}) 
+	 #else
+	  #set($doctypeIcon = "publication.gif")
+	  #set($doctypeName = ${res.getProperty("publication")})
+	 #end
+	#if(${result.getAttributeValues($publisherId, $language)})
+		 #set($publishers = ${result.getAttributeValues($publisherId, $language)})
+		 #if($publishers.size() > 0)
+		  #set($pubResult = "")
+		  #set($counter = 0)
+		  #foreach($publisher in $publishers)
+		   #if($counter > 0)
+		  	 	 #set($pubResult = "${pubResult},$publisher")
+		  	 	#else
+		  	 	 #set($pubResult = "$publisher")
+		  	 	#end
+		  	 	#set($counter = $counter + 1)
+		  #end
+		 #end
+	#else
+		 #set($pubResult = "")
+	#end
+#if(${result.getAttributeValues($dateId, $language)})
+	 #set($publicationDate = ${result.getAttributeValues($dateId, $language)})
+	#else
+	 #set($publicationDate = "")
+	#end
+	#if(${result.getAttributeValues($descriptionId, $language)})
+		#set($keywords = ${result.getAttributeValues($descriptionId, $language)})
+	#else
+		#set($keywords = "")
+	#end
+	#if(${result.Publication.Description})
+		#set($resourceDescription = ${result.Publication.Description} )
+	#end
+#set($thumbUrl = "")
+	#if(${result.getPublication().getElementHasImage()})
+	 #set ( $thumbUrl = "${homepageUrl}/image/publication/${id}" )
+	#end
+
+	#set ($aggregationCount = ${result.getCount().intValue()}) 
+
+	#set( $similarSearchUrl = "pid=${id}" )
+	#set($editionId = "${id}")
+#set($title = ${res.getProperty("search.viewDescription")})
+#displayElementListItem($currIndex $resourceLabel $resourceLabelUrl $resourceContentUrl $resourceDescription $keywords $resourceScore $resourceHostName $thumbUrl $resourceHostUrl $doctypeName $doctypeIcon $similarSearchUrl $editionId $aggregationCount $title $risUrl $authorLabel)
+    #set($doctypeInfoRL = false)
+#end
+
+#**
+  Prepares search results page. Used also for displaying list of
+  publications in collection. Remember to wrap results for this macro into table eg.
+  <table>#searchResultDLibra(params)</table>
+*#
+#macro(searchResultDLibra $currIndex $info $id $resourceLabel $doctypeInfo $resourceDescription)
+#set($thumbUrl = "")
+    #set($resourceLabelUrl = "${homepageUrl}${servletName}/docmetadata?id=${id}&amp;from=$!{from}&amp;dirids=$!{collection.Id}")
+    #set($resourceHostName = "")
+   	#set($resourceContentUrl = $resourceLabelUrl) 
+    #set($resourceHostUrl = "")
+	#set($authorLabel = "")
+	#if($result)
+		#set($doctypeInfo = ${doctypeInfos.get(${result.getMime()})})
+		#set($resourceScore = ${result.ScaledScore})
+	#else
+		#set($resourceScore = -1)
+	#end
+
+   	#set($doctypeName = "")
+	#set($doctypeIcon = "default.gif")
+	#set($editionId = "${id}")
+	#set($type = ${info.Class.Name.substring(${info.Class.Name.lastIndexOf(".")})})
+	#if($doctypeInfo != "")
+    	#set($doctypeName = ${doctypeInfo.Abbr})
+    	#set($doctypeIcon = ${doctypeInfo.FileName})
+    #else
+    	#if($type == ".GroupPublicationInfo" )
+	    	#set($doctypeName = "Group Publication")
+	    	#set($doctypeIcon = "multipublication.gif")
+			#set($resourceLabelUrl = "${homepageUrl}${servletName}/publication?id=${id}&amp;from=$!{from}&amp;dirids=${collection.Id}&amp;tab=1")
+			#set($resourceContentUrl = "${homepageUrl}${servletName}/publication?id=${id}&amp;from=$!{from}&amp;dirids=${collection.Id}&amp;tab=1")
+			#set($thumbUrl = "${homepageUrl}/image/publication/${id}" )
+    	#elseif($type == ".PublicationInfo" )
+	    	#set($doctypeName = "Publication")
+	    	#set($doctypeIcon = "publication.gif")
+			#set($resourceLabelUrl = "${homepageUrl}${servletName}/publication?id=${id}&amp;from=$!{from}&amp;dirids=${collection.Id}&amp;tab=1")
+			#set($editionId = "${id}")
+   		#elseif($type == ".EditionInfo")
+			#set($thumbUrl = "${homepageUrl}/image/edition/${id}" )
+			#set($resourceContentUrl = "${homepageUrl}${editionContentUrls.get(${id})}")
+	    	#set($doctypeName = "Edition")
+	    	#set($doctypeIcon = "edit.gif")
+	    #end
+	#end
+
+	##
+	## set hint title
+	##
+	#if ($type == ".GroupPublicationInfo" || $type == ".PublicationInfo")
+		#set($title = ${res.getProperty("search.viewDescription")})
+		#set($risUrl="${homepageUrl}${servletName}/dlibra.ris?type=p&amp;id=${id}")
+	#else
+		#set($title = ${res.getProperty("search.viewPublication")})
+		#set($risUrl="${homepageUrl}${servletName}/dlibra.ris?type=e&amp;id=${id}")
+	#end
+	#set( $similarSearchUrl = "eid=${id}" )
+	#set( $aggregationCount = 0)
+	
+	#set($resourceLabel = ${escapeUtil.escapeHtml("${resourceLabel}")})
+	##set($resLab= "<span class='src_titleLink_title'>${resourceLabel}</span>")
+	#set($resLab= ${resourceLabel})
+
+	#if(${DataChecker.hasImage($info)} == false)
+		#set($thumbUrl = "")
+	#end
+	
+	
+#displayElementListItem($currIndex $resLab $resourceLabelUrl $resourceContentUrl $resourceDescription $keywords $resourceScore $resourceHostName $thumbUrl $resourceHostUrl $doctypeName $doctypeIcon $similarSearchUrl $editionId $aggregationCount $title $risUrl $authorLabel)
+
+#end
+
+
+#macro(displayElementListItem $currIndex $resourceLabel $resourceLabelUrl $resourceContentUrl $resourceDescription $keywords $resourceScore $resourceHostName $thumbUrl $resourceHostUrl $doctypeName $doctypeIcon $similarSearchUrl $elementId $aggregationCount $title $risUrl $authorLabel)
+#set($urlSuffix="&amp;lp=${currIndex}")
+#if($query) 
+	#set($urlSuffix="$urlSuffix&amp;QI=$!{query.QueryId}") 
+#end
+<table class="resutlsTable" #if(${currIndex}%2 == 0) style="background: #f1f1f1;margin-bottom:5px;" #else style="background:#fcfcfc;margin-bottom:5px;" #end >   
+	<tr class="SearchResult">
+ 	<td class="resultNumber">
+	    <b>${currIndex}.&#160;</b>
+	</td>
+	#if(${thumbUrl}!="")
+	 <td class="res_miniature" width="140px">
+		## 
+		## inlined styles below were left here intentionally
+		##
+		<div class="minContainer">
+		#if($resourceContentUrl != "")
+				##
+				## not all content URL have querystring
+				##
+			  <a href="${urlTool.append("${resourceContentUrl}", "${urlSuffix}")}" title="$resourceLabel - ${title}" #if(${result.getEdition()} || ($doctypeName == "Edition")) class="contentTrigger" rel="gal" #end>
+				<img id="imgE${elementId}" src="${thumbUrl}" class="minImg"/>
+			  </a>
+		#else
+			  <img id="imgE${elementId}" src="${thumbUrl}" class="minImg"/>
+		#end		
+		</div>
+	 </td>
+	 
+	#else
+		<td valign="top" class="res_miniature" width="140px">
+			## 
+			## inlined styles below were left here intentionally
+			##
+			<div class="minContainer">
+			#if($resourceContentUrl != "")
+			##
+			## not all content URL have querystring
+			##
+			<a href="${urlTool.append("${resourceContentUrl}", "${urlSuffix}")}" title="$resourceLabel - ${title}" #if(${result.getEdition()} || ($doctypeName == "Edition")) class="contentTrigger" rel="gal" #end>
+			  #if(${aggregationCount} > 0 || $type == ".GroupPublicationInfo")
+				<img id="imgE${elementId}" src="${homepageUrl}/style/dlibra/${styleVariant}/img/no-min-group.png" class="noMinGroup" />
+			  #elseif($type == ".PlannedPublicationInfo")
+				<img id="imgE${elementId}" src="${homepageUrl}/style/dlibra/${styleVariant}/img/no-min-planned.png" class="noMinPlanned" />
+			  #else
+				<img id="imgE${elementId}" src="${homepageUrl}/style/dlibra/${styleVariant}/img/no-min.png" class="noMin" />
+			  #end
+			</a>
+		#else
+			 #if(${aggregationCount} > 0 || $type == ".GroupPublicationInfo")
+				<img id="imgE${elementId}" src="${homepageUrl}/style/dlibra/${styleVariant}/img/no-min-group.png" class="noMinGroup" />
+			 #elseif($type == ".PlannedPublicationInfo") 
+				<img id="imgE${elementId}" src="${homepageUrl}/style/dlibra/${styleVariant}/img/no-min-planned.png" class="noMinPlanned" />
+			 #else 
+				<img id="imgE${elementId}" src="${homepageUrl}/style/dlibra/${styleVariant}/img/no-min.png" class="noMin" />
+			 #end
+		#end
+		</div>
+	</td>
+	#end
+		## style added intentionally
+		<td><table class="resultMetadataTable"><tr class="resultMetadataTr" style="height:90px;"><td valign="top">
+		<p class="resultTitle">
+		#if($resourceContentUrl != "")
+			<a href="${urlTool.append("${resourceContentUrl}", "${urlSuffix}")}" title="$resourceLabel - ${title}" #if(${result.getEdition()} || ($doctypeName == "Edition")) class="contentTrigger" rel="gal2" #end>
+					<img src="${homepageUrl}/style/common/img/content-types/${doctypeIcon}" alt="$!{doctypeName}" class="bottom_icon resultContentIcon" title="$!{doctypeName}"/>
+			</a>
+		#else
+			<img id="resultContentIcon" src="${homepageUrl}/style/common/img/content-types/${doctypeIcon}" alt="$!{doctypeName}" class="bottom_icon resultContentIcon" title="$!{doctypeName}"/>
+		#end
+	    <b>
+		#set($resLabel = "")
+	    #if ( $resourceLabel != "" )
+			#set($resLabel = $resourceLabel)
+		#else
+			#set($resLabel = [${res.getProperty("SearchResultsComponent.NoTitleInLanguage")}])
+		#end
+	    ## class="dL_sn" as selector class for shorter names function 
+	    <a class="dLSearchResultTitle" href="${resourceLabelUrl}${urlSuffix}">
+			<span><span id="src_titleLink_fullTitle" style="display:none;"><span class='src_titleLink_title'>${resLabel.toString().replaceAll("&lt;-&gt;","-")}</span></span><span id="src_titleLink_shorterTitle"><span class='src_titleLink_title'>${resLabel.toString().replaceAll("&lt;-&gt;","-")}</span></span></span>
+		  </a>
+		</b></p>
+		#if($authorLabel != "")
+		<p class="resultAuthor">
+			<i>$authorLabel</i>
+		</p>
+		#end
+		#if($resourceDescription != "")
+			<p class="resultDescription"><b>${res.getProperty("SearchResultsComponent.Description")}:</b>
+				<span class="dL_sn" content="${escapeUtil.escapeHtml("$!resourceDescription")}"><span>${escapeUtil.escapeHtml("$!resourceDescription")}</span></span>
+			</p>
+			#set($resourceDescription = "")
+		#end
+		#if(${keywords.size()} > 0)
+		<p class="resultKeywords"><b>${res.getProperty("SearchResultsComponent.Keywords")}</b>:
+			<span class="dL_sn" content="#foreach($keyword in $keywords) ${escapeUtil.escapeHtml("$keyword")} #if($velocityCount < ${keywords.size()}),#end#end">
+		 	 	<span>#foreach($keyword in $keywords) ${escapeUtil.escapeHtml("$keyword")} #if($velocityCount < ${keywords.size()}),#end#end</span>
+		 	 </span></p>
+		#end
+	    #if(${aggregationCount} > 0)
+			<p class="resultAggregation"><img src="${homepageUrl}/style/common/img/collapsed.gif" class="aggregationMark" /><span>${res.getProperty("SearchResultsComponent.aggregation")} 
+	 			 #if($pageId == "results")
+					<a class="resultAggregationLink" onclick="SearchResultsComponent.sendGroupRequest('${elementId}'); return false;" href="#">
+	 			 #else
+					<a class="resultAggregationLink" onclick="SearchResultsComponent.sendGroupRequestAdv('${elementId}'); return false;" href="#">
+				 #end	
+				 <b>${aggregationCount}</b>
+	 			 #if(${userLanguage} == "pl")
+	 			  #if($aggregationCount == 1)
+	 			 	  ${res.getProperty('SearchResultComponent.aggregation.object')}
+	 			  #elseif($aggregationCount%10 >= 5 || $aggregationCount%10 < 2)
+						${res.getProperty('SearchResultComponent.aggregation.objectss')}
+	 			  #elseif($aggregationCount%10 < 5)
+						${res.getProperty('SearchResultComponent.aggregation.objects')}
+				  #end
+	 			 #elseif(${userLanguage} == "en")
+	 			  #if($aggregationCount == 1)
+	 			 	  ${res.getProperty('SearchResultComponent.aggregation.object')}
+	 			  #else
+	 			   ${res.getProperty('SearchResultComponent.aggregation.objects')}
+	 			  #end
+	 			 #end
+	 			 </a></span></p>
+			#set($aggregationCount = 0)
+		 #end  	
+			  </td></tr>
+			  <tr>
+				<td class="resultAdditionalOptionsTd" valign="bottom">
+				<p class="resultAdditionalOptions">
+  				  #if ( $similarSearchUrl && $resourceScore >= 0)
+					<a href="${homepageUrl}${servletName}/sresults?action=SearchSimilarAction&amp;$similarSearchUrl" title="${res.getProperty("SearchResultsComponent.Search.Similar")}">
+						${res.getProperty("SearchResultsComponent.Search.Similar")}
+					</a>
+					&nbsp;|&nbsp;
+				  #end	
+				  <a href="${risUrl}" title="${res.getProperty("SearchResultsComponent.RISMetadataDesc")}">${res.getProperty("SearchResultsComponent.RISMetadata")}</a>
+				</p>
+				</td>
+			  </tr>
+			</table>
+		</tr>
+		</table>
+	    #set ($aggregationCount = 0)
+#end
+
+#**
+ Draws score of single search hit.
+*#
+#macro( drawScore $score )
+	#set($stepList = [0, 20, 40, 60, 80])
+	[#foreach( $step in $stepList)<font
+		#if($score > $step)
+		color="#00FF00"
+		#else
+		color="#C0C0C0"
+		#end
+		>&#9632;</font>#end]
+#end
+
+
+#**
+ Prepares alphabetic navigation bar..
+*#
+
+#macro( alphabet $pageName $extraAttributes)
+
+<a class="alph_odd" href="${homepageUrl}${servletName}/${pageName}?startint=0$!{extraAttributes}">0-9</a>
+<a class="alph_even" href="${homepageUrl}${servletName}/${pageName}?startstr=A$!{extraAttributes}">A</a>
+	<a class="alph_odd" href="${homepageUrl}${servletName}/${pageName}?startstr=B$!{extraAttributes}">B</a>
+         <a class="alph_even" href="${homepageUrl}${servletName}/${pageName}?startstr=C$!{extraAttributes}">C</a>
+	         <a class="alph_odd" href="${homepageUrl}${servletName}/${pageName}?startstr=D$!{extraAttributes}">D</a>
+         <a class="alph_even" href="${homepageUrl}${servletName}/${pageName}?startstr=E$!{extraAttributes}">E</a>
+         <a class="alph_odd" href="${homepageUrl}${servletName}/${pageName}?startstr=F$!{extraAttributes}">F</a>
+         <a class="alph_even" href="${homepageUrl}${servletName}/${pageName}?startstr=G$!{extraAttributes}">G</a>
+         <a class="alph_odd" href="${homepageUrl}${servletName}/${pageName}?startstr=H$!{extraAttributes}">H</a>
+         <a class="alph_even" href="${homepageUrl}${servletName}/${pageName}?startstr=I$!{extraAttributes}">I</a>
+         <a class="alph_odd" href="${homepageUrl}${servletName}/${pageName}?startstr=J$!{extraAttributes}">J</a>
+         <a class="alph_even" href="${homepageUrl}${servletName}/${pageName}?startstr=K$!{extraAttributes}">K</a>
+         <a class="alph_odd" href="${homepageUrl}${servletName}/${pageName}?startstr=L$!{extraAttributes}">L</a>
+         <a class="alph_even" href="${homepageUrl}${servletName}/${pageName}?startstr=M$!{extraAttributes}">M</a>
+         <a class="alph_odd" href="${homepageUrl}${servletName}/${pageName}?startstr=N$!{extraAttributes}">N</a>
+         <a class="alph_even" href="${homepageUrl}${servletName}/${pageName}?startstr=O$!{extraAttributes}">O</a>
+         <a class="alph_odd" href="${homepageUrl}${servletName}/${pageName}?startstr=P$!{extraAttributes}">P</a>
+         <a class="alph_even" href="${homepageUrl}${servletName}/${pageName}?startstr=Q$!{extraAttributes}">Q</a>
+         <a class="alph_odd" href="${homepageUrl}${servletName}/${pageName}?startstr=R$!{extraAttributes}">R</a>
+         <a class="alph_even" href="${homepageUrl}${servletName}/${pageName}?startstr=S$!{extraAttributes}">S</a>
+         <a class="alph_odd" href="${homepageUrl}${servletName}/${pageName}?startstr=T$!{extraAttributes}">T</a>
+         <a class="alph_even" href="${homepageUrl}${servletName}/${pageName}?startstr=U$!{extraAttributes}">U</a>
+         <a class="alph_odd" href="${homepageUrl}${servletName}/${pageName}?startstr=V$!{extraAttributes}">V</a>
+         <a class="alph_even" href="${homepageUrl}${servletName}/${pageName}?startstr=W$!{extraAttributes}">W</a>
+         <a class="alph_odd" href="${homepageUrl}${servletName}/${pageName}?startstr=X$!{extraAttributes}">X</a>
+         <a class="alph_even" href="${homepageUrl}${servletName}/${pageName}?startstr=Y$!{extraAttributes}">Y</a>
+         <a class="alph_odd" href="${homepageUrl}${servletName}/${pageName}?startstr=Z$!{extraAttributes}">Z</a>
+	
+	#end
+
+#**
+ Prints group publiaction tree
+*#
+#macro( printTree $rootNode)
+	#if($rootNode.hasChildren())
+	<ul style="list-style-image:url(${homepageUrl}/style/dlibra/${styleVariant}/img/collapsed.gif);list-style-type:none;">
+		<li #if(${rootNode.isExpanded()})style="list-style-image:url(${homepageUrl}/style/common/img/expanded.gif);"#end>
+			#nodeLink($rootNode "mid" )
+			#foreach($node in $rootNode.getChildren())
+				#printTree($node )
+			#end
+		</li>
+	</ul>
+	#else
+	<ul style="list-style-image:url(${homepageUrl}/style/dlibra/${styleVariant}/img/nochilds.gif);list-style-type:none;margin-left:1em;">
+	<li style="padding:2px 2px 2px 4px;">
+		#nodeLink($rootNode "leaf")
+	</li>
+	</ul>
+	#end
+#end
+
+#**
+ Prints group publiaction tree element link.
+*#
+#macro( nodeLink $node $mode)
+
+  #set ( $publicationTitle =  ${escapeUtil.escapeHtml("${node.getInfo().getLabel()}")} ) 
+  #if ( ($mode == "leaf") && ("${node.getInfo().getState()}" != "8"))
+	 <a href="${homepageUrl}${servletName}/editions-content?id=${node.getInfo().getId()}" class="contentTriggerStruct" title="${publicationTitle} - $!{res.getProperty("MetadataMenuComponent.Content")}" rel="gal">
+	  	<img src="${homepageUrl}/style/common/img/icons/content.gif" alt="$!{res.getProperty("MetadataMenuComponent.Content")}" class="bottom_icon"/>
+	 </a>
+  #end
+
+ <a href="${homepageUrl}${servletName}/publication/${node.getInfo().getId()}?tab=1" title="${publicationTitle} - $!{res.getProperty("MetadataMenuComponent.Attributes")}">
+  	<img src="${homepageUrl}/style/common/img/icons/desc.gif" alt="$!{res.getProperty("MetadataMenuComponent.Attributes")}" class="bottom_icon""/>
+ </a>
+
+ #if ( $mode != "leaf" )
+ <a class="item-content" href="${homepageUrl}${servletName}/publication?id=${node.getInfo().getId()}&amp;tab=3">
+ #end
+   #if(${node.getInfo().getId()} == ${publication.Id} )
+     <span id="selected" class="item-content selectedPublication">
+		${publicationTitle}
+     </span>
+   #else
+   ${publicationTitle}
+   #end
+ #if ( $mode != "leaf" )
+ </a>
+ #end
+#end
+
+#**
+  Renders arrow navigation for list.
+*#
+#macro( arrowNavigation $pageName $extraAttributes)
+	#if($start >= 0)
+    <table style="margin: 20px 10px; width:100%;" align="center">
+      <tr>
+		<td style="text-align:right;padding-right:5px;">
+      	#if($start != 0)
+          #set($prevElement = $start - $wordsPerPage)
+            #if($prevElement >= 0)
+
+<!--	XHTML doesn't allow to specify Link tag outside head section
+  <LINK rel="Prev"  href="${homepageUrl}${servletName}/${pageName}?startint=$prevElement$!{extraAttributes}" />
+ -->
+            <a href="${homepageUrl}${servletName}/${pageName}?startint=${prevElement}$!{extraAttributes}">
+            #else
+		    <link rel="Prev"  href="${homepageUrl}${servletName}/${pageName}?startint=0$!{extraAttributes}">
+            <a href="${homepageUrl}${servletName}/${pageName}?startint=0$!{extraAttributes}">
+            #end
+              &lt;&lt;&lt;&nbsp;${res.getProperty("nav.splitter.Previous")}
+            </a>
+        #else
+              &lt;&lt;&lt;&nbsp;${res.getProperty("nav.splitter.Previous")}
+        #end
+        </td>
+
+		#set($totalPages = $total / $wordsPerPage)
+		#if($totalPages * $wordsPerPage < $total)
+			#set($totalPages = $totalPages + 1)
+		#end
+		<td style="vertical-align:middle;text-align:center;">
+		#if($totalPages > 1)
+   		<select onchange="top.location.href='${homepageUrl}${servletName}/${pageName}?startint=' + this.value +'$!{extraAttributes}';">
+  	    #foreach($i in [1..$totalPages])
+	        #set($nextElement = ($i - 1) * $wordsPerPage)
+  	    	#if((($i - 1) * $wordsPerPage <= $start)&& (($i) * $wordsPerPage > $start))
+				<option value="$nextElement" selected="selected">$i</option>
+		    #else
+				<option value="$nextElement">$i</option>
+	  	    #end
+	    #end
+   	    </select>#else$totalPages#end&nbsp;/&nbsp;$totalPages
+        </td>
+
+		#set($nextElement = $valuesLength + $start)
+		<td style="text-align:left; padding-left:5px;">
+		#if($total > $nextElement)
+
+<!--	XHTML doesn't allow to specify Link tag outside head section
+         <LINK rel="Next"  href="${homepageUrl}${servletName}/${pageName}?startint=$nextElement$!{extraAttributes}"/>
+-->
+            <a href="${homepageUrl}${servletName}/${pageName}?startint=$nextElement$!{extraAttributes}">
+				${res.getProperty("nav.splitter.Next")}&nbsp;&gt;&gt;&gt;
+			</a>
+        #else
+				${res.getProperty("nav.splitter.Next")}&nbsp;&gt;&gt;&gt;
+        #end
+        </td>
+      </tr>
+    </table>
+	#end
+#end
+
+#**
+ Creates margin, using &nbsp. sign.
+*#
+#macro (marg $margin)
+	#foreach ( $i in [0..$margin])
+		&nbsp;
+	#end
+#end
+
+#**
+ generates options allowing to select attributes criteria
+ $root - AttributeTreeNode
+ $whichSelected - which option was selected
+ $count - to give values 2 option
+ $margin - subattributes margin
+*#
+#macro ( selectSubAttributes $root $whichSelected $margin )
+
+	#foreach( $subnode in ${root.getChildren()})
+		<option value="${subnode.getInfo().getId()}" #if (${subnode.getInfo().getId()} == $whichSelected) selected="selected" #end>#marg($margin)${subnode.getInfo().getLabel()} </option>
+		 #set ( $margin = $margin + 1)
+		 #selectSubAttributes( $subnode $whichSelected  $margin)
+		 #set ( $margin = $margin - 1)
+	#end
+
+#end
+
+
+
+
+#macro( setTitleLink $result $language $titleId $creatorId $altName)
+	  #set($titles = ${result.getAttributeValues($titleId, $language)})
+      #set($creators = ${result.getAttributeValues($creatorId, $language)})
+	  #set($titleLink = "")
+	  #set($authorLabel = "")
+      #if($titles.size() > 0)
+          #set($titleLink = "${titleLink}${titles.get(0)}")
+          #set($titleLink = ${escapeUtil.escapeHtml("${titleLink}")})
+          #set($titleLink = "${titleLink}")
+      #end
+      #if($creators.size() > 0)
+    	 #set($oneCreator = ${escapeUtil.escapeHtml("${creators.get(0)}")})
+		 #set($authorLabel = "$oneCreator")
+	  #end
+	  #if(!($titles.size() > 0))
+    	#set($titleLink = "${altName}")
+	  #end
+	  #if(!($creators.size() > 0))
+		#set($authorLabel = "")
+	  #end
+      #set($titles = "")
+      #set($creators = "")
+#end
+
+#**
+ OAI macros
+*#
+#macro( oaiHeader $header)
+<header#if($header.isDeleted()) status="deleted"#end>
+		<identifier>oai:${repositoryHostname}:$header.getIdentifier()</identifier>
+	    <datestamp>$header.getDatestamp()</datestamp>
+		#foreach($setSpec in $header.getSetSpecs()) #if($setSpec) <setSpec>$setSpec</setSpec> #end
+	    #end
+</header>
+#end
+
+#macro( oaiMetadata $record)
+#foreach($m in $record.getMetadata())
+<metadata>
+	${m.getContent()}
+</metadata>
+#end
+#end
+
+#**
+ XSD schema macros
+*#
+#macro( generateXSD $attribute )
+  #set($childAttributes = $childAttsMap.get($attribute.Id))
+  #if($childAttributes.size() > 0)
+  <xs:element name="$attribute.getRDFName()">
+	#generateAnnotation( "en" "Name: ${attribute}. Description: ${attribute.Description}")
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+  	      <xs:element ref="value"/>
+          #foreach($childAttribute on $childAttributes)
+          <xs:element ref="${childAttribute.getRDFName()}"/>
+          #end
+        </xs:choice>
+      </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+  #foreach($childAttribute on $childAttributes)
+	  #generateXSD($childAttribute)
+  #end
+  #else
+	#generateAnnotation( "en" "Name: ${attribute}. Description: ${attribute.Description}" "${attribute.getRDFName()}Note" )
+	<xs:element name="${attribute.getRDFName()}" type="elementType"/>
+  #end
+
+#end
+
+#macro( generateAnnotation $lang $text $id)
+<xs:annotation id="$id">
+  <xs:documentation xml:lang="$lang">
+    <![CDATA[$text]]>
+  </xs:documentation>
+</xs:annotation>
+#end
+
+#**
+     admin panel macros
+*#
+
+#**
+  Creates text button.
+*#
+#macro(textButton $label $url)
+  [&nbsp;<a href="$url">$label</a>&nbsp;]
+#end
+
+#**
+ Renders table with statistics.
+*#
+#macro( statTable  $statGroupName $statistics)
+
+ <div class="statGroup">
+	<h2>$statGroupName:</h2>
+	<table>
+		<tr>
+			<th class="first">${res.getProperty("admin.engine-stats.Name")}</th>
+			<th>${res.getProperty("admin.engine-stats.NoOfExecutions")}</th>
+			<th>${res.getProperty("admin.engine-stats.AvgExecutionTime")}</th>
+		</tr>
+		#foreach($stat in ${statistics})
+			<tr>
+				<td class="first" >
+					#set ( $lastDot = ${stat.Name.lastIndexOf(".")} + 1)
+					#if ( $lastDot != 0 )
+						${stat.Name.substring($lastDot)}
+					#else
+						${stat.Name}
+					#end
+				</td>
+				<td>$stat.NoOfItems</td>
+				<td>${nf.format($stat.AvgItemWeight)} ms</td>
+			</tr>
+		#end
+	</table>
+ </div>
+
+#end
+
+
+#**
+ macros used for generating publication/edition plain description
+*#
+
+#macro ( renderDescFromRoot )
+	#foreach( $node in ${attributes} )
+		<ul id="childNodesContainer"  style="padding:3px 0 2px 16px;">
+			#renderTreeDescView( ${node} 0 )
+		</ul>
+	#end
+#end
+
+
+#macro ( renderTreeDescView $node $idx)
+	#if($node)
+		#dispDescNode( $node ${node.Info})
+
+		#if ( ${node.hasChildren()} )
+			#foreach ( $subnode in $node.getChildren() )
+				#set ( $count = $velocityCount - 1 )
+				#renderTreeDescView( $subnode $count)
+			#end
+		#end
+	#end
+#end
+
+#macro ( dispDescNode $node $info)
+	<span style="text-align:justify;font-weight:bold;">
+    	#if($documentMetadata.getAttributeValues($info.Id, $metadataLanguage, $valueLangType).size() > 0)
+    		#set($t = "#printParentsLabels($node 0)")
+    		#if($printAttParents)
+    			${t.trim()}:
+    		#else
+    	 		${node.Info.Label}:
+    		#end
+     		<ul>
+    			<li class="attributeValuesListElement">
+    				<span style="margin:0;font-weight:normal;">
+						#foreach($value in $documentMetadata.getAttributeValues($info.Id, $metadataLanguage, $valueLangType))
+							#if($velocityCount > 1); #end
+							${value}
+	  					#end
+					</span>
+	 			 </li>
+	 		</ul>
+		#end
+	</span>
+#end
+
+#macro (contentTooltips $prefix)
+<div class="tooltipMenuItem" id="${prefix}_mobile_res">
+	${res.getProperty("WOMI.Resolutions.mobile")}
+	<ul>
+		<li><a href="${homepageUrl}/womi/${editionId}/image/mobile?res=480">480</a>
+			<a href="${homepageUrl}/womi/${editionId}/image/mobile?res=480&3D"><img title="3D" src="${homepageUrl}/style/dlibra/${styleVariant}/3d.png"/></a>
+		</li>
+		<li><a href="${homepageUrl}/womi/${editionId}/image/mobile?res=980">980</a>
+			<a href="${homepageUrl}/womi/${editionId}/image/mobile?res=980&3D"><img title="3D" src="${homepageUrl}/style/dlibra/${styleVariant}/3d.png"/></a>
+		</li>
+		<li><a href="${homepageUrl}/womi/${editionId}/image/mobile?res=1440">1440</a>
+			<a href="${homepageUrl}/womi/${editionId}/image/mobile?res=1440&3D"><img title="3D" src="${homepageUrl}/style/dlibra/${styleVariant}/3d.png"/></a>
+		</li>
+		<li><a href="${homepageUrl}/womi/${editionId}/image/mobile?res=1920">1920</a>
+			<a href="${homepageUrl}/womi/${editionId}/image/mobile?res=1920&3D"><img title="3D" src="${homepageUrl}/style/dlibra/${styleVariant}/3d.png"/></a>
+		</li> 
+	</ul>
+</div>
+
+<div class="tooltipMenuItem" id="${prefix}_ebook_res">
+	${res.getProperty("WOMI.Resolutions.ebook")}
+	<ul>
+		<li><a href="${homepageUrl}/womi/${editionId}/image/ebook?res=800">800</a>
+			<a href="${homepageUrl}/womi/${editionId}/image/ebook?res=800&3D"><img title="3D" src="${homepageUrl}/style/dlibra/${styleVariant}/3d.png"/></a>
+		</li>
+</div>
+
+<div class="tooltipMenuItem" id="${prefix}_pdf_res">
+	${res.getProperty("WOMI.Resolutions.pdf")}
+	<ul>
+		<li><a href="${homepageUrl}/womi/${editionId}/image/pdf?res=1440">1440</a>
+			<a href="${homepageUrl}/womi/${editionId}/image/pdf?res=1440&3D"><img title="3D" src="${homepageUrl}/style/dlibra/${styleVariant}/3d.png"/></a>
+		</li>
+</div>
+
+<div class="tooltipMenuItem" id="${prefix}_classic_res">
+	${res.getProperty("WOMI.Resolutions.classic")}
+	<ul>
+		<li><a href="${homepageUrl}/womi/${editionId}/image/classic?res=480">480</a>
+			<a href="${homepageUrl}/womi/${editionId}/image/classic?res=480&3D"><img title="3D" src="${homepageUrl}/style/dlibra/${styleVariant}/3d.png"/></a>
+		</li>
+		<li><a href="${homepageUrl}/womi/${editionId}/image/classic?res=980">980</a>
+			<a href="${homepageUrl}/womi/${editionId}/image/classic?res=980&3D"><img title="3D" src="${homepageUrl}/style/dlibra/${styleVariant}/3d.png"/></a>
+		</li>
+		<li><a href="${homepageUrl}/womi/${editionId}/image/classic?res=1440">1440</a>
+			<a href="${homepageUrl}/womi/${editionId}/image/classic?res=1440&3D"><img title="3D" src="${homepageUrl}/style/dlibra/${styleVariant}/3d.png"/></a>
+		</li>
+		<li><a href="${homepageUrl}/womi/${editionId}/image/classic?res=1920">1920</a>
+			<a href="${homepageUrl}/womi/${editionId}/image/classic?res=1920&3D"><img title="3D" src="${homepageUrl}/style/dlibra/${styleVariant}/3d.png"/></a>
+		</li>  
+	</ul>
+</div>
+#end

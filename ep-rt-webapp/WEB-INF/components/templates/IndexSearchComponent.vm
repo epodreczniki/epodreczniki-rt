@@ -1,0 +1,14 @@
+<ul>
+   <li>
+   	#point() <a href="${homepageUrl}${servletName}/indexsearch?attId=68">
+   		${res.getProperty("IndexSearchComponent.TitleIndex")}</a>
+   </li>
+   <li>
+   	#point() <a href="${homepageUrl}${servletName}/indexsearch?attId=70">
+   		${res.getProperty("IndexSearchComponent.CreatorsIndex")}</a>
+   </li>
+   <li>
+   	#point() <a href="${homepageUrl}${servletName}/indexsearch?attId=71">
+   	 	${res.getProperty("IndexSearchComponent.KeywordIndex")}</a>
+   </li>
+</ul>

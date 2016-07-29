@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+		ns="http://epodreczniki.pl/"
+		datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+
+	<start>
+		<ref name="womi-metadata"/>
+	</start>
+
+	<include href="ep-common.rng"/>
+
+	<define name="womi-metadata">
+		<element name="womi">
+			<interleave>
+				<ref name="metadata-version"/>
+				<ref name="womi-title"/>
+				<ref name="womi-alternative-text"/>
+				<ref name="autor"/>
+				<ref name="licencja"/>
+				<optional>
+					<ref name="wymagania"/>
+				</optional>
+				<optional>
+					<ref name="typ"/>
+				</optional>
+			</interleave>
+		</element>
+	</define>
+
+	<define name="autor">
+		<element name="author">
+			<text/>
+		</element>
+	</define>
+
+	<define name="licencja">
+		<element name="license">
+			<text/>
+		</element>
+	</define>
+
+	<define name="wymagania">
+		<element name="requirements">
+			<interleave>
+				<ref name="srodowisko-uruchomieniowe"/>
+			</interleave>
+		</element>
+	</define>
+
+	<define name="typ">
+		<element name="type">
+			<choice>
+				<value>geogebra</value>
+				<value>voiceover</value>
+				<value>swiffy</value>
+			</choice>
+		</element>
+	</define>
+
+	<define name="srodowisko-uruchomieniowe">
+		<optional>
+			<element name="runtime">
+				<text/>
+			</element>
+		</optional>
+	</define>
+
+	<define name="womi-title">
+		<element name="title">
+			<text/>
+		</element>
+	</define>
+
+	<define name="womi-alternative-text">
+		<element name="alternative-text">
+			<text/>
+		</element>
+	</define>
+
+</grammar>

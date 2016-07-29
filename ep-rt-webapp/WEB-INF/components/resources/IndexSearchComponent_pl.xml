@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="IndexSearchComponent.Title">Przeglądanie indeksów</entry>
+<entry key="IndexSearchComponent.CreatorsIndex">Etapy edukacyjne</entry>
+<entry key="IndexSearchComponent.KeywordIndex">Przedmioty nauczania</entry>
+<entry key="IndexSearchComponent.TitleIndex">Tytuły</entry>
+</properties>

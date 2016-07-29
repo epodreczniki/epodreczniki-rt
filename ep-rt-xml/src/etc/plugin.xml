@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<!DOCTYPE plugin PUBLIC "-//JPF//Java Plug-in Manifest 0.4" "http://jpf.sourceforge.net/plugin_0_7.dtd">
+<plugin id="pl.psnc.dlibra.app.extension.xml" version="${pom.currentVersion}">
+<requires>
+	<import plugin-id="pl.psnc.dlibra.app.extension"/>
+</requires>
+	<runtime>
+#foreach($dep in ${pom.dependencies})
+#if(${dep.type} == "jar" && !${dep.getProperty('dist.skip').equals("true")})
+		<library id="${dep.artifact}" path="lib/${dep.artifact}" type="code" />
+#end
+#end
+	</runtime>
+<extension plugin-id="pl.psnc.dlibra.app.extension"
+	point-id="metadata" id="xmlImport">
+	<doc>
+		<doc-text>XML extension enables application to import metadata from files saved in XML format. XML extension is provided by Poznan Supercomputing and Networking Center.</doc-text>
+	</doc>	
+	<parameter id="class"
+		value="pl.psnc.dlibra.app.extension.xml.XMLMetadataFinder"/>
+	<parameter id="name" value="XML"/>
+</extension>
+</plugin>

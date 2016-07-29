@@ -1,0 +1,43 @@
+@CHARSET "UTF-8";
+
+body {
+	background:url("w2tools-background.png") -10px left repeat-x;
+}
+
+#sil_linksList {
+	margin-left:0;
+}
+
+#addBookmarkTag {
+	width:430px;
+}
+
+.submit {
+	background-color: #FF5F3F;
+}
+
+#addToFaves {
+	width:170px;
+	padding:10px;
+}
+
+#tagsFieldset {
+	padding:8px;
+}
+
+#tagsFieldset *{
+	margin-top:-2px;
+}
+
+#hintViewContainer {
+	margin-top:5px;
+	margin-right:-10px;
+}
+
+#hintViewLightBulb {
+	margin-top:-4px;
+}
+
+.contentIE {
+	height:100%;
+}

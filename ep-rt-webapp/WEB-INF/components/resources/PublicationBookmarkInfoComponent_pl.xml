@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="PublicationBookmarkInfoComponent.Title">Ulubione pozycje</entry>
+<entry key="PublicationBookmarkInfoComponent.isFave">Usuń z Ulubionych</entry>
+<entry key="PublicationBookmarkInfoComponent.notaFave">Dodaj do Ulubionych</entry>
+<entry key="PublicationBookmarkInfoComponent.tags.expl">Twoje tagi</entry>
+<entry key="PublicationBookmarkInfoComponent.private">tylko prywatne</entry>
+<entry key="PublicationBookmarkInfoComponent.Tags.Help">Poszczególne tagi należy oddzielać przecinkami. Odznaczenie opcji &apos;tylko prywatne&apos; spowoduje przesłanie tagów również jako propozycji słów kluczowych. Słowa kluczowe mogą zostać wykorzystane przy wyszukiwaniu danej publikacji przez wszystkich użytkowników.</entry>
+<entry key="PublicationBookmarkInfoComponent.addTag.Success">Tagi zaktualizowane</entry>
+<entry key="PublicationBookmarkInfoComponent.addTag.Failure">Błąd podczas aktualizacji tagów!</entry>
+</properties>

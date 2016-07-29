@@ -1,0 +1,12 @@
+#if ( ${redirect} )
+<h1 style="text-align:center;margin-top:40px;">Proszę czekać na przekierowanie...</h1>
+
+<script type="text/javascript">
+	
+	$().ready(function(){
+		window.location.replace("http://www.epo.pl/preview/details/${contentId}/${version}");
+	});
+
+</script>
+
+#end

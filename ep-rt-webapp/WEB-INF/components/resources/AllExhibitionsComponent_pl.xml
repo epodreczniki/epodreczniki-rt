@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="AllExhibitionsComponent.Title">Wystawy</entry>
+<entry key="AllExhibitionsComponent.Comment">Komentarz</entry>
+<entry key="AllExhibitionsComponent.Struct">Struktura</entry>
+<entry key="AllExhibitionsComponent.SortByDate">data</entry>
+<entry key="AllExhibitionsComponent.SortByName">tytuł</entry>
+<entry key="AllExhibitionsComponent.SortBy">Sortuj wg:</entry>
+</properties>

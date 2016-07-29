@@ -1,0 +1,171 @@
+#parse("parts/header.vm")
+	## show proper information when javascript is not supported
+	<div class="content">
+	<noscript>
+		<div id="noScriptWarningBox">
+			<a style="float:right" href="${homepageUrl}${mainServletName}/help?id=no-js-help" target="_blank" title="" alt="" >
+				${res.getProperty("help")} <img class="noScriptWarnIcon" src="${homepageUrl}/style/common/img/icons/help.png"/>
+			</a>
+			<img class="noScriptWarnIcon" src="${homepageUrl}/style/common/img/icons/warning_sm.png"/>
+			$!{res.getProperty("base.noJavaScriptWarning")}
+		</div>
+	</noscript>
+	<div id="account-menu" style="display:none"> ## CSS style on purpose
+		<p id="account-menu-loading">${res.getProperty("nav.loading")}</p>
+		<span></span>
+	</div>
+	<div id="mainBaner" class="mainBaner_${userLanguage}">
+		<div id="mainBanerIn">
+			<div id="mainBanerLanguages">
+				#foreach( $comp in $preheader)
+     			  	$!{comp.RenderedTemplate}
+				#end	
+			</div>
+			<a id="mainBanerCoin" href="${homepageUrl}" title="$!{res.getProperty("base.library.full")}">
+				<img src="${homepageUrl}/style/dlibra/${styleVariant}/mb-logo.png"  alt="" />
+ 			</a>&nbsp;
+			 <h1 id="libraryTitle">
+				<a href="${homepageUrl}" title="$!{res.getProperty("base.library.full")}">
+					$!{res.getProperty("base.library.full")}
+				</a>
+			</h1>
+		</div>
+	</div>
+	<div id="mainMenu">
+		<div id="listMainMenu">
+			#mainMenuLinks()
+			#authorizationLinks()
+		</div>
+	</div>
+	<div class="headerBackground"></div>
+	
+		<div class="header">
+    		<div class="preheader">
+    		  #foreach( $comp in $preheader)
+     			  	$!{comp.RenderedTemplate}
+    		  #end	
+    		</div>
+			<div class="logo">
+				## logo goes here
+				<a href="${homepageUrl}" title="$!{res.getProperty("base.library.full")}">
+					<img src="${homepageUrl}/style/dlibra/${styleVariant}/logo.gif"  alt="" />
+ 				</a>
+				<h1>
+					<a href="${homepageUrl}" title="$!{res.getProperty("base.library.full")}">
+					$!{res.getProperty("base.library.full")}
+					</a>
+				</h1>
+			</div>
+		</div>
+		
+		#foreach( $comp in $postheader)
+		    $!{comp.RenderedTemplate}
+		#end
+		
+		## renders hidden components - e.g. executing some special scripts
+		<div id="hiddenComponents" style="display:none;">
+			#foreach( $comp in $hidden)
+				$!{comp.RenderedTemplate}
+			#end
+		</div>
+		
+		<div class="bar">
+		     #navLinks()
+		</div>
+		
+
+		<div class="search_field">
+		  #foreach( $comp in $subheader)
+		    #if(${comp.ComponentTitle}!="")<h3>$!{comp.ComponentTitle}</h3>#end
+		    $!{comp.RenderedTemplate}
+		  #end	
+		</div>  
+		
+		
+		<script type="text/javascript">
+			
+			$().ready(function(){
+				## declaration in dlibra.js
+				PageUtils.pageId = "${pageId}";	
+				PageUtils.init();
+				PageUtils.bindAccordionMechanism();
+				PageUtils.autoExpand();
+			});
+		
+		</script>
+		
+		<div class="left">
+		   #foreach( $comp in $left)
+ 		    #if ( ${comp.RenderedTemplate}!= "" )
+			 #if(${comp.ComponentTitle}!="")
+	 			<h3 class="leftDiv" id="ldi_${velocityCount}"> $!{comp.ComponentTitle} <img class="sh_button" src="${homepageUrl}/style/common/img/icons/s_desc.gif"> </h3> 
+	 		 #end
+			 <div class="left_box">
+			 	 $!{comp.RenderedTemplate}
+			 </div>	 
+			#end 
+  		   #end
+		   <a href="${homepageUrl}/jnlp"><img src="${homepageUrl}/style/dlibra/${styleVariant}/epod.png"/></a>
+		   ##<a href="http://dlibra.psnc.pl" target="_blank"><img src="${homepageUrl}/style/dlibra/logo_dlibra.gif"/></a>
+		</div>
+
+		<div class="right">
+			
+		  <div class="right_full"> 			
+  		   #foreach( $comp in $right)
+ 		    #if ( $!{comp.RenderedTemplate} != "")
+			 #if(${comp.ComponentTitle} != "")
+	 			<h3> $!{comp.ComponentTitle} </h3> 
+				 <div class="right_articles">
+			#else
+				 <div class="right_articles notitle">
+	 		 #end
+			 	 $!{comp.RenderedTemplate}
+			 </div>	 
+			#end 
+  		   #end
+  		  </div>
+  		   
+  		  #if ($rightSplitted)
+   		     #foreach( $comp in $rightSplitted)
+   		     	#if ( $!{comp.RenderedTemplate} != "")
+	  		   <div class="right_splitted">
+					 #if(${comp.ComponentTitle} != "")
+	 					<h3> $!{comp.ComponentTitle} </h3> 
+	 				 #end
+						 <div class="right_splitted_box">
+						 	 $!{comp.RenderedTemplate}
+					    </div>	 
+	 		   </div>
+	 		   #end
+  		     #end	
+  		   #end  	
+
+		  <div class="right_full"> 			
+  		   #foreach( $comp in $rightbottom)
+ 		    #if ( $!{comp.RenderedTemplate} != "")
+			 #if(${comp.ComponentTitle} != "")
+	 			<h3> $!{comp.ComponentTitle} </h3> 
+	 		 #end
+			 <div class="right_articles">
+			 	 $!{comp.RenderedTemplate}
+			 </div>	 
+			#end 
+  		   #end
+  		  </div>  
+  		   
+
+		</div>
+		
+		#if ( $bottom )
+			<div class="footer">
+	
+	  		   #foreach( $comp in $bottom)
+				  $!{comp.RenderedTemplate}
+			   #end
+	
+			</div>
+		#end
+		
+	</div>
+#parse("parts/bottom.vm")

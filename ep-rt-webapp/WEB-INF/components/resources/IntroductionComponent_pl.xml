@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="IntroductionComponent.Title">Wprowadzenie</entry>
+<entry key="IntroductionComponent.TotalNoOfUsersLong">Łączna liczba czytelników od dnia</entry>
+<entry key="IntroductionComponent.PublicationCount">Liczba publikacji w bibliotece</entry>
+<entry key="IntroductionComponent.introduction">Nasza Biblioteka Cyfrowa pozwoli Państwu 
+				dotrzeć do najstarszych zabytków piśmiennictwa, 
+				skorzystał z biblioteki skryptów i podręczników, obejrzeć 
+				wystawy unikalnych zbiorów z kolekcji regionalnych bibliotek.</entry>
+<entry key="IntroductionComponent.NoOfUsersLong">Liczba osób korzystających w tej chwili z biblioteki</entry>
+</properties>

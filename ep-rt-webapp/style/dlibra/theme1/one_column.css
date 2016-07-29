@@ -1,0 +1,542 @@
+/* project: internet services template
+   author: luka cvrk (www.solucija.com) */
+
+/* default styles
+   -------------- */
+
+#alreadyLoggedIn {
+	width:500px;
+	background:#e0f4ff;
+	padding:10px;
+	border:1px solid #ddd;
+	margin:0 auto;
+	margin-bottom:10px;
+}
+
+#alreadyLoggedIn img {
+	float:left;
+	margin-right:5px;
+}
+
+#alreadyLoggedIn a {
+	font-weight:bold;
+	font-size:1.2em;
+}
+
+#signupContainer {
+	display:block;
+	width:500px;
+	font-size:1.2em;
+	padding-bottom:10px;
+	margin:0 auto;
+	margin-top:10px;	
+}
+
+#signupButtonContainer {
+	height:28px;
+	float:left;
+	margin-left:10px;
+}
+
+#loginLogoContainer {
+	background:url('login-logo.png') center center no-repeat;
+	width:80px;
+	height:80px;
+	float:right;
+}
+
+#LoginComponent_form_header {
+	color:#fff;
+	width:502px;
+	height:25px;
+	background:#78b7fe;
+	margin-bottom:-26px;
+	margin-top:20px;
+	font-size:1.5em;
+	padding:10px;
+	line-height:1.2em;
+	margin:0 auto;	
+}
+
+#securedPublicationNotice {
+	width:500px;
+	margin:0 auto;
+	background-color:#fff09f;
+	padding:10px;
+	border:1px solid #999;
+	margin-bottom:10px;
+	min-height:30px;
+}
+
+.securedPublicationNoticePopup {
+	position:absolute;
+	box-shadow:0px 0px 10px #999;
+	-moz-box-shadow:0px 0px 10px #999;
+	-webkit-box-shadow:0px 0px 10px #999;
+	z-index:3001;
+	display:none;
+}
+
+#permissionRequestTrigger {
+	font-size:11px;
+	float:right;
+	background:#FFF09F;
+	border-radius:3px;
+	padding:5px;
+	margin-top:-3px;
+	*margin-top:0px;
+}
+
+#securedPublicationNotice img {
+	float:left;
+}
+
+#securedPublicationNotice span {
+	font-size:1.5em;
+}
+
+.registerLink {
+	color:#fff;
+	background:transparent url('login-buttons.png') no-repeat scroll right -69px ;
+	height:28px;
+	display:block;
+	padding-right:14px;
+	padding-top:11px;
+	font-weight:bold;
+	margin-top:-4px;
+}
+
+a.registerLink:hover{
+	background:transparent url('login-buttons.png') no-repeat scroll right -69px ;
+	text-shadow:1px 1px 1px #555;
+	color:#a0dfff;
+}
+
+.registerLink  span {
+	background:transparent url('login-buttons.png') no-repeat scroll -23px -3px;
+	height:31px;
+	width:15px;
+	display:block;
+	float:left;
+	margin-left:-15px;
+	margin-top:-7px;
+}
+
+.testFailureMessage {
+	color:#ff0000;
+	font-weight:bold;
+	padding:5px;
+	border:1px solid #ff0000;
+	background-color:#fff;
+	-webkit-border-radius:5px;
+	-webkit-box-shadow:1px 1px 3px #aaa;
+	-moz-border-radius:5px;
+	-moz-box-shadow:1px 1px 3px #aaa;
+	border-radius:5px;
+	box-shadow:1px 1px 3px #aaa;
+	text-align:center;
+}
+
+.testSuccessMessage {
+	color:#25b800;
+	font-weight:bold;
+	padding:5px;
+	border:1px solid #25b800;
+	background-color:#fff;
+	-webkit-border-radius:5px;
+	-webkit-box-shadow:1px 1px 3px #aaa;
+	-moz-border-radius:5px;
+	-moz-box-shadow:1px 1px 3px #aaa;
+	border-radius:5px;
+	box-shadow:1px 1px 3px #aaa;
+	text-align:center;
+}
+
+#loginNoScriptWarn {
+	font-size:1.2em;
+	padding:5px;
+	border:2px solid #000; 
+	background-color:#FFF1AF;
+	width:300px;
+	text-align:center;	
+}
+
+.noScriptWarnIcon {
+	float:left;
+	margin-right:10px;
+}
+   
+.SendMailForm{
+	width:350px;
+	margin:0 auto;
+}
+
+#SendPTitle {
+	font-size:15px;
+	font-weight:bold;
+}
+
+.expl {
+	font-size:12px;
+	color:#999;
+}
+
+.SendSingleField {
+	clear:both;
+}
+
+.submitSection {
+	clear:both;
+	margin-top:15px;
+}
+   
+body { 
+	padding: 0; 
+	margin: 0; 
+	font: 0.7em "Play","trebuchet ms", tahoma, sans-serif;
+	line-height: 1.5em;
+	background: #fff; 
+	color: #454545; 
+}
+
+a {	
+	color: #436994;	
+	background: inherit; 
+	text-decoration:none
+}
+
+a:hover { 
+	color: #7389B4; 
+	background: inherit; 
+	text-decoration:underline;
+}
+
+ul { 
+	margin: 0; 
+	padding : 0; 
+	list-style : none; 
+}
+
+		
+/* right side
+   ---------- */
+
+.content {
+	margin-left: 0px;
+	margin-right: 10px;
+	padding: 0px;
+}
+		
+.main {
+	margin: 2px;
+}
+
+.main_absolute {
+ 	float: right;
+	margin-top: 4px;
+	margin-left: 8px;
+	margin-right: 0;
+}
+
+.main h3, .main_fixed h3, .main_centered h3  {
+	background: #fff url(left-box-header-back.png) repeat-y right;
+	color: #2d3d65;
+	padding:10px;
+	font: bold 1em "Play",Tahoma, Arial, Sans-Serif;
+}
+
+.main h3 {
+	margin: 0px 0px 0px 0px;
+	height:20px;
+	background: transparent url('popup-header.png') repeat-x;
+}
+
+.main_articles, .main_articles_fixed, .main_articles_centered, .main_articles_absolute {
+	background: #fff;
+	border-bottom: 1px solid #9f9f9f; 
+	border-left: 1px solid #9f9f9f; 
+	border-right: 1px solid #9f9f9f; 
+	color: #414141;
+}
+
+.main_articles_absolute {
+	padding: 8px;	
+	margin: 0px 10px 0px 8px;
+	padding /**/: 0px;	
+	margin /**/: 0px 0px 0px 0px;
+	position /**/: absolute;
+	top /**/: 15px;
+	left /**/: 20px;
+	right /**/: 20px;
+	border: none;
+}
+
+.main_articles {
+   	border: none;
+	margin: 0px auto;
+}
+	
+.main_fixed{
+	float: right;
+	margin-top: 20px;
+	margin-left: 2px;
+	margin-right: 0px;
+	margin-bottom: 10px;
+	width: 170px;
+}	
+
+.main_fixed h3 {
+	margin: 0px 12px 0px 2px;
+}
+
+.main_articles_fixed {
+	padding: 8px;	
+	margin: 0px 12px 4px 2px;
+}
+
+
+.main_centered {
+	margin: 40px auto 0;
+}
+	
+.main_centered h3  {
+	margin: 0px 10px 0px 8px;
+}
+
+.main_articles_centered {
+	background-color: #fff;
+	padding: 7px 0 7px 5px;
+	margin: 0px 10px 0px 8px;
+}
+
+	
+.image {
+	float: left;
+	margin: 0 9px 3px 0;
+}
+img {
+	border:none;
+}
+
+.LoginComponent_help {
+	width: 500px;
+	text-align: left;
+	margin: 0 auto;
+	color:#999 !important;
+}
+
+#LChelpOptionsList li{
+	float:left;
+}
+
+.LCOptionsListItemSec {
+	margin-left:15px;
+}
+
+li {
+	list-style-type: none;
+}
+
+
+.LoginComponent {
+	margin: 10px auto;
+	width: 750px;
+	width /**/: 600px;
+	padding: 0px;
+}
+
+
+.LoginComponent_form {
+	/*margin: 0px;
+	margin-top: 2em;
+	margin-bottom:1em;*/
+	margin:0 auto;
+	padding: 0px;
+	width: 500px;
+	border:1px solid #ddd;
+	font-size:1.2em;
+	padding:10px;
+	
+}
+
+
+.LoginComponent_menu {
+ 	width: 500px;
+ 	margin: 0px;
+	padding: 0px;
+	text-align: justify;
+	display: block;
+	margin:0 auto;
+	margin-top:40px;
+	*margin-top:0px; /* IE7 hack */
+	border-top:1px solid #ddd;
+}
+
+
+.LoginComponent_form ul {
+	list-style-type: none;
+}
+
+.LoginComponent_login, .LoginComponent_pass {
+	margin-bottom:15px;
+}
+
+.LoginComponent_login input, .LoginComponent_pass input {
+	width: 20em;
+	height:20px;
+	border: 3px solid #BDCCD4;
+}
+.LoginComponent_login label, .LoginComponent_pass label {
+	display: block;
+	width: 30em;
+}
+.LoginComponent_checkbox {
+	margin-top: 10px;
+}
+
+.LoginComponent_submit {
+	width: 90%;
+	text-align: left;
+	margin-top: 10px;
+} 
+
+
+fieldset {
+	border:none;
+	color: #454545; 
+}
+
+legend {
+ 	color: #454545; 
+	margin-bottom: 2px;
+	text-align: left;
+}
+
+#login_div {
+	position:absolute;
+	width:400px;
+	top:280px;
+	left: 430px;
+	display: none;
+	border-style:solid;
+	border-color: #414141;
+	border-width:2px;
+	z-index: 9999;
+	background: #fff;
+}
+
+#login_div p {
+	text-align: center;
+}
+
+
+#login_div input { 
+	margin: 4px;
+	background: #FFF url(input.gif) no-repeat;
+}
+
+.alert {
+	background-color: #fff6bf;
+	background-position: 15px 50%; /* x-pos y-pos */
+	text-align: left;
+	padding: 5px 20px 5px 45px;
+	border-top: 2px solid #ffd324;
+	border-bottom: 2px solid #ffd324;
+	margin: 5px auto;
+	width:400px;
+}
+
+.soloAlert {
+	margin-top:40px;
+}
+
+.poliAlert {
+	float:left;
+}
+
+.alert_text {
+	text-align: justify;
+	padding: 4px;
+}
+
+.browse_pub  {
+	font-size:24px;
+	text-align:center;
+}
+
+.alertLeftSideText { 
+  text-align:left; 
+}
+
+.rememberMayChoice { 
+  margin-top: 10px; 
+  padding-left: 4px;
+  text-align: left;
+}
+
+.warningMessage {
+	padding: 0px 6px 0px;
+	margin-bottom: 10px;
+    text-align:justify;
+}
+
+#formatHandlersListInfo {
+	font-size: 1.5em;
+	font-weight: 800;
+}
+
+.warningWindow {
+	margin: 0 auto;
+	width: 700px;
+}
+
+#imageLinkToContent {
+ 	float: right;
+ 	width: 200px;
+ 	margin-top: 0.5em;
+}
+
+.submitFormatForm {
+	float: right;
+}
+
+.editionsContentUrlsComponent {
+	margin: 100px auto;
+	width: 400px;
+}
+
+.editionsContentUrlsComponent li {
+	list-style-type: disc;
+}
+
+.editionsContentUrlsComponent ul {
+	margin-left:25px;
+	margin-top: 5px;
+}
+
+.errorIcon {
+	float:right;
+	margin-left:10px;
+}
+
+#errorNotice {
+	font-size:0.9em;
+	padding:5px;
+	color:#777;
+	margin-top:0px;
+	margin-bottom:0px;
+	display:block;
+}
+
+#errorNotice a {
+	font-weight:bold;
+}
+
+.unsupportedHint {
+	font-size:12px;
+}
+
+.operaAlert {
+	font-weight:bold;
+	color:#ff0000;
+}

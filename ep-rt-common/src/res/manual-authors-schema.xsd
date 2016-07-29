@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:md="http://cnx.rice.edu/mdml" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://cnx.rice.edu/mdml">
+	<xs:element name="root">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="md:actors"/>
+				<xs:element ref="md:roles"/>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:unique name="actor_id">
+			<xs:selector xpath="md:actors/*"/>
+			<xs:field xpath="@userid"/>
+		</xs:unique>
+	</xs:element>
+	<xs:element name="actors">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice maxOccurs="unbounded">
+					<xs:element ref="md:organization"/>
+					<xs:element ref="md:person"/>
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="roles">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="md:role" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="role">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="md:actors_ids_in_role">
+					<xs:attribute name="type" type="xs:string" use="required"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="actors_ids_in_role">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]+( [0-9]+)*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="person">
+		<xs:complexType>
+			<xs:all>
+				<xs:element ref="md:fullname"/>
+				<xs:element ref="md:firstname"/>
+				<xs:element ref="md:surname"/>
+				<xs:element ref="md:email" minOccurs="0"/>
+			</xs:all>
+			<xs:attribute name="userid" type="xs:nonNegativeInteger" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="organization">
+		<xs:complexType>
+			<xs:all>
+				<xs:element ref="md:fullname"/>
+				<xs:element ref="md:shortname"/>
+			</xs:all>
+			<xs:attribute name="userid" type="xs:nonNegativeInteger" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="surname" type="xs:string"/>
+	<xs:element name="shortname" type="xs:string"/>
+	<xs:element name="fullname" type="xs:string"/>
+	<xs:element name="firstname" type="xs:string"/>
+	<xs:element name="email" type="xs:string"/>
+</xs:schema>

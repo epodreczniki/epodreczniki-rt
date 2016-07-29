@@ -1,0 +1,50 @@
+<project xmlns:maven="jelly:maven" xmlns:j="jelly:core"
+	xmlns:util="jelly:util" xmlns:x="jelly:xml" xmlns:ant="jelly:ant"
+	xmlns:velocity="jelly:velocity" xmlns:doc="doc" xmlns:artifact="artifact">
+
+	<goal name="install" prereqs="jar:jar">
+		<echo>Preparing standalone version:</echo>
+		<echo>Copying dependencies...</echo>
+		<mkdir dir="${maven.build.dir}/dist/lib/" />
+		<j:set var="finalNameNoVersionNumber"
+			value="${maven.final.name.replaceAll(&quot;-[0-9].+&quot;,&quot;.jar&quot;)}" />
+		<j:set var="cPathWin" value="lib/${finalNameNoVersionNumber}" />
+		<j:set var="cPathLin" value="lib/${finalNameNoVersionNumber}" />
+		<j:forEach var="dep" items="${pom.dependencies}">
+			<j:if test="${dep.getProperty('dist.skip') == null}">
+				<echo>${dep.artifact}:</echo>
+				<j:set var="noVersionNumber"
+					value="${dep.artifact.replaceAll(&quot;-[0-9].+&quot;,&quot;.jar&quot;)}" />
+				<copy
+					file="${maven.repo.local}/${dep.artifactDirectory}/${dep.type}s/${dep.artifact}"
+					tofile="${maven.build.dir}/dist/lib/${noVersionNumber}" overwrite="true" />
+				<j:set var="cPathWin" value="${cPathWin};lib/${noVersionNumber}" />
+				<j:set var="cPathLin" value="${cPathLin}:lib/${noVersionNumber}" />
+			</j:if>
+		</j:forEach>
+		<filter token="WINDOWS_CLASSPATH" value="${cPathWin}" />
+		<filter token="LINUX_CLASSPATH" value="${cPathLin}" />
+
+		<copy file="${maven.build.dir}/${maven.final.name}.jar"
+			tofile="${maven.build.dir}/dist/lib/${finalNameNoVersionNumber}"
+			overwrite="true" />
+
+		<util:tokenize var="scripts" delim=",">
+			change-metadata,createdir,destroyer,downloader,retriever,uploader
+		</util:tokenize>
+		<j:forEach var="script" items="${scripts}">
+			<copy file="${maven.src.dir}/etc/script/${script}.bat" tofile="${maven.build.dir}/dist/${script}.bat"
+				overwrite="true" filtering="true" />
+			<copy file="${maven.src.dir}/etc/script/${script}.sh" tofile="${maven.build.dir}/dist/${script}.sh"
+				overwrite="true" filtering="true" />
+			<chmod file="${maven.build.dir}/dist/${script}.sh" perm="+x" />
+		</j:forEach>
+
+		<copy file="${maven.src.dir}/etc/conf/config.properties" tofile="${maven.build.dir}/dist/config.properties"
+			overwrite="true" filtering="true" />
+
+		<zip destfile="${maven.build.dir}/${maven.final.name}.zip"
+			basedir="${maven.build.dir}/dist" overwrite="true" />
+	</goal>
+
+</project>

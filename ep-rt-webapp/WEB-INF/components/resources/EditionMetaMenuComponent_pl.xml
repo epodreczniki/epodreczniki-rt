@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="EditionMetaMenuComponent.Zip">Pobierz</entry>
+<entry key="EditionMetaMenuComponent.EditionDeleted">Wydanie usunięte</entry>
+<entry key="EditionMetaMenuComponent.Attributes">Opis</entry>
+<entry key="EditionMetaMenuComponent.Document-comment">Komentarz</entry>
+<entry key="EditionMetaMenuComponent.Structure">Struktura</entry>
+<entry key="EditionMetaMenuComponent.Search-results">Wyniki wyszukiwania</entry>
+<entry key="EditionMetaMenuComponent.Information">Informacje</entry>
+<entry key="EditionMetaMenuComponent.Title">Wydanie</entry>
+<entry key="EditionMetaMenuComponent.Content.NW">Treść (nowe okno)</entry>
+<entry key="EditionMetaMenuComponent.Content">Treść</entry>
+<entry key="EditionMetaMenuComponent.AddToFavourites">Dodaj do Ulubionych</entry>
+<entry key="EditionMetaMenuComponent.Vote">Oceń to wydanie</entry>
+<entry key="EditionMetaMenuComponent.plain-content">Treść (wyszukiwarki)</entry>
+<entry key="EditionMetaMenuComponent.Search.similar">Podobne wydania</entry>
+<entry key="EditionMetaMenuComponent.RestoreDefaultPresentation.link">Opcje wyświetlania</entry>
+<entry key="EditionMetaMenuComponent.RestoreDefaultPresentation">Przywróć wartości domyślne</entry>
+<entry key="EditionMetaMenuComponent.RestoreDefaultPresentation.expl">Czy chcesz usunąć wszystkie dodatkowe ustawienia związane z wyświetlaniem treści publikacji.</entry>
+<entry key="EditionMetaMenuComponent.RestoreDefaultPresentation.desc">Przywróć domyślne ustawienia wyświetlania publikacji</entry>
+</properties>

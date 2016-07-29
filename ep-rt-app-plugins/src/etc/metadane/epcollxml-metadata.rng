@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+		ns="http://epodreczniki.pl/"
+		datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+
+	<include href="ep-common.rng"/>
+
+	<define name="root-id">
+		<element name="root-id">
+			<text/>
+		</element>
+	</define>
+
+	<define name="textbook-metadata">
+		<element name="e-textbook">
+			<ref name="metadata-version"/>
+			<ref name="status-and-recipient"/>
+			<interleave>
+				<ref name="ep-class"/>
+				<ref name="ep-cover" />
+				<ref name="ep-signature"/>
+				<ref name="ep-stylesheet"/>
+			</interleave>
+		</element>
+	</define>
+
+	<define name="ep-class">
+		<element name="class">
+			<data type="string">
+				<param name="minLength">1</param>
+			</data>
+		</element>
+	</define>
+
+	<define name="ep-cover">
+		<optional>
+			<element name="cover">
+				<optional>
+					<attribute name="cover-type" ns="http://epodreczniki.pl/"/>
+				</optional>
+				<text/>
+			</element>
+		</optional>
+	</define>
+
+	<!-- formal number declaring the e-textbook's conformance with core curriculum -->
+	<define name="ep-signature">
+		<optional>
+			<element name="signature">
+				<text/>
+			</element>
+		</optional>
+	</define>
+
+	<define name="ep-stylesheet">
+		<optional>
+			<element name="stylesheet">
+				<data type="string">
+					<param name="minLength">1</param>
+				</data>
+			</element>
+		</optional>
+	</define>
+
+	<!-- specifies if a module should be included (default value) -->
+	<!-- or skipped in the Table Of Contents -->
+	<define name="toc">
+		<optional>
+			<attribute name="toc" ns="http://epodreczniki.pl/">
+				<choice>
+					<value>include</value>
+					<value>skip</value>
+				</choice>
+			</attribute>
+		</optional>
+	</define>
+
+	<define name="ep-view-attributes">
+		<optional>
+			<element name="view-attributes">
+				<oneOrMore>
+					<ref name="ep-view-attribute"/>
+				</oneOrMore>
+			</element>
+		</optional>
+	</define>
+
+	<define name="ep-view-attribute">
+		<element name="view-attribute">
+			<interleave>
+				<ref name="ep-type"/>
+				<ref name="ep-id"/>
+			</interleave>
+		</element>
+	</define>
+
+</grammar>

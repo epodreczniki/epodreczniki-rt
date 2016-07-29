@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="AccountTagsComponent.Title">Twoje propozycje rozszerzenia opisu bibliograficznego</entry>
+<entry key="AccountTagsComponent.SortOrder">sortuj wg:</entry>
+<entry key="AccountTagsComponent.date">daty</entry>
+<entry key="AccountTagsComponent.name">nazwy</entry>
+<entry key="AccountTagsComponent.header.new.tags">Ostatnio dodane propozycje rozszerzenia opisu</entry>
+<entry key="AccountTagsComponent.header.moderated.tags">Propozycje zmoderowane</entry>
+<entry key="AccountTagsComponent.new.tags.expl">List Twoich propozycji, które nie zostały jeszcze przejrzane przez moderatorów.</entry>
+<entry key="AccountTagsComponent.moderated.tags.expl">List Twoich propozycji, które zostały przejrzane przez moderatorów.</entry>
+<entry key="AccountTagsComponent.tag.remove">Wycofaj propozycje</entry>
+<entry key="AccountTagsComponent.link.editionInfo">Informacje o wydaniu</entry>
+<entry key="AccountTagsComponent.moderated.rejected.expl.pre">Kolorem</entry>
+<entry key="AccountTagsComponent.moderated.rejected.expl.color">czerownym</entry>
+<entry key="AccountTagsComponent.moderated.rejected.expl.post">oznaczono propozycje odrzucone w procesie moderacji.</entry>
+<entry key="AccountTagsComponent.tags.explanation">Jak działa mechanizm moderacji?</entry>
+<entry key="AccountTagsComponent.link.content">Treść wydania</entry>
+<entry key="AccountTagsComponent.link.description">Opis wydania</entry>
+<entry key="AccountTagsComponent.link.comment">Komentarz</entry>
+<entry key="AccountTagsComponent.Grouping">grupowanie po wydaniach :</entry>
+<entry key="AccountTagsComponent.Grouping.True.expl">Włącz grupowanie po wydaniach</entry>
+<entry key="AccountTagsComponent.Grouping.True">tak</entry>
+<entry key="AccountTagsComponent.Grouping.False.expl">Wyłącz grupowanie po wydaniach</entry>
+<entry key="AccountTagsComponent.Grouping.False">nie</entry>
+<entry key="AccountTagsComponent.removing.error">Błąd podczas usuwania!</entry>
+<entry key="AccountTagsComponent.removing.success">Propozycja został usunięta</entry>
+<entry key="AccountTagsComponent.no.tags">W tej chwili nie ma żadnej propozycji zmian w opisie</entry>
+</properties>

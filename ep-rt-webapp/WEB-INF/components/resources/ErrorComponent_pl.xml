@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="ErrorComponent.msg">wiadomosc bledna</entry>
+<entry key="ErrorComponent.Description">Opis błędu</entry>
+<entry key="ErrorComponent.Title"></entry>
+<entry key="ErrorComponent.DivTitle">Błąd</entry>
+</properties>

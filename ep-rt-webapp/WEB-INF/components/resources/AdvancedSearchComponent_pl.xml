@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="AdvancedSearchComponent.Reset-criteria">Wyczyść zapytanie</entry>
+<entry key="AdvancedSearchComponent.Title">Zaawansowane wyszukiwanie w kolekcji</entry>
+<entry key="AdvancedSearchComponent.Content">Tekst publikacji</entry>
+<entry key="AdvancedSearchComponent.allAttributes">Opis publikacji</entry>
+<entry key="AdvancedSearchComponent.button.Search">Szukaj</entry>
+<entry key="AdvancedSearchComponent.DisplayDay">Wyświetl publikacje dodane w ciągu</entry>
+<entry key="AdvancedSearchComponent.Prompt">Zbuduj zapytanie</entry>
+<entry key="AdvancedSearchComponent.AnyContent">[dowolna]</entry>
+<entry key="AdvancedSearchComponent.byAttr">wg atr.</entry>
+<entry key="AdvancedSearchComponent.Browse">Pokaż listę</entry>
+<entry key="AdvancedSearchComponent.IsExpandable">Użyj synonimów</entry>
+<entry key="AdvancedSearchComponent.2weeks">ostatnich dwóch tygodni</entry>
+<entry key="AdvancedSearchComponent.Format">Poprawne formułowanie zapytań</entry>
+<entry key="AdvancedSearchComponent.DisplayDate">Wyświetl publikacje dodane od dnia</entry>
+<entry key="AdvancedSearchComponent.IsExpandableWarning">We wprowadzonym zapytaniu znajdują się wyrazy należące do więcej niż jednej grupy znaczeniowej. Zaznacz na poniższej liście, które grupy znaczeniowe mają być wykorzystane przy rozszerzeniu zapytania.</entry>
+<entry key="AdvancedSearchComponent.DisplayAll">Wyświetl wszystkie publikacje</entry>
+<entry key="AdvancedSearchComponent.1week">ostatniego tygodnia</entry>
+<entry key="AdvancedSearchComponent.Add-criterion">Dodaj następny element zapytania</entry>
+<entry key="AdvancedSearchComponent.4weeks">ostatnich czterech tygodni</entry>
+<entry key="AdvancedSearchComponent.Remove-criterion">Usuń element zapytania</entry>
+<entry key="AdvancedSearchComponent.Remove">Usuń</entry>
+</properties>

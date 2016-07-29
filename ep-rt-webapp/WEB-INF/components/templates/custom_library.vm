@@ -1,0 +1,479 @@
+#**
+
+File with custom components' macros.
+@version $Id: custom_library.vm,v 1.1 2007-08-17 12:10:00 maneo Exp $
+
+*#
+
+#**
+  Prepares results of local search.
+*#
+#macro( searchResultDLibraLocal $currIndex $result )
+    #set($isRoot = false)
+	#set($id = ${result.getEdition().getId()})
+	#set($externalId = ${result.getEdition().getExternalId()})
+    #set($type = "")
+	#setTitleLink($result $language $titleId $creatorId ${result.getEdition().getName()})
+    #set($resourceLabel = $titleLink)
+    #set($resourceContentUrl = "${homepageUrl}${editionContentUrls.get(${result.getEdition().getId()})}")
+    #set($resourceLabelUrl = "${homepageUrl}${servletName}/docmetadata?id=${id}&amp;from=$!{from}&amp;dirids=${collection.Id}&amp;ver_id=$!{result.VersionId}")
+	#set($risUrl="${homepageUrl}${servletName}/dlibra.ris?type=e&amp;id=${id}")
+	#if(${result.getEdition().getDescription()})
+		#set($description = ${result.getEdition().getDescription()})
+	#end
+	#if(${result.getAttributeValues($publisherId, $language)})
+		 #set($publishers = ${result.getAttributeValues($publisherId, $language)})
+		 #if($publishers.size() > 0)
+		  #set($pubResult = "")
+		  #set($counter = 0)
+		  #foreach($publisher in $publishers)
+		   #if($counter > 0)
+		  	 	 #set($pubResult = "${pubResult},$publisher")
+		  	 	#else
+		  	 	 #set($pubResult = "$publisher")
+		  	 	#end
+		  	 	#set($counter = $counter + 1)
+		  #end
+		 #end
+	#else
+		 #set($pubResult = "")
+	#end
+	#if(${result.getAttributeValues($dateId, $language)})
+	 #set($publicationDate = ${result.getAttributeValues($dateId, $language)})
+	#else
+	 #set($publicationDate = "")
+	#end
+	#if(${result.getAttributeValues($descriptionId, $language)})
+		#set($keywords = ${result.getAttributeValues($descriptionId, $language)})
+	#else
+		#set($keywords = "")
+	#end
+
+    #set($resourceScore = ${result.ScaledScore})
+    #set($resourceHostName = "")
+    #set($resourceHostUrl ="")
+    #set($doctypeIcon = "publication.gif" )
+    
+
+	#set ($aggregationCount = 0) 
+#set($thumbUrl = "")
+	#if(${result.getEdition().getElementHasImage()})
+	 #set ( $thumbUrl = "${homepageUrl}/image/edition/${id}" )
+	#end
+
+	#set( $similarSearchUrl = "eid=${id}" )
+	#set($editionId = "${id}")
+#set($title = ${res.getProperty("search.viewPublication")})
+   #displayElementListItem($currIndex $resourceLabel $resourceLabelUrl $resourceContentUrl $description $keywords $resourceScore $resourceHostName $thumbUrl $resourceHostUrl $doctypeName $doctypeIcon $similarSearchUrl $editionId $aggregationCount $title $risUrl $authorLabel $externalId $isRoot)
+    #set($doctypeInfoRL = false)
+#end
+
+#**
+  Prepares results of publication search.
+*#
+#macro( searchResultDLibraPublication $currIndex $result )
+	#set($isRoot = false)
+	#set($id = ${result.getPublication().getId()})
+	#set($externalId = "")
+	#setTitleLink(${result} $language $titleId $creatorId ${result.getPublication().getName()})
+	#set($resourceLabel = $titleLink)
+	#set($resourceLabelUrl = "${homepageUrl}${servletName}/publication?id=${id}&amp;from=$!{from}&amp;dirids=${collection.Id}&amp;tab=1")
+    #set($resourceContentUrl = $resourceLabelUrl)
+	#set($resourceScore = ${result.ScaledScore})
+    #set($resourceHostName = "")
+    #set($resourceHostUrl ="")
+    #set($risUrl="${homepageUrl}${servletName}/dlibra.ris?type=p&amp;id=${id}")
+	#set($pinfo = ${result.getPublication().getInfo()})
+	#set($type = ${pinfo.Class.Name.substring(${pinfo.Class.Name.lastIndexOf(".")})})
+	 #if($type == ".GroupPublicationInfo" )
+		  #set($doctypeIcon = "multipublication.gif")
+		  #set($doctypeName = ${res.getProperty("multipublication")})  
+		  #if("${result.getPublication().getInfo().getStatus()}" == "1")
+			#set($isRoot = true)
+		  #end
+	 #elseif($type == ".PlannedPublicationInfo")
+	  #set($doctypeIcon = "planned_publication.gif")
+	  #set($doctypeName = ${res.getProperty("planned-publication")}) 
+	 #else
+	  #set($doctypeIcon = "publication.gif")
+	  #set($doctypeName = ${res.getProperty("publication")})
+	 #end
+	#if(${result.getAttributeValues($publisherId, $language)})
+		 #set($publishers = ${result.getAttributeValues($publisherId, $language)})
+		 #if($publishers.size() > 0)
+		  #set($pubResult = "")
+		  #set($counter = 0)
+		  #foreach($publisher in $publishers)
+		   #if($counter > 0)
+		  	 	 #set($pubResult = "${pubResult},$publisher")
+		  	 	#else
+		  	 	 #set($pubResult = "$publisher")
+		  	 	#end
+		  	 	#set($counter = $counter + 1)
+		  #end
+		 #end
+	#else
+		 #set($pubResult = "")
+	#end
+#if(${result.getAttributeValues($dateId, $language)})
+	 #set($publicationDate = ${result.getAttributeValues($dateId, $language)})
+	#else
+	 #set($publicationDate = "")
+	#end
+	#if(${result.getAttributeValues($descriptionId, $language)})
+		#set($keywords = ${result.getAttributeValues($descriptionId, $language)})
+	#else
+		#set($keywords = "")
+	#end
+	#if(${result.Publication.Description})
+		#set($resourceDescription = ${result.Publication.Description} )
+	#end
+#set($thumbUrl = "")
+	#if(${result.getPublication().getElementHasImage()})
+	 #set ( $thumbUrl = "${homepageUrl}/image/publication/${id}" )
+	#end
+
+	#set ($aggregationCount = ${result.getCount().intValue()}) 
+
+	#set( $similarSearchUrl = "pid=${id}" )
+	#set($editionId = "${id}")
+#set($title = ${res.getProperty("search.viewDescription")})
+#displayElementListItem($currIndex $resourceLabel $resourceLabelUrl $resourceContentUrl $resourceDescription $keywords $resourceScore $resourceHostName $thumbUrl $resourceHostUrl $doctypeName $doctypeIcon $similarSearchUrl $editionId $aggregationCount $title $risUrl $authorLabel $externalId $isRoot)
+    #set($doctypeInfoRL = false)
+#end
+
+#**
+  Prepares search results page. Used also for displaying list of
+  publications in collection. Remember to wrap results for this macro into table eg.
+  <table>#searchResultDLibra(params)</table>
+*#
+#macro(searchResultDLibra $currIndex $info $id $resourceLabel $doctypeInfo $resourceDescription)
+	#set($thumbUrl = "")
+    #set($resourceLabelUrl = "${homepageUrl}${servletName}/docmetadata?id=${id}&amp;from=$!{from}&amp;dirids=$!{collection.Id}")
+    #set($resourceHostName = "")
+   	#set($resourceContentUrl = $resourceLabelUrl)
+    #set($resourceHostUrl = "")
+	#set($authorLabel = "")
+	#if($result)
+		#set($doctypeInfo = ${doctypeInfos.get(${result.getMime()})})
+		#set($resourceScore = ${result.ScaledScore})
+	#else
+		#set($resourceScore = -1)
+	#end
+
+   	#set($doctypeName = "")
+	#set($doctypeIcon = "default.gif")
+	#set($editionId = "${id}")
+	#set($type = ${info.Class.Name.substring(${info.Class.Name.lastIndexOf(".")})})
+	#if($doctypeInfo != "")
+    	#set($doctypeName = ${doctypeInfo.Abbr})
+    	#set($doctypeIcon = ${doctypeInfo.FileName})
+    #else
+    	#if($type == ".GroupPublicationInfo" )
+	    	#set($doctypeName = "Group Publication")
+	    	#set($doctypeIcon = "multipublication.gif")
+			#set($resourceLabelUrl = "${homepageUrl}${servletName}/publication?id=${id}&amp;from=$!{from}&amp;dirids=${collection.Id}&amp;tab=1")
+			#set($resourceContentUrl = "${homepageUrl}${servletName}/publication?id=${id}&amp;from=$!{from}&amp;dirids=${collection.Id}&amp;tab=1")
+			#set($thumbUrl = "${homepageUrl}/image/publication/${id}" )
+			#if("${info.getStatus()}" == "1")
+				#set($isRoot = true)
+			#end	
+    	#elseif($type == ".PublicationInfo" )
+	    	#set($doctypeName = "Publication")
+	    	#set($doctypeIcon = "publication.gif")
+			#set($resourceLabelUrl = "${homepageUrl}${servletName}/publication?id=${id}&amp;from=$!{from}&amp;dirids=${collection.Id}&amp;tab=1")
+			#set($editionId = "${id}")
+   		#elseif($type == ".EditionInfo")
+			#set($thumbUrl = "${homepageUrl}/image/edition/${id}" )
+			#set($resourceContentUrl = "${homepageUrl}${editionContentUrls.get(${id})}")
+	    	#set($doctypeName = "Edition")
+	    	#set($doctypeIcon = "edit.gif")
+	    #end
+	#end
+
+	##
+	## set hint title
+	##
+	#if ($type == ".GroupPublicationInfo" || $type == ".PublicationInfo")
+		#set($title = ${res.getProperty("search.viewDescription")})
+		#set($risUrl="${homepageUrl}${servletName}/dlibra.ris?type=p&amp;id=${id}")
+	#else
+		#set($title = ${res.getProperty("search.viewPublication")})
+		#set($risUrl="${homepageUrl}${servletName}/dlibra.ris?type=e&amp;id=${id}")
+	#end
+	#set( $similarSearchUrl = "eid=${id}" )
+	#set( $aggregationCount = 0)
+	
+	#set($resourceLabel = ${escapeUtil.escapeHtml("${resourceLabel}")})
+	##set($resLab= "<span class='src_titleLink_title'>${resourceLabel}</span>")
+	#set($resLab= ${resourceLabel})
+
+	#if(${DataChecker.hasImage($info)} == false)
+		#set($thumbUrl = "")
+	#end
+	
+	#set($externalId = ${DataChecker.getExternalId($info)})
+
+#displayElementListItem($currIndex $resLab $resourceLabelUrl $resourceContentUrl $resourceDescription $keywords $resourceScore $resourceHostName $thumbUrl $resourceHostUrl $doctypeName $doctypeIcon $similarSearchUrl $editionId $aggregationCount $title $risUrl $authorLabel $externalId $isRoot)
+
+#end
+
+
+#macro(displayElementListItem $currIndex $resourceLabel $resourceLabelUrl $resourceContentUrl $resourceDescription $keywords $resourceScore $resourceHostName $thumbUrl $resourceHostUrl $doctypeName $doctypeIcon $similarSearchUrl $elementId $aggregationCount $title $risUrl $authorLabel $externalId $isRoot)
+#set($urlSuffix="&amp;lp=${currIndex}")
+#if($query) 
+	#set($urlSuffix="$urlSuffix&amp;QI=$!{query.QueryId}")
+#end
+#if("$isRoot" == "true")
+	#set($resourceContentUrl = "${homepageUrl}${mainServletName}/ep-content-selection?id=${elementId}")
+#end
+#if("$!{externalId}" != "")
+	#set($resourceContentUrl = "${homepageUrl}${mainServletName}/content-selection?id=${elementId}")
+#end
+#if($resourceContentUrl.contains("/multiFormat.xml"))
+	#set($resourceContentUrl = "${homepageUrl}${mainServletName}/womi-selection?id=${elementId}")
+#end
+<table class="resutlsTable" #if(${currIndex}%2 == 0) style="background: #f1f1f1;margin-bottom:5px;" #else style="background:#fcfcfc;margin-bottom:5px;" #end >   
+	<tr class="SearchResult">
+ 	<td class="resultNumber">
+	    <b>${currIndex}.&#160;</b>
+	</td>
+	#if(${thumbUrl}!="")
+	 <td class="res_miniature" width="140px">
+		## 
+		## inlined styles below were left here intentionally
+		##
+		<div class="minContainer">
+		#if($resourceContentUrl != "")
+				##
+				## not all content URL have querystring
+				##
+			  <a href="${urlTool.append("${resourceContentUrl}", "${urlSuffix}")}" title="$resourceLabel - ${title}" #if(${result.getEdition()} || ($doctypeName == "Edition") || ("$!{externalId}" != "")) class="contentTrigger" rel="gal" #end>
+				<img id="imgE${elementId}" src="${thumbUrl}" class="minImg"/>
+			  </a>
+		#else
+			  <img id="imgE${elementId}" src="${thumbUrl}" class="minImg"/>
+		#end		
+		</div>
+	 </td>
+	 
+	#else
+		<td valign="top" class="res_miniature" width="140px">
+		## 
+		## inlined styles below were left here intentionally
+		##
+		<div class="minContainer">
+		#if($resourceContentUrl != "")
+			##
+			## not all content URL have querystring
+			##
+			<a href="${urlTool.append("${resourceContentUrl}", "${urlSuffix}")}" title="$resourceLabel - ${title}" #if(${result.getEdition()} || ($doctypeName == "Edition") || ("$isRoot" == "true")) class="contentTrigger" rel="gal" #end>
+			  #if(${aggregationCount} > 0 || $type == ".GroupPublicationInfo")
+				<img id="imgE${elementId}" src="${homepageUrl}/style/dlibra/${styleVariant}/img/no-min-group.png" class="noMinGroup" />
+			  #elseif($type == ".PlannedPublicationInfo")
+				<img id="imgE${elementId}" src="${homepageUrl}/style/dlibra/${styleVariant}/img/no-min-planned.png" class="noMinPlanned" />
+			  #else
+				<img id="imgE${elementId}" src="${homepageUrl}/style/dlibra/${styleVariant}/img/no-min.png" class="noMin" />
+			  #end
+			</a>
+		#else
+			 #if(${aggregationCount} > 0 || $type == ".GroupPublicationInfo")
+				<img id="imgE${elementId}" src="${homepageUrl}/style/dlibra/${styleVariant}/img/no-min-group.png" class="noMinGroup" />
+			 #elseif($type == ".PlannedPublicationInfo") 
+				<img id="imgE${elementId}" src="${homepageUrl}/style/dlibra/${styleVariant}/img/no-min-planned.png" class="noMinPlanned" />
+			 #else 
+				<img id="imgE${elementId}" src="${homepageUrl}/style/dlibra/${styleVariant}/img/no-min.png" class="noMin" />
+			 #end
+		#end
+		</div>
+	</td>
+	#end
+		## style added intentionally
+		<td><table class="resultMetadataTable"><tr class="resultMetadataTr" style="height:90px;"><td valign="top">
+		<p class="resultTitle">
+		#if($resourceContentUrl != "")
+			<a href="${urlTool.append("${resourceContentUrl}", "${urlSuffix}")}" title="$resourceLabel - ${title}" #if(${result.getEdition()} || ($doctypeName == "Edition")) class="contentTrigger" rel="gal2" #end>
+					<img src="${homepageUrl}/style/common/img/content-types/${doctypeIcon}" alt="$!{doctypeName}" class="bottom_icon resultContentIcon" title="$!{doctypeName}"/>
+			</a>
+		#else
+			<img id="resultContentIcon" src="${homepageUrl}/style/common/img/content-types/${doctypeIcon}" alt="$!{doctypeName}" class="bottom_icon resultContentIcon" title="$!{doctypeName}"/>
+		#end
+	    <b>
+		#set($resLabel = "")
+	    #if ( $resourceLabel != "" )
+			#set($resLabel = $resourceLabel)
+		#else
+			#set($resLabel = [${res.getProperty("SearchResultsComponent.NoTitleInLanguage")}])
+		#end
+	    ## class="dL_sn" as selector class for shorter names function 
+	    <a class="dLSearchResultTitle" href="${resourceLabelUrl}${urlSuffix}">
+			<span><span id="src_titleLink_fullTitle" style="display:none;"><span class='src_titleLink_title'>${resLabel.toString().replaceAll("&lt;-&gt;","-")}</span></span><span id="src_titleLink_shorterTitle"><span class='src_titleLink_title'>${resLabel.toString().replaceAll("&lt;-&gt;","-")}</span></span></span>
+		  </a>
+		</b></p>
+		#if($authorLabel != "")
+		<p class="resultAuthor">
+			<i>$authorLabel</i>
+		</p>
+		#end
+		#if($resourceDescription != "")
+			<p class="resultDescription"><b>${res.getProperty("SearchResultsComponent.Description")}:</b>
+				<span class="dL_sn" content="${escapeUtil.escapeHtml("$!resourceDescription")}"><span>${escapeUtil.escapeHtml("$!resourceDescription")}</span></span>
+			</p>
+			#set($resourceDescription = "")
+		#end
+		#if(${keywords.size()} > 0)
+		<p class="resultKeywords"><b>${res.getProperty("SearchResultsComponent.Keywords")}</b>:
+			<span class="dL_sn" content="#foreach($keyword in $keywords) ${escapeUtil.escapeHtml("$keyword")} #if($velocityCount < ${keywords.size()}),#end#end">
+		 	 	<span>#foreach($keyword in $keywords) ${escapeUtil.escapeHtml("$keyword")} #if($velocityCount < ${keywords.size()}),#end#end</span>
+		 	 </span></p>
+		#end
+	    #if(${aggregationCount} > 0)
+			<p class="resultAggregation"><img src="${homepageUrl}/style/common/img/collapsed.gif" class="aggregationMark" /><span>${res.getProperty("SearchResultsComponent.aggregation")} 
+	 			 #if($pageId == "results")
+					<a class="resultAggregationLink" onclick="SearchResultsComponent.sendGroupRequest('${elementId}'); return false;" href="#">
+	 			 #else
+					<a class="resultAggregationLink" onclick="SearchResultsComponent.sendGroupRequestAdv('${elementId}'); return false;" href="#">
+				 #end	
+				 <b>${aggregationCount}</b>
+	 			 #if(${userLanguage} == "pl")
+	 			  #if($aggregationCount == 1)
+	 			 	  ${res.getProperty('SearchResultComponent.aggregation.object')}
+	 			  #elseif($aggregationCount%10 >= 5 || $aggregationCount%10 < 2)
+						${res.getProperty('SearchResultComponent.aggregation.objectss')}
+	 			  #elseif($aggregationCount%10 < 5)
+						${res.getProperty('SearchResultComponent.aggregation.objects')}
+				  #end
+	 			 #elseif(${userLanguage} == "en")
+	 			  #if($aggregationCount == 1)
+	 			 	  ${res.getProperty('SearchResultComponent.aggregation.object')}
+	 			  #else
+	 			   ${res.getProperty('SearchResultComponent.aggregation.objects')}
+	 			  #end
+	 			 #end
+	 			 </a></span></p>
+			#set($aggregationCount = 0)
+		 #end  	
+			  </td></tr>
+			  <tr>
+				<td class="resultAdditionalOptionsTd" valign="bottom">
+				<p class="resultAdditionalOptions">
+  				  #if ( $similarSearchUrl && $resourceScore >= 0)
+					<a href="${homepageUrl}${servletName}/sresults?action=SearchSimilarAction&amp;$similarSearchUrl" title="${res.getProperty("SearchResultsComponent.Search.Similar")}">
+						${res.getProperty("SearchResultsComponent.Search.Similar")}
+					</a>
+					&nbsp;|&nbsp;
+				  #end	
+				  <a href="${risUrl}" title="${res.getProperty("SearchResultsComponent.RISMetadataDesc")}">${res.getProperty("SearchResultsComponent.RISMetadata")}</a>
+				</p>
+				</td>
+			  </tr>
+			</table>
+		</tr>
+		</table>
+	    #set ($aggregationCount = 0)
+#end
+
+#**
+ Renders javascript function for edition metadata menu
+ @used by: EditionMetaMenuComponent
+*#
+#macro ( getEditionMenuScripts )
+
+	var EditionMetaMenuComponent = {
+		#if("${edition.getExternalId()}" != "")
+			#set($efcontentUrl = "${homepageUrl}${mainServletName}/content-selection?id=${edition.Id}")
+		#end
+		#if( ${infoUrl} && (${infoUrl.length()} > 0) )
+			#if($efcontentUrl)
+				contentUrl: "${efcontentUrl}"
+			#else
+				contentUrl: "${homepageUrl}${infoUrl}mimetype=${mimetype}&sec=${isSecured}&content_url=$!{content_url}"
+			#end
+		#else
+			#if($efcontentUrl)
+				contentUrl: "${efcontentUrl}"
+			#else
+				contentUrl: "${homepageUrl}$!{content_url}"
+			#end		
+		#end
+	};
+	
+    function openInNewWindow() {
+		publicationWindow = window.open(EditionMetaMenuComponent.contentUrl,'pubWindow','scrollbars=yes,toolbar=no,location=no,directories=no,status=no,menubar=no,resizable=yes,channelmode');
+		publicationWindow.focus();
+    }
+
+    function getZip() {
+		zipWindow = window.open("${homepageUrl}${servletName}/doczip?id=${edition.getId()}",'zipWindow','scrollbars=yes,toolbar=no,location=no,directories=no,status=no,menubar=no,resizable=yes,height=350,width=470');
+		zipWindow.focus();
+	}
+
+	function showMetadata(tabNumber){
+      if ( (top.location+'').indexOf('doccontent') != -1)
+      {
+         top.location='${homepageUrl}${servletName}/docmetadata?id=${edition.getId()}&dirds=${colId}&tab='+tabNumber;
+      }
+	}
+
+	#getPublicationMenuScripts()
+
+#end
+
+
+#macro ( dispNode $node $info)
+	<span class="attributeJustify">
+	#if($documentMetadata.getAttributeValues($info.Id, $metadataLanguage, $valueLangType).size() > 0)
+		<a href="${homepageUrl}${servletName}/indexsearch?attId=${info.id}" class="attributeInfo"> 
+		#set($t = "#printParentsLabels($node 0)")
+		#if($printAttParents)
+			${t.trim()}:
+		#else
+			${node.Info.Label}:
+		#end
+		</a>
+		<ul><li class="attributeValuesListElement"><span class="attribute" style="margin:0;">
+		#foreach($value in $documentMetadata.getAttributeValues($info.Id, $metadataLanguage, $valueLangType))
+			#if($velocityCount > 1); #end
+			#if($info.getRDFName().equals("Autor") && $value.toString().matches("^[^<]+<[^@]+@[a-zA-Z0-9.-]+>$"))
+				## hide authors' e-mails
+				#set($value = $value.toString().substring(0, $value.toString().indexOf("<")).trim())
+			#end
+			#if($value.toString().startsWith('http://'))
+				#set($urlName = ${res.getProperty("element_metadata.link")})
+				#set($urlValue = $value)
+				#if($value.toString().indexOf(" ") > 0)
+					#set($urlValue = $value.toString().substring(0,$value.toString().indexOf(" ")))
+					#set($urlName = $value.toString().substring($value.toString().indexOf(" "), $value.toString().length()))
+				#end
+				<a href="${urlValue}" target="_blank">$urlName</a>
+				<a href="${urlValue}" target="_blank">
+				<img alt=" " src="${homepageUrl}/style/common/img/popicon.gif"/></a>
+			#elseif($value.toString().startsWith('oai:'))
+				#if(${conf.get("use.fbc")})
+					<a href="${conf.get("fbc.url")}/id/${value}">${value}</a>
+				#else
+					<a href="${homepageUrl}${servletName}/docmetadata?id=${value}">${value}</a>
+				#end
+			#elseif(!$info.getRoleId().toString().equals("description"))
+				#set ( $strValue = $value.toString() )
+				<script type="text/javascript"><!--
+				function submit${info.Id}_${velocityCount}() {
+				submitQuery(${info.Id},'\'${escapeUtil.escapeForJS($strValue)}\'');
+				}
+				//--> </script>
+				<a href="javascript:submit${info.Id}_${velocityCount}()">${escapeUtil.escapeHtml("${value}")}</a>
+				## perform slice of long data but considering only "description" attributes
+			#else
+				#set ( $strValue = $value.toString() )
+				<script type="text/javascript"><!--
+				function submit${info.Id}_${velocityCount}() {
+				return '\'${escapeUtil.escapeForJS($strValue)}\'';
+				}
+				//--> </script> 
+				<a href="javascript:submit${info.Id}_${velocityCount}()" id="attr_anch_${info.Id}_${velocityCount}">${escapeUtil.escapeHtml("${value}")}</a>
+			#end
+		#end
+		</span></li></ul>
+	#end
+	</span>
+#end

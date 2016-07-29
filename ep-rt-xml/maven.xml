@@ -1,0 +1,15 @@
+<project xmlns:maven="jelly:maven" xmlns:j="jelly:core"
+	xmlns:util="jelly:util" xmlns:x="jelly:xml" xmlns:ant="jelly:ant"
+	xmlns:velocity="jelly:velocity" xmlns:doc="doc" xmlns:artifact="artifact">
+
+	<goal name="install" prereqs="java:jar-resources,plugin:build">
+	</goal>
+
+	<preGoal name="plugin:build">
+		<mkdir dir="${maven.build.dir}/${maven.final.name}" />
+		<copy todir="${maven.build.dir}/${maven.final.name}" overwrite="true">
+			<fileset dir="${maven.build.dest}" />
+		</copy>
+	</preGoal>
+
+</project>

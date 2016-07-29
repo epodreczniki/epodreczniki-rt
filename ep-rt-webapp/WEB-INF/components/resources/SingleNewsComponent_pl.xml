@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="SingleNewsComponent.NoHeader">Musisz podać tytuł wiadomości</entry>
+<entry key="SingleNewsComponent.NoFullMessage">Musisz podać tekst wiadomości</entry>
+<entry key="SingleNewsComponent.NoShortMessage">Musisz podać skrócony tekst wiadomości</entry>
+<entry key="SingleNewsComponent.Title">Edycja wiadomości</entry>
+<entry key="SingleNewsComponent.cancel">anuluj</entry>
+<entry key="SingleNewsComponent.news-edit.date">Data</entry>
+<entry key="SingleNewsComponent.news-edit.short">Wersja skrócona</entry>
+<entry key="SingleNewsComponent.news-edit.header">Nagłówek</entry>
+<entry key="SingleNewsComponent.enter">wprowadź</entry>
+<entry key="SingleNewsComponent.news-edit.body">Treść</entry>
+<entry key="SingleNewsComponent.news-edit.language">Język</entry>
+</properties>

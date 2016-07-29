@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="SendMailAction.mail.subjectprefix">Repozytorium e-podręczniki: </entry>
+<entry key="SendMailAction.mail.body"><![CDATA[
+<h3>Wiadomość ze strony WWW repozytorium e-podręczniki</h3>
+<dl>
+<dt>Wysyłający:</dt><dd>${from}</dd>
+<dt>Data wysłania:</dt><dd>${date}</dd>
+<dt>Temat:</dt><dd>${subject}</dd>
+<dt>Treść wiadomości:</dt><dd>
+<p><pre>
+---początek treści---
+${body}
+----koniec treści----
+</pre></p>
+</dd>
+</dl>
+]]>
+</entry>
+</properties>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="LoginSelectionComponent.Title">Logowanie</entry>
+<entry key="LoginSelectionComponent.Thickbox.Title">Logowanie</entry>
+<entry key="LoginSelectionComponent.Login.Expl">
+Jeśli widzisz stronę logowania, bo chciałeś przeczytać treść publikacji, oznacza to, że użytkownicy publiczni nie mają wystarczających 
+uprawnień dostępu do tej publikacji. Możesz spróbować się zalogować na odpowiednio uprzywilejowane konto, zalogować się bez używania systemu jednokrotnego logowania
+lub spróbować przeczytać treść publikacji później. Jeżeli uważasz, że powinieneś mieć dostęp do tej publikacji już teraz, skontaktuj się z instytucją, 
+która umieściła publikację lub z nami.
+</entry>
+<entry key="LoginSelectionComponent.MoreInformation">Więcej informacji..</entry>
+<entry key="LoginSelectionComponent.Cancel">Rezygnuj</entry>
+<entry key="LoginSelectionComponent.Expl">Aby zalogować się chcę korzystać z:</entry>
+<entry key="LoginSelectionComponent.Help">Pomoc</entry>
+<entry key="uip.gx.name">Sieciowego profilu użytkownika</entry>
+<entry key="uip.dlibra.name">Konta dostępnego tylko w tej bibliotece cyfrowej</entry>
+<entry key="uip.cas.name">Konta w centralnym systemie logowania uczelni</entry>
+<entry key="uip.ehms.name">Mojego konta w wirtualnym dziekanacie (EHMS)</entry>
+<entry key="uip.ldap.name">Konta w centralnej bazie użytkowników (LDAP)</entry>
+</properties>

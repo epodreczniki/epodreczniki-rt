@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="SingleHelpPageComponent.help-edit.id">Identyfikator</entry>
+<entry key="SingleHelpPageComponent.enter">wprowadź</entry>
+<entry key="SingleHelpPageComponent.help-edit.references">Referencje</entry>
+<entry key="SingleHelpPageComponent.help-edit.language">Jezyk</entry>
+<entry key="SingleHelpPageComponent.help-edit.body">Treść</entry>
+<entry key="SingleHelpPageComponent.help-edit.new-page">Nowa strona</entry>
+<entry key="SingleHelpPageComponent.help-edit.existing-page">Istniejąca strona</entry>
+<entry key="SingleHelpPageComponent.help-edit.subtitle">Podtytuł</entry>
+<entry key="SingleHelpPageComponent.cancel">anuluj</entry>
+<entry key="SingleHelpPageComponent.help-edit.no-references">[brak referencji]</entry>
+<entry key="SingleHelpPageComponent.help-edit.pageTitle">Tytuł</entry>
+<entry key="SingleHelpPageComponent.NoTitle">Pole "Tytuł" jest obowiązkowe</entry>
+<entry key="SingleHelpPageComponent.NoBody">Pole "Treść" jest obowiązkowe</entry>
+<entry key="SingleHelpPageComponent.Title">Edycja strony pomocy</entry>
+<entry key="SingleHelpPageComponent.NoId">Musisz podać "Identyfikator" strony pomocy</entry>
+</properties>

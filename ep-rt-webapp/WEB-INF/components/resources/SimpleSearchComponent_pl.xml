@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="SimpleSearchComponent.ContentSearch">Tekst publikacji</entry>
+<entry key="SimpleSearchComponent.Criterion">Zakres</entry>
+<entry key="SimpleSearchComponent.Warning.Prefix">Wyszukiwanie w </entry>
+<entry key="SimpleSearchComponent.Distributed">Repozytoria cyfrowe</entry>
+<entry key="SimpleSearchComponent.SubTitle">Wyszukiwanie proste</entry>
+<entry key="SimpleSearchComponent.byAttr">wg atr.</entry>
+<entry key="SimpleSearchComponent.DirSearch">Opis publikacji</entry>
+<entry key="SimpleSearchComponent.Clear">Wyczyść zapytanie</entry>
+<entry key="SimpleSearchComponent.Prefix.AdvancedSearch">Wyszukiwanie </entry>
+<entry key="SimpleSearchComponent.Warning.Postfix">nie obejmuje treści publikacji.</entry>
+<entry key="SimpleSearchComponent.Remote.Title">Federacja Bibliotek Cyfrowych</entry>
+<entry key="SimpleSearchComponent.Warning.OtherLibs">innych bibliotekach</entry>
+<entry key="SimpleSearchComponent.DirAndContentSearch">Wszędzie</entry>
+<entry key="SimpleSearchComponent.Help">Pomoc</entry>
+<entry key="SimpleSearchComponent.IsExpandableWarning">We wprowadzonym zapytaniu znajdują się wyrazy należące do więcej niż jednej grupy znaczeniowej. Zaznacz na poniższej liście, które grupy znaczeniowe mają być wykorzystane przy rozszerzeniu zapytania.</entry>
+<entry key="SimpleSearchComponent.Title"></entry>
+<entry key="SimpleSearchComponent.DC">Schemat Dublin Core</entry>
+<entry key="SimpleSearchComponent.AdvancedSearch">zaawansowane...</entry>
+<entry key="SimpleSearchComponent.button.Search">Szukaj</entry>
+<entry key="SimpleSearchComponent.proper.query.syntax">Poprawne formułowanie zapytań</entry>
+<entry key="SimpleSearchComponent.tokenValues.All">wszystkie</entry>
+<entry key="SimpleSearchComponent.tokenValues.None">żadna</entry>
+<entry key="SimpleSearchComponent.searchInCollection">Wyszukiwanie w kolekcji</entry>
+<entry key="SimpleSearchComponent.StandardSearch.Title">Wyniki wyszukiwania</entry>
+</properties>

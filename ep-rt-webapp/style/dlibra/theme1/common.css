@@ -1,0 +1,183 @@
+
+
+applet {
+   width: 100%;
+   height: 100%;	
+}
+
+img {
+    border:none;
+}
+
+.tree {
+	margin-top: 10px;
+	width: 100%;
+	float: left;
+}
+
+.tree ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.tree li {
+	display: block;
+	padding: 0;
+	/*kolor musi byc podany bo [IE bug]: tlo z poprzedniego LI wylewa sie na kolejne*/
+	background: white;
+}
+
+.tree li.root {
+	margin: 0;
+}
+
+.tree .continuedBranch {
+	background: url(../../common/tree/vertline.gif) repeat-y;
+}
+
+.tree .branch {
+	background:  url(../../common/tree/node.gif) no-repeat;
+	background-repeat: no-repeat;
+}
+
+.tree .lastbranch {
+	background: url(../../common/tree/lastnode.gif) no-repeat;
+	background-repeat: no-repeat;
+}
+
+.tree .ico {
+	width: 12px;
+	margin: 0 0 0 0;
+	float:left;
+	margin-right:4px;
+}
+
+.tree span {
+	margin: 0 0 0 12px;
+	display: block;
+	padding:  0 0 4px 0;
+	color: black;
+}
+
+.tree span span {
+	display: inline;
+	margin-right: 2px;
+}
+
+.tree span span .attribute {
+	margin-left: -14px;
+}
+
+.tree a:hover {
+	color: #000000;
+}
+
+.tree .childNodesContainer {
+	padding: 0 0 0 12px;
+	margin: 0;
+}
+
+
+.status {
+	margin: 4px;
+}
+
+.textinput, .textarea {
+	border: 1px solid #6C757A;
+	padding: 2px;
+	margin: 2px;		
+}
+
+.short {
+	width: 120px;
+}
+
+.medium {
+	width: 220px;
+}
+
+.long { 
+	width: 300px;
+}
+
+.vlong {
+	width: 400px;
+}
+
+.small.textarea {
+	height: 100px;
+	width: 320px;
+}
+
+.medium.textarea {
+	height: 180px;
+}
+
+.submit {
+	background:none;
+	background-color: #54a3da;
+	cursor:pointer;
+	border: 3px solid #bdccd4;
+	width: 90px;
+	margin: 10px 15px 0px 0;
+	color: #FFF;
+	font: 1.1em Arial, Sans-Serif;
+	vertical-align:top;  
+	height: 30px;
+}
+
+.cancel {
+	background-color: #eee;
+	-moz-box-shadow:none;
+	-webkit-box-shadow:none;
+	box-shadow:none;
+	font-size:0.9em;
+	color:#555;
+	width:70px;
+	
+}
+
+.active { 
+	font-weight: 800;
+}
+
+.image {
+	float: left;
+	margin: 0 9px 3px 0;
+}
+
+.bottom_icon {
+  vertical-align:bottom;
+}
+
+.top_icon {
+  vertical-align:top
+}
+
+.error { 
+	color : red;
+}
+
+.success {
+	color: green;
+}
+
+.warningDiv {
+  margin: 4px;  
+}
+
+.niceList {
+	 margin-left: 4px;
+	 padding: 4px;
+	 list-style-type:none;
+}
+
+.score {
+	text-align:right;
+}
+
+.searchAccuracy {
+	margin-top: 0em; 
+	vertical-align: top;
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="LatestEditionsComponent.4weeks">ostatnich czterech tygodni</entry>
+<entry key="LatestEditionsComponent.DisplayDay">dodane w ciągu</entry>
+<entry key="LatestEditionsComponent.DisplayCount">Wyświetl</entry>
+<entry key="LatestEditionsComponent.DisplayDesc">Wyświetl publikacje</entry>
+<entry key="LatestEditionsComponent.CommentGen">Wygeneruj adres wątku RSS z informacjami bazującymi na poniższym formularzu.</entry>
+<entry key="LatestEditionsComponent.2weeks">ostatnich dwóch tygodni</entry>
+<entry key="LatestEditionsComponent.Display">Wyświetl</entry>
+<entry key="LatestEditionsComponent.publications">ostatnio dodanych</entry>
+<entry key="LatestEditionsComponent.DisplayDate">dodane od dnia</entry>
+<entry key="LatestEditionsComponent.Title">${collection.Label} : Ostatnio dodane</entry>
+<entry key="LatestEditionsComponent.generateRSS">Generuj</entry>
+<entry key="LatestEditionsComponent.1week">ostatniego tygodnia</entry>
+<entry key="LatestEditionsComponent.Unavailable">Ta opcja jest niedostępna</entry>
+</properties>

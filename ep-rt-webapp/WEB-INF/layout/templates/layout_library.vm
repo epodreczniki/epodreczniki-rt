@@ -1,0 +1,230 @@
+#**
+File with macros used by layout templates.
+*#
+
+#**
+ Renders alternative links, like rss feeds.
+*#
+#macro(alternativeFormats)
+	
+  ##default alternate links	
+  <link rel="alternate" title="${res.getProperty("base.library.full")} - ${res.getProperty("main.RSS.Latest")}" href="${homepageUrl}/latest_${userLanguage}.rss" type="application/rss+xml" />
+  <link rel="alternate" title="${res.getProperty("base.library.full")} - ${res.getProperty("main.RSS.Planned")}" href="${homepageUrl}/planned_${userLanguage}.rss" type="application/rss+xml" />
+  <link rel="alternate" title="${res.getProperty("base.library.full")} - ${res.getProperty("main.RSS.News")}" href="${homepageUrl}/news_${userLanguage}.rss" type="application/rss+xml" />
+
+  ##custom alternate links 
+  #foreach($key in ${pageFeeds.keySet()})
+	 <link rel="alternate" title="${res.getProperty(${pageFeeds.get($key)})}" href="${homepageUrl}${servletName}?$key" type="application/rss+xml" />
+  #end
+	
+#end
+
+#**
+  Renders admin panel navigation toolbar.
+*#
+#macro(adminNav)
+<ul id="nav">
+ #menuItem(${res.getProperty("admin.start")} "admin")
+ #menuItem(${res.getProperty("admin.news")} "admin-news-list")
+ #menuItem(${res.getProperty("admin.help")} "admin-help-list")
+ #menuItem(${res.getProperty("admin.errors")} "admin-error-list")
+ #menuItem(${res.getProperty("admin.reports")} "admin-reports")
+ #menuItem(${res.getProperty("admin.components")} "admin-link-list")
+ #menuItem(${res.getProperty("admin.engine-stats")} "admin-engine-stats")
+ #menuItem(${res.getProperty("admin.agents-stats")} "admin-agents-stats")
+ #menuItem(${res.getProperty("admin.charts")} "../stats")
+ #menuItem(${res.getProperty("admin.logout")} "main?action=LogoutAction")
+</ul>
+#end
+
+#**
+ Renders admin panel breadcrumbs.
+*#
+#macro(adminBreadcrumbs)
+	<a href="${homepageUrl}${servletName}/admin">
+		$res.getProperty("admin.admin")
+	</a> 
+	#if (${pageId.endsWith("edit")} )
+		##remove "admin-" prefix
+			#set ( $middleId = ${pageId.substring(6)} )
+		##remove "edit" sufix
+			#set ( $length = ${middleId.indexOf("edit")} - 1 )
+			#set ( $middleId = ${middleId.substring(0,$length)} )
+		&middot;   	
+		<a href="${homepageUrl}${servletName}/admin-${middleId}-list">
+			${res.getProperty("admin.admin-${middleId}-list")}
+		</a> 
+	#end
+	
+	#if ( $pageId != "admin" )	
+		&middot;   	
+		<a href="#">
+			${res.getProperty("admin.${pageId}")}
+		</a> 
+	#end
+#end
+
+#**
+  Renders one single element of admin navigation toolbar.
+*#
+#macro(menuItem $label $url)
+     <li>
+          &#9643; &nbsp;<a href="${homepageUrl}${servletName}/$url" target="_top">$label</a>
+     </li>
+#end
+
+#**
+ Displays page name, and link to main page. 
+ Used to render name of library.
+*#
+#macro(pageId)
+	<h1>
+		<a href="${homepageUrl}${servletName}" title="$!{res.getProperty("base.library.full")}">
+  	 	  $!{res.getProperty("base.library.full")}
+		</a>
+	</h1>
+#end
+
+#**
+	Renders new main menu links.
+*#
+#macro(mainMenuLinks)
+<ul class="mainMenuListList">
+	<li class="mmlEmpty">
+		&nbsp;
+	</li>
+	<li class="mainMenuListItem">
+		<a class="mainMenuOption menuOptionHomepage" href="${homepageUrl}${servletName}" accesskey="m" target="_top" >
+			${res.getProperty("nav.HOMEPAGE")}
+		</a>
+	</li>
+##	<li class="mainMenuListItem">
+##		<a class="mainMenuOption mainMenuOptionIn" href="${homepageUrl}${servletName}/collectiondescription" accesskey="s" target="_top" >
+##			$res.getProperty("nav.COLLECTIONS")
+##		</a>
+##	</li>
+	<li class="mainMenuListItem">
+		<a class="mainMenuOption mainMenuOptionLast" href="javascript:showContact('$homepageUrl')" accesskey="c" > 
+		  ${res.getProperty("nav.CONTACT")}
+		</a>
+	</li>
+	<li class="mmlEmpty mmlEmptyRight">
+		&nbsp;
+	</li>
+</ul>	
+#end
+
+#macro(authorizationLinks)
+		#if($userLoggedIn)
+			<ul class="authorizationLinksList">
+			#if( $userType < 16)
+				 <li id="accountLink">
+   				  	<a href="${homepageUrl}${servletName}/account-info" accesskey="a" target="_top" class="registerLink">
+   				  		<span></span>
+						${res.getProperty("nav.saccount")}
+   				  	</a>
+   				  </li>
+	    	#end
+	    		  <li id="logoutListItem">
+					<a href="${logoutPage}" accesskey="r" target="_top">
+   				  		${res.getProperty("nav.slogout")}
+   				  	</a>
+   				  </li>
+			</ul>
+		#else
+		<ul class="authorizationLinksList">
+		<li id="authLoginLinkItem">
+			  #if ( $loginLink )	
+				<a href="${loginLink}" accesskey="l" title="${res.getProperty("LoginSelectionComponent.Thickbox.Title")}" id="loginLink" 
+					class="loginLink">
+	 		  #else
+	 		  	#if (  ${homepageUrl.startsWith("https")} ) 
+				  <a class="loginLink" href="${homepageUrl}${servletName}/login-select" accesskey="l" id="loginLink" title="${res.getProperty("LoginSelectionComponent.Thickbox.Title")}" >
+				#else
+				  <script type="text/javascript">
+				    $(document).ready(function() {
+				       $('#loginLink').dL_simpleModal();
+				    });
+				  </script>	
+				  <a class="loginLink" href="${homepageUrl}${servletName}/login-select" accesskey="l" id="loginLink" title="${res.getProperty("LoginSelectionComponent.Thickbox.Title")}" >
+				#end
+			  #end
+				<span></span>
+		      	$res.getProperty("nav.loginin")
+		      </a>
+		</li>
+		<li id="authOrItem">
+			$res.getProperty("nav.or")
+		</li>
+		</ul>
+		#end
+	
+#end
+
+
+#**
+  Renders navigational links at main library page - old version.
+*#
+#macro(navLinks)
+	<table id="nav" class="nav"><tr>
+		<td class="session_count">
+			 ${res.getProperty("nav.noOfUSERS")}: ${sessionCount}
+		</td>
+		<td class="empty_space">
+			&nbsp;
+		</td>
+		<td id="homePageLink">
+			<a href="${homepageUrl}${servletName}" accesskey="m" target="_top">
+				${res.getProperty("nav.HOMEPAGE")}
+			</a>
+		</td>
+		<td id="collectionsLink">
+			<a href="${homepageUrl}${servletName}/collectiondescription" accesskey="s" target="_top">
+				$res.getProperty("nav.COLLECTIONS")
+			</a>
+		</td>
+		#if($userLoggedIn)
+	    	#if( $userType < 16)
+   				  <td id="accountInfoLink">
+   				  	<a href="${homepageUrl}${servletName}/account-info" accesskey="a" target="_top">
+   				  		${res.getProperty("nav.ACCOUNT")}
+   				  	</a>
+   				  </td>
+	    	#end
+	    		  <td id="LogoutLink">
+					<a href="${logoutPage}" accesskey="r" target="_top">
+   				  		${res.getProperty("nav.LOGOUT")}
+   				  	</a>
+   				  </td>
+	     #else	
+			<td id="newAccountLink">
+				<a href="${homepageUrl}${servletName}/new-account" accesskey="e" target="_top">
+					$res.getProperty("nav.NEWACCOUNT")
+				</a>
+			</td>
+		    <td id="ssoLink">
+			  #if ( $loginLink )	
+				<a href="${loginLink}" accesskey="l" title="${res.getProperty("LoginSelectionComponent.Thickbox.Title")}" id="loginLink">
+	 		  #else
+	 		  	#if (  ${homepageUrl.startsWith("https")} ) 
+				  <a href="${homepageUrl}${servletName}/login-select" accesskey="l" id="loginLink" title="${res.getProperty("LoginSelectionComponent.Thickbox.Title")}">
+				#else
+				  <script type="text/javascript">
+				    $(document).ready(function() {
+				       $('#loginLink').dL_simpleModal();
+				    });
+				  </script>	
+				  <a href="${homepageUrl}${servletName}/login-select" accesskey="l" id="loginLink" title="${res.getProperty("LoginSelectionComponent.Thickbox.Title")}">
+				#end
+			  #end
+		      	${res.getProperty("nav.LOGIN")}
+		      </a>
+		    </td>
+		#end
+		<td id="contactLink">
+			<a href="javascript:showContact('$homepageUrl')" accesskey="c">
+		  	${res.getProperty("nav.CONTACT")}
+		  </a>
+		</td></tr>
+	</table>
+#end

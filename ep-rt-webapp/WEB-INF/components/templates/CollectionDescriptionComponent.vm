@@ -1,0 +1,89 @@
+<div id="cdc_container">
+#if($withMiniatures.equals("true"))
+<script type="text/javascript"><!--
+
+DIR_ID = "${collection.Id}";
+
+var pubCount = '$pubcount';
+
+$().ready(function(){
+  
+  ## dMuseion fragment
+  #if($pageId == "exhibitdescription")
+  setCookie('lastExhibit','${collectionData.getId()}');
+  #end
+  
+  if(parseInt(pubCount) > 0){
+     if(jQuery.browser.msie && jQuery.browser.version.indexOf("6.") > -1 ){
+	 	$("#cdc_container").css({'height':'200px'});
+	 }else{
+	 	$("#cdc_container").css({'min-height':'150px'});
+	 }
+  }
+});
+
+//--></script>
+	 <div class="cd_imgContainer">
+	 #if($collectionData.ElementHasImage)
+	 <img class="cd_collDescriptionImage" src="${homepageUrl}/image/collection/${collectionData.getId()}" />
+	 #else
+	 <img class="cd_collDescriptionImage" src="${homepageUrl}/style/dlibra/${styleVariant}/coll-no-min.png" />
+	 #end
+	 </div>
+	 #if($pubcount > 0)
+  ##<div id="cdc_minisContainer">#parse("RecommendedComponent.vm")</div>
+ #end
+#end
+<p style="margin-bottom:15px;">   $!{collectionData.Description}  </p>
+#if($pubcount > 0)
+<p>
+     #if($pageId == "exhibitdescription")
+     ${res.getProperty("CollectionDescriptionComponent.PublicationCountThisEx")}:
+     #else
+     ${res.getProperty("CollectionDescriptionComponent.PublicationCountThis")}:
+     #end
+		<b>
+			$pubcount
+		</b>
+    </p>    	
+    #if($pubcount != $pubcountRecursive)
+    <p>
+      #if($pageId == "exhibitdescription")
+      ${res.getProperty("CollectionDescriptionComponent.PublicationCountThisAndRecursiveEx")}:
+      #else 
+      ${res.getProperty("CollectionDescriptionComponent.PublicationCountThisAndRecursive")}: 
+      #end
+		<b>
+			$pubcountRecursive
+		</b>
+    </p>
+#end
+#else
+    <p>
+	#if($pubcountRecursive > 0)
+     ${res.getProperty("CollectionDescriptionComponent.PublicationCountRecursive")}:
+<b>
+			$pubcountRecursive
+		</b>
+    #else
+      <b>${res.getProperty("CollectionDescriptionComponent.NoPublications")}</b>        
+    #end
+    </p>
+#end
+</div>
+<!--
+<div class="cdc_listOfAllContainer">
+<p>
+	#if($pubcountRecursive > 0)
+<a class="menu functionAnchor" href="${homepageUrl}${servletName}/pubindex?dirids=${collectionData.Id}">
+		$res.getProperty("CollectionBoxComponent.nav.Edition-index")
+		</a>
+		#end
+#if($plannedCount > 0)
+<a class="functionAnchor listOfAllAnchor" href="${homepageUrl}${servletName}/plannedpubs?dirids=${collection.Id}">
+		$res.getProperty("CollectionBoxComponent.nav.PlannedPublications")
+		</a>
+		#end
+</p>
+</div>
+-->

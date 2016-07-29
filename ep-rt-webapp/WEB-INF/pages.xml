@@ -1,0 +1,1368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pages [
+	<!ELEMENT action EMPTY>
+	<!ATTLIST action name NMTOKEN #REQUIRED>
+	<!ELEMENT actions (action*)>
+	<!ELEMENT allowedErrors (error+)>
+	<!ELEMENT component (id*,place,position)>
+	<!ATTLIST component name NMTOKEN #REQUIRED>
+	<!ELEMENT id (#PCDATA)>
+	<!ELEMENT place (#PCDATA)>
+	<!ELEMENT position (#PCDATA)>
+	<!ELEMENT components (component*)>
+	<!ELEMENT error EMPTY>
+	<!ATTLIST error name CDATA #REQUIRED>
+	<!ELEMENT access EMPTY>
+	<!ATTLIST access level (restricted_user|user|www_admin) "restricted_user">
+	<!ELEMENT page (access|actions|allowedErrors|components|template)*>
+	<!ATTLIST page name ID #REQUIRED 
+				secure (true|false) "true" 
+				specialPage (true|false) "false" 
+				expirationPeriod NMTOKEN "0" 
+				contentType CDATA "text/html; charset=utf-8" 
+				layout CDATA "" 
+				inherits CDATA "">
+	<!ELEMENT pages (page+)>
+	]>
+<pages>
+	
+	<page name="module-content" layout="module_content">
+	</page>
+	
+	<page name="womi-selection" secure="false" layout="simple-content">
+		<components>
+			<component name="pl.psnc.ep.rt.web.components.WOMIComponent">
+				<place>content</place>
+				<position>1</position>
+			</component>
+		</components>
+	</page>
+	
+	<page name="ep-content-selection" layout="simple-content">
+		<components>
+			<component name="pl.psnc.ep.rt.web.components.EPContentSelectionComponent">
+				<place>content</place>
+				<position>1</position>
+			</component>
+		</components>
+	</page>
+
+
+	<page name="content-selection" layout="simple-content">
+		<components>
+			<component name="pl.psnc.ep.rt.web.components.EmissionFormatContentSelectionComponent">
+				<place>content</place>
+				<position>1</position>
+			</component>
+		</components>
+	</page>
+	
+	<page name="account-messages" layout="simple-inv" inherits="collection-page">
+		<access level="user" />
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.AccountMenuComponent">
+	           <place>left</place>
+     	       <position>1</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.UserMessagesComponent">
+	           <place>right</place>
+     	       <position>1</position>
+			</component>
+		</components>
+	</page>
+	
+	<page name="my-pub" layout="simple-inv" inherits="collection-page">
+		<access level="user" />
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.AccountMenuComponent">
+	           <place>left</place>
+     	       <position>1</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.MyPublicationsComponent">
+	           <place>right</place>
+     	       <position>1</position>
+			</component>
+		</components>
+	</page>
+	
+	<page name="pub-upload" layout="simple-inv" inherits="collection-page">
+		<access level="user" />
+		<actions>
+			<action name="PublicationUploadRemoveAttributeAction"/>
+			<action name="PublicationUploadAddAttributeAction"/>
+			<action name="PublicationFilesUploadAction"/>
+			<action name="PublicationFilesUploadFinalizationAction"/>
+			<action name="PublicationFilesUploadCleanupAction"/>
+			<action name="RegulationsAcceptAction"/>
+			<action name="RegulationsNotAcceptAction"/>
+		</actions>
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.AccountMenuComponent">
+	           <place>left</place>
+     	       <position>1</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.PublicationUploadComponent">
+    	       <place>right</place>
+   	       	   <position>4</position>
+			</component>
+		</components>	
+  	</page>
+	
+	<!-- Publication edition page -->
+	<page name="pub-upload-edit" layout="simple-inv" inherits="collection-page">
+		<access level="user" />
+		<actions>
+			<action name="PublicationUploadRemoveAttributeAction"/>
+			<action name="PublicationUploadAddAttributeAction"/>
+			<action name="PublicationFilesUploadAction"/>
+			<action name="PublicationFilesUploadFinalizationAction"/>
+			<action name="PublicationFilesUploadCleanupAction"/>
+		</actions>
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.AccountMenuComponent">
+	           <place>left</place>
+     	       <position>1</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.PublicationUploadComponent">
+    	       <place>right</place>
+   	       	   <position>4</position>
+			</component>
+		</components>	
+  	</page>
+	
+	<page name="account-tags" layout="simple-inv" inherits="collection-page">
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.TagCloudComponent">
+    	       <id>unlimited</id>
+    	       <place>right</place>
+   	       	   <position>1</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.AccountMenuComponent">
+	           <place>left</place>
+     	       <position>1</position>
+			</component>
+		</components>	
+  	</page>
+	<page name="text" inherits="collection-page" layout="simple-inv">
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.HelpComponent">
+    	       <place>right</place>
+   	       	   <position>1</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.InformationBoxComponent">
+	           <place>left</place>
+     	       <position>1</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.TagCloudComponent">
+	           <place>left</place>
+     	       <position>2</position>
+			</component>
+		</components>
+	</page>
+
+  	<page name="error" layout="simple-content" specialPage="true">
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.ErrorComponent">
+	           <place>content</place>
+     	       <position>1</position>
+			</component>
+<!--			<component name="pl.psnc.dlibra.web.comp.pages.components.AddressComponent">
+	           <place>bottom</place>
+     	       <position>1</position>
+			</component>			-->
+		</components>	
+  	</page>
+  	
+  	<page name="admin-stub" layout="admin" secure="true">
+		<access level="www_admin"/>
+		<components>
+<!--			<component name="pl.psnc.dlibra.web.comp.pages.components.LanguagesComponent">
+	           <place>top</place>
+     	       <position>1</position>
+			</component>	-->
+		</components>
+  	</page>
+
+
+  	<page name="admin" layout="admin" inherits="admin-stub">
+  		<actions>
+			<action name="JnlpGenerationAction"/>
+	  	</actions>
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.admin.AdminIntroductionComponent">
+	           <place>middle</place>
+     	       <position>1</position>
+			</component>	
+		</components>
+  	</page>
+
+  	<page name="admin-link-edit" layout="admin" inherits="admin-stub">
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.admin.LinkEditorComponent">
+	           <place>middle</place>
+     	       <position>1</position>
+			</component>
+		</components>
+	</page>
+
+  	<page name="admin-export" layout="xml" secure="true" contentType="text/xml; charset=utf-8">
+	  	<access level="www_admin"/>
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.admin.AdminExportComponent">
+	           <place>xml</place>
+     	       <position>1</position>
+			</component>
+		</components>
+	</page>
+	
+  	<page name="admin-upload" layout="admin" inherits="admin-stub">
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.admin.AdminUploadComponent">
+	           <place>middle</place>
+     	       <position>1</position>
+			</component>
+		</components>
+	</page>
+
+
+  	<page name="admin-error-edit" layout="admin" inherits="admin-stub">
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.admin.SingleErrorPageComponent">
+	           <place>middle</place>
+     	       <position>1</position>
+			</component>
+		</components>
+	</page>
+
+  	<page name="admin-news-edit" layout="admin" inherits="admin-stub">
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.admin.SingleNewsComponent">
+	           <place>middle</place>
+     	       <position>1</position>
+			</component>
+		</components>
+	</page>
+
+  	<page name="admin-help-edit" layout="admin" inherits="admin-stub">
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.admin.SingleHelpPageComponent">
+	           <place>middle</place>
+     	       <position>1</position>
+			</component>
+		</components>
+	</page>
+	
+	
+  	<page name="admin-bulletin-remove" layout="admin" inherits="admin-stub">
+		<actions>
+			<action name="BulkSwitchSubscribtionAction"/>
+		</actions>
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.admin.UserAccountAdminComponent">
+	           <place>middle</place>
+     	       <position>1</position>
+			</component>
+		</components>
+	</page>
+
+  	<page name="admin-email-change" layout="admin" inherits="admin-stub">
+		<actions>
+			<action name="AdminChangeEmailAction"/>			 
+		</actions>
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.admin.UserEmailsAdminComponent">
+	           <place>middle</place>
+     	       <position>1</position>
+			</component>
+		</components>
+	</page>
+  	
+  	<page name="admin-error-list" layout="admin" inherits="admin-stub">
+		<actions>
+			<action name="UpdateErrorAction"/>
+			<action name="UploadErrorItemAction"/>
+			<action name="DeleteAction"/>
+		</actions>
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.admin.ErrorListComponent">
+	           <place>middle</place>
+     	       <position>1</position>
+			</component>
+		</components>
+	</page>
+
+	<page name="admin-link-list" layout="admin" inherits="admin-stub">
+		<actions>
+			<action name="DeleteAction"/>
+			<action name="UpdateElementAction"/>
+		</actions>
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.admin.ContentListComponent">
+	           <place>middle</place>
+     	       <position>1</position>
+			</component>
+		</components>
+	</page>
+  	
+	<page name="admin-engine-stats" layout="admin" inherits="admin-stub">
+		<actions/>
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.admin.EngineStatisticsComponent">
+	           <place>middle</place>
+     	       <position>1</position>
+			</component>
+		</components>
+	</page>
+	
+	<page name="admin-agents-stats" layout="admin" inherits="admin-stub">
+		<actions/>
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.admin.UserAgentStatisticsComponent">
+	           <place>middle</place>
+     	       <position>1</position>
+			</component> 
+		</components>
+	</page>
+
+	<page name="admin-reports" layout="admin" inherits="admin-stub">
+		<actions/>
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.admin.ReportsComponent">
+	           <place>middle</place>
+     	       <position>1</position>
+			</component> 
+		</components>
+	</page>
+	
+	<page name="admin-news-list" layout="admin" inherits="admin-stub">
+		<actions>
+			<action name="DeleteAction"/>
+			<action name="UpdateNewsAction"/>
+		</actions>
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.admin.NewsListComponent">
+	           <place>middle</place>
+     	       <position>1</position>
+			</component> 
+		</components>
+	</page>
+	
+	<page name="admin-help-list" layout="admin" inherits="admin-stub">
+		<actions>
+			<action name="DeleteHelpPageAction"/>
+			<action name="UpdateHelpPageAction"/>
+			<action name="UploadHelpPagesAction"/>
+		</actions>
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.admin.HelpListComponent">
+	           <place>middle</place>
+     	       <position>1</position>
+			</component> 
+		</components>
+	</page>
+  	
+  	<page name="account-collection-page" layout="simple-inv" >
+		<components>
+<!--			<component name="pl.psnc.dlibra.web.comp.pages.components.LanguagesComponent">
+	           <place>preheader</place>
+     	       <position>1</position>
+			</component>	-->	
+			<component name="pl.psnc.dlibra.web.comp.pages.components.AddressComponent">
+	           <place>bottom</place>
+     	       <position>1</position>
+			</component>	
+			<component name="pl.psnc.dlibra.web.comp.pages.components.CollectionsStructureComponent">
+	           <place>left</place>
+     	       <position>2</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.TagCloudComponent">
+	           <place>left</place>
+     	       <position>3</position>
+			</component>	
+		</components>
+			
+  	</page>
+  	
+  	<page name="collection-page" layout="simple-inv">
+		<components>
+<!--			<component name="pl.psnc.dlibra.web.comp.pages.components.LanguagesComponent">
+	           <place>preheader</place>
+     	       <position>1</position>
+			</component>	-->	
+			<component name="pl.psnc.dlibra.web.comp.pages.components.AddressComponent">
+	           <place>bottom</place>
+     	       <position>1</position>
+			</component>	
+			<component name="pl.psnc.dlibra.web.comp.pages.components.CollectionsStructureComponent">
+	           <place>left</place>
+     	       <position>2</position>
+			</component>	
+		</components>	
+  	</page>
+  	
+  	<page name="docmetadata" secure="false" layout="simple-inv">
+  		<actions>
+			<action name="ChangeMetaLangAction"/>
+			<action name="AddToFavouriteAction"/>
+			<action name="AddBookmarkTagAction"/>
+			<action name="RemoveBookmarkTagAction"/>
+			<action name="SendInfoAction"/>
+			<action name="VoteAction"/>
+			<action name="ResetFormatHandlersAction"/>
+		</actions>
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.EditionDCTagsInjector">
+	           <place>headerTags</place>
+     	       <position>1</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.EditionHWTagsInjector">
+	           <place>headerTags</place>
+     	       <position>2</position>
+			</component>
+<!--			<component name="pl.psnc.dlibra.web.comp.pages.components.LanguagesComponent">
+	           <place>preheader</place>
+     	       <position>1</position>
+			</component>	-->
+			<component name="pl.psnc.dlibra.web.comp.pages.components.AddressComponent">
+	           <place>bottom</place>
+     	       <position>1</position>
+			</component>	
+<!--			<component name="pl.psnc.dlibra.web.comp.pages.components.EdiMetaLangChooserComponent">
+	           <place>left</place>
+     	       <position>3</position>
+			</component>   -->
+			<component name="pl.psnc.ep.rt.web.components.WOMIComponent">
+	           <place>hidden</place>
+     	       <position>1</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.EditionMetadataComponent">
+	           <place>right</place>
+     	       <position>2</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.EditionMetaMenuComponent">
+	           <place>left</place>
+     	       <position>2</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.EditionMetadataExportComponent">
+	           <place>left</place>
+     	       <position>3</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.SendBugReportComponent">
+     	       <id>edition.mode</id>
+	           <place>left</place>
+     	       <position>6</position>
+			</component>						
+		</components>
+	</page>
+	
+	<page name="info" layout="one_column">
+		<components>
+		    <component name="pl.psnc.dlibra.web.comp.pages.components.DoctypeInformationComponent">
+	           <place>main_centered</place>
+     	       <position>1</position>
+			</component>
+		</components>
+	</page>
+	
+	<page name="webtools" layout="simple-content" specialPage="true">
+		<actions>
+			<action name="AddBookmarkTagAction" />
+			<action name="AddToFavouriteAction" />
+		</actions>
+		<components>
+			<component
+				name="pl.psnc.dlibra.web.comp.pages.components.EditionBookmarkInfoComponent">
+				<place>content</place>
+				<position>1</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.SendInfoLinksComponent">
+     	       <place>content</place>
+     	       <position>2</position>
+			</component>
+			<component
+				name="pl.psnc.dlibra.web.comp.pages.components.HintViewComponent">
+				<place>info</place>
+				<position>1</position>
+			</component>			
+		</components>
+	</page>
+	
+	<page name="sendinfo" layout="one_column" specialPage="true">
+		<actions>
+			<action name="SendInfoAction"/>
+		</actions>
+		<components>
+		    <component name="pl.psnc.dlibra.web.comp.pages.components.SendInfoComponent">
+	           <id>page.mode</id>
+	           <place>main_centered</place>
+     	       <position>1</position>
+			</component>
+		</components>
+	</page>
+	
+	<page name="sendbug" layout="one_column" specialPage="true">
+		<actions>
+			<action name="SendInfoAction"/>
+		</actions>
+		<components>
+		    <component name="pl.psnc.dlibra.web.comp.pages.components.SendBugReportComponent">
+	           <id>page.mode</id>
+	           <place>main_centered</place>
+     	       <position>1</position>
+			</component>
+		</components>
+	</page>
+	
+	<page name="list" layout="one_column">
+		<components>
+		    <component name="pl.psnc.dlibra.web.comp.pages.components.FormatsHandlersListComponent">
+	           <place>main_centered</place>
+     	       <position>1</position>
+			</component>
+		</components>
+	</page>
+	
+	<page name="doccomment" layout="popup">
+	    <actions>
+			<action name="ChangeMetaLangAction"/>
+		</actions>
+		<components>
+		    <component name="pl.psnc.dlibra.web.comp.pages.components.CommentComponent">
+	           <place>popup</place>
+     	       <position>1</position>
+			</component>
+		</components>
+	</page>
+
+	<page name="doczip" layout="popup">
+		<components>
+		    <component name="pl.psnc.dlibra.web.comp.pages.components.ZipComponent">
+	           <place>popup</place>
+     	       <position>1</position>
+			</component>
+ 		</components>
+	</page>
+
+	<page name="editions-content" layout="one_column" specialPage="true">
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.EditionsContentUrlsComponent">
+    	       <place>main</place>
+   	       	   <position>1</position>
+			</component>
+		</components>
+	</page>
+	
+  	<page name="publication" layout="simple-inv">
+		<actions>
+			<action name="ChangeMetaLangAction"/>
+			<action name="AddToFavouriteAction"/>
+			<action name="AddBookmarkTagAction"/>
+			<action name="RemoveBookmarkTagAction"/>
+			<action name="VoteAction"/>
+			<action name="SendInfoAction"/>
+		</actions>
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.PublicationDCTagsInjector">
+	           <place>headerTags</place>
+     	       <position>1</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.PublicationHWTagsInjector">
+	           <place>headerTags</place>
+     	       <position>2</position>
+			</component>
+<!--			<component name="pl.psnc.dlibra.web.comp.pages.components.LanguagesComponent">
+	           <place>preheader</place>
+     	       <position>1</position>
+			</component>	-->	
+			<component name="pl.psnc.dlibra.web.comp.pages.components.PubMetaLangChooserComponent">
+	           <place>left</place>
+     	       <position>2</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.AddressComponent">
+	           <place>bottom</place>
+     	       <position>1</position>
+			</component>	
+			<component name="pl.psnc.ep.rt.web.components.EPRedirectComponent">
+	           <place>right</place>
+     	       <position>1</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.PublicationMetadataComponent">
+	           <place>right</place>
+     	       <position>2</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.PublicationMetaMenuComponent">
+	           <place>left</place>
+     	       <position>1</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.PublicationMetadataExportComponent">
+	           <place>left</place>
+     	       <position>3</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.PublicationBookmarkInfoComponent">
+	           <place>left</place>
+     	       <position>4</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.SendInfoComponent">
+	           <place>left</place>
+     	       <position>5</position>
+			</component>			
+			<component name="pl.psnc.dlibra.web.comp.pages.components.AddToComponent">
+	           <place>left</place>
+     	       <position>6</position>
+			</component>
+		</components>
+	</page>
+  	  	
+  	<page name="collectiondescription" layout="simple-inv" inherits="collection-page">
+		<actions>
+			<action name="ClearQueryAction"/>
+		</actions>
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.CollectionBoxComponent">
+	           <place>left</place>
+     	       <position>1</position>
+			</component>	
+			<component name="pl.psnc.dlibra.web.comp.pages.components.SimpleSearchComponent">
+    	       <place>right</place>
+   	       	   <position>0</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.CollectionDescriptionComponent">
+    	       <place>right</place>
+   	       	   <position>1</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.CollectionsPubsComponent">
+    	       <place>right</place>
+   	       	   <position>2</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.BasicCollectionStatsComponent">
+    	       <place>rightSplitted</place>
+   	       	   <position>1</position>
+			</component>
+		</components>	
+  	</page>
+  	
+  	<page name="pubindex" layout="simple-inv" inherits="collection-page">
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.CollectionsPubsComponent">
+    	       <place>right</place>
+   	       	   <position>1</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.CollectionBoxComponent">
+	           <place>left</place>
+     	       <position>1</position>
+			</component>	
+		</components>	
+  	</page>
+  	
+  	<page name="collectionstats" layout="simple-inv" inherits="collection-page">
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.CollectionBoxComponent">
+	           <place>left</place>
+     	       <position>1</position>
+			</component>	
+			<component name="pl.psnc.dlibra.web.comp.pages.components.CollectionStatisticsComponent">
+    	       <place>right</place>
+   	       	   <position>1</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.ShortStatsComponent">
+	           <place>left</place>
+     	       <position>0</position>
+			</component>
+		</components>	
+  	</page>
+
+  	<page name="plannedpubs" layout="simple-inv" inherits="collection-page">
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.CollectionBoxComponent">
+	           <place>left</place>
+     	       <position>1</position>
+			</component>	
+			<component name="pl.psnc.dlibra.web.comp.pages.components.PlannedPubListComponent">
+    	       <place>right</place>
+   	       	   <position>1</position>
+			</component>
+		</components>	
+  	</page>
+  	
+  	<page name="latest" layout="simple-inv" inherits="collection-page">
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.CollectionBoxComponent">
+	           <place>left</place>
+     	       <position>1</position>
+			</component>	
+			<component name="pl.psnc.dlibra.web.comp.pages.components.LatestEditionsComponent">
+    	       <place>right</place>
+   	       	   <position>1</position>
+			</component>
+		</components>	
+  	</page>
+  	
+  	<page name="advsearch" layout="simple-inv" inherits="collection-page">
+		<actions>
+			<action name="AddQueryElementAction"/>
+			<action name="ClearQueryAction"/>
+			<action name="DeleteAccountAction"/>
+			<action name="SearchAction"/>
+			<action name="AddKeywordAction"/>
+		</actions>
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.CollectionBoxComponent">
+	           <place>left</place>
+     	       <position>1</position>
+			</component>	
+			<component name="pl.psnc.dlibra.web.comp.pages.components.AdvancedSearchComponent">
+    	       <place>right</place>
+   	       	   <position>1</position>
+			</component>
+		</components>	
+  	</page>
+
+	<page name="confirm-account" layout="simple-inv" inherits="collection-page">
+		<actions>
+			<action name="ConfirmAccountAction"/>
+		</actions>
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.CollectionBoxComponent">
+	           <place>left</place>
+     	       <position>1</position>
+			</component>	
+			<component name="pl.psnc.dlibra.web.comp.pages.components.ConfirmAccountComponent">
+    	       <place>right</place>
+   	       	   <position>1</position>
+			</component>
+		</components>	
+	</page>
+  	
+  	<page name="account-info" layout="simple-inv" inherits="account-collection-page">
+		<access level="user"/>
+		<actions>
+			<action name="SwitchSubscribtionAction"/>
+			<action name="DeleteAccountAction"/>
+			<action name="AddToFavouriteAction"/>
+			<action name="RemoveFromFavouritesAction"/>
+			<action name="ChangeProfileLanguageAction"/>
+			<action name="ChangeProfileEmailAction"/>
+			<action name="ResetFormatHandlersAction"/>
+		</actions>
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.AccountMenuComponent">
+	           <place>left</place>
+     	       <position>1</position>
+			</component>	
+			<component name="pl.psnc.dlibra.web.comp.pages.components.AccountInfoComponent">
+    	       <place>right</place>
+   	       	   <position>1</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.AccountSubscribtionsComponent">
+    	       <place>right</place>
+   	       	   <position>2</position>
+			</component>			
+			<component name="pl.psnc.dlibra.web.comp.pages.components.RecentEditionsComponent">
+    	       <place>right</place>
+   	       	   <position>3</position>
+			</component>			
+		</components>	
+  	</page>
+
+  	<page name="faves-export" layout="simple-content" >
+		<access level="user"/>
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.FavesExportComponent">
+	           <place>content</place>
+     	       <position>1</position>
+			</component>	
+		</components>	
+  	</page>
+  	
+
+  	
+  	<page name="account-faves" layout="simple-inv" inherits="account-collection-page">
+		<access level="user"/>
+		<actions>
+			<action name="AddToFavouriteAction"/>
+			<action name="RemoveFromFavouritesAction"/>
+			<action name="AddBookmarkTagAction"/>
+			<action name="RemoveBookmarkTagAction"/>
+		</actions>
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.AccountMenuComponent">
+	           <place>left</place>
+     	       <position>1</position>
+			</component>	
+			<component name="pl.psnc.dlibra.web.comp.pages.components.SharingIntroductionComponent">
+    	       <place>right</place>
+   	       	   <position>1</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.AccountFavouritesComponent">
+    	       <place>right</place>
+   	       	   <position>2</position>
+			</component>
+		</components>	
+  	</page>
+  	
+  	<page name="account-faves-comp" layout="simple-inv" inherits="account-collection-page">
+		<access level="user" />
+		<actions>
+			<action name="SwitchSharingStateAction" />
+		</actions>
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.AccountMenuComponent">
+	           <place>left</place>
+     	       <position>1</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.UserBookmarksSharingControlComponent">
+    	       <place>right</place>
+   	       	   <position>1</position>
+			</component>
+		</components>	
+  	</page>
+  	
+	<page name="account-faves-external" layout="aepopup">
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.AccountFavouritesExternalComponent">
+    	       <place>content</place>
+   	       	   <position>1</position>
+			</component>
+		</components>	
+  	</page>
+	
+  	<page name="news" layout="simple-inv" >
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.NewsComponent">
+    	       <place>right</place>
+   	       	   <position>1</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.AddressComponent">
+	           <place>bottom</place>
+     	       <position>1</position>
+			</component>	
+			<component name="pl.psnc.dlibra.web.comp.pages.components.InformationBoxComponent">
+	           <place>left</place>
+     	       <position>1</position>
+			</component>			
+<!--			<component name="pl.psnc.dlibra.web.comp.pages.components.LanguagesComponent">
+	           <place>preheader</place>
+     	       <position>1</position>
+			</component>	-->	
+		</components>	
+  	</page>
+  	
+  	<page name="exhibitions" layout="simple-inv" inherits="collection-page">
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.AllExhibitionsComponent">
+    	       <place>right</place>
+   	       	   <position>1</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.InformationBoxComponent">
+	           <place>left</place>
+     	       <position>1</position>
+			</component>
+		</components>	
+  	</page>
+
+  	<page name="contact" layout="popup" specialPage="true">
+		<actions>
+			<action name="SendMailAction"/>
+		</actions>
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.ContactComponent">
+    	       <place>popup</place>
+   	       	   <position>1</position>
+			</component>
+		</components>
+	</page>
+	
+	<page name="help" layout="popup" specialPage="true">
+		<actions/>
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.HelpComponent">
+    	       <place>popup</place>
+   	       	   <position>1</position>
+			</component>
+		</components>
+	</page>
+
+	<page name="pubstats" layout="simple-inv">
+		<actions/>
+		<components>
+<!--		   <component name="pl.psnc.dlibra.web.comp.pages.components.LanguagesComponent">
+	           <place>preheader</place>
+     	       <position>1</position>
+			</component>	-->
+			<component name="pl.psnc.dlibra.web.comp.pages.components.ShortStatsComponent">
+	           <place>left</place>
+     	       <position>1</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.PublicationStatisticsComponent">
+    	       <place>right</place>
+   	       	   <position>1</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.AddressComponent">
+	           <place>bottom</place>
+     	       <position>1</position>
+			</component>	
+		</components>
+	</page>
+	
+	<page name="pubvotes" layout="simple-inv">
+		<actions/>
+		<components>
+<!--		   <component name="pl.psnc.dlibra.web.comp.pages.components.LanguagesComponent">
+	           <place>preheader</place>
+     	       <position>1</position>
+			</component>	-->
+			<component name="pl.psnc.dlibra.web.comp.pages.components.ShortStatsComponent">
+	           <place>left</place>
+     	       <position>1</position>
+			</component>
+            <component name="pl.psnc.dlibra.web.comp.pages.components.VotesRankingComponent">				
+    	       <place>right</place>
+   	       	   <position>1</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.AddressComponent">
+	           <place>bottom</place>
+     	       <position>1</position>
+			</component>	
+		</components>
+	</page>
+	
+	<page name="oaihosts" layout="simple-inv" inherits="collection-page">
+		<actions/>
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.InformationBoxComponent">				
+    	       <place>left</place>
+   	       	   <position>2</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.OAIPMHHostsComponent">
+    	       <place>right</place>
+   	       	   <position>1</position>
+			</component>
+		</components>
+	</page>	
+	
+	<page name="login-select" layout="dompopup" specialPage="true">
+		<actions>
+			<action name="CancelLoginAction"/>
+		</actions>
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.LoginSelectionComponent">
+    	       <place>content</place>
+   	       	   <position>1</position>
+			</component>
+		</components>
+	</page>
+	
+	<page name="login" secure="true" layout="one_column" specialPage="true">
+		<actions>
+<action name="SendPermissionRequestAction"/>
+			<action name="LoginAction"/>
+			<action name="CancelLoginAction"/>
+		</actions>
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.LoginComponent">
+    	       <place>main</place>
+   	       	   <position>1</position>
+			</component>
+		</components>
+	</page>
+	
+	<!--
+	<page name="login-ldap" secure="true" layout="one_column" specialPage="true">
+		<actions>
+			<action name="LoginAction"/>
+			<action name="CancelLoginAction"/>
+		</actions>
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.LoginLDAPComponent">
+    	       <place>main</place>
+   	       	   <position>1</position>
+			</component>
+		</components>
+	</page>
+	-->
+	
+	<page name="indexsearch" inherits="collection-page" layout="simple-inv">
+     	<actions>
+			<action name="ChangeMetaLangAction"/>
+		</actions>
+  	   <components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.IndexComponent">
+	           <place>right</place>
+     	       <position>1</position>
+			</component>	
+			<component name="pl.psnc.dlibra.web.comp.pages.components.MetaLangChooserComponent">
+	           <place>left</place>
+     	       <position>1</position>
+			</component>
+	   </components>		
+	</page>
+	
+  	<page name="keywordindex" inherits="collection-page" layout="simple-inv">
+     	<actions>
+			<action name="ChangeMetaLangAction"/>
+		</actions>  	
+  	   <components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.KeywordIndexComponent">
+	           <place>right</place>
+     	       <position>1</position>
+			</component>	
+			<component name="pl.psnc.dlibra.web.comp.pages.components.MetaLangChooserComponent">
+	           <place>left</place>
+     	       <position>1</position>
+			</component>	
+	   </components>		
+	</page>
+	
+	<page name="new-password" secure="true" inherits="collection-page" layout="simple-inv">
+		<access level="user"/>
+		<actions>
+			<action name="ChangePasswordAction"/>
+		</actions>
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.NewPasswordComponent">
+	           <place>right</place>
+     	       <position>1</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.AccountMenuComponent">
+	           <place>left</place>
+     	       <position>0</position>
+			</component>			
+			<component name="pl.psnc.dlibra.web.comp.pages.components.InformationBoxComponent">				
+    	       <place>left</place>
+   	       	   <position>1</position>
+			</component>
+		</components>
+	</page>	
+
+	<page name="reset-password" secure="true" inherits="collection-page" layout="simple-inv">
+		<actions>
+			<action name="NewPasswordRequestAction"/>
+		</actions>
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.ResetPassFormComponent">				
+    	       <place>right</place>
+   	       	   <position>1</position>
+			</component>
+		</components>
+	</page>	
+
+  	<page name="main" layout="simple-inv" >
+		<components>
+		<component name="pl.psnc.dlibra.web.comp.pages.components.welcome">
+			<place>right</place>
+	     	       <position>0</position>
+		</component>
+<!--
+		<actions>
+  				<action name="ClearQueryAction"/>
+  				<action name="ChangeMetaLangAction"/>
+  				<action name="LogoutAction"/>
+		</actions>
+		<allowedErrors>
+			<error name="pl.psnc.dlibra.web.comp.exceptions.EmptyQueryException"/>
+		</allowedErrors>
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.HeaderInformationComponent">
+	           <id>headInfo</id>
+	           <place>right</place>
+     	       <position>0</position>
+			</component>	
+			<component name="pl.psnc.dlibra.web.comp.pages.components.SimpleSearchComponent">
+	           <place>right</place>
+     	       <position>1</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.BasicCollectionStatsComponent">
+	           <place>rightSplitted</place>
+     	       <position>1</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.AsyncComponentWrapper">
+		     	       <id>latest</id>
+			       <place>rightSplitted</place>
+		     	       <position>2</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.CollectionsStructureComponent">
+	           <place>left</place>
+     	       <position>1</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.IndexSearchComponent">
+	           <place>left</place>
+     	       <position>2</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.InformationBoxComponent">
+	           <place>left</place>
+     	       <position>3</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.RSSComponent">
+	           <place>left</place>
+     	       <position>5</position>
+			</component>
+-->
+			<component name="pl.psnc.dlibra.web.comp.pages.components.AddressComponent">
+	           <place>bottom</place>
+     	       <position>1</position>
+			</component>
+		</components>
+	</page>
+
+	
+  	<page name="results" layout="simple-inv" inherits="aresults">
+		<components>	
+  			<component name="pl.psnc.dlibra.web.comp.pages.components.SimpleSearchComponent">
+    	       <place>right</place>
+   	       	   <position>0</position>
+			</component>
+		</components>	
+  	</page>
+
+  	<page name="gx" layout="popup">
+  		<actions>
+  			<action name="RewritePodAction"/>
+			<action name="LogoutAction"/>
+		</actions>
+		<components>	
+  			<component name="pl.psnc.dlibra.web.comp.pages.components.RedirectComponent">
+        	   <id>rc</id>
+    	       <place>popup</place>
+   	       	   <position>0</position>
+			</component>
+		</components>	
+  	</page>
+  	
+  	<page name="gxlogout" layout="popup">
+  		<actions>
+			<action name="GuardLogoutAction"/>
+		</actions>
+		<components>	
+  			<component name="pl.psnc.dlibra.web.comp.pages.components.RedirectComponent">
+        	   <id>rc</id>
+    	       <place>popup</place>
+   	       	   <position>0</position>
+			</component>
+		</components>	
+  	</page>
+
+  	<page name="aresults" layout="simple-inv" >
+		<actions>
+			<action name="SearchAction"/>
+			<action name="SearchSimilarAction"/>
+			<action name="DidyouMeanAction"/>
+			<action name="ChangeMetaLangAction"/>
+		</actions>
+		<allowedErrors>
+			<error name="org.apache.lucene.search.BooleanQuery$TooManyClauses"/>
+			<error name="pl.psnc.dlibra.web.comp.exceptions.WrongQueryFormatException"/>
+			<error name="pl.psnc.dlibra.web.comp.exceptions.EmptyQueryException"/>
+			<error name="pl.psnc.dlibra.search.local.MultipleValueException"/>
+			<error name="java.lang.IndexOutOfBoundsException"/>			
+		</allowedErrors>
+		<components>
+<!--			<component name="pl.psnc.dlibra.web.comp.pages.components.LanguagesComponent">
+	           <place>preheader</place>
+     	       <position>1</position>
+			</component>	-->
+			<component name="pl.psnc.dlibra.web.comp.pages.components.SearchAmbiguousAttributesComponent">
+    	       <place>left</place>
+   	       	   <position>0</position>
+			</component>	
+			<component name="pl.psnc.dlibra.web.comp.pages.components.MetaLangChooserComponent">
+	           <place>left</place>
+     	       <position>2</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.NarrowCollectionsComponent">
+    	       <place>left</place>
+   	       	   <position>1</position>
+			</component>	
+			<component name="pl.psnc.dlibra.web.comp.pages.components.SearchResultsComponent">
+    	       <place>right</place>
+   	       	   <position>1</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.AddressComponent">
+	           <place>bottom</place>
+     	       <position>1</position>
+			</component>
+		</components>	
+  	</page>
+		
+	<page name="sresults" layout="simple-inv" >
+		<actions>
+			<action name="SearchAction"/>
+			<action name="SearchSimilarAction"/>
+			<action name="DidyouMeanAction"/>
+			<action name="ChangeMetaLangAction"/>
+		</actions>
+		<allowedErrors>
+			<error name="org.apache.lucene.search.BooleanQuery$TooManyClauses"/>
+			<error name="pl.psnc.dlibra.web.comp.exceptions.WrongQueryFormatException"/>
+			<error name="pl.psnc.dlibra.web.comp.exceptions.EmptyQueryException"/>
+			<error name="pl.psnc.dlibra.search.local.MultipleValueException"/>
+			<error name="java.lang.IndexOutOfBoundsException"/>			
+		</allowedErrors>
+		<components>
+<!--			<component name="pl.psnc.dlibra.web.comp.pages.components.LanguagesComponent">
+	           <place>preheader</place>
+     	       <position>1</position>
+			</component>	-->	
+			<component name="pl.psnc.dlibra.web.comp.pages.components.MetaLangChooserComponent">
+	           <place>left</place>
+     	       <position>2</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.SearchResultsComponent">
+    	       <place>right</place>
+   	       	   <position>1</position>
+			</component>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.AddressComponent">
+	           <place>bottom</place>
+     	       <position>1</position>
+			</component>
+		</components>	
+  	</page>	
+	
+   <!-- xml components -->
+ 
+   	<page name="rt-app.jnlp" layout="xml" contentType="application/x-java-jnlp-file; charset=utf-8" specialPage="true">
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.JnlpComponent">
+	           <place>xml</place>
+     	       <position>1</position>
+			</component>
+		</components>	
+  	</page>
+
+	<page name="rt-app-insecure.jnlp" layout="xml" contentType="application/x-java-jnlp-file; charset=utf-8" specialPage="true" secure="false">
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.JnlpComponent">
+	           <place>xml</place>
+     	       <position>1</position>
+			</component>
+		</components>	
+  	</page>
+
+  	
+  	<page name="rdf.xml" layout="xml" contentType="text/xml; charset=utf-8">
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.RdfComponent">
+	           <place>xml</place>
+     	       <position>1</position>
+			</component>
+		</components>	
+  	</page>
+  	
+  	<page name="rt.ris" layout="ris" contentType="application/x-research-info-systems; charset=utf-8">
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.RisComponent">
+	           <place>ris</place>
+     	       <position>1</position>
+			</component>
+		</components>	
+  	</page>
+  	
+  	<page name="rt.bib" layout="bib" contentType="text/plain; charset=utf-8">
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.BibtexComponent">
+	           <place>bib</place>
+     	       <position>1</position>
+			</component>
+		</components>	
+  	</page>
+  	
+  	<page name="sec-ajax.xml" layout="xml" contentType="text/xml; charset=utf-8" specialPage="true" secure="true">
+<actions>
+			<action name="AddQueryElementAction"/>
+			<action name="RemoveQueryElementAction" />
+			<action name="ClearQueryAction" />
+			<action name="SearchAction" />
+<action name="SendPermissionRequestAction"/>
+		</actions>  	
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.AJAXResponseComponent">
+	           <place>xml</place>
+     	       <position>1</position>
+			</component>
+		</components>	
+  	</page>
+
+  	<page name="ajax.xml" layout="xml" contentType="text/xml; charset=utf-8" specialPage="true" >
+		<actions>
+			<action name="AddQueryElementAction"/>
+			<action name="RemoveQueryElementAction" />
+			<action name="ClearQueryAction" />
+			<action name="SearchAction" />
+<action name="SendPermissionRequestAction"/>
+		</actions>
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.AJAXResponseComponent">
+	           <place>xml</place>
+     	       <position>1</position>
+			</component>
+		</components>	
+  	</page>
+
+  	<page name="ajax" layout="xml" contentType="text/plain; charset=utf-8" specialPage="true" >
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.AJAXResponseComponent">
+	           <place>xml</place>
+     	       <position>1</position>
+			</component>
+		</components>	
+  	</page>
+  	
+	<page name="oai-pmh-repository.xml" layout="xml" contentType="text/xml; charset=utf-8" secure="false">
+		<actions/>
+		<components>
+		    <component name="pl.psnc.dlibra.web.comp.pages.components.OAIPMHResponseComponent">
+	           <place>xml</place>
+     	       <position>1</position>
+			</component>
+		</components>
+	</page>
+	
+	<page name="attribute-schema.xsd" layout="xml" contentType="text/xml; charset=utf-8">
+		<actions/>
+		<components>
+		    <component name="pl.psnc.dlibra.web.comp.pages.components.XSDAttributesSchemaComponent">
+	           <place>xml</place>
+     	       <position>1</position>
+			</component>
+		</components>
+	</page>
+	
+	<page name="results.rss" layout="xml" contentType="text/xml; charset=utf-8">
+		<actions>
+			<action name="SearchAction"/>
+		</actions>
+		<components>
+		    <component name="pl.psnc.dlibra.web.comp.pages.components.RssResultComponent">
+	           <place>xml</place>
+     	       <position>1</position>
+			</component>
+		</components>
+	</page>
+	
+	<page name="bookmarks" layout="xml" contentType="text/xml; charset=utf-8">
+		<components>
+		    <component name="pl.psnc.dlibra.web.comp.pages.components.UserBookmarksRssComponent">
+	           <place>xml</place>
+     	       <position>1</position>
+			</component>
+		</components>
+	</page>
+	
+	<page name="applet" layout="simple-content">
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.AppletComponent">
+	           <place>content</place>
+     	       <position>1</position>
+			</component>
+		</components>	
+  	</page>   	
+
+  	<page name="plain-content" layout="xml" >
+		<components>
+			<component name="pl.psnc.dlibra.web.comp.pages.components.PlainContentComponent">
+	           <place>xml</place>
+     	       <position>1</position>
+			</component>
+		</components>	
+  	</page>   	
+  	
+</pages>

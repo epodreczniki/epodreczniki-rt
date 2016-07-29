@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project>
+	<extend>../project.xml</extend>
+
+	<artifactId>ep-rt-common</artifactId>
+	<name>E-podręczniki: klasy wspólne</name>
+	<description>Klasy wspólne, wykorzystywane przez wiele modułów Repozytorium Treści.</description>
+
+	<dependencies>
+		<dependency>
+			<artifactId>dlibra-common-base</artifactId>
+			<groupId>${dlibra.groupId}</groupId>
+			<version>${dlibra.version}</version>
+			<url>http://dlibra.psnc.pl/</url>
+			<properties>
+				<eclipse.dependency>true</eclipse.dependency>
+				<dist.skip>true</dist.skip>
+			</properties>
+		</dependency>
+		<dependency>
+			<artifactId>dlibra-common-services</artifactId>
+			<groupId>${dlibra.groupId}</groupId>
+			<version>${dlibra.version}</version>
+			<url>http://dlibra.psnc.pl/</url>
+			<properties>
+				<eclipse.dependency>true</eclipse.dependency>
+				<dist.skip>true</dist.skip>
+			</properties>
+		</dependency>
+		<dependency>
+			<artifactId>dlibra-common-utils</artifactId>
+			<groupId>${dlibra.groupId}</groupId>
+			<version>${dlibra.version}</version>
+			<url>http://dlibra.psnc.pl/</url>
+			<properties>
+				<eclipse.dependency>true</eclipse.dependency>
+				<dist.skip>true</dist.skip>
+			</properties>
+		</dependency>
+		<dependency>
+			<id>log4j</id>
+			<version>1.2.17</version>
+			<url>http://logging.apache.org/log4j/</url>
+			<properties>
+				<dist.skip>true</dist.skip>
+				<comment>License: Apache License, Version 2.0</comment>
+			</properties>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<sourceDirectory>${basedir}/src/java</sourceDirectory>
+		<resources>
+			<resource>
+				<directory>${basedir}/src/etc</directory>
+				<includes>
+					<include>**/*</include>
+				</includes>
+				<targetPath>${builddir}/../${maven.final.name}</targetPath>
+			</resource>
+			<resource>
+				<directory>${basedir}/src/res</directory>
+				<includes>
+					<include>**/*</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>${basedir}/src/java</directory>
+				<includes>
+					<include>**/*</include>
+				</includes>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+		</resources>
+	</build>
+</project>

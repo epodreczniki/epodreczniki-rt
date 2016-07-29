@@ -1,0 +1,11 @@
+#if ( ${publication-id} )
+  <a href="${homepageUrl}${servletName}/rdf.xml?type=p&amp;id=${publication-id}" title="RDF">
+    <img src="${homepageUrl}/style/common/img/rdf-button.gif" border="0" alt="rdf" />
+  </a>&nbsp;
+  <a href="${homepageUrl}${servletName}/rt.ris?type=p&amp;id=${publication-id}">
+   	    <img src="${homepageUrl}/style/common/img/ris-button.gif" border="0" alt="ris" />
+  </a>&nbsp;
+    <a href="${homepageUrl}${servletName}/rt.bib?type=p&amp;id=${publication-id}">
+   	    <img src="${homepageUrl}/style/common/img/bibtex-button.gif" border="0" alt="bibtex" />
+</a>		     	
+#end	 

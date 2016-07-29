@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="FormatsHandlersListComponent.Title">Prezentacja treści wydania</entry>
+<entry key="FormatsHandlersListComponent.Handler.label">Sposoby wyświetlania treści:</entry>
+<entry key="FormatsHandlersListComponent.notifier.expl">Zapamiętaj mój wybór.</entry>
+<entry key="FormatsHandlersListComponent.submit">Pokaż</entry>
+<entry key="FormatsHandlersListComponent.list.expl">W jaki sposób wyświetlić treść tej publikacji?</entry>
+<entry key="FormatsHandlersListComponent.Goto.Using.Plugin">Przejdź do treści</entry>
+<entry key="FormatsHandlersListComponent.switchToDefaults"><![CDATA[Po wybraniu opcji <strong>"Zapamiętaj mój wybór"</strong> 
+istnieje możliwość przywrócenia ustawień domyślnych, poprzez kliknięcie <strong>"Wyświetlanie treści"</strong>]]></entry>
+<entry key="FormatsHandlersListComponent.accountinfo.link">w menu "Wydanie" na stronie z opisem dowolnej publikacji.</entry> 
+</properties>

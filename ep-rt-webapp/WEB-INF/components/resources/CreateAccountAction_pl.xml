@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="registrationmail.subject">Aktywacja konta w bibliotece cyfrowej</entry>
+<entry key="registrationmail.body"><![CDATA[
+Ta wiadomość jest potwierdzeniem założenia konta użytkownika w systemie
+${libName} (${libUrl})
+
+Konto zostało założone z komputera o adresie ${from}.
+
+Dane konta:
+   Nazwa użytkownika:  ${user}
+   Adres e-mail:  ${mail}
+
+W celu aktywacji konta prosimy o kliknięcie na poniższy link lub
+skopiowanie go do schowka i otwarcie w oknie przeglądarki WWW.
+
+${libUrl}/confirm-account?action=ConfirmAccountAction&id=${link}
+
+Aktywacji można dokonać do ${date}
+Po tej dacie nieaktywowane konto zostanie usunięte.
+			]]></entry>
+</properties>

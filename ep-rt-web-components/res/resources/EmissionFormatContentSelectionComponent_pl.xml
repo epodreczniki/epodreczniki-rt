@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="EmissionFormat.Choose">Wybierz format treści</entry>
+<entry key="EPContent.Choose">Wybierz format treści podręcznika</entry>
+<entry key="EmissionFormat.ForStudents">Dla uczniów</entry>
+<entry key="EmissionFormat.ForTeachers">Dla nauczycieli</entry>
+<entry key="EmissionFormat.ContentCanon">Treść - kanon</entry>
+<entry key="EmissionFormat.ContentExpanding">Treść rozszerzająca</entry>
+<entry key="EmissionFormat.ContentSupplemental">Treść uzupełniająca</entry>
+</properties>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="PublicationStatisticsComponent.Title">Statystyki</entry>
+<entry key="PublicationStatisticsComponent.Intro">Poniżej znajdują się statystyki biblioteki cyfrowej. Statystyki te zbierane są od dnia</entry>
+<entry key="PublicationStatisticsComponent.RankingAllDescription">Liczba w nawiasach to łączna liczba udostępnionych publikacji zawierających w opisie podaną wartość atrybutu.</entry>
+<entry key="PublicationStatisticsComponent.Ranking">Zestawienie wg liczby wyświetlonych publikacji</entry>
+<entry key="PublicationStatisticsComponent.Prompt">Wybierz atrybut</entry>
+<entry key="PublicationStatisticsComponent.RankingAll">Zestawienie wg liczby udostępnianych publikacji</entry>
+<entry key="PublicationStatisticsComponent.MoreStats">Więcej statystyk...</entry>
+<entry key="PublicationStatisticsComponent.Display">Wyświetl</entry>
+<entry key="PublicationStatisticsComponent.RankingDescription">Liczba w nawiasach to suma liczb wyświetleń wszystkich publikacji zawierających w opisie podaną wartość atrybutu.</entry>
+<entry key="PublicationStatisticsComponent.post.Intro"></entry>
+</properties>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="ResetPassFormComponent.Title">Ustawianie nowego hasła</entry>
+<entry key="ResetPassFormComponent.FormIntro">Poniżej wprowadź nazwę użytkownika lub adres e-mail identyfikujące Twoje konto</entry>
+<entry key="ResetPassFormComponent.button.Clear">Wyczyść</entry>
+<entry key="ResetPassFormComponent.Success">Na adres e-mail związany z Twoim kontem przesłano informacje na temat ustawienia nowego hasła.</entry>
+<entry key="ResetPassFormComponent.Email">E-mail</entry>
+<entry key="ResetPassFormComponent.button.Send">Wyślij</entry>
+<entry key="ResetPassFormComponent.Error">Wystąpił nieznany błąd. Prosimy spróbować ponownie później.</entry>
+<entry key="ResetPassFormComponent.Login">Nazwa użytkownika</entry>
+<entry key="ResetPassFormComponent.WrongData">Nie udało się odnaleźć konta użytkownika skojarzonego z podaną nazwą/adresem e-mail.</entry>
+</properties>

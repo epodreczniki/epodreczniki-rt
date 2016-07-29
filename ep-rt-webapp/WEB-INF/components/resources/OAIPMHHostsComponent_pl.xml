@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="OAIPMHHostsComponent.PubCount">Liczba publikacji</entry>
+<entry key="OAIPMHHostsComponent.LastHarvested">Data ostatniej synchronizacji</entry>
+<entry key="OAIPMHHostsComponent.Title">Zdalne biblioteki cyfrowe</entry>
+<entry key="OAIPMHHostsComponent.Introduction">Nasza biblioteka cyfrowa umożliwia przeszukiwanie opisów publikacji znajdujących się w innych zdalnych biblioteka cyfrowych. Lista tych bibliotek cyfrowych znajduje sie poniżej. W celu równoczesnego przeszukania opisów zasobów poniższych bibliotek należy zaznaczyć opcję "Przeszukaj zdalne biblioteki" na formularzach wyszukiwania.</entry>
+<entry key="OAIPMHHostsComponent.More.Link">Więcej informacji</entry>
+<entry key="OAIPMHHostsComponent.More.Text">o zbiorach zgromadzonych w ramach Federacji Bibliotekach Cyfrowych.</entry>
+</properties>

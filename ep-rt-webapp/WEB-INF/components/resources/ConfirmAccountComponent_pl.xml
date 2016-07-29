@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="ConfirmAccountComponent.Title">Potwierdzenie utworzenia konta użytkownika</entry>
+<entry key="ConfirmAccountComponent.creationOk">Aktywacja konta zakończona powodzeniem. Od teraz można się zalogować.</entry>
+<entry key="ConfirmAccountComponent.creationNoUser">Nie znaleziono konta użytkownika do aktywacji. Prosimy sprawdzić poprawność adresu URL użytego do aktywacji i ponownie spróbować aktywować konto lub stworzyć konto jeszcze raz.</entry>
+<entry key="ConfirmAccountComponent.creationTryLater">Ze względu na problemy techniczne, prosimy o aktywowanie konta w późniejszym terminie.</entry>
+<entry key="ConfirmAccountComponent.creationLoginDuplicated">Podana nazwa użytkownika jest już zarejestrowana w systemie. Prosimy ponownie stworzyć konto użytkownika i wybrać inną nazwę.</entry>
+</properties>

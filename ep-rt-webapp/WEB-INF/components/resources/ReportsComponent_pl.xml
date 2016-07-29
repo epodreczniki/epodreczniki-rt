@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="ReportsComponent.noElements">Brak elementów</entry>
+<entry key="ReportsComponent.Title">Raporty</entry>
+<entry key="ReportsComponent.deletedContent">Lista publikacji z usuniętą zawartością</entry>
+<entry key="ReportsComponent.expiringEds.url">docmetadata?id=</entry>
+<entry key="ReportsComponent.notPublishedEds">Lista nieopublikowanych wydań</entry>
+<entry key="ReportsComponent.notInCollPubs">Lista publikacji, które nie są przypisane do żadnej kolekcji</entry>
+<entry key="ReportsComponent.notInCollPubs.url">publication/</entry>
+<entry key="ReportsComponent.notPublicPubs.url">publication/</entry>
+<entry key="ReportsComponent.expiringEds">Lista wydań, których data publikacji wygasa w ciągu 30 dni</entry>
+<entry key="ReportsComponent.expiringEds.label">$entry &lt;b&gt;[${entry.ExpirationDate}]&lt;/b&gt;</entry>
+<entry key="ReportsComponent.notInCollPubs.label">$entry</entry>
+<entry key="ReportsComponent.notPublicPubs">Lista publikacji, które nie są dostępne dla niezalogowanego użytkownika</entry>
+<entry key="ReportsComponent.notPublicPubs.label">$entry</entry>
+<entry key="ReportsComponent.deletedContent.url">publication/</entry>
+<entry key="ReportsComponent.notPublishedEds.url">docmetadata?id=</entry>
+<entry key="ReportsComponent.notPublishedEds.label">$entry</entry>
+<entry key="ReportsComponent.deletedContent.label">$entry</entry>
+</properties>

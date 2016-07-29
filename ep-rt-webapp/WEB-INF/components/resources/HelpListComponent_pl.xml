@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="HelpListComponent.sort">grupuj wg</entry>
+<entry key="HelpListComponent.sort.language">język</entry>
+<entry key="HelpListComponent.edit">edytuj</entry>
+<entry key="HelpListComponent.sort.alphabetic">tytułów</entry>
+<entry key="HelpListComponent.Add">Dodaj stronę pomocy</entry>
+<entry key="HelpListComponent.delete">usuń</entry>
+<entry key="HelpListComponent.Title">List stron pomocy</entry>
+<entry key="HelpListComponent.ReallyRemovePage">Usunąć stronę pomocy?</entry>
+</properties>

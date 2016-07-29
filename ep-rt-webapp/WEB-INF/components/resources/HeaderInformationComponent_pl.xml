@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="HeaderInformationComponent.AnotherIdP">Uwaga! Logowanie nieudane. Aby się zalogować wybierz innego Identity Providera.</entry>
+<entry key="HeaderInformationComponent.deletionOk">Konto zostało usunięte.</entry>
+</properties>

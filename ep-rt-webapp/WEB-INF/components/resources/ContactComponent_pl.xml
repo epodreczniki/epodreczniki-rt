@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="ContactComponent.URL">http://institution.com/</entry>
+<entry key="ContactComponent.Subject">Temat</entry>
+<entry key="ContactComponent.button.Send">Wyślij</entry>
+<entry key="ContactComponent.Address">ul. Nieznana 16, 61-895 Poznań, POLSKA</entry>
+<entry key="ContactComponent.WrongData">Formularz nie może zawierać pustych pól. Adres e-mail powinien mieć poprawny format np.: uzytkownik@serwer-pocztowy.pl</entry>
+<entry key="ContactComponent.WrongMail">Niepoprawny adres e-mail.</entry>
+<entry key="ContactComponent.Success">Wiadomość została wysłana. Dziękujemy.</entry>
+<entry key="ContactComponent.Name">Instytucja partnerska BC</entry>
+<entry key="ContactComponent.Phone">telefon: (+48) 61-333-33-32, faks: (+48) 61-333-33-33</entry>
+<entry key="ContactComponent.Message">Treść wiadomości</entry>
+<entry key="ContactComponent.Error">Wystąpił błąd - spróbuj wysłać wiadomość ponownie.</entry>
+<entry key="ContactComponent.Your-email">Twój e-mail</entry>
+<entry key="ContactComponent.Title">Kontakt</entry>
+<entry key="ContactComponent.button.Clear">Wyczyść</entry>
+<entry key="ContactComponent.FormIntro">Mozesz również użyć poniższego formularza</entry>
+<entry key="ContactComponent.Intro">Informacje kontaktowe</entry>
+<entry key="ContactComponent.Mail">mail@institution.com</entry>
+</properties>

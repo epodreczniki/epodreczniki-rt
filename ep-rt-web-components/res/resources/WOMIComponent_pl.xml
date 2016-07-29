@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="WOMIComponent.Title">WOMI</entry>
+	<entry key="WOMIComponent.Content.Classic">Treść w formacie klasycznym</entry>
+	<entry key="WOMIComponent.Content.Mobile">Treść w formacie dla urządzeń mobilnych</entry>
+	<entry key="WOMIComponent.Content.PDF">Treść w formacie dla dokumentów PDF</entry>
+	<entry key="WOMIComponent.Content.Ebook">Treść w formacie dla czytników E-book</entry>
+	<entry key="WOMIComponent.AttributesTable">Opis w tabeli HTML</entry>
+	<entry key="WOMIComponent.ImagePreview">Podgląd formatów emisyjnych obrazu:</entry>
+	<entry key="WOMIComponent.AVPreview">Podgląd przetworzonych materiałów audio/wideo:</entry>
+	<entry key="WOMI.Resolutions.pdf">Rozdzielczości PDF</entry>
+	<entry key="WOMI.Resolutions.mobile">Rozdzielczości mobile</entry>
+	<entry key="WOMI.Resolutions.ebook">Rozdzielczości ebook</entry>
+	<entry key="WOMI.Resolutions.classic">Rozdzielczości klasyczny</entry>
+	<entry key="WOMIComponent.unavailable.header">Materiał jest jeszcze przetwarzany</entry>
+	<entry key="WOMIComponent.unavailable.message">Spróbuj ponownie później.</entry>
+</properties>

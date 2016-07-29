@@ -1,0 +1,312 @@
+#set($searchHeader = "")
+#if ( $isSimilarityResult )
+  #set($searchHeader = "${res.getProperty('SearchResultsComponent.SimilaritySearch.Title')}")
+#elseif ( ${query.isSearchRemoteResources()} )
+  #set($searchHeader = "${res.getProperty('SearchResultsComponent.RemoteSearch.Title')}")
+#else
+	#set($searchTitle = ${collection.getLabel()})
+	#if(${query.Scope} == -1 || ${query.Scope} == -2 || ${query.Scope} == -3 || ${query.Scope} == -6)
+		#set($searchType="general")
+		#set($searchSubtitle = ${res.getProperty("SearchResultsComponent.fulltext.Title")})
+	#else
+		#set($searchType="metadata")
+		#set($searchSubtitle = ${res.getProperty("SearchResultsComponent.metadata.Title")})
+	#end
+	#if($pageId == "aresults") 
+		#set($searchHeader = "${res.getProperty('SearchResultsComponent.AdvSearch.Title')}")
+	#end
+#end 
+## set results title header
+#if($searchHeader != "")
+	#if($pageId == "aresults")
+		<h2 id="searchHeader">$searchHeader</h2>
+	#else
+	<script type="text/javascript">
+		$().ready(function(){
+			var searchHeader = "${searchHeader}";
+			$("#simpleSearchHeader").text(searchHeader);
+		});
+	</script>
+	#end
+#end
+
+<script type="text/javascript"><!--
+## fit miniatures size
+$(document).ready(fitMiniatures);
+
+## generating tooltip and cutting too long labels.
+var src_init = function() {
+  		  ## cut too long title (see jquery-tooltip-dlibra-*.*.js)
+		  searchResultTitleTooltip(50);
+		  ## cut too long description and keywords
+		  _shorterNames("span.dL_sn > span",60);
+		  ## cut too long query string
+		  //_shorterNames(".src_queryString",70);
+
+		## 
+		## generate tooltip for shorter description and keywords
+		##
+		$('span.dL_sn > span[id=dL_shorter]').tooltip({
+			delay: 0,
+			showURL: false,
+			top : -10,
+			left : 5,
+			bodyHandler : function(){
+				## there are couple functions for tooltip body handling (see jquery-tooltip-dlibra-*.*.js)
+				var parent = $(this).parent().get(0);
+				var title = $(parent).attr('content');
+			return tooltipParticleBodyHandler(title,'');
+			},
+			fade: 250
+		});
+				
+	}
+	
+	## initialize
+	$().ready(src_init);
+	
+//--></script>
+
+<div class="SearchResultTitle">
+  <p>$!{pageTitle}</p>
+</div>
+
+<div id="src_searchResultBackMenu">
+	<div class="SearchResultLinks">
+	#if( $dynamicSet )
+    		<a href="${homepageUrl}${servletName}/oai-pmh-repository.xml?verb=ListRecords&metadataPrefix=oai_dc&set=${dynamicSet}">
+    			<img src="${homepageUrl}/style/common/img/OA50-small.png" alt="$res.getProperty("SearchResultsComponent.ShowAsOAI-PMHDynamicSet")" />
+    		</a>
+   	#end				
+ 	</div>	 
+	<dl #if(${query.isSearchRemoteResources()} != true ) style="display:none;" #end>
+		<dt>
+			 #if ( !${isSimilarityResult} )
+    			#if	( ${query.isSearchRemoteResources()} )
+    			 <a href="${homepageUrl}${servletName}/" title="${res.getProperty("SearchResultsComponent.back-to-query")}">
+					<img src="${homepageUrl}/style/common/img/search/backToSearch.png"	alt="${res.getProperty("SearchResultsComponent.back-to-query")}" class="bottom_icon" />
+				 </a>
+				#end
+			#end
+		</dt>
+	</dl>	
+		#if ( $isSimilarityResult ) ##similarity condition starts
+    		<dl>
+				#set( $similarityMessage = "SearchResultsComponent.Similar.${similarityClass}" )
+    			 <dt>
+					<b>
+						<span class="src_similarTo"> ${res.getProperty("SearchResultsComponent.Similar.To")}  ${res.getProperty("$similarityMessage")}</span>
+					</b>
+				 </dt>
+				 <dd>
+				 	<span class="src_similarTo"><b><a href="${homepageUrl}${servletName}/${similaritySearchUrl}">${similarToTitle}</a></b></span>
+				 </dd>
+    		</dl>	
+	#else ##if normal search results
+	<dl #if("general" == $searchType) style="display:none;" #end>
+	<dt><span class="src_prompt">${res.getProperty("SearchResultsComponent.Prompt")}:</dt>
+	<dd>
+    <b class="src_bold">
+		<a href="${homepageUrl}${servletName}/advsearch?dirids=${collection.Id}" title="${res.getProperty("SearchResultsComponent.back-to-query")} - ${escapeUtil.escapeHtml("${queryString}")}"><span id="src_queryTranslation" class="src_queryString">${escapeUtil.escapeHtml("${queryString}")}</span></a>
+		<a href="${homepageUrl}${servletName}/advsearch?dirids=${collection.Id}" title="${res.getProperty("SearchResultsComponent.back-to-query")}"><img id="src_queryChange" src="${homepageUrl}/style/common/img/icons/application_form_edit.png"/></a>	
+		</dt><dd class="src_dd">
+    
+  	 #if( ${query.Scope} == -6)
+    	<dd style="font-size:0.9em;">
+   	 #else
+    	<dd class="src_dd">
+   	 #end
+   	 
+     #if( ${query.Scope} == -1)
+    		<span class="src_cprompt" >${res.getProperty('SearchResultComponent.SearchedIn')}</span> &#34;${res.getProperty("SearchResultsComponent.ContentSearch")}&#34;					
+   	 #elseif(${query.Scope} == -2)
+     	    <span class="src_cprompt" >${res.getProperty('SearchResultComponent.SearchedIn')}</span> &#34;${res.getProperty("SearchResultsComponent.DirSearch")}&#34;	
+     #end
+
+	</b></span>
+#end ##similarity condition ends
+		</dd></dl>
+		<script type="text/javascript"><!--
+			function showResultsStat(show)
+			{
+			   stat = document.getElementById('resultStat');
+			   hideStat = document.getElementById('hideStats');
+			   showStat = document.getElementById('showStats');
+			   if ( hideStat == null && showStat == null ) 
+				   return;
+			   if( show == true ){
+				   stat.style.display = '';
+				   hideStat.style.display = '';
+				   showStat.style.display = 'none';
+				   setCookie('showResultStat','true');
+			   }else {
+			       stat.style.display = 'none';
+				   hideStat.style.display = 'none';
+				   showStat.style.display = '';
+				   setCookie('showResultStat','false');
+			   }
+			}
+		//-->
+		</script>
+		<dl id="rootIdAndSuggestionMap">
+			 ## both containers are filled and uncovered (if rootid exists) in SearchResultsComponent_Data js script.
+			 <dt id="rootidEscapeTarget" style="display:none">
+			 </dt>
+			 <dd id="rootidPublicationNameTarget" style="display:none">
+			 </dd>
+			#if ( ( $suggestionsMap ) && ( $suggestionsMap.keySet().size() > 0 ) )
+    		<dt class="src_didYouMean" style="display:none">
+    			<b class="error">${res.getProperty("SearchResultsComponent.Did.you.mean")}</b>:
+    		</dt>
+    		<dd id="def_didYouMean">
+				#set ( $didYouMeanListLength = ${suggestionsMap.keySet().size()} )
+    			#foreach($suggestion in ${suggestionsMap.keySet()} )
+    				<a href="${homepageUrl}${servletName}/$pageId?action=DidyouMeanAction&query=${suggestion}" style="display:none" class="suggestionsMap" id="sugg_${suggestionsMap.get($suggestion)}">${suggestion}</a>&nbsp;
+					#if ( $velocityCount < ${didYouMeanListLength} ) &nbsp;| &nbsp; #end
+    			#end	
+    		</dd>
+		#end
+		</dl>
+		
+ </div>
+	
+<script type="text/javascript"><!--
+	
+	var SearchResultsComponent = {
+	   
+	  /* use with advanced search */
+	  rootid : "$!{rootid}",
+	
+	  actionInitialize:false,  
+	  
+	  previousPageId: '$!{lastPublicUrl}',
+	    
+	  getRefreshRequestParameters : function(reqParams){
+	     return reqParams;
+	  }, 
+	  
+ 	  sendGroupRequest : function(rootid){
+	  	$("#rootid").attr('value',rootid);
+		//invoke SimpleSearchComponent js method
+		prepareForm();
+	  },
+	  
+	  sendGroupRequestAdv : function(rootid){
+	  	 this.rootid = rootid;
+		 // perform search through components of ambiuous attributes values or collections
+		 if(typeof SearchAmbiguousAttributesComponent != 'undefined'){
+		 	SearchAmbiguousAttributesComponent.prepareAdvForm();
+		 }else if(CollectionsComponent.initialized == true){
+		 	CollectionsComponent.doChangeDir('advance');
+		 }
+		 // otherwise redirect to certain request
+		 else{
+		 	var advReqUrl = homePageServletUrl + "/aresults?action=SearchAction&rootid=" + this.rootid + "&skipSearch=false";
+			alert(advReqUrl);
+			window.location.href = advReqUrl;
+		 }
+	  },
+	  
+	  sendUnGroupRequest : function(){
+	  	#if($pageId == "results")
+			this.sendUnGroupRequestNorm();
+		#else
+			this.sendUngroupRequestAdv();
+		#end
+	  },
+	  
+	  sendUnGroupRequestNorm : function(){
+	  	$("#rootid").attr('value','');
+		//invoke SimpleSearchComponent js method
+		prepareForm();
+	  },
+	  
+	  sendUngroupRequestAdv : function(){
+	  	this.rootid = "";
+		if(typeof SearchAmbiguousAttributesComponent != 'undefined'){
+		 	SearchAmbiguousAttributesComponent.prepareAdvForm();
+		 }else if(CollectionsComponent.initialized == true){
+		 	CollectionsComponent.doChangeDir('advance');
+		 }
+		 // otherwise redirect to certain request
+		 else{
+		 	var url = homePageServletUrl + "/aresults?action=SearchAction&skipSearch=false";
+	   		window.location.href = url;
+		 }
+	  },
+	  
+	  refreshResultsCallback : function(body,reqParams){
+	  	SearchResultsComponent.actionInitialize = true; 
+	    $("#src_asynchPart").html(body);
+	    $("#src_asynchPart").css({'display':'block'});
+     	## initialize component - prepare shorter names and tooltips 
+     	src_init();
+     	## read view options from cookie
+     	if( getCookie('simpleSearchView') == 'simple' ) {
+			expandView('none');
+		}
+		else { 
+			expandView('');
+		}
+	  },
+	
+		initialSearchAction : function(){
+		    var requestString = "";
+    		var element;
+    		var name;
+    		var value;
+
+
+  			for(var i=0; i < document.smallsearch.elements.length ; i++){
+   
+   				element = document.smallsearch.elements[i];
+   				name = $(element).attr("name");
+   				value = $(element).attr("value");
+   				if(name == "skipSearch"){
+    				value = "false";
+   				}
+				if(name == "mdirids"){
+					## append parameter of selected collections from CollectionsComponent
+					if(CollectionsComponent.initialized == true){
+						value = CollectionsComponent.selectedDirs;
+					}
+				}
+				if(name == "queryType"){
+					value = getActiveQueryType();
+				}
+   				if(i < document.smallsearch.elements.length - 1){
+    				requestString += name+"="+value+"&";
+   				}else{
+    				requestString += name+"="+value;
+   				}
+   			}
+			src_refreshResults(requestString);
+   		        
+		// listen for ajax error
+			$("#src_asynchPart").ajaxError(function(){
+				jQuery.unblockUI();
+				$(this).empty();
+				$(this).append('<p class="error_msg">${res.getProperty("SearchResultsComponent.AjaxQueryError")}</p>');
+				$(this).show();
+			});    
+	}
+	
+};
+	
+	
+#refreshTemplate( "src_refreshResults" "reqParams" "SearchResultsComponent.refreshResultsCallback" "SearchResultsComponent.getRefreshRequestParameters")
+	
+#if($pageId == "results" && !$isSimilarityResult)
+	
+	$().ready(function(){
+		SearchResultsComponent.initialSearchAction();
+	});	
+	
+#end
+	
+	//--></script>
+	
+	<div id="src_asynchPart" class="src_asyncPart" #if($pageId == "results" && !$isSimilarityResult) style="display:none;" #end>
+		#parse("data-parts/SearchResultsComponent_Data.vm")
+	</div>
+

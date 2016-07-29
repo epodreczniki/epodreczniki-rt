@@ -1,0 +1,54 @@
+<attributesViewsList>
+   <attributesView fullView="true">
+      <name lang="pl"><![CDATA[Wszystkie atrybuty]]></name>
+      <name lang="en"><![CDATA[All attribures]]></name>
+   </attributesView>
+   <attributesView>
+      <name lang="pl"><![CDATA[Podręcznik]]></name>
+      <attribute required="true">Tytul</attribute>
+      <attribute>Podtytul</attribute>
+      <attribute required="true">Autor</attribute>
+      <attribute required="true">EtapEdukacyjny</attribute>
+      <attribute required="true">Klasa</attribute>
+      <attribute required="false">Przedmiot</attribute>
+      <attribute required="false">ArkuszStylow</attribute>
+      <attribute required="true">Odbiorca</attribute>
+      <attribute required="true">StatusTresci</attribute>
+      <attribute>Sygnatura</attribute>
+      <attribute required="true">Abstrakt</attribute>
+      <attribute required="true">Okladka</attribute>
+      <attribute>PanoramaWTle</attribute>
+      <attribute>IkonaWSpisieTresci</attribute>
+      <attribute>SrodowiskoPodrecznika</attribute>
+      <attribute>IdentyfikatorWlasny</attribute>
+      <attribute>DataPublikacji</attribute>
+      <attribute>RootID</attribute>
+      <attribute>Referencje</attribute>
+      <attribute>Opublikowany</attribute>
+      <attribute>PokazujUwagiTechniczne</attribute>
+      <attribute>Jezyk</attribute>
+      <attribute>CeleKsztalcenia</attribute>
+   </attributesView>
+   <attributesView>
+      <name lang="pl"><![CDATA[Moduł treści]]></name>
+      <attribute required="true">Tytul</attribute>
+      <attribute required="true">Autor</attribute>
+      <attribute>Odbiorca</attribute>
+      <attribute>StatusTresci</attribute>
+   </attributesView>
+   <attributesView>
+      <name lang="pl"><![CDATA[Zasób WOMI]]></name>
+      <attribute required="true">Tytul</attribute>
+      <attribute required="true">Autor</attribute>
+      <attribute required="true">TekstAlternatywny</attribute>
+      <attribute required="true">Licencja</attribute>
+      <attribute>LicencjaDodatkoweInfo</attribute>
+      <attribute>TypWOMI</attribute>
+      <attribute showAllDescendants="true">Wymagania</attribute>
+      <attribute>SlowaKluczowe</attribute>
+      <attribute>TypSemantyczny</attribute>
+      <attribute>IdentyfikatorWlasny</attribute>
+      <attribute>Opublikowany</attribute>
+      <attribute>StanWeryfikacji</attribute>
+   </attributesView>
+</attributesViewsList>

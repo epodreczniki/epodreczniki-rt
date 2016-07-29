@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="SingleErrorPageComponent.errors.name">nazwa</entry>
+<entry key="SingleErrorPageComponent.errors.code">kod błędu</entry>
+<entry key="SingleErrorPageComponent.NoErrorCode">Pole "kod błędu" jest wymagane i musi mieć wartość liczbową</entry>
+<entry key="SingleErrorPageComponent.errors.info">komunikat</entry>
+<entry key="SingleErrorPageComponent.language">język</entry>
+<entry key="SingleErrorPageComponent.errors.edit.id">id</entry>
+<entry key="SingleErrorPageComponent.Title">Edycja komunikatu o błędzie</entry>
+<entry key="SingleErrorPageComponent.NoErrorId">Pole "id" jest wymagane</entry>
+<entry key="SingleErrorPageComponent.NoTitle">Pole "nazwa" jest wymagane</entry>
+<entry key="SingleErrorPageComponent.enter">wprowadź</entry>
+<entry key="SingleErrorPageComponent.cancel">anuluj</entry>
+<entry key="SingleErrorPageComponent.NoBody">Pole "komunikat" jest wymagane</entry>
+</properties>

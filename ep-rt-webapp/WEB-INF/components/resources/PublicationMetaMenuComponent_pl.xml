@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="PublicationMetaMenuComponent.PublicationDeleted">Publikacja usunięta</entry>
+<entry key="PublicationMetaMenuComponent.Attributes">Opis</entry>
+<entry key="PublicationMetaMenuComponent.Document-comment">Komentarz</entry>
+<entry key="PublicationMetaMenuComponent.Structure">Struktura</entry>
+<entry key="PublicationMetaMenuComponent.Search-results">Wyniki wyszukiwania</entry>
+<entry key="PublicationMetaMenuComponent.Information">Informacje</entry>
+<entry key="PublicationMetaMenuComponent.EditionsList">Wydania</entry>
+<entry key="PublicationMetaMenuComponent.Title">Publikacja</entry>
+<entry key="PublicationMetaMenuComponent.AddToFavourites">Odłóż na półkę</entry>
+<entry key="PublicationMetaMenuComponent.SubmitTag">Zatwierdź</entry>
+<entry key="PublicationMetaMenuComponent.AddBookmarkTag">Tagowanie</entry>
+<entry key="PublicationMetaMenuComponent.AddBookmarkTag.Error">Błąd przy zatwierdzaniu tagów.</entry>
+<entry key="PublicationMetaMenuComponent.VoteForPub">Ta publikacja jest bardzo interesująca.</entry>
+<entry key="PublicationMetaMenuComponent.Vote">Oceń publikację</entry>
+<entry key="PublicationMetaMenuComponent.VoteAgainstPub">Nie podoba mi się ta publikacja</entry>
+<entry key="PublicationMetaMenuComponent.Thankyou">Dziękujemy</entry>
+<entry key="PublicationMetaMenuComponent.Search.similar">Podobne publikacje</entry>
+<entry key="PublicationMetaMenuComponent.Content.NW">Treść(nowe okno)</entry>
+<entry key="PublicationMetaMenuComponent.Content">Treść</entry>
+</properties>

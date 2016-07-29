@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="TagCloudComponent.description">Kliknij na wybrany tag, aby wyświetlić wszystkie publikacje oznaczone tym tagiem.</entry>
+<entry key="TagCloudComponent.noTagsFound">Brak tagów</entry>
+<entry key="TagCloudComponent.Title">Twoje Tagi</entry>
+<entry key="TagCloudComponent.noFlashOrJS">Twoja przeglądarka nie obsługuje
+technologii Flash lub ma wyłączoną obsługę javascript</entry>
+</properties>

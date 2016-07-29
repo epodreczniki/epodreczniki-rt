@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<!DOCTYPE plugin PUBLIC "-//JPF//Java Plug-in Manifest 0.7" "http://jpf.sourceforge.net/plugin_0_7.dtd">
+<plugin
+	id="pl.psnc.ep.rt.conversion"
+	version="${pom.currentVersion}">
+	<requires>
+		<import plugin-id="pl.psnc.dlibra.content" />
+	</requires>
+	<runtime>
+#foreach($dep in ${pom.dependencies})
+#if(${dep.type} == "jar" && !${dep.getProperty('dist.skip').equals("true")})
+		<library id="${dep.artifact}" path="lib/${dep.artifact}" type="code" />
+#end
+#end
+		<library id="pluginCode" path="${jarName}" type="code" />
+	</runtime>
+	<extension plugin-id="pl.psnc.dlibra.content"
+		point-id="conversion.ImageContentConverter" id="imagick">
+		<parameter id="class"
+			value="pl.psnc.ep.rt.conversion.ImageMagickConverter" />
+		<parameter id="source.class"
+			value="pl.psnc.ep.rt.conversion.ImageMagickSource" />
+	</extension>
+
+	<extension plugin-id="pl.psnc.dlibra.content"
+		point-id="conversion.ImageContentConverter" id="unzip">
+		<parameter id="class"
+			value="pl.psnc.ep.rt.conversion.UnzipConverter" />
+		<parameter id="source.class"
+			value="pl.psnc.ep.rt.conversion.UnzipSource" />
+	</extension>
+</plugin>

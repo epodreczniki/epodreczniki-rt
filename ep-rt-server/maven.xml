@@ -1,0 +1,21 @@
+<project xmlns:maven="jelly:maven" xmlns:j="jelly:core"
+	xmlns:util="jelly:util" xmlns:x="jelly:xml" xmlns:doc="doc"
+	xmlns:artifact="artifact">
+
+	<goal name="install" prereqs="jar:install, conf:install">
+	</goal>
+
+	<goal name="conf:install" prereqs="conf:conf">
+		<copy file="${maven.build.dir}/conf/${maven.final.name}.zip"
+			tofile="${maven.repo.local}/${pom.groupId}/confs/${maven.final.name}.zip" />
+	</goal>
+
+	<goal name="conf:conf">
+		<mkdir dir="${maven.build.dir}/conf/files" />
+		<copy todir="${maven.build.dir}/conf/files/conf/ep" overwrite="true">
+			<fileset dir="${maven.src.dir}/etc" />
+		</copy>
+		<zip destfile="${maven.build.dir}/conf/${maven.final.name}.zip"
+			basedir="${maven.build.dir}/conf/files" overwrite="true" />
+	</goal>
+</project>

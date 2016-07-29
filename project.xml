@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project>
+	<pomVersion>3</pomVersion>
+	<groupId>epodreczniki-rt</groupId>
+	<currentVersion>3.0.0</currentVersion>
+
+	<dependencies>
+		<dependency>
+			<groupId>velocity</groupId>
+			<artifactId>velocity-dep</artifactId>
+			<version>1.4</version>
+			<type>jar</type>
+			<url>http://jakarta.apache.org/velocity/</url>
+			<properties>
+				<dist.skip>true</dist.skip>
+				<comment>[NOT IN DISTRIBUTION] License: Apache License, Version 2.0
+				</comment>
+			</properties>
+		</dependency>
+		<dependency>
+			<groupId>commons-jelly</groupId>
+			<artifactId>commons-jelly-tags-velocity</artifactId>
+			<version>20030303.205659</version>
+			<url>http://jakarta.apache.org/commons/jelly/</url>
+			<type>jar</type>
+			<properties>
+				<dist.skip>true</dist.skip>
+				<comment>[NOT IN DISTRIBUTION] License: Apache License, Version 2.0
+				</comment>
+			</properties>
+		</dependency>
+		<dependency>
+			<artifactId>dlibra-common-maven-plugin</artifactId>
+			<groupId>${dlibra.groupId}</groupId>
+			<version>${dlibra.version}</version>
+			<properties>
+				<dist.skip>true</dist.skip>
+			</properties>
+		</dependency>
+	</dependencies>
+</project>

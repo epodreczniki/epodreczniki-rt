@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="EditionsContentUrlsComponent.Title"></entry>
+<entry key="EditionsContentUrlsComponent.expl">Wybrana publikacja posiada kilka wydań, wybierz jedno z nich:</entry>
+</properties>

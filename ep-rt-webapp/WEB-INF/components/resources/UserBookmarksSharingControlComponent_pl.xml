@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="UserBookmarksSharingControlComponent.Title">Udostępnianie ulubionych publikacji</entry>
+<entry key="UserBookmarksSharingControlComponent.Share.expl">Możesz udostępnić swoje ulubione publikacje znajomym - wystarczy tylko przekazać im odnośnik do kanału RSS.</entry>
+<entry key="UserBookmarksSharingControlComponent.Share.explWWW">Możesz również udostępnić listę ulubionych publikacji umieszczając na swojej witrynie www wygodny w użyciu komponent - wytnij tylko umieszczony w ramce kod HTML komponentu
+i wklej go w kod własnej witryny www.</entry>
+<entry key="UserBookmarksSharingControlComponent.Share.explWWW.warning">Uwaga! Wyłączenie i ponowne włączenie udostępniania spowoduje, iż klucz dostępu do listy publikacji zostanie zresetowany. 
+Wymagana będzie wówczas podmiana kodu HTML komponentu.</entry>
+<entry key="UserBookmarksSharingControlComponent.Share.chooseLang">Wybierz domyślny język komponentu: </entry>
+<entry key="UserBookmarksSharingControlComponent.Share.codeToPaste">Kod HTML komponentu :</entry>
+<entry key="UserBookmarksSharingControlComponent.Share">Udostępnianie listy ulubionych publikacji</entry>
+<entry key="UserBookmarksSharingControlComponent.Share.off">Wyłącz</entry>
+<entry key="UserBookmarksSharingControlComponent.Share.on">Włącz</entry>
+<entry key="UserBookmarksSharingControlComponent.Share.Address">Adres Twojego kanału RSS</entry>
+<entry key="UserBookmarksSharingControlComponent.RSS">Kanał RSS</entry>
+<entry key="UserBookmarksSharingControlComponent.dLibraComponent">Komponent repozytorium</entry>
+</properties>

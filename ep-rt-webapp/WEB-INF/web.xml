@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE xml [
+	<!ENTITY guanxi_idp SYSTEM "web_idp.xml">
+	<!ENTITY protectedapp SYSTEM "web_guard.xml">
+	<!ENTITY samlengine SYSTEM "web_engine.xml">
+	<!ENTITY mainServletName "rt" >
+]>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+	version="2.4">
+	<display-name>dLibra</display-name>
+	<description>
+		dLibra web framework presentation servlet. This is the dLibra
+		window to world where the new fascinating publications are
+		presented to the readers.
+	</description>
+
+	<!--
+		Parameters below indicate where the dLibra core servers are located.
+		Please adjust these parameters to suit your system.
+	-->
+	<context-param>
+		<description>
+			Login of default public user. If not set, anonymous usage of
+			web application will be not possible.
+		</description>
+		<param-name>public.user.login</param-name>
+		<param-value>public</param-value>
+	</context-param>
+	<context-param>
+		<description>Name of generally used servlet</description>
+		<param-name>main.servlet.name</param-name>
+		<param-value>&mainServletName;</param-value>
+	</context-param>
+	<context-param>
+		<description>HTTP port which users should use.</description>
+		<param-name>port.http</param-name>
+		<param-value>80</param-value>
+	</context-param>
+	<context-param>
+		<description>HTTPS port which users should use.</description>
+		<param-name>port.https</param-name>
+		<param-value>443</param-value>
+        </context-param>
+	<context-param>
+		<description>
+			Thumbnails settings: 
+				width - width of an result thumbnail (integer numbers from 1 to n); 
+				height - height of an result thumbnail (integer numbers from 1 to n); 
+				compression level - float numbers from 0 to 1 (considered with JPEG format); 
+				perform slice - crop image to rectangular area specified by width and height properties;
+				format type - MIME types supported: "image/png" and "image/jpeg".
+		</description>
+		<param-name>thumbnails.settings</param-name>
+		<param-value>200;200;1.0;false;image/png</param-value>
+	</context-param>
+	<context-param>
+		<description>
+			Directory with configuration for framework's managers
+		</description>
+		<param-name>conf.dir</param-name>
+		<param-value>/WEB-INF/conf</param-value>
+	</context-param>
+	<context-param>
+		<description>
+			Directory with multilingual resources.
+		</description>
+		<param-name>components.dir</param-name>
+		<param-value>/WEB-INF/components</param-value>
+	</context-param>
+	<context-param>
+		<description>
+			Directory with multilingual resources.
+		</description>
+		<param-name>layout.dir</param-name>
+		<param-value>/WEB-INF/layout</param-value>
+	</context-param>
+	<context-param>
+		<description>Path to Velocity properties file.</description>
+		<param-name>org.apache.velocity.properties</param-name>
+		<param-value>/WEB-INF/velocity.properties</param-value>
+	</context-param>
+	<context-param>
+		<description>
+			Path to templates configuration properties file.
+		</description>
+		<param-name>templates.configuration.properties</param-name>
+		<param-value>/WEB-INF/templates.properties</param-value>
+	</context-param>
+	<context-param>
+		<description>
+			Path to director in which all themes are stored
+		</description>
+		<param-name>theme.dir</param-name>
+		<param-value>/style/dlibra</param-value>
+	</context-param>
+	<!-- <context-param>
+		<description>
+			Configurable main dLibra collection id
+		</description>
+		<param-name>main.collection.id</param-name>
+		<param-value>[id of collection]</param-value>
+	</context-param> -->
+	<context-param>
+		<description>
+			Name of graphical style that should be used. Value shuld
+			have format: style_name:style_variant. Style variant can be
+			empty.
+		</description>
+		<param-name>view.style</param-name>
+		<param-value>dlibra:theme1</param-value>
+	</context-param>
+	<!-- JNLP generation parameters. -->
+	<context-param>
+		<description>
+			Directory where editor's app jnlp is stored. This is
+			relative path it should be updated to absolute path, to
+			enable a usage of jnlp dir.
+		</description>
+		<param-name>jnlp.dir</param-name>
+		<param-value>/jnlp</param-value>
+	</context-param>
+	<context-param>
+		<description>
+			How long cert used to sign jnlp jars is valid.
+		</description>
+		<param-name>jnlp.valid.in.days</param-name>
+		<param-value>360</param-value>
+	</context-param>
+	<context-param>
+		<description>
+		  Parameter used to generate cert. for jnlp jars
+		</description>
+		<param-name>dName.for.certificate</param-name>
+		<param-value>CN=dLibra Project,OU=Network Services Department,O=Poznan Supercomputing and Networking Center,L=Poznan,C=PL</param-value>
+	</context-param>
+	<context-param>
+		<description>
+		  Path to keytool tool executable.
+		</description>
+		<param-name>keytool.executable</param-name>
+		<param-value>keytool</param-value>
+	</context-param>
+	<context-param>
+		<description>
+		  Path to jarsigner tool executable.
+		</description>
+		<param-name>jarsigner.excutable</param-name>
+		<param-value>jarsigner</param-value>
+	</context-param>
+	<context-param>
+		<description>
+				Java packages that should be used while searching for
+				application components - comma separated list.
+			</description>
+		<param-name>COMPONENT_PACKAGES</param-name>
+		<param-value>pl.psnc.dlibra.web.comp.pages.components,pl.psnc.dlibra.web.comp.pages.components.admin,pl.psnc.dlibra.web.comp.pubcreator.components,pl.psnc.ep.rt.web.components</param-value>
+	</context-param>
+	<context-param>
+		<description>
+				Java packages that should be used while searching for
+				application actions - comma separated list.
+			</description>
+		<param-name>ACTION_PACKAGES</param-name>
+		<param-value>pl.psnc.dlibra.web.comp.pages.actions,pl.psnc.dlibra.web.comp.pages.actions.admin,pl.psnc.dlibra.web.comp.pubcreator.actions</param-value>
+	</context-param>
+	<!-- Other parameters. -->
+	<context-param>
+		<description>
+			If necessary use this param to set tomcat timezone.
+		</description>
+		<param-name>tomcat.timezone</param-name>
+		<param-value>Europe/Belgrade</param-value>
+	</context-param>
+	<context-param>
+		<description>
+			  Content port, used to transport content from content servlet.
+			</description>
+		<param-name>contentPort</param-name>
+		<param-value>10050</param-value>
+	</context-param>
+	<context-param>
+		<description>
+ 	     When set to true download link would be available only for logged users.
+ 	  </description>
+		<param-name>zip.only.for.logged.users</param-name>
+		<param-value>false</param-value>
+	</context-param>
+	<context-param>
+		<description>Class used by Groke2 to connect with dlibra services. </description>
+		<param-name>dlibra.connection.class.name</param-name>
+		<param-value>pl.psnc.dlibra.web.comp.groke2.connection.AsServiceConnection</param-value>
+	</context-param>
+	<context-param>
+		<description>Whether to display CAPTCHA on forms</description>
+		<param-name>captcha.enabled</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	<context-param>
+		<description>
+			CAPTCHA settings: 
+				length - number of characters
+				width - width of the result image
+				height - height of the result image 
+				transformations (optional) - a comma-separated list of transformations
+			Possible transformation values include 'noise', 'ripple', 'shadow' and 'block'. 
+		</description>
+		<param-name>captcha.settings</param-name>
+		<param-value>6;175;50;noise,shadow</param-value>
+	</context-param>
+	<!-- *************************  BLOCK  ************************* -->
+	<!-- Listeners - order is important!!!                           -->
+	<!-- *************************  BLOCK  ************************* -->
+	<listener>
+		<listener-class>pl.psnc.dlibra.web.fw.ConfigurationContextListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>
+			pl.psnc.dlibra.web.common.periodic.PeriodicTasksContextListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>pl.psnc.dlibra.web.fw.SessionCounter</listener-class>
+	</listener>
+	<listener>
+		<listener-class>pl.psnc.groke2.dlibra_connector.connection.DlibraConnectionConfigurationListener</listener-class>
+	</listener>
+	<!-- *************************  BLOCK  ************************* -->
+	<!-- Filters - order is important!!!                           -->
+	<!-- *************************  BLOCK  ************************* -->
+	<filter>
+		<description>Makes sure redirect doesnt change host or port</description>
+		<filter-name>EpoRedirectFilter</filter-name>
+		<filter-class>pl.psnc.ep.rt.web.servlets.RedirectFilter</filter-class>
+	</filter>
+	<filter>
+		<description>Checks session for potential hack</description>
+		<filter-name>sessionVerificationFilter</filter-name>
+		<filter-class>pl.psnc.dlibra.web.fw.SessionVerificationFilter</filter-class>
+	</filter>
+	<filter>
+		<description>
+			Checks whether Metadatacache is initialized.
+		</description>
+		<filter-name>LoadingFilter</filter-name>
+		<filter-class>pl.psnc.dlibra.web.comp.utils.LoadingFilter</filter-class>
+	</filter>
+	<filter>
+		<description>Counts user sessions.</description>
+		<filter-name>SessionCountingFilter</filter-name>
+		<filter-class>pl.psnc.dlibra.web.comp.stats.SessionCountingFilter</filter-class>
+	</filter>
+	<filter>
+		<filter-name>RedirectFilter</filter-name>
+		<filter-class>pl.psnc.dlibra.web.comp.utils.RedirectFilter</filter-class>
+		<init-param>
+			<!-- 
+				complex parameter: each rule is separated by semicolon, in each rule every portion is separated by comma
+				* [all,not-robot,robot] - to whom rule is addressed;
+				* from address
+				* destination address
+				* requestParameters - in standard form where key,value is separated by "=" and each parameter is separated by "&".
+				e.g.
+				all,/&mainServletName;/doccontent,/&mainServletName;/docmetadata,showContent=true
+				will redirect every client (including robots) from /&mainServletName;/doccontent to /&mainServletName;/docmetadata page
+				also request will be send with additional "showContent=true" parameter.    
+			-->
+			<param-name>uTuMap</param-name>
+			<param-value>all,/publication,/&mainServletName;/publication;not-robot,/&mainServletName;/plain-content,/&mainServletName;/docmetadata,showContent=true;all,/&mainServletName;/doccontent,/&mainServletName;/docmetadata,showContent=true</param-value>
+		</init-param>
+	</filter>
+	<filter>
+		<description>Counts edition hits.</description>
+		<filter-name>ContentAccessStatsFilter</filter-name>
+		<filter-class>
+			pl.psnc.dlibra.web.comp.content.ContentAccessStatsFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>sessionVerificationFilter</filter-name>
+		<servlet-name>requestDispatcher</servlet-name>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>sessionVerificationFilter</filter-name>
+		<servlet-name>contentServlet</servlet-name>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>LoadingFilter</filter-name>
+		<servlet-name>requestDispatcher</servlet-name>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SessionCountingFilter</filter-name>
+		<servlet-name>requestDispatcher</servlet-name>
+	</filter-mapping>
+<filter-mapping>
+		<filter-name>RedirectFilter</filter-name>
+		<url-pattern>/publication/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>RedirectFilter</filter-name>
+		<servlet-name>requestDispatcher</servlet-name>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SessionCountingFilter</filter-name>
+		<servlet-name>contentServlet</servlet-name>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SessionCountingFilter</filter-name>
+		<servlet-name>imageServlet</servlet-name>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SessionCountingFilter</filter-name>
+		<servlet-name>KeyAgreementServlet</servlet-name>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>ContentAccessStatsFilter</filter-name>
+		<servlet-name>contentServlet</servlet-name>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>EpoRedirectFilter</filter-name>
+		<servlet-name>contentServlet</servlet-name>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>EpoRedirectFilter</filter-name>
+		<servlet-name>metadataServlet</servlet-name>
+	</filter-mapping>
+	<!-- *************************  BLOCK  ************************* -->
+	<!-- Servlets definitions.                                           -->
+	<!-- *************************  BLOCK  ************************* -->
+	<servlet>
+		<servlet-name>requestDispatcher</servlet-name>
+		<servlet-class>pl.psnc.dlibra.web.fw.RequestDispatcherServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>womiServlet</servlet-name>
+		<servlet-class>pl.psnc.ep.rt.web.servlets.WOMIServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>collxmlServlet</servlet-name>
+		<servlet-class>pl.psnc.ep.rt.web.servlets.CollXMLServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>foldersServlet</servlet-name>
+		<servlet-class>pl.psnc.ep.rt.web.servlets.FoldersServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>searchwomiServlet</servlet-name>
+		<servlet-class>pl.psnc.ep.rt.web.servlets.SearchWOMIServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>moduleServlet</servlet-name>
+		<servlet-class>pl.psnc.ep.rt.web.servlets.ModuleServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>systemInfoServlet</servlet-name>
+		<servlet-class>pl.psnc.ep.rt.web.servlets.SystemInfoServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>efServlet</servlet-name>
+		<servlet-class>pl.psnc.ep.rt.web.servlets.EmissionFormatContentServlet</servlet-class>
+		<init-param>
+			<param-name>http.server.url</param-name>
+			<param-value>http://www.epo.pl/content</param-value>
+		</init-param>
+	</servlet>
+	<servlet>
+		<servlet-name>epServlet</servlet-name>
+		<servlet-class>pl.psnc.ep.rt.web.servlets.EmissionFormatContentServlet</servlet-class>
+		<init-param>
+			<param-name>http.server.url</param-name>
+			<param-value>http://www.epo.pl/content</param-value>
+		</init-param>
+	</servlet>
+	<servlet>
+		<servlet-name>metadataServlet</servlet-name>
+		<servlet-class>pl.psnc.ep.rt.web.servlets.MetadataServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>xmlMetadataServlet</servlet-name>
+		<servlet-class>pl.psnc.ep.rt.web.servlets.XmlMetadataServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>manifestServlet</servlet-name>
+		<servlet-class>pl.psnc.ep.rt.web.servlets.ManifestServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>mainFileServlet</servlet-name>
+		<servlet-class>pl.psnc.ep.rt.web.servlets.MainFileServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>publicationAliasServlet</servlet-name>
+		<servlet-class>pl.psnc.ep.rt.web.servlets.PublicationAliasServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>avStatusNotificationServlet</servlet-name>
+		<servlet-class>pl.psnc.ep.rt.web.servlets.AVStatusNotificationServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>watermarkServlet</servlet-name>
+		<servlet-class>pl.psnc.dlibra.web.comp.utils.WatermarkServlet</servlet-class>
+		<!--<init-param>
+			<param-name>text.userName.font.size</param-name>
+			<param-value>15</param-value>
+		</init-param>
+		<init-param>
+			<param-name>text.userName.font.color</param-name>
+			<param-value>0xFF0000</param-value>
+		</init-param>
+		<init-param>
+			<param-name>text.userName.font</param-name>
+			<param-value>Arial</param-value>
+		</init-param>
+		<init-param>
+			<param-name>text.userName.font.style</param-name>
+			<param-value>ib</param-value>
+		</init-param>-->
+		<init-param>
+			<param-name>text.userName.position</param-name>
+			<param-value>20,400</param-value>
+		</init-param>
+		<init-param>
+			<param-name>text.userName.size</param-name>
+			<param-value>380,80</param-value>
+		</init-param>
+		<init-param>
+			<param-name>text.userName.align</param-name>
+			<param-value>center</param-value>
+		</init-param>
+		<init-param>
+			<param-name>text.userName.wordwrap</param-name>
+			<param-value>false</param-value>
+		</init-param>
+		<init-param>
+			<param-name>opacity</param-name>
+			<param-value>0.3</param-value>
+		</init-param>
+		<init-param>
+			<param-name>image.path</param-name>
+			<param-value>watermark.png</param-value>
+		</init-param>
+	</servlet>
+	<servlet>
+		<servlet-name>contentServlet</servlet-name>
+		<servlet-class>pl.psnc.dlibra.web.comp.content.ContentServlet</servlet-class>
+		<init-param>
+			<description>Character set for HTML pages.</description>
+			<param-name>content.charset</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<description>
+				If true ContentServlet will load file paths from server
+				instead of entire files, and then using loaded paths it
+				will load file content from local filesystem.
+			</description>
+			<param-name>serverLocal</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</servlet>
+	<servlet>
+		<servlet-name>imageServlet</servlet-name>
+		<servlet-class>pl.psnc.dlibra.web.comp.content.ImageServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>KeyAgreementServlet</servlet-name>
+		<servlet-class>pl.psnc.dlibra.web.comp.crypto.KeyAgreementServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>userProfileServlet</servlet-name>
+		<servlet-class>pl.psnc.dlibra.web.pp.UserProfileServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>rmiTunnelingServlet</servlet-name>
+		<servlet-class>pl.psnc.dlibra.web.comp.utils.RMITunnelingServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Groke2 Web Application</servlet-name>
+		<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+		<init-param>
+			<param-name>com.sun.jersey.config.property.packages</param-name>
+			<param-value>pl.psnc.groke2</param-value>
+		</init-param>
+	</servlet>
+	<servlet>
+		<servlet-name>captchaServlet</servlet-name>
+		<servlet-class>pl.psnc.dlibra.web.comp.utils.captcha.CaptchaServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>textbooksListServlet</servlet-name>
+		<servlet-class>pl.psnc.ep.rt.web.servlets.TextbooksListServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>modulesListServlet</servlet-name>
+		<servlet-class>pl.psnc.ep.rt.web.servlets.ModulesListServlet</servlet-class>
+	</servlet>
+	<!-- *************************  BLOCK  ************************* -->
+	<!-- Servlets mappings.                                           -->
+	<!-- *************************  BLOCK  ************************* -->
+	<servlet-mapping>
+		<servlet-name>requestDispatcher</servlet-name>
+		<url-pattern>/&mainServletName;/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>requestDispatcher</servlet-name>
+		<url-pattern>/publication/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>requestDispatcher</servlet-name>
+		<url-pattern>/oai-pmh-repository.xml</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>contentServlet</servlet-name>
+		<url-pattern>/Content/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>contentServlet</servlet-name>
+		<url-pattern>/zipContent/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>imageServlet</servlet-name>
+		<url-pattern>/image/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>womiServlet</servlet-name>
+		<url-pattern>/womi/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>collxmlServlet</servlet-name>
+		<url-pattern>/collxml/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>foldersServlet</servlet-name>
+		<url-pattern>/folders/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>searchwomiServlet</servlet-name>
+		<url-pattern>/searchwomi/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>moduleServlet</servlet-name>
+		<url-pattern>/module/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>systemInfoServlet</servlet-name>
+		<url-pattern>/system-info/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>efServlet</servlet-name>
+		<url-pattern>/efcontent</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>epServlet</servlet-name>
+		<url-pattern>/epcontent</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>metadataServlet</servlet-name>
+		<url-pattern>/womi-metadata/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>xmlMetadataServlet</servlet-name>
+		<url-pattern>/womi-metadata-xml/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>manifestServlet</servlet-name>
+		<url-pattern>/womi-manifest/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>mainFileServlet</servlet-name>
+		<url-pattern>/main-file/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>publicationAliasServlet</servlet-name>
+		<url-pattern>/publication-alias/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>avStatusNotificationServlet</servlet-name>
+		<url-pattern>/SetTransactionStatus</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>KeyAgreementServlet</servlet-name>
+		<url-pattern>/ka</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>userProfileServlet</servlet-name>
+		<url-pattern>/users/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>watermarkServlet</servlet-name>
+		<url-pattern>/watermark</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Groke2 Web Application</servlet-name>
+		<url-pattern>/ore/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>captchaServlet</servlet-name>
+		<url-pattern>/captcha</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>rmiTunnelingServlet</servlet-name>
+		<url-pattern>/rmi-proxy/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>textbooksListServlet</servlet-name>
+		<url-pattern>/collections-list/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>modulesListServlet</servlet-name>
+		<url-pattern>/modules-list/*</url-pattern>
+	</servlet-mapping>
+	<!-- *************************  BLOCK  ************************* -->
+	<!-- MIME mappings.                                              -->
+	<!-- *************************  BLOCK  ************************* -->
+	<mime-mapping>
+		<extension>rss</extension>
+		<mime-type>application/xml</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>jnlp</extension>
+		<mime-type>application/x-java-jnlp-file</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>woff</extension>
+		<mime-type>application/font-woff</mime-type>
+	</mime-mapping>
+	<!-- *************************  BLOCK  ************************* -->
+	<!-- Welcome files.                                              -->
+	<!-- *************************  BLOCK  ************************* -->
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+	<!-- *************************  BLOCK  ************************* -->
+	<!-- Error pages.                                                -->
+	<!-- *************************  BLOCK  ************************* -->
+	<error-page>
+		<error-code>500</error-code>
+<location>/&mainServletName;/error</location>
+	</error-page>
+</web-app>

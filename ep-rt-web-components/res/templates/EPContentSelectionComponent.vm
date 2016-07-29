@@ -1,0 +1,99 @@
+<h1 style="text-align:center;margin-top:40px;">${res.getProperty("EPContent.Choose")}:</h1>
+<script type="text/javascript">
+	
+	$().ready(function(){
+		
+		// standard HTML
+		$(".htmlLink").click(function(e){
+			e.preventDefault();
+			var href = $(this).attr('href');
+			var win = window.open(href,'_blank');
+			win.focus();
+		});
+		
+		// mobile HTML
+		$(".mhtmlLink").click(function(e){
+			e.preventDefault();
+			var href = $(this).attr('href');
+			var win = window.open(href,'efhtml','scrollbars=1,width=480,height=800');
+			win.focus();
+		});
+		
+		$(".formatSelection").show();
+	});
+	
+	
+</script>
+<div style="width:600px;height:250px;background:#eee;padding:20px;margin:50px auto;box-shadow:2px 2px 5px #999;">
+	<div style="width:290px;float:left;">
+		<img src="${homepageUrl}/style/dlibra/${styleVariant}/students.png" title="${res.getProperty("EmissionFormat.ForStudents")}"/>
+		<ul class="formatSelection" style="list-style-type:none;line-height:350%;float:left;margin-left:-20px;display:none;">
+			<li>
+#set( $url = "${previewBaseUrl}/c/${contentId}/v/${version}/t/student-canon" )
+				<a href="$url" class="emissionContentLink htmlLink">
+					<img src="${homepageUrl}/style/dlibra/${styleVariant}/womi/sm-html.png" title="HTML"/>
+				</a>
+				<a href="$url" class="emissionContentLink mhtmlLink">
+					<img src="${homepageUrl}/style/dlibra/${styleVariant}/womi/sm-mhtml.png" title="Mobile HTML"/>
+				</a>
+				${res.getProperty("EmissionFormat.ContentCanon")}
+			</li>
+			<li>
+#set( $url = "${previewBaseUrl}/c/${contentId}/v/${version}/t/student-expanding" )
+				<a href="$url" class="emissionContentLink htmlLink">
+					<img src="${homepageUrl}/style/dlibra/${styleVariant}/womi/sm-html.png" title="HTML"/>
+				</a>
+				<a href="$url" class="emissionContentLink mhtmlLink">
+					<img src="${homepageUrl}/style/dlibra/${styleVariant}/womi/sm-mhtml.png" title="Mobile HTML"/>
+				</a>
+				${res.getProperty("EmissionFormat.ContentExpanding")}
+			</li>
+			<li>
+#set( $url = "${previewBaseUrl}/c/${contentId}/v/${version}/t/student-supplemental" )
+				<a href="$url" class="emissionContentLink htmlLink">
+					<img src="${homepageUrl}/style/dlibra/${styleVariant}/womi/sm-html.png" title="HTML"/>
+				</a>
+				<a href="$url" class="emissionContentLink mhtmlLink">
+					<img src="${homepageUrl}/style/dlibra/${styleVariant}/womi/sm-mhtml.png" title="Mobile HTML"/>
+				</a>
+				${res.getProperty("EmissionFormat.ContentSupplemental")}
+			</li>
+		</ul>
+	</div>
+	<div style="width:290px;float:right;">
+		<img src="${homepageUrl}/style/dlibra/${styleVariant}/teacher.png" title="${res.getProperty("EmissionFormat.ForTeachers")}"/>
+		<ul class="formatSelection" style="list-style-type:none;line-height:350%;float:left;margin-left:-20px;display:none;">
+			<li>
+#set( $url = "${previewBaseUrl}/c/${contentId}/v/${version}/t/teacher-canon" )
+				<a href="$url" class="emissionContentLink htmlLink">
+					<img src="${homepageUrl}/style/dlibra/${styleVariant}/womi/sm-html.png" title="HTML"/>
+				</a>
+				<a href="$url" class="emissionContentLink mhtmlLink">
+					<img src="${homepageUrl}/style/dlibra/${styleVariant}/womi/sm-mhtml.png" title="Mobile HTML"/>
+				</a>
+				${res.getProperty("EmissionFormat.ContentCanon")}
+			</li>
+			<li>
+#set( $url = "${previewBaseUrl}/c/${contentId}/v/${version}/t/teacher-expanding" )
+				<a href="$url" class="emissionContentLink htmlLink">
+					<img src="${homepageUrl}/style/dlibra/${styleVariant}/womi/sm-html.png" title="HTML"/>
+				</a>
+				<a href="$url" class="emissionContentLink mhtmlLink">
+					<img src="${homepageUrl}/style/dlibra/${styleVariant}/womi/sm-mhtml.png" title="Mobile HTML"/>
+				</a>
+				${res.getProperty("EmissionFormat.ContentExpanding")}
+			</li>
+			<li>
+#set( $url = "${previewBaseUrl}/c/${contentId}/v/${version}/t/teacher-supplemental" )
+				<a href="$url" class="emissionContentLink htmlLink">
+					<img src="${homepageUrl}/style/dlibra/${styleVariant}/womi/sm-html.png" title="HTML"/>
+				</a>
+				<a href="$url" class="emissionContentLink mhtmlLink">
+					<img src="${homepageUrl}/style/dlibra/${styleVariant}/womi/sm-mhtml.png" title="Mobile HTML"/>
+				</a>
+				${res.getProperty("EmissionFormat.ContentSupplemental")}
+			</li>
+		</ul>
+	</div>
+</div>
+<h1 style="text-align:center;margin-top:40px";>Podgląd formatów PDF i EPUB został tymczasowo wyłączony ze względu na skoncentrowanie prac na rozwoju formatu HTML</h1>

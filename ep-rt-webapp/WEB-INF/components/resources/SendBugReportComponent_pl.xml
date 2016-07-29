@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="SendBugReportComponent.Title"><![CDATA[ #if($userLoggedIn) <img src="${homepageUrl}/style/common/img/icons/warning_icon.gif"> Zgłoś błąd #end ]]></entry>
+<entry key="SendBugReportComponent.Show.Form">Pokaż formularz</entry>
+<entry key="SendBugReportComponent.User">Czytelnik</entry>
+<entry key="SendBugReportComponent.About">chciał przekazać informację o publikacji z id</entry>
+<entry key="SendBugReportComponent.UserMessage">Komentarz</entry>
+<entry key="SendBugReportComponent.bugType.proposition">Propozycja</entry>
+<entry key="SendBugReportComponent.bugType.error">Błąd</entry>
+<entry key="SendBugReportComponent.bugType.information">Informacja</entry>
+<entry key="SendBugReportComponent.bugType.warning">Ostrzeżenie</entry>
+<entry key="SendBugReportComponent.bugType">Typ wiadomości</entry>
+<entry key="SendBugReportComponent.Title.Popup">Zgłoś błąd</entry>
+<entry key="SendBugReportComponent.Expl.Edition"><![CDATA[Proszę opisać w kilku zdaniach problem, który został zaobserwowany w związku z tą publikacją ]]></entry>
+<entry key="SendBugReportComponent.Expl.General"><![CDATA[Proszę opisać w kilku zdaniach problem, który został zaobserwowany ]]></entry>
+<entry key="SendBugReportComponent.MaxMessageSize">max. znaków</entry>
+</properties>

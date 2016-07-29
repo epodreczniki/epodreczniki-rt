@@ -1,0 +1,28 @@
+#if ( ${contentUrl} )
+ #if("$!{editions.get(0).getExternalId()}" != "")
+	#set($url = "${homepageUrl}${mainServletName}/content-selection?id=${editions.get(0).Id}")
+ #elseif(${contentUrl.contains("/multiFormat.xml")})
+	#set($url = "${homepageUrl}${mainServletName}/womi-selection?id=${editions.get(0).Id}")
+ #else
+	#set($url = "${homepageUrl}${contentUrl}")
+ #end
+ <script type="text/javascript"><!--
+	window.location = '${url}'; 
+ // --></script>
+#else
+ <div class="editionsContentUrlsComponent">
+   ${res.getProperty("EditionsContentUrlsComponent.expl")}   
+   <ul>
+	#foreach($edition in $editions)
+	   <li> 
+	     #if("$!{edition.getExternalId()}" != "")
+			#set($url = "${homepageUrl}${mainServletName}/content-selection?id=${edition.Id}")
+		 #else
+			#set($url = "${homepageUrl}${contentUrls.get($edition)}")
+		 #end
+		 <a href="${url}">${edition.Name}</a>
+	   </li>	
+	#end
+   </ul>	   
+ </div>
+#end	

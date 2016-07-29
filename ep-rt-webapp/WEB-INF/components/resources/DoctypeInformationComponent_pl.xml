@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="DoctypeInformationComponent.Title">Ostrzeżenie</entry>
+<entry key="DoctypeInformationComponent.Browse-publication">Przeglądaj publikację</entry>
+<entry key="DoctypeInformationComponent.Loading">Trwa ładowanie treści...</entry>
+<entry key="DoctypeInformationComponent.Loading.Desc">,jeśli treść nie wyświetli się po kilku sekundach.</entry>
+<entry key="DoctypeInformationComponent.ClickHere">Kliknij tutaj</entry>
+<entry key="DoctypeInformationComponent.ListHandlers.Desc">W przypadku problemów z wyświetlaniem można wypróbować innych sposobów prezentacji treści</entry>
+<entry key="DoctypeInformationComponent.ClickHere2">klikając tutaj</entry>
+</properties>

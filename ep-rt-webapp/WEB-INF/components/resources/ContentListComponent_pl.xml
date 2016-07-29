@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>UTF8</comment>
+<entry key="ContentListComponent.edit">edytuj</entry>
+<entry key="ContentListComponent.add">dodaj</entry>
+<entry key="ContentListComponent.delete">usuń</entry>
+<entry key="ContentListComponent.components.help-pages">Strony pomocy</entry>
+<entry key="ContentListComponent.Title">Zawartość okna "Informacje"</entry>
+<entry key="ContentListComponent.Add">Dodaj nową pozycję</entry>
+</properties>
