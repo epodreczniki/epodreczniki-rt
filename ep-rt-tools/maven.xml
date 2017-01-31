@@ -30,7 +30,7 @@
 			overwrite="true" />
 
 		<util:tokenize var="scripts" delim=",">
-			change-metadata,createdir,destroyer,downloader,retriever,uploader
+			change-metadata,createdir,destroyer,downloader,retriever,uploader,womi-notifier
 		</util:tokenize>
 		<j:forEach var="script" items="${scripts}">
 			<copy file="${maven.src.dir}/etc/script/${script}.bat" tofile="${maven.build.dir}/dist/${script}.bat"
